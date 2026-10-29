@@ -6,6 +6,7 @@ import {DATA_NODE_TYPES} from '../graph/typed-data.mjs';
 import {localize} from './localization.mjs';
 import {renderPlotEditor,nodeName} from './plot-editor-view.mjs';
 import {EasyPlotsError} from '../contracts/errors.mjs';
+import {readPlotPage} from './plot-list.mjs';
 
 const elem=(tag,cls='',text=null)=>{
   const el=document.createElement(tag);
@@ -31,8 +32,9 @@ const svgNS='http://www.w3.org/2000/svg';
 const svgElem=(tag,attrs={},text=null)=>{const e=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(text!==null)e.textContent=String(text);return e;};
 export function graphCanvas(graph,selectedId,zoom=0.75,presentation={density:'comfortable',expandedNodeIds:[],collapsedNodeIds:[]}){
   const frame=elem('div','ep-canvas-frame');
-  const coords=new Map(graph.nodes.map((n,i)=>[n.id,{x:n.layout?.x??(60+(i%4)*215),y:n.layout?.y??(95+Math.floor(i/4)*115)}]));
-  const dimensions=n=>presentation.expandedNodeIds.includes(n.id)||presentation.density==='expanded'&&!presentation.collapsedNodeIds.includes(n.id)?{width:205,height:96}:presentation.density==='compact'?{width:165,height:40}:{width:165,height:60};
+  const scaleX=presentation.friendly?1.4:1,scaleY=presentation.friendly?1.4:1;
+  const coords=new Map(graph.nodes.map((n,i)=>[n.id,{x:(n.layout?.x??(60+(i%4)*215))*scaleX,y:(n.layout?.y??(95+Math.floor(i/4)*115))*scaleY}]));
+  const dimensions=n=>presentation.friendly?{width:235,height:145}:presentation.expandedNodeIds.includes(n.id)||presentation.density==='expanded'&&!presentation.collapsedNodeIds.includes(n.id)?{width:205,height:96}:presentation.density==='compact'?{width:165,height:40}:{width:165,height:60};
   const byId=new Map(graph.nodes.map(n=>[n.id,n]));
   const extent={width:Math.max(940,...graph.nodes.map(n=>coords.get(n.id).x+dimensions(n).width+40)),height:Math.max(450,...graph.nodes.map(n=>coords.get(n.id).y+dimensions(n).height+30))};
   const view=svgElem('svg',{class:'ep-graph-canvas',viewBox:`0 0 ${extent.width} ${extent.height}`,role:'img','aria-label':'Narrative graph nodes and directional edges'});
@@ -40,6 +42,7 @@ export function graphCanvas(graph,selectedId,zoom=0.75,presentation={density:'co
   view.style.height=`${Math.ceil(extent.height*zoom)}px`;
   view.dataset.viewBoxWidth=String(extent.width);
   view.dataset.viewBoxHeight=String(extent.height);
+  view.dataset.layoutScaleX=String(scaleX);view.dataset.layoutScaleY=String(scaleY);
   const defs=svgElem('defs');const marker=svgElem('marker',{id:'ep-arrow',markerWidth:8,markerHeight:8,refX:7,refY:4,orient:'auto'});marker.append(svgElem('path',{d:'M 0 0 L 8 4 L 0 8 Z',fill:'#60a5fa'}));defs.append(marker);view.append(defs);
   for(const edge of graph.edges){
     const start=coords.get(edge.source.nodeId),end=coords.get(edge.target.nodeId);if(!start||!end)continue;
@@ -51,8 +54,19 @@ export function graphCanvas(graph,selectedId,zoom=0.75,presentation={density:'co
   for(const n of graph.nodes){
     const size=dimensions(n);
     const p=coords.get(n.id),selected=n.id===selectedId;const group=svgElem('g',{'data-node-id':n.id,transform:`translate(${p.x} ${p.y})`,class:`ep-svg-node${selected?' is-selected':''}`,tabindex:'0',role:'button','aria-label':presentation.friendly?nodeName(n):`${n.typeId} node`});
-    group.append(svgElem('rect',{width:size.width,height:size.height,rx:9,fill:selected?'#294269':'#2f374a',stroke:selected?'#93c5fd':'#64748b','stroke-width':selected?2:1}));
+    group.append(svgElem('rect',{width:size.width,height:size.height,rx:9,fill:presentation.friendly?(selected?'#36382e':'#22323c'):selected?'#294269':'#2f374a',stroke:presentation.friendly?(selected?'#c0a96d':'#51636d'):selected?'#93c5fd':'#64748b','stroke-width':selected?2:1}));
     const label=presentation.friendly?nodeName(n):n.label??EDITABLE_NODE_TYPES.find(t=>t.id===n.typeId)?.label??n.typeId;
+    if(presentation.friendly){
+      const kind=n.id===graph.rootNodeId?'TRIGGER':n.typeId.includes('condition')||n.typeId.includes('gate.')?'CONDITION':n.typeId.includes('effect')||Object.hasOwn(ALL_EFFECT_NODE_PROVIDER,n.typeId)?'PROPOSED EFFECT':n.typeId.includes('branch')||n.typeId.includes('flow')?'STORY FLOW':'STORY STEP';
+      const wrap=(text,max=25)=>{const lines=[''];for(const word of text.split(/\s+/)){const index=lines.length-1;if((lines[index]+' '+word).trim().length>max&&lines[index])lines.push(word);else lines[index]=(lines[index]+' '+word).trim();}return lines.slice(0,2).map((line,index)=>index===1&&lines.length>2?line.slice(0,max-1)+'…':line);};
+      group.append(svgElem('title',{},label),svgElem('text',{x:18,y:24,fill:selected?'#ddc186':'#76d7bf','font-size':10,'letter-spacing':1.4},kind));
+      wrap(label).forEach((line,index)=>group.append(svgElem('text',{x:18,y:51+index*20,fill:'#edf3f1','font-size':15,'font-weight':600},line)));
+      group.append(svgElem('path',{d:'M 18 89 H 217',stroke:'#456058','stroke-width':1}));
+      const helper=n.id===graph.rootNodeId?'Start with a reviewed event':kind==='PROPOSED EFFECT'?'Separate GM review required':kind==='CONDITION'?'Check the configured condition':'Continue the story flow';
+      wrap(helper,28).forEach((line,index)=>group.append(svgElem('text',{x:18,y:112+index*15,fill:'#a4b6bc','font-size':11},line)));
+      for(const direction of ['input','output'])if(n.ports.some(p=>p.direction===direction))group.append(svgElem('circle',{cx:direction==='input'?0:size.width,cy:size.height/2,r:4,fill:'#1b2c31',stroke:'#739b90','stroke-width':2}));
+      view.append(group);continue;
+    }
     group.append(svgElem('text',{x:12,y:25,fill:'#f8fafc','font-size':13,'font-weight':600},label));
     if(size.height>=60)group.append(svgElem('text',{x:12,y:43,fill:'#aeb8ca','font-size':10},presentation.friendly?(n.id===graph.rootNodeId?'START':'STORY STEP'):n.id===graph.rootNodeId?'ROOT TRIGGER':n.typeId.replace('core.','')));
     if(size.height>60){
@@ -68,21 +82,31 @@ export function graphCanvas(graph,selectedId,zoom=0.75,presentation={density:'co
 }
 const labeled=(label,input)=>{const group=elem('label','ep-field');group.append(elem('span','ep-label',label),input);return group;};
 
-export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalThis.game?.user?.isGM===true,focusController=null,openPlotAuthority=null,openLiveAppearance=null,initialView='guided'}={}){
+export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalThis.game?.user?.isGM===true,focusController=null,openPlotAuthority=null,openLiveAppearance=null,initialView='guided',onDraftSaved=null}={}){
   if(!model)throw new Error('GraphEditorModel required');
   return class EasyPlotsGraphEditor extends BaseApplicationV2 {
     static DEFAULT_OPTIONS={id:'easy-plots-graph-editor',window:{title:'Easy Plots — Graph Editor',resizable:true},position:{width:1040,height:700},classes:['easy-plots-graph-app']};
-    #error='';#info='';#preview=null;#published=null;#list=null;#busy=false;#ackWarnings=false;#zoom=0.75;
+    #error='';#info='';#preview=null;#published=null;#list=null;#busy=false;#ackWarnings=false;#zoom=initialView==='advanced'?0.75:1;
     #unsubscribe=null;#closed=false;
     #advanced=initialView==='advanced';#formValues=new Map();#active=null;#activationGraph=null;
+    #saveTimer=null;#lastSaveError=false;#root=null;
+    #library={category:'recommended',query:'',page:0,selectedId:null,open:false};
+    #beforeUnload=event=>{if(this.hasUnsavedChanges){event.preventDefault();event.returnValue='';}};
     get hasUnsavedChanges(){return model.state.dirty||this.#formValues.size>0;}
-    constructor(...args){super(...args);if(focusController)this.#unsubscribe=focusController.subscribe(async focus=>{
+    async selectStep(id){this.route='editor';if(this.#root)await this.#action('select',id,this.#root);}
+    async showOutline(){this.route='editor-outline';await this.render(true);this.#root?.querySelector('.ep-nodes')?.scrollIntoView({block:'nearest'});}
+    constructor(...args){super(...args);globalThis.addEventListener?.('beforeunload',this.#beforeUnload);if(focusController)this.#unsubscribe=focusController.subscribe(async focus=>{
       if(this.#closed||!isGM()||!focus.graphId||focus.graphId===model.graph?.id)return;
       try{if(this.hasUnsavedChanges)throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard your open plot before following a different scene plot.');await model.load(focus.graphId);this.#preview=null;this.#published=null;this.#error='';}
       catch(error){this.#error=`${error.code??'FOCUS_ERROR'}: ${error.message}`;}
       if(!this.#closed&&isGM())await this.render();
     });}
-    async close(options){this.#closed=true;this.#unsubscribe?.();return typeof super.close==='function'?super.close(options):this;}
+    async close(options){this.#closed=true;clearTimeout(this.#saveTimer);globalThis.removeEventListener?.('beforeunload',this.#beforeUnload);this.#unsubscribe?.();return typeof super.close==='function'?super.close(options):this;}
+    #queueAutosave(){
+      clearTimeout(this.#saveTimer);
+      if(this.#closed||this.#advanced||this.#lastSaveError||model.mode!=='native'||!model.graph||!this.hasUnsavedChanges||!isGM())return;
+      this.#saveTimer=setTimeout(()=>{if(this.#busy){this.#queueAutosave();return;}void this.#action('save',null,this.#root,{automatic:true});},900);
+    }
     async _renderHTML(){
       const root=elem('div','ep-editor');
       if(!isGM()){
@@ -93,11 +117,12 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
       if(!this.#advanced){
         const key=state.graph?`${state.graph.id}:${state.graph.revision}`:null;
         if(state.graph?.revision>0&&key!==this.#activationGraph){try{this.#active=await model.activation();this.#activationGraph=key;if(this.#active?.active&&!this.#published)this.#published={publishedVersion:this.#active.publishedVersion};}catch(error){this.#error=error.message;}}
-        const guided=renderPlotEditor({model,canvas:graphCanvas,error:this.#error,info:this.#info,preview:this.#preview,published:this.#published,active:this.#active,list:this.#list,zoom:this.#zoom,busy:this.#busy,ackWarnings:this.#ackWarnings,values:this.#formValues,onInput:(key,value)=>{if(key==='ack-warnings')this.#ackWarnings=value;else this.#formValues.set(key,value);},onAction:(action,id,root)=>this.#action(action,id,root)});
+        const guided=renderPlotEditor({model,canvas:graphCanvas,error:this.#error,info:this.#info,preview:this.#preview,published:this.#published,active:this.#active,list:this.#list,zoom:this.#zoom,busy:this.#busy,ackWarnings:this.#ackWarnings,values:this.#formValues,libraryState:this.#library,outline:this.route==='editor-outline',onInput:(key,value)=>{if(key==='ack-warnings')this.#ackWarnings=value;else{this.#formValues.set(key,value);this.#lastSaveError=false;this.#queueAutosave();}},onAction:(action,id,root)=>this.#action(action,id,root)});
+        this.#root=guided;this.#queueAutosave();
         guided.addEventListener('keydown',event=>{const node=event.target.closest?.('.ep-svg-node');if(node&&['Enter',' '].includes(event.key)){event.preventDefault();void this.#action('select',node.dataset.nodeId,guided);}});
         let drag=null;
         guided.addEventListener('pointerdown',event=>{const node=event.target.closest?.('.ep-svg-node');if(!node)return;drag={id:node.dataset.nodeId,x:event.clientX,y:event.clientY};node.setPointerCapture?.(event.pointerId);});
-        guided.addEventListener('pointerup',event=>{if(!drag)return;const start=drag;drag=null;const dx=event.clientX-start.x,dy=event.clientY-start.y;if(Math.abs(dx)+Math.abs(dy)<4||!state.authoringRights?.edit){void this.#action('select',start.id,guided);return;}const node=model.graph.nodes.find(n=>n.id===start.id),svg=guided.querySelector('.ep-graph-canvas'),scale=Number(svg.dataset.viewBoxWidth)/svg.getBoundingClientRect().width;guided.nodeMove={x:Math.min(15000,Math.max(0,(node.layout?.x??0)+dx*scale)),y:Math.min(30000,Math.max(0,(node.layout?.y??0)+dy*scale))};void this.#action('move-node',start.id,guided);});
+        guided.addEventListener('pointerup',event=>{if(!drag)return;const start=drag;drag=null;const dx=event.clientX-start.x,dy=event.clientY-start.y;if(Math.abs(dx)+Math.abs(dy)<4||!state.authoringRights?.edit){void this.#action('select',start.id,guided);return;}const node=model.graph.nodes.find(n=>n.id===start.id),svg=guided.querySelector('.ep-graph-canvas'),scale=Number(svg.dataset.viewBoxWidth)/svg.getBoundingClientRect().width;guided.nodeMove={x:Math.min(15000,Math.max(0,(node.layout?.x??0)+dx*scale/Number(svg.dataset.layoutScaleX??1))),y:Math.min(30000,Math.max(0,(node.layout?.y??0)+dy*scale/Number(svg.dataset.layoutScaleY??1)))};void this.#action('move-node',start.id,guided);});
         guided.addEventListener('pointercancel',()=>{drag=null;});
         return guided;
       }
@@ -244,16 +269,19 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
       return root;
     }
     _replaceHTML(result,content){content.replaceChildren(result);}
-    async #action(action,id,root){
+    async #action(action,id,root,{automatic=false}={}){
       if(this.#busy)return;
+      clearTimeout(this.#saveTimer);
       if(!isGM()){this.#error='GM authority is required';await this.render();return;}
       const v=key=>root.querySelector(`[data-field="${key}"]`)?.value;
       this.#busy=true;this.#error='';this.#info='';
       root.setAttribute('aria-busy','true');for(const b of root.querySelectorAll('button'))b.disabled=true;
+      if(action==='save'){const status=root.querySelector('[data-save-state]');if(status)status.textContent='Saving draft…';}
       const progress={save:'Saving…',publish:'Publishing…',activate:'Activating…',deactivate:'Deactivating…',browse:'Loading plots…'}[action];if(progress&&!this.#advanced){const activeButton=root.querySelector(`[data-action="${action}"]`);if(activeButton)activeButton.textContent=progress;}
       try{
         if(!this.#advanced&&this.#formValues.size&&!['discard','new','load','browse','browse-next','close-browser'].includes(action)){
           if(this.#formValues.has('title')&&v('title')!==model.graph?.title)model.rename(v('title'));
+          if(this.#formValues.has('node-label'))model.setNodeLabel(model.state.selectedNodeId,v('node-label'));
           if([...this.#formValues.keys()].some(key=>key.startsWith('config.')))model.updateSelected(root.readNodeChanges?.()??{});
           if(this.#formValues.has('root-trigger')&&action!=='change-root-trigger')model.setRootTriggerType(v('root-trigger'));
           this.#formValues.clear();
@@ -262,6 +290,8 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
           case 'advanced':this.#advanced=true;break;
           case 'guided':this.#advanced=false;break;
           case 'close-browser':this.#list=null;break;
+          case 'show-library':this.#library.open=true;break;
+          case 'view-layer':model.setViewLayer(id);this.route='editor';break;
           case 'plot-permissions':await openPlotAuthority?.();break;
           case 'live-appearance':await openLiveAppearance?.();break;
           case 'zoom-in':this.#zoom=Math.min(1.5,Math.round((this.#zoom+0.25)*100)/100);break;
@@ -272,13 +302,13 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
           case 'toggle-node-density':model.toggleNodeExpansion(model.state.selectedNodeId);break;
           case 'new':{
             if(this.hasUnsavedChanges)throw Error('Unsaved edits exist. Save or explicitly discard before opening another plot.');
-            model.newGraph('Untitled Plot');if(!this.#advanced)model.setRootTriggerType('core.trigger.manual');this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
+            model.newGraph('Untitled Plot');if(!this.#advanced){model.setRootTriggerType('core.trigger.manual');if(model.mode==='native')await model.save();}this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
           }
           case 'discard':model.discardUnsaved();this.#formValues.clear();this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
           case 'rename':model.rename(v('title'));break;
           case 'change-root-trigger':model.setRootTriggerType(v('root-trigger'));this.#preview=null;break;
-          case 'add-node':model.addNode(v('node-type'));break;
-          case 'select':model.selectNode(id);break;
+          case 'add-node':model.addNode(v('node-type'));this.#library.open=false;break;
+          case 'select':if(!this.#advanced&&!model.viewGraph.nodes.some(n=>n.id===id))model.setViewLayer('all');model.selectNode(id);break;
           case 'move-node':model.moveNode(id,root.nodeMove);break;
           case 'remove-node':model.removeNode(model.state.selectedNodeId);break;
           case 'update-node':model.updateSelected(!this.#advanced?root.readNodeChanges?.()??{}:{eventType:v('event-type'),sourceKindsJSON:v('trigger-kinds'),conditionJSON:v('condition-json'),providerId:v('provider-id'),payloadJSON:v('payload-json'),milestoneId:v('milestone-id')});break;
@@ -287,7 +317,7 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
           case 'unbind-data':model.unbindSelectedInput(id);break;
           case 'disconnect':model.disconnect(id);break;
           case 'preview':this.#preview=model.preview();this.#ackWarnings=false;break;
-          case 'save':await model.save();this.#info='Draft saved successfully.';break;
+          case 'save':await model.save();this.#lastSaveError=false;this.#info=automatic?'':'Draft saved successfully.';await onDraftSaved?.();break;
           case 'publish':this.#ackWarnings=Boolean(root.querySelector('[data-field="ack-warnings"]')?.checked);this.#published=await model.publish({acknowledgeWarnings:this.#ackWarnings});this.#info=this.#advanced?'Published immutable snapshot. Activation remains separate.':'Version published. Activate it when you are ready to use it for new events.';break;
           case 'activate':{
             if(!this.#published)throw Error('Publish a validated snapshot first.');
@@ -298,14 +328,20 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
           case 'deactivate':{const result=await model.deactivate();this.#active=result;this.#info=result?.cleanupWarning
             ?`Graph deactivated; stale subscription cleanup needs review: ${result.cleanupWarning}.`
             :'Activation record updated; no graph effects are running.';break;}
-          case 'browse':this.#list=await model.listDrafts({limit:12});break;
-          case 'browse-next':this.#list=await model.listDrafts({limit:12,cursor:this.#list?.nextCursor});break;
+          case 'browse':this.#list=await readPlotPage(opts=>model.listDrafts(opts));break;
+          case 'browse-next':this.#list=await readPlotPage(opts=>model.listDrafts(opts),{cursor:this.#list?.nextCursor});break;
           case 'load':if(this.#formValues.size)throw Error('Save or discard your form changes before opening another plot.');await model.load(id);this.#list=null;this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
           case 'open-id':await model.load(v('open-id'));this.#list=null;this.#preview=null;this.#published=null;break;
           default:throw Error('Unknown editor action');
         }
-      }catch(err){this.#error=`${err.code??'EDITOR_ERROR'}: ${err.message}`;}
-      finally{this.#busy=false;await this.render();}
+      }catch(err){if(action==='save')this.#lastSaveError=true;this.#error=`${err.code??'EDITOR_ERROR'}: ${automatic?'Autosave could not confirm your draft. Your edits remain open. ':''}${err.message}`;}
+      finally{
+        const focused=automatic&&this.#root?.contains(document.activeElement)?document.activeElement:null;
+        const focusField=focused?.dataset?.field,selection=focused&&typeof focused.selectionStart==='number'?{start:focused.selectionStart,end:focused.selectionEnd}:null;
+        this.#busy=false;await this.render();
+        this.#queueAutosave();
+        if(focusField&&this.rendered){const control=[...this.#root.querySelectorAll('[data-field]')].find(n=>n.dataset.field===focusField);control?.focus({preventScroll:true});if(control&&selection&&typeof control.setSelectionRange==='function')control.setSelectionRange(selection.start,selection.end);}
+      }
     }
   };
 }

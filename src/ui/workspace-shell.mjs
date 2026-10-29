@@ -5,7 +5,7 @@ const el=(tag,text='',className='')=>{const node=document.createElement(tag);nod
 const t=(key,fallback)=>localize(`EasyPlots.Workspace.${key}`,fallback);
 const identity=game=>`${game.user?.id}:${game.user?.isGM===true}`;
 
-export function createWorkspaceHost(NativeApplication,{gameInstance,getState=()=>({}),onNavigate=()=>{}}={}){
+export function createWorkspaceHost(NativeApplication,{gameInstance,getState=()=>({}),onNavigate=()=>{},getEditorContext=()=>null}={}){
   let current=null,owner='',history=[],nativeWindow=null,closed=false;
   const isCurrent=panel=>current===panel&&panel.owner===identity(gameInstance)&&!panel.disposed;
   class Workspace extends NativeApplication {
@@ -14,13 +14,18 @@ export function createWorkspaceHost(NativeApplication,{gameInstance,getState=()=
       const root=el('section','','ep-shell');
       const key=identity(gameInstance);
       if(owner!==key){current=null;history=[];owner=key;}
-      const rail=el('aside','','ep-shell-rail'),brand=el('header','','ep-shell-brand');
-      brand.append(el('strong','Easy Plots'),el('small',gameInstance.world?.title??gameInstance.world?.name??t('campaign','Your campaign')));rail.append(brand);
-      const nav=el('nav','','ep-shell-nav');nav.setAttribute('aria-label',t('navigation','Easy Plots navigation'));
-      const routes=gameInstance.user?.isGM?[['campaign',t('campaign','Campaign')],['editor',t('editor','Plot editor')],['session',t('session','Session')],['review',t('review','Review')],['world',t('world','World')],['settings',t('settings','Settings')]]:[['player-quests',t('quests','Quests')],['player-investigations',t('investigations','Investigations')],['player-known-world',t('knownWorld','Known world')],['player-journal',t('journal','Journal')],['notices',t('notices','Notifications')]];
       const options=current?.constructor.DEFAULT_OPTIONS??{};
-      const route=current?.route??routeFor(options.id);
-      for(const [id,label] of routes){const b=el('button',label);b.type='button';b.dataset.route=id;if(!gameInstance.user?.isGM)b.dataset.tab=label;b.setAttribute('aria-current',route===id?'page':'false');b.addEventListener('click',()=>{void Promise.resolve().then(()=>onNavigate(id)).catch(error=>showError(error));});nav.append(b);}rail.append(nav);
+      const route=current?.route??routeFor(options.id),editing=route.startsWith('editor');
+      const top=el('header','','ep-app-header'),logo=el('div','','ep-app-logo'),mark=el('span','✦','ep-app-mark'),brandText=el('div','Easy Plots');brandText.append(el('small','Stories in motion'));logo.append(mark,brandText);top.append(logo);
+      const workspaces=el('nav','','ep-workspace-switch');workspaces.setAttribute('aria-label','Workspaces');
+      for(const [id,label,allowed,active] of [['campaign','GM workspace',gameInstance.user?.isGM,!editing&&gameInstance.user?.isGM],['editor','Plot editor',gameInstance.user?.isGM,editing],['player-quests','Player portal',!gameInstance.user?.isGM,!gameInstance.user?.isGM]]){const b=el('button',label);b.type='button';b.dataset.workspace=id;b.disabled=!allowed;b.setAttribute('aria-current',active?'page':'false');if(!allowed)b.title=gameInstance.user?.isGM?'Available when signed in as a player.':'GM access required.';b.addEventListener('click',()=>{void Promise.resolve().then(()=>onNavigate(id)).catch(showError);});workspaces.append(b);}top.append(workspaces,el('span',gameInstance.user?.isGM?'GM':String(gameInstance.user?.name??'Player').split(/\s+/).map(s=>s[0]).join('').slice(0,2).toUpperCase(),'ep-user-avatar'));
+      const rail=el('aside','','ep-shell-rail'),brand=el('header','','ep-shell-brand');
+      brand.append(el('strong',gameInstance.world?.title??gameInstance.world?.name??t('campaign','Your campaign')),el('small',gameInstance.user?.isGM?(editing?'In this plot':'Campaign workspace'):'Your campaign journal'));rail.append(brand);
+      const nav=el('nav','','ep-shell-nav');nav.setAttribute('aria-label',t('navigation','Easy Plots navigation'));
+      const routes=gameInstance.user?.isGM?(editing?[['campaign','← Campaign workspace'],['editor','Plot overview'],['editor-outline','Outline'],['editor-resources','Resources'],['editor-versions','Versions']]:[['campaign','Plots'],['world-people','People'],['world-factions','Factions'],['world',t('world','World')],['world-timeline','Timeline'],['world-resources','Resources'],['review','Approvals'],['session',t('session','Session')],['settings',t('settings','Settings')]]):[['player-quests','Your story'],['player-journal','Session journal'],['notices',t('notices','Notifications')]];
+      for(const [id,label] of routes){const b=el('button',label);b.type='button';b.dataset.route=id;b.setAttribute('aria-current',(route===id||id==='player-quests'&&['player-investigations','player-known-world'].includes(route))?'page':'false');if(['editor-resources','editor-versions'].includes(id)){b.disabled=true;b.title=id==='editor-resources'?'The guided plot resource browser is still being integrated.':'The published-version browser is still being integrated.';}b.addEventListener('click',()=>{void Promise.resolve().then(()=>onNavigate(id)).catch(error=>showError(error));});nav.append(b);}rail.append(nav);
+      const plotContext=gameInstance.user?.isGM&&editing?getEditorContext():null;
+      if(plotContext){const outline=el('section','','ep-shell-outline');outline.append(el('h3','In this plot'));for(const step of plotContext.steps.slice(0,24)){const b=el('button',step.label);b.type='button';b.dataset.outlineStep=step.id;b.setAttribute('aria-pressed',String(plotContext.selectedId===step.id));b.addEventListener('click',()=>{void Promise.resolve().then(()=>plotContext.select(step.id)).catch(showError);});outline.append(b);}if(plotContext.steps.length>24)outline.append(el('small',`${plotContext.steps.length-24} more steps in the plot outline.`));rail.append(outline);}
       const status=await getState();
       if(identity(gameInstance)!==key)return this._renderHTML();
       const foot=el('footer','','ep-shell-status');foot.append(el('strong',gameInstance.user?.isGM?(status.state==='configured'?t('connected','Storage connected'):t('locked','Storage needs attention')):t('private','Your character’s shared story')));
@@ -35,11 +40,17 @@ export function createWorkspaceHost(NativeApplication,{gameInstance,getState=()=
         // A late read from a previous role or a panel that navigated elsewhere must never replace the active view.
         if(!isCurrent(panel)||identity(gameInstance)!==key)return this._renderHTML();
         if(typeof panel._replaceHTML==='function')panel._replaceHTML(result,content);else content.replaceChildren(result);
+        if(!gameInstance.user?.isGM){const character=content.querySelector('select[data-field="character"]');if(character){const card=el('section','','ep-character-card'),selected=gameInstance.actors?.contents?.find(a=>a.id===character.value),name=selected?.name??'Your character';card.append(el('div',name.split(/\s+/).map(s=>s[0]).join('').slice(0,2).toUpperCase(),'ep-character-portrait'),character.closest('label'),el('small','Your character’s view'));rail.insertBefore(card,nav);}}
         panel.element=content;
       }else content.append(el('p',t('choose','Choose an area to begin.')));
-      main.append(content);root.append(rail,main);return root;
+      main.append(content);root.append(top,rail,main);return root;
     }
-    _replaceHTML(result,content){content.replaceChildren(result);}
+    _replaceHTML(result,content){
+      const previous=this.element?.querySelector?.('.ep-shell'),same=previous?.querySelector('.ep-shell-content')?.dataset.panel===result.querySelector('.ep-shell-content')?.dataset.panel;
+      const positions=same?['.ep-shell-content','.ep-canvas-frame','.ep-step-inspector','.ep-shell-rail'].map(selector=>{const n=previous.querySelector(selector);return {selector,top:n?.scrollTop??0,left:n?.scrollLeft??0};}):[];
+      content.replaceChildren(result);
+      if(positions.length)requestAnimationFrame(()=>{for(const {selector,top,left} of positions){const node=result.querySelector(selector);if(node?.isConnected){node.scrollTop=top;node.scrollLeft=left;}}});
+    }
     async close(options){closed=true;if(current)current.rendered=false;return typeof super.close==='function'?super.close(options):this;}
   }
   const showError=error=>{globalThis.ui?.notifications?.warn?.(error.message??String(error));};

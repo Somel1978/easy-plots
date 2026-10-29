@@ -9,6 +9,9 @@ function env(){const repository=new MemoryPartitionRepository(),gm=createLocalGM
 const gmProvider=()=>gm, pageStore=new ImmutableGraphPageStore({repository,gmProvider});
 const registry=new PersistentGraphRegistry({repository,gmProvider,pageStore});
 return {repository,registry,editor:new GraphEditorModel({registry})};}
+test('authored step names survive draft persistence without changing node execution data',async()=>{
+ const {editor,registry}=env();editor.newGraph('Named story steps');const node=editor.graph.nodes[0],data=structuredClone(node.data);editor.setNodeLabel(node.id,'A lead reaches the docks');await editor.save();const reopened=new GraphEditorModel({registry});await reopened.load(editor.graph.id);assert.equal(reopened.graph.nodes[0].label,'A lead reaches the docks');assert.deepEqual(reopened.graph.nodes[0].data,data);assert.throws(()=>reopened.setNodeLabel(node.id,''),{code:'INVALID_NODE_LABEL'});
+});
 test('new nodes wrap into a bounded grid instead of disappearing beyond the canvas',()=>{
  const {editor}=env();editor.newGraph('Large graph');
  for(let i=0;i<27;i++)editor.addNode('core.branch.parallel');

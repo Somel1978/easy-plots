@@ -4,11 +4,11 @@ This ledger follows [UI_SYSTEM.md](UI_SYSTEM.md). The one-window host applies to
 
 | Screen / source in `src/ui/` | Destination | Current state | Next acceptance requirement |
 | --- | --- | --- | --- |
-| `workspace-shell.mjs` | Shared frame | Local core journey | Native window lifecycle, keyboard and role-change acceptance |
-| `campaign-workspaces.mjs` GM | Campaign | Real plot list, create, continue, open, setup state | Search/filter and publication summaries from indexed records |
+| `workspace-shell.mjs` | Shared frame | Reference top switch and contextual navigation; local core journey | Native window lifecycle, keyboard and role-change acceptance |
+| `campaign-workspaces.mjs` GM | Campaign | Actual plot cards, review/activity rail, immediate draft creation, bounded empty-page traversal | Search/filter and publication summaries from indexed records |
 | `world-setup-window.mjs` | Settings → Storage | Create/unlock inside shared frame | Native reload/unlock acceptance |
-| `graph-editor.mjs`, `plot-editor-view.mjs` | Plot editor | Guided default; retained advanced view | Compound rule builder, entity selectors, dedicated domain forms and localization |
-| `campaign-workspaces.mjs` player | Player sections | Owned-character context, shared-view cache, inline notices | Authorized discovery and catalog restoration after reload |
+| `graph-editor.mjs`, `plot-editor-view.mjs`, `step-library.mjs` | Plot editor | Reference canvas/inspector composition, authored step names, categorized/contextual discovery, autosave and refresh protection; retained advanced view | Compound rule builder, entity selectors, dedicated domain forms and localization |
+| `campaign-workspaces.mjs` player | Player sections | Character context, content tabs, authorized quest/clue/recap cards, notice rail | Authorized discovery, private personal notes and catalog restoration after reload |
 | `player-notification-inbox.mjs` | Player → Notifications | Notices integrated into workspace | Incoming native delivery acceptance; badge and unread state |
 | `gm-cockpit.mjs` | Session → Overview | Hosted technical form | Select plot by title, actual activity list, contextual action/detail panes |
 | `session-preparation-desk.mjs` | Session → Prepare | Hosted technical form | Plot picker, readiness cards and drag/order controls |

@@ -2,7 +2,7 @@
   "id": "easy-plots",
   "title": "Easy Plots",
   "description": "Build connected story plots in Foundry with a GM campaign workspace, graph authoring, reviewed narrative consequences and character-visible story views.",
-  "version": "1.14.0-dev",
+  "version": "1.14.1-dev",
   "authors": [
     {
       "name": "Somel"
@@ -34,7 +34,7 @@
   "socket": true,
   "url": "https://modulesfvttai.pedrolemos.com/p/easy-plots",
   "manifest": "https://modulesfvttai.pedrolemos.com/p/easy-plots/module.json",
-  "download": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases/1.14.0-dev/module.zip",
+  "download": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases/1.14.1-dev/module.zip",
   "bugs": "https://modulesfvttai.pedrolemos.com/p/easy-plots/issues",
-  "changelog": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases#1.14.0-dev"
+  "changelog": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases#1.14.1-dev"
 }

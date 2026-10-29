@@ -2,6 +2,10 @@
 
 The user rejected the window-per-service interface on 29 October 2026. This document defines the replacement across the module. Existing services and the 125-decision scope remain authoritative; a screen or a passing test does not establish that a feature is complete.
 
+The visual implementation target is `docs/design/gm-player-preview.html` and its GM workspace, GM editor and player portal screenshots, reaffirmed by the user's comparison on 29 October. Treat its layout and hierarchy as requirements: shared top workspace switch, campaign/context navigation, a graph-led editor with separate inspector, and character-led player content. Populate it with real world/audience data and honest empty states. The 1.14.0 navigation skeleton deviated from this target and is not a replacement design.
+
+New plots must be persisted immediately as drafts. Ordinary editor changes autosave with a visible pending/saving/saved/error state. A pending or failed save protects refresh with a browser warning. Explicit publication and activation remain separate. Acceptance includes a full page reload using server state outside the JavaScript realm, unlocking the same vault, and finding/reopening the plot without knowing its ID.
+
 ## Shared application structure
 
 One Easy Plots ApplicationV2 per client. The toolbar and module settings reopen it. Navigation changes its content, rather than creating another Foundry window. Persistent navigation, campaign name, current location and storage status remain visible. Supporting views have a Back action. Changing location preserves an open plot and its unapplied form values. Opening a different plot requires saving or deliberately discarding existing edits.

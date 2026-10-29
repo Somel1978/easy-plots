@@ -112,6 +112,10 @@ export class GraphEditorModel {
   }
   discardUnsaved(){this.#graph=null;this.#dirty=false;this.#selected=null;this.#view={...this.#view,layer:'all',nodeLayers:{},expandedNodeIds:[],collapsedNodeIds:[]};}
   rename(title){this.#mutate(g=>{g.title=safeTitle(title);});return this.graph;}
+  setNodeLabel(id,label){
+    if(typeof label!=='string'||!label.trim()||label.length>100)fail('INVALID_NODE_LABEL','Step name must contain 1–100 characters');
+    this.#mutate(g=>{const n=g.nodes.find(n=>n.id===id);if(!n)fail('UNKNOWN_NODE','Step not found');n.label=label.trim();});
+  }
   selectNode(id){if(!this.#graph?.nodes.some(n=>n.id===id))fail('UNKNOWN_NODE','Node not found');this.#selected=id;}
   availableNodeTypes(){return [...EDITABLE_NODE_TYPES,...(this.#extensions?.list()??[])];}
   addNode(typeId){const next=this.#mutate(g=>{let n;

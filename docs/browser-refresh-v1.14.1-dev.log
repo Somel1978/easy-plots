@@ -1,0 +1,1 @@
+PASS: new plot is stored immediately; edit and authored step name autosave without Save; independent synthetic database → full browser reload → unlock → find/reopen; typing focus retained; server write failure and invalid edits preserve inputs with visible error; beforeunload warning; recovery; no auto publication/activation; unchanged encrypted server bytes on read

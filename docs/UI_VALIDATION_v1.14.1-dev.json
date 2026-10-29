@@ -1,0 +1,59 @@
+{
+  "version": "1.14.1-dev",
+  "scope": "Immediate draft creation, guided autosave/refresh protection, reference core layouts and categorized/contextual step discovery. Remaining feature/detail-screen work stays open.",
+  "sourceDigest": "e1c19f5130e6a7e4cf60c38109cb1d1f9094a46bc08ad57705462403dc6cd751",
+  "sourceDigestIncludes": "src, tests, lang, spec, package.json, module.json; static files hashed separately",
+  "staticSha256": {
+    "static/easy-plots.css": "6668e346c1c07974728ab746520c3980fc424daf184da14cfc3b51451ad4ab7b",
+    "static/workspace.css": "99f8c26738ada2fceae4d3a832efec964b250b295c21d84ab42e1bc82b498f77"
+  },
+  "node": {
+    "event": "test:summary",
+    "success": true,
+    "counts": {
+      "tests": 1190,
+      "failed": 0,
+      "passed": 1190,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "topLevel": 1190,
+      "suites": 0
+    },
+    "duration_ms": 61226.282683,
+    "file": null
+  },
+  "syntaxModules": 227,
+  "browsers": [
+    {
+      "test": "world-refresh-smoke.py",
+      "result": "PASS",
+      "environment": "Local Chromium; synthetic Foundry application/document adapters"
+    },
+    {
+      "test": "workspace-ux-smoke.py",
+      "result": "PASS",
+      "environment": "Local Chromium; synthetic Foundry application/document adapters"
+    },
+    {
+      "test": "editor-smoke.py",
+      "result": "PASS",
+      "environment": "Local Chromium; synthetic Foundry application/document adapters"
+    },
+    {
+      "test": "launcher-smoke.py",
+      "result": "PASS",
+      "environment": "Local Chromium; synthetic Foundry application/document adapters"
+    },
+    {
+      "test": "status-home-smoke.py",
+      "result": "PASS",
+      "environment": "Local Chromium; synthetic Foundry application/document adapters"
+    }
+  ],
+  "refreshRegression": "Independent Python-held synthetic database survives a full browser reload; the test never clicks Save draft. It verifies the title and authored step name, same encrypted vault, server write rejection, invalid edits, refresh warning, focus retention and recovery.",
+  "specification": "PASS: specification inventory, JSON schema fixtures, TypeScript contracts and coverage inventory",
+  "nativeFoundryAcceptance": "NOT RUN",
+  "visualTarget": "docs/design/gm-player-preview.html",
+  "remaining": "docs/UI_SCREEN_MIGRATION.md and 125-decision assessment"
+}

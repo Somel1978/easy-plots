@@ -43,8 +43,9 @@ with sync_playwright() as p:
     action('browse') # Reproduces the reported strict-JSON command failure.
     assert 'A usable story flow' in page.locator('.ep-plot-builder').inner_text()
     action('close-browser')
-    page.get_by_text('Add a story step',exact=True).click()
-    page.locator('[data-field="node-type"]').select_option('core.condition')
+    action('show-library')
+    page.locator('[data-step-category="flow"]').click()
+    page.locator('[data-step-type="core.condition"]').click()
     action('add-node')
     page.locator('[data-field="config.condition-left"]').select_option('event.type')
     page.locator('[data-field="config.condition-type"]').select_option('string')
@@ -60,12 +61,26 @@ with sync_playwright() as p:
     assert page.locator('textarea').count()==0
     assert page.evaluate('Array.from(document.querySelectorAll(".ep-plot-builder input,.ep-plot-builder select")).every(n=>n.closest("label")||n.getAttribute("aria-label"))')
     page.locator('.ep-shell').screenshot(path=str(OUTPUT/'gm-plot-editor.png'))
+    assert page.locator('.ep-app-header').count()==1
+    assert page.locator('.ep-step-inspector').bounding_box()['x']>page.locator('.ep-canvas-frame').bounding_box()['x']
+    action('show-library')
+    page.locator('[data-step-category="knowledge"]').click()
+    assert 0<page.locator('[data-step-type]').count()<=8
+    page.locator('.ep-shell').screenshot(path=str(OUTPUT/'step-discovery.png'))
+    page.locator('[data-library] > summary').click()
+    page.locator('[data-route="campaign"]').click()
+    page.get_by_role('button',name='Open plot',exact=True).wait_for()
+    assert 'A usable story flow' in page.locator('.ep-plot-featured').inner_text()
+    page.locator('.ep-shell').screenshot(path=str(OUTPUT/'gm-workspace-saved.png'))
+    page.get_by_role('button',name='Open plot',exact=True).click()
 
     # Preserve uncommitted form input through navigation and Back.
     page.locator('[data-field="title"]').fill('Pending across navigation')
+    page.locator('[data-route="campaign"]').click()
     page.locator('[data-route="world"]').click()
     page.wait_for_selector('[data-panel="easy-plots-world"]')
     page.locator('[data-action="workspace-back"]').click()
+    page.get_by_role('button',name='Continue editing',exact=True).click()
     page.wait_for_selector('.ep-plot-builder')
     assert page.locator('[data-field="title"]').input_value()=='Pending across navigation'
     page.locator('[data-route="campaign"]').click()
@@ -80,7 +95,7 @@ with sync_playwright() as p:
     page.wait_for_selector('.ep-plot-builder')
     assert page.locator('[data-field="title"]').input_value()=='Pending across navigation'
     assert page.locator('.ep-svg-node').count()==2
-    page.locator('.ep-node').filter(has_text='Check a condition').click()
+    page.locator('.ep-shell-outline button').filter(has_text='Check a condition').click()
     page.wait_for_selector('[data-field="config.condition-value"]')
     assert page.locator('[data-field="config.condition-value"]').input_value()=='narrative'
     assert page.locator('[data-field="config.condition-type"]').input_value()=='string'
@@ -104,7 +119,7 @@ with sync_playwright() as p:
     page.locator('[data-route="player-investigations"]').click()
     page.wait_for_function('document.querySelector(".ep-campaign-workspace h3")?.textContent==="Investigations"')
     assert 'Nothing has been shared' in page.locator('.ep-campaign-workspace').inner_text()
-    page.locator('[data-route="notices"]').click()
+    page.locator('[data-route="notices"]').first.click()
     page.wait_for_function('document.querySelector(".ep-campaign-workspace h3")?.textContent==="Notifications"')
     assert 'No received updates' in page.locator('.ep-campaign-workspace').inner_text()
     page.locator('.ep-shell').screenshot(path=str(OUTPUT/'player-workspace.png'))

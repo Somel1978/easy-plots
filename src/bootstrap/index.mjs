@@ -63,8 +63,9 @@ import {FoundryWorldSetup,registerWorldSetupSettings} from '../platform/world-se
 import {makeWorldSetupWindow} from '../ui/world-setup-window.mjs';
 import {makeGMCampaignWorkspace,makePlayerCampaignWorkspace,makeWorkspaceSection} from '../ui/campaign-workspaces.mjs';
 import {createWorkspaceHost} from '../ui/workspace-shell.mjs';
+import {nodeName} from '../ui/plot-editor-view.mjs';
 import {isEncryptedNativePack} from '../storage/encrypted-native-pack.mjs';
-const ID='easy-plots';const VERSION='1.14.0-dev';
+const ID='easy-plots';const VERSION='1.14.1-dev';
 if(typeof Hooks!=='undefined'){
   registerFoundryLaunchers({hooks:Hooks});
   registerWorldSetupSettings({hooks:Hooks});
@@ -72,17 +73,33 @@ if(typeof Hooks!=='undefined'){
     const gates=createFoundrySafetyGates(game);
     const NativeBase=globalThis.foundry?.applications?.api?.ApplicationV2;
     if(!NativeBase){console.error('[Easy Plots] ApplicationV2 missing; editor disabled');return;}
-    const {PanelBase:Base}=createWorkspaceHost(NativeBase,{gameInstance:game,getState:()=>setupState(),onNavigate:route=>navigateWorkspace(route)});
+    const {PanelBase:Base}=createWorkspaceHost(NativeBase,{gameInstance:game,getState:()=>setupState(),onNavigate:route=>navigateWorkspace(route),getEditorContext:()=>{const graph=editorModel.graph;return graph?{steps:graph.nodes.map(n=>({id:n.id,label:nodeName(n)})),selectedId:editorModel.state.selectedNodeId,select:id=>editorWindow?.selectStep(id)}:null;}});
     const gmOnly=()=>{if(!gates.isLocalGM())throw new EasyPlotsError('GM_REQUIRED','Easy Plots development tools require GM authority');};
     const gmProvider=()=>gates.gmContext();
     let integration=null;
-    let worldSetup=null,gmWorkspace=null,playerWorkspace=null;
+    let worldSetup=null,gmWorkspace=null,playerWorkspace=null,creatingPlot=false;
     const sharedViews=[];
-    const rememberSharedView=(kind,id,actorId,projection)=>{const methods={'quest-board':'requestApprovedQuestBoard','session-recap':'requestApprovedSessionRecap','vote-result':'requestFinalizedVoteResult','investigation-board':'requestInvestigationBoard'};const method=methods[kind];if(!method)return;const index=sharedViews.findIndex(v=>v.kind===kind&&v.id===id&&v.actorId===actorId);if(index>=0)sharedViews.splice(index,1);sharedViews.unshift({kind,id,actorId,title:projection.title??({'session-recap':'Shared session recap','vote-result':'Approved decision'})[kind]??'Shared story',open:()=>api[method](id,actorId)});if(sharedViews.length>64)sharedViews.length=64;};
+    const rememberSharedView=(kind,id,actorId,projection)=>{const methods={'quest-board':'requestApprovedQuestBoard','session-recap':'requestApprovedSessionRecap','vote-result':'requestFinalizedVoteResult','investigation-board':'requestInvestigationBoard'};const method=methods[kind];if(!method)return;const index=sharedViews.findIndex(v=>v.kind===kind&&v.id===id&&v.actorId===actorId);if(index>=0)sharedViews.splice(index,1);sharedViews.unshift({kind,id,actorId,view:structuredClone(projection),title:projection.title??({'session-recap':'Shared session recap','vote-result':'Approved decision'})[kind]??'Shared story',open:()=>api[method](id,actorId)});if(sharedViews.length>64)sharedViews.length=64;};
     const setupState=()=>integration?{state:'configured',message:'Private world storage connected.',tools:{publications:!!integration.nativePublications,boardReview:!!integration.playerBoardEdits,encounter:!!integration.encounterClosures}}:worldSetup?.state()??{state:'unconfigured',message:'Create or unlock private world storage to keep your plots.'};
     const openSetup=()=>{gmOnly();const Window=makeWorldSetupWindow(Base,{gameInstance:game,service:worldSetup,onConnected:()=>openCampaignWorkspace()});const app=new Window();void app.render(true);return app;};
     const unsavedPlot=()=>editorModel.state.dirty||editorWindow?.hasUnsavedChanges;
-    const openCampaignWorkspace=()=>{gmOnly();if(!gmWorkspace){const Window=makeGMCampaignWorkspace(Base,{gameInstance:game,getState:setupState,listPlots:opts=>integration.graphRegistry.listDrafts(opts),openSetup,resumePlot:()=>editorModel.graph?{title:editorModel.graph.title,dirty:unsavedPlot(),open:openEditor}:null,newPlot:()=>{if(unsavedPlot())throw new EasyPlotsError('UNSAVED_CHANGES','Continue editing the open plot, then save or discard its changes before creating another.');editorModel.newGraph('Untitled plot');editorModel.setRootTriggerType('core.trigger.manual');return openEditor({reset:true});},openPlot:async id=>{if(editorModel.graph?.id===id)return openEditor();if(unsavedPlot())throw new EasyPlotsError('UNSAVED_CHANGES','Continue editing the open plot, then save or discard its changes before opening another.');await loadEditorGraph(id);return openEditor({reset:true});}});gmWorkspace=new Window();}void gmWorkspace.render(true);return gmWorkspace;};
+    const openCampaignWorkspace=()=>{
+      gmOnly();if(!gmWorkspace){
+        const Window=makeGMCampaignWorkspace(Base,{gameInstance:game,getState:setupState,
+          listPlots:opts=>integration.graphRegistry.listDrafts(opts),openSetup,
+          openSession:()=>navigateWorkspace('session'),openReview:()=>navigateWorkspace('review'),
+          getActivity:async()=>{if(!integration)return [];const ids=(integration.runtimeStatus().recentEventIds??[]).slice(-8);const rows=await Promise.all(ids.map(id=>integration.eventLedger.get(id)));return rows.filter(Boolean).map(row=>({label:String(row.event?.eventType??'Story event').replaceAll('.',' '),status:row.state}));},
+          resumePlot:()=>editorModel.graph?{title:editorModel.graph.title,dirty:unsavedPlot(),open:openEditor}:null,
+          newPlot:async()=>{
+            if(creatingPlot||unsavedPlot())throw new EasyPlotsError('UNSAVED_CHANGES','Continue editing the open plot, then save or discard its changes before creating another.');
+            creatingPlot=true;editorModel.newGraph('Untitled plot');editorModel.setRootTriggerType('core.trigger.manual');
+            try{await editorModel.save();}catch(error){creatingPlot=false;openEditor({reset:true});throw error;}finally{creatingPlot=false;}
+            return openEditor({reset:true});
+          },
+          openPlot:async id=>{if(editorModel.graph?.id===id)return openEditor();await loadEditorGraph(id);return openEditor({reset:true});}
+        });gmWorkspace=new Window();
+      }void gmWorkspace.render(true);return gmWorkspace;
+    };
     const openPlayerWorkspace=({tab=null}={})=>{if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Use the GM workspace');if(!playerWorkspace){const Window=makePlayerCampaignWorkspace(Base,{gameInstance:game,getViews:()=>sharedViews,inbox:playerNoticeInbox});playerWorkspace=new Window();}if(tab)playerWorkspace.selectTab(tab);void playerWorkspace.render(true);return playerWorkspace;};
     let nativeAttestation=null;
     const extensions=new NarrativeNodeExtensions();
@@ -107,9 +124,10 @@ if(typeof Hooks!=='undefined'){
     const openEditor=({reset=false}={})=>{
       gmOnly();
       if(!integration)return openSetup();
+      if(creatingPlot)throw new EasyPlotsError('PLOT_CREATING','Your new plot is being saved. Wait for its editor to open.');
       if(editorWindow&&!reset){void editorWindow.render(true);return editorWindow;}
       if(editorWindow)void editorWindow.close?.();
-      const Window=makeGraphEditorWindow(Base,{model:editorModel,isGM:gates.isLocalGM,focusController:integration?.focusController??null,openPlotAuthority,openLiveAppearance});
+      const Window=makeGraphEditorWindow(Base,{model:editorModel,isGM:gates.isLocalGM,focusController:integration?.focusController??null,openPlotAuthority,openLiveAppearance,onDraftSaved:async()=>{if(gmWorkspace?.rendered&&gates.isLocalGM())await gmWorkspace.render();}});
       editorWindow=new Window();void editorWindow.render(true);return editorWindow;
     };
     const openPlotAuthority=()=>{
@@ -161,7 +179,7 @@ if(typeof Hooks!=='undefined'){
     const openPlayerInvestigationBoard=async(investigationId,actorId)=>{
       if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Players request their own disclosed board');
       if(!playerBoardTransport){playerBoardTransport=new NativeFoundryBoardTransport({gameInstance:game});playerBoardTransport.start();}
-      const Window=makeInvestigationBoardWindow(Base,{projectionProvider:()=>playerBoardTransport.request({investigationId,actorId}),submitBoardEdit:(edit,options)=>playerBoardTransport.submitEdit({investigationId,actorId,edit},options)});
+      const Window=makeInvestigationBoardWindow(Base,{projectionProvider:async()=>{const view=await playerBoardTransport.request({investigationId,actorId});rememberSharedView('investigation-board',investigationId,actorId,view);return view;},submitBoardEdit:(edit,options)=>playerBoardTransport.submitEdit({investigationId,actorId,edit},options)});
       const app=new Window();await app.render(true);return app;
     };
     const openProtectedPublication=({nativeKind,nativeId,actorId=''}={})=>{
@@ -265,7 +283,7 @@ if(typeof Hooks!=='undefined'){
     };
     const navigateWorkspace=route=>{
       if(!game.user?.isGM){const tab={notices:'Notifications','player-quests':'Quests','player-investigations':'Investigations','player-known-world':'Known world','player-journal':'Journal'}[route];return openPlayerWorkspace({tab});}
-      gmOnly();if(route==='campaign')return openCampaignWorkspace();if(route==='editor')return openEditor();
+      gmOnly();if(route==='campaign')return openCampaignWorkspace();if(route==='editor')return openEditor();if(route==='editor-outline'){const app=openEditor();void app.showOutline?.();return app;}
       const task=(title,description,open,dependency=null)=>({title,description,open,reason:!integration?'Set up or unlock world storage first.':dependency&&!integration[dependency]?'This integration is not connected in this world.':null});
       const sections={
         session:{title:'Session',intro:'Prepare, run and hand over the current session.',advanced:true,tasks:[task('Prepare next session','Select plots and review what is ready.',()=>api.openSessionPreparation(),'sessionPreparation'),task('Session overview','Inspect the selected plot and recent activity.',openCockpit),task('Record a story event','Review a manual event before submitting it.',openManualEventDesk),task('Session handoff','Review the handover to the next session.',openSessionHandoff)]},
@@ -273,7 +291,8 @@ if(typeof Hooks!=='undefined'){
         world:{title:'World',intro:'Manage the campaign content used by your plots.',advanced:true,tasks:[task('Knowledge and factions','Manage disclosures, affiliations and narrative knowledge.',openKnowledgeFactionDesk),task('Quests','Prepare quest boards and their publication.',openQuestPublicationDesk),task('Places and routes','Manage known places and spatial views.',()=>api.openSpatialDesk(),'spatial'),task('Resources','Inspect campaign resources and their lifecycle.',()=>api.openResourceManifests(),'resourceManifests'),task('Timelines','Inspect alternate versions of campaign history.',()=>api.openTimelineBranches(),'timelineBranches'),task('Templates and planning','Reuse existing plot structures.',openTemplateDesk)]},
         settings:{title:'Settings',intro:'Manage this world’s storage and inspect available integrations.',tasks:[{title:'World storage',description:setupState().state==='configured'?'Your private world storage is connected.':'Create or unlock private storage to keep your plots.',open:openSetup,label:'World setup'}, {title:'Advanced tools',description:'Existing service desks, integration diagnostics and recovery tools. These technical forms are being migrated to guided tasks.',open:()=>api.openStatus(),label:'Open advanced tools'}]}
       };
-      const config=sections[route];if(!config)return openCampaignWorkspace();const Window=makeWorkspaceSection(Base,{id:route,...config});const panel=new Window();void panel.render(true);return panel;
+      const worldSection={'world-people':{title:'People',names:['Knowledge and factions']},'world-factions':{title:'Factions',names:['Knowledge and factions']},'world-timeline':{title:'Timeline',names:['Timelines']},'world-resources':{title:'Resources',names:['Resources','Templates and planning']}}[route];
+      const config=worldSection?{...sections.world,title:worldSection.title,tasks:sections.world.tasks.filter(t=>worldSection.names.includes(t.title))}:sections[route];if(!config)return openCampaignWorkspace();const Window=makeWorkspaceSection(Base,{id:route,...config});const panel=new Window();void panel.render(true);return panel;
     };
     const Status=makeStatusWindow(Base,{openEditor,openSetup,getSetupState:setupState,openApprovals,openEventReview,openPlanningLab,openTemplateDesk,openPlayerBoardReview,openKnowledgePublications,openEncounterClosures:()=>api.openEncounterClosures(),openRollSystemPolicy:()=>api.openRollSystemPolicy(),openNativeBatches:()=>api.openNativeBatches(),
       openContinuityDesk,openHistoryDesk,openSignalReliabilityDesk,openSessionHandoff,openQuestPublicationDesk,openManualEventDesk,openNarrativeSearch,openNotificationDesk,openCockpit,extraActions:[['Resource lifecycle',()=>api.openResourceManifests()],['Alternate timelines',()=>api.openTimelineBranches()],['Prepare next session',()=>api.openSessionPreparation()],['Spatial atlas',()=>api.openSpatialDesk()],['Publication preflight',()=>api.openGraphPreflight()],['Storage partitions',()=>api.openStoragePartitions()]],runtimeStatus:()=>integration?.runtimeStatus()??{running:false},mode:()=>editorModel.mode});

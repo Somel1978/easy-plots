@@ -1,6 +1,6 @@
 {
   "name": "easy-plots",
-  "version": "1.14.0-dev",
+  "version": "1.14.1-dev",
   "private": true,
   "type": "module",
   "description": "Foundry VTT narrative engine implementation workspace; complete-module project, incremental integration",

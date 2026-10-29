@@ -1,4 +1,12 @@
-## Unified UI development build 1.14.0-dev
+## Draft autosave and reference UI correction — 1.14.1-dev
+
+New plots are saved as drafts immediately. Ordinary guided-editor changes autosave with visible status; pending/failed edits protect refresh with a browser warning. After reload, unlock the same world vault to find and reopen your plots. Save draft remains available for an immediate save; publishing and activation stay separate.
+
+The GM workspace, plot editor and player portal now follow the supplied design hierarchy rather than the earlier generic navigation shell. Step discovery uses categories, descriptions, search and related suggestions. [Correction and validation scope](docs/DRAFT_REFRESH_AND_UI_CORRECTION.md). This does not recover edits discarded before they were ever saved.
+
+The complete UI and module remain in development: guided detail screens, player discovery, private notes, resource/version browsers and other assessed features are incomplete. No native Foundry-world acceptance is claimed from local adapters or screenshots.
+
+## Previous UI foundation — 1.14.0-dev
 
 Open Easy Plots from the left toolbar or Configure Settings → Module Settings → Easy Plots. One role-aware workspace contains campaign navigation, storage setup and the Plot Editor. Name a plot, choose how it starts, add/connect story steps, save, check, publish and activate. The default editor uses labelled forms; technical controls are available through Advanced editor. Navigating preserves unfinished editor input. Keep the vault passphrase: it is required to unlock saved world data after reload.
 
