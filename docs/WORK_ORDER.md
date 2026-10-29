@@ -9,7 +9,7 @@ Updated29October2026. User-selected priority: startup/initiation and real GM wor
 **Current evidence, 1.14.0-dev:** the shared frame and core authoring journey are locally verified, including actual native-repository adapter save/reopen, typed condition editing, publication/activation, preserved form input and one host window. Player foundation has role-aware navigation and inline notices; discovery is incomplete. Session/review/world task forms and recovery UX remain on the screen ledger. All 1,184 Node cases and the four local browser checks pass; see UI_VALIDATION_v1.14.json. Native Foundry acceptance has not run. This is a foundation build, not completion of the whole UI.
 
 1. **Startup and access:** role-aware toolbar icon and Module Settings launcher; safe ready handling; clear loading/error state; no console required. GM opens campaign workspace; player opens own workspace. No world effect merely from opening a window.
-2. **World storage:** visible create/unlock flow, persistent native drafts and restoration after reload; no silent memory fallback. Confidential data must not be placed in plaintext publicly readable flags. Current encryption/setup drafts require tests and integration before acceptance. No fabricated privacy attestations.
+2. **World storage:** visible create/unlock flow, persistent native drafts and restoration after reload; no silent memory fallback. Confidential data must not be placed in plaintext publicly readable flags. Create/unlock and persisted reconstruction are locally verified; native Foundry acceptance remains required. No fabricated privacy attestations.
 3. **GM workspace:** actual saved plot list, create/open plot, setup/unlock state, pagination and refresh, real navigation. Unavailable subsystems show a reason and no enabled dead-end button. No sample campaign data in production.
 4. **GM Plot Editor:** reachable from workspace and toolbar; correct storage mode; save/reload roundtrip; distinct validation/publication/activation; scrolling/resizing and retained unsaved changes. Existing graph engine is reused.
 5. **Player workspace:** owned-character selection, audience-safe tabs for quests/investigations/journal/notices, loading/empty/coordinator-unavailable states. Display only received authorized data. Discovery/sharing transport must be completed before claiming a populated player hub; never manufacture content.
@@ -39,7 +39,7 @@ Do not release this milestone as complete until its acceptance checks pass. A la
 - Preserve existing code and histories. No repeated service rewrites, extra features or proposed-interface scope expansion.
 - Keep a current handover in MEMORY.md. If credits/context end, record exact unfinished integration and failing checks; do not say the module is complete.
 
-## Current handover — startup/workspace patch1.13.1-dev
+## Historical handover — startup/workspace patch1.13.1-dev
 
 - Locally verified: role-aware toolbar and Module Settings entry for GM and players, including worlds with no active canvas; startup guards; setup-aware Home with scrolling and disabled unavailable tools.
 - Locally verified: create/unlock encrypted native world vault; wrong-password rejection; saved native draft reconstruction; chunk/tamper/AAD/role-loss failure checks. A passphrase is required and never stored in world settings. Reload intentionally locks the vault; it does not discard its plots.

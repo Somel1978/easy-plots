@@ -48,5 +48,14 @@
   ],
   "specification": "PASS: 125 decisions, 28 requirement groups, 97 candidates, 101 record groups, 137 editable node types; JSON schemas and TypeScript contracts checked",
   "nativeFoundryAcceptance": "NOT RUN",
-  "remaining": "docs/UI_SCREEN_MIGRATION.md and docs/WORK_ORDER.md"
+  "remaining": "docs/UI_SCREEN_MIGRATION.md and docs/WORK_ORDER.md",
+  "publication": {
+    "commit": "a3202ebfad78f3cabfca2b0bc91b860c5b2abac5",
+    "tag": "v1.14.0-dev",
+    "url": "https://github.com/Somel1978/easy-plots/releases/tag/v1.14.0-dev",
+    "moduleZipSha256": "06cf3f6e1ef1c123ded22d5714832d48ef0bf036908a84700472f7082cd40ee7",
+    "taggedZipDownloadedAndVerified": true,
+    "assetsUploaded": false,
+    "assetUploadFailure": "uploads.github.com returned HTTP401; immutable tagged repository mirror linked in release notes"
+  }
 }
