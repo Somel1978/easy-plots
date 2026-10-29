@@ -1,6 +1,14 @@
+# Latest override — image-only preservation checkpoint, 29 October 2026
+
+The user stopped coding after rejecting another approximate layout. They requested images only for the full agreed scope including unfinished features, then GitHub preservation at ~2% credits. **Do not resume implementation until requested.** Read [NEXT_STEPS_UI.md](NEXT_STEPS_UI.md) for the updated continuation order and [the57-image catalog](design/full-scope-2026-10-29/README.md). Generated images are concepts; they do not establish implemented screens or introduce new requirements. The exact approved layout remains unimplemented. Older claims of restoration below are historical overstatements, not acceptance. Preserve the existing source and full125-decision backlog.
+
+---
+
 # Easy Plots — active work order
 
 Updated29October2026. User-selected priority: startup/initiation and real GM workspace, GM Plot Editor, player workspace. The full module remains incomplete. Scope is unchanged; the125-decision assessment is the backlog source, not a completion certificate.
+
+**Historical user priority (superseded by the image-only instruction below):** with 5% credits remaining, finish screens. The audited existing UI backlog is **34 views:31 detail views plus3 partial main workspaces**, grouped in [UI_REMAINING_COUNT.md](UI_REMAINING_COUNT.md). Keep the supplied layout fixed and reuse existing controls/services to finish these interfaces. Missing feature workflows and native acceptance remain separate;34 is not a full-product completion estimate.
 
 ## Current milestone — usable entry and workspaces
 

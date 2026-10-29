@@ -1,0 +1,472 @@
+{
+  "date": "2026-10-29",
+  "status": "Design concepts; implementation incomplete; no native Foundry certification",
+  "scope": "Full agreed 125-decision scope including unfinished features; no authorization to expand features",
+  "count": 57,
+  "original_references": 3,
+  "generated_concepts": 54,
+  "superseded_images_excluded": [
+    30,
+    31,
+    32
+  ],
+  "source_archive_sha256": "589fd8d9c54eb3decafc2af3f2038485116538106759a09c6b9a1ea6ea18ecc7",
+  "screens": [
+    {
+      "screen": 1,
+      "title": "GM campaign workspace",
+      "file": "images/01-GM-campaign-workspace.png",
+      "sha256": "57ae7fe406177cc67c02dc1e9f0aaaa4d7e3a3c20279f4554210de89908f652a",
+      "bytes": 263058,
+      "kind": "approved original reference"
+    },
+    {
+      "screen": 2,
+      "title": "GM plot editor narrative",
+      "file": "images/02-GM-plot-editor-narrative.png",
+      "sha256": "ecbc605b2b267f920e48c2ba677592c64e6cfc3534f9bac0e16c2f5443969435",
+      "bytes": 159984,
+      "kind": "approved original reference"
+    },
+    {
+      "screen": 3,
+      "title": "Player workspace quests",
+      "file": "images/03-Player-workspace-quests.png",
+      "sha256": "64629e9027f9cc17ac86e6b857a7bf93370873a4ca391be5a3dca1296822a1a9",
+      "bytes": 319146,
+      "kind": "approved original reference"
+    },
+    {
+      "screen": 4,
+      "title": "Session overview",
+      "file": "images/04-Session-overview.png",
+      "sha256": "46854ea8b0adae86246ab17bfd515bef21782688fbd77e26a46cffdf487be49a",
+      "bytes": 1659171,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 5,
+      "title": "Session preparation",
+      "file": "images/05-Session-preparation.png",
+      "sha256": "eabf31c5feeb2c5572902c3ce362a453306592687e0d9e3a61d3267e6da730df",
+      "bytes": 1596028,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 6,
+      "title": "Record story event",
+      "file": "images/06-Record-story-event.png",
+      "sha256": "1f5d8abbaff9fea394cd7b8541121fdf017d26930a5b216dd384a57a22a79ec8",
+      "bytes": 1583412,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 7,
+      "title": "Session handoff recap",
+      "file": "images/07-Session-handoff-recap.png",
+      "sha256": "90ba276419c94401acb616553f0f08c2bd298d903d8cfe5c42f103bbe7a917f2",
+      "bytes": 1730744,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 8,
+      "title": "Encounter closure",
+      "file": "images/08-Encounter-closure.png",
+      "sha256": "57ba5465f57f833d8be563dac3584ab247d4531b28bbaa9fa75ed1730c636589",
+      "bytes": 1714459,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 9,
+      "title": "Planning simulation",
+      "file": "images/09-Planning-simulation.png",
+      "sha256": "3d8564555edea4e3edc1bbfe4e862188c0d5ae8aa020ef0ce9a1aae9499aaeeb",
+      "bytes": 1705414,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 10,
+      "title": "Time commitments clocks",
+      "file": "images/10-Time-commitments-clocks.png",
+      "sha256": "170a4ad14f989965a8a314d1a4436948dd2e7a62f4658bd24b86e1e3a638d5fb",
+      "bytes": 1702831,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 11,
+      "title": "Campaign continuity",
+      "file": "images/11-Campaign-continuity.png",
+      "sha256": "29283cc40bf6e601d8e717c59bdcb9fe83c3a9fd4e0f03e45d865cd13583eb06",
+      "bytes": 1762371,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 12,
+      "title": "Player request review",
+      "file": "images/12-Player-request-review.png",
+      "sha256": "fe0689331894c64ea2fe5a1834e193ca09fd7cf209e698c3935c57281ba156a5",
+      "bytes": 1653348,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 13,
+      "title": "Narrative event review",
+      "file": "images/13-Narrative-event-review.png",
+      "sha256": "ad0b03731bbd6df690e5e107da8f9b07e1139ebe2a32e8da20f9c95e3b23b2af",
+      "bytes": 1683570,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 14,
+      "title": "Investigation board review",
+      "file": "images/14-Investigation-board-review.png",
+      "sha256": "92ada12d105c9506b2adba83fcab8c5290c8fe6dccb2992a92cd8572156fb8db",
+      "bytes": 1736044,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 15,
+      "title": "Knowledge publication review",
+      "file": "images/15-Knowledge-publication-review.png",
+      "sha256": "5bcf24e796473113b1f0608680a455d76157bcdbb1c3cb05af67512891f672d2",
+      "bytes": 1598475,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 16,
+      "title": "Campaign notice review",
+      "file": "images/16-Campaign-notice-review.png",
+      "sha256": "b58416bd578e250e38cd374e8822286787e64f2a1292aa8588394510ffbef12b",
+      "bytes": 1604814,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 17,
+      "title": "Plot publication checks",
+      "file": "images/17-Plot-publication-checks.png",
+      "sha256": "51e64ca52a1efc9d1817109447e16d97efd5d008aade89d8175ba29588653635",
+      "bytes": 1670911,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 18,
+      "title": "Plot permissions",
+      "file": "images/18-Plot-permissions.png",
+      "sha256": "2a64c8d5d823413cf24ed33c327d4f313d63c59a5677251ab4d52d0d4ee4ebf9",
+      "bytes": 1539335,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 19,
+      "title": "Live plot appearance",
+      "file": "images/19-Live-plot-appearance.png",
+      "sha256": "f6d3897ea5830d05e80b831622082d46abf222c5a6836738619de1b888c0f660",
+      "bytes": 1537454,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 20,
+      "title": "People and knowledge",
+      "file": "images/20-People-and-knowledge.png",
+      "sha256": "09f213395567be3580c08a76f1cfba22ca65f44d28c7f4eebf8dd36e1675803c",
+      "bytes": 1686877,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 21,
+      "title": "GM investigation board",
+      "file": "images/21-GM-investigation-board.png",
+      "sha256": "7857966a1178c59c3c7e265ccce1025b9379a9e8edbd4e40884e527d2e398f79",
+      "bytes": 1727013,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 22,
+      "title": "Quest milestone editor",
+      "file": "images/22-Quest-milestone-editor.png",
+      "sha256": "5d38291db208c0783543cce19844705010221f961d01472b1040fb8f98f67d0f",
+      "bytes": 1722626,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 23,
+      "title": "Places and routes",
+      "file": "images/23-Places-and-routes.png",
+      "sha256": "c281dc4846149799894251f0768d8daed2197b89ddcace79e7a618ffc09ffe20",
+      "bytes": 1803554,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 24,
+      "title": "Campaign timelines",
+      "file": "images/24-Campaign-timelines.png",
+      "sha256": "927344d8e999a0be3e7780412d7f45a3eea6a68b7e92a89059f9645a8d5e9217",
+      "bytes": 1693528,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 25,
+      "title": "Resource preparation",
+      "file": "images/25-Resource-preparation.png",
+      "sha256": "aa261820b46c74a0f4186fa8f0b67ca5ff1180b6b898fe0815e7b2c4efa0e19a",
+      "bytes": 1495721,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 26,
+      "title": "Resource detail rebinding",
+      "file": "images/26-Resource-detail-rebinding.png",
+      "sha256": "f92b0e11db6d5ab5970347df5f01e44361806f6a43cdb7ff8e7db0af44752d8d",
+      "bytes": 1527497,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 27,
+      "title": "Ordered resource actions",
+      "file": "images/27-Ordered-resource-actions.png",
+      "sha256": "dc06e5126be5304ddfdfd4a0adc3427077cf5c2f3027b4904b6d6ef01bbd08be",
+      "bytes": 1575122,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 28,
+      "title": "Plot templates bindings",
+      "file": "images/28-Plot-templates-bindings.png",
+      "sha256": "4a2238a86a49ceaadf5e0140c77e42f1cfc886c24e05049517ee59286d7c8e47",
+      "bytes": 1577901,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 29,
+      "title": "History and recovery",
+      "file": "images/29-History-and-recovery.png",
+      "sha256": "0f2e643358fe5879bc52a1ee3b866e0ad231ff225a6b8c6e72ce04870992e9d9",
+      "bytes": 1532682,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 30,
+      "title": "Event sources reliability",
+      "file": "images/30-Event-sources-reliability.png",
+      "sha256": "372fff3762fba1edfd9d21d63a0e4b9c5eaaf5ed2d94afae9fc1cbe6b4b0e4ee",
+      "bytes": 1537400,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 31,
+      "title": "Native storage maintenance",
+      "file": "images/31-Native-storage-maintenance.png",
+      "sha256": "fa5521cd59298136633ba0d7308a8af4e1c58d8fef6b7f8b491de6cde1e1c1dc",
+      "bytes": 1517770,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 32,
+      "title": "Game rules native checks",
+      "file": "images/32-Game-rules-native-checks.png",
+      "sha256": "3980feb92ca939d2591c130d8f9ca5a3d1783d96d45fba4d37ed8deb35a51e28",
+      "bytes": 1455921,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 33,
+      "title": "World participants",
+      "file": "images/33-World-participants.png",
+      "sha256": "8890accccbf5dffaadbcda15f5cf8dbf19790f988046c79f3d4273220005326a",
+      "bytes": 1456868,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 34,
+      "title": "Narrative search",
+      "file": "images/34-Narrative-search.png",
+      "sha256": "9931c6a082a676ab6bb368d472e30f13e05817863eb16a7aa54b782d353966f9",
+      "bytes": 1523788,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 35,
+      "title": "World storage setup",
+      "file": "images/35-World-storage-setup.png",
+      "sha256": "3f11ee3c0ff4de4eeaa1b15e9125ede15294127059eb762c8653b5cd9bd147d4",
+      "bytes": 1563721,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 36,
+      "title": "Player investigation board",
+      "file": "images/36-Player-investigation-board.png",
+      "sha256": "6f534eb3b51c8f59528a3ff8cf7c96ccb82e15e0c952cb6f0d4f86add7779b8b",
+      "bytes": 1542857,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 37,
+      "title": "Player known map",
+      "file": "images/37-Player-known-map.png",
+      "sha256": "70cc53733f2b7714280782ec61031a3f0e68f5e91a35067986e296e0a6a17714",
+      "bytes": 1738081,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 38,
+      "title": "Player journal",
+      "file": "images/38-Player-journal.png",
+      "sha256": "387fb738af917bdbdfd103e81392aa14d246e84a1a4cb80615ed29a31d4792a7",
+      "bytes": 1573487,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 39,
+      "title": "Player notifications",
+      "file": "images/39-Player-notifications.png",
+      "sha256": "91bba621113dccdbc5bcecf0a47800f7a3d95a1fb63d11d51d3a7ee9114c8680",
+      "bytes": 1482574,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 40,
+      "title": "Protected shared content",
+      "file": "images/40-Protected-shared-content.png",
+      "sha256": "b5c2f76f31a6fd2cf3e76e10851bb7ee52d3ec6289db176516b53b451ee0e9ee",
+      "bytes": 1477440,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 41,
+      "title": "Factions membership renown",
+      "file": "images/41-Factions-membership-renown.png",
+      "sha256": "da1add54c260148a06f03cb30c5645d9c2b4d941e5b8e38bf72bbff84d3733b0",
+      "bytes": 1621471,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 42,
+      "title": "Identities relationships",
+      "file": "images/42-Identities-relationships.png",
+      "sha256": "70585ef73900fc28d7594631a0ca4028e937888802c3645c473d8448d7e5d68d",
+      "bytes": 1495438,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 43,
+      "title": "Truth beliefs knowledge",
+      "file": "images/43-Truth-beliefs-knowledge.png",
+      "sha256": "871fcf60b381a71382458b6c83793dee5372de33f172e6d9b6ba04bb7978e06f",
+      "bytes": 1581862,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 44,
+      "title": "NPC schedules agendas",
+      "file": "images/44-NPC-schedules-agendas.png",
+      "sha256": "2c628f92071542bc737781c8ef6e04a0ad47cf1000227cd40192ca910da6b2a5",
+      "bytes": 1558543,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 45,
+      "title": "GM voting setup",
+      "file": "images/45-GM-voting-setup.png",
+      "sha256": "5eadabc900526e21014805f8da8dafd7c79924871f8c9d939fbd6ea1204c16b7",
+      "bytes": 1470112,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 46,
+      "title": "Player voting",
+      "file": "images/46-Player-voting.png",
+      "sha256": "32ee3790f2a1ae1eea59502da59dd289a40392767983e2443ba1aca1c4a66e6d",
+      "bytes": 1515448,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 47,
+      "title": "Plot rule builder",
+      "file": "images/47-Plot-rule-builder.png",
+      "sha256": "36b5135b28772b98aba960aee91b2c1022e36121934907c78e3f9c5057ed72d0",
+      "bytes": 1534265,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 48,
+      "title": "Categorized step discovery",
+      "file": "images/48-Categorized-step-discovery.png",
+      "sha256": "cbb0f42a55ca4d5a6110ada3cc6a2ab9dfdc503b1df1ae3cf576fca02514ae5a",
+      "bytes": 1511804,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 49,
+      "title": "Narrative diagnostics",
+      "file": "images/49-Narrative-diagnostics.png",
+      "sha256": "118ebe5148dad18e3e37cbd6aeb1f5dbcf59a1236e9e1305b426ab716de078f0",
+      "bytes": 1581369,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 50,
+      "title": "Data migration review",
+      "file": "images/50-Data-migration-review.png",
+      "sha256": "f6c321d78203a932e849443386b596d1f75639b1981ebcbbcd30e34995bc580c",
+      "bytes": 1566372,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 51,
+      "title": "Plot versions publication",
+      "file": "images/51-Plot-versions-publication.png",
+      "sha256": "d9e1219427823afc327547370715e60cde0637cc092614286771b9808fe36e95",
+      "bytes": 1545287,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 52,
+      "title": "Plot outline cross plot links",
+      "file": "images/52-Plot-outline-cross-plot-links.png",
+      "sha256": "e74cfdff9ddf1f29d25f89d09f849dbf38089cbc792331b64410b9edac154055",
+      "bytes": 1561408,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 53,
+      "title": "Plot execution layer",
+      "file": "images/53-Plot-execution-layer.png",
+      "sha256": "57c296327eacadcbb491d1e545324074b0a866343251fed125073096c89ece6d",
+      "bytes": 1528931,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 54,
+      "title": "Plot knowledge layer",
+      "file": "images/54-Plot-knowledge-layer.png",
+      "sha256": "ca34e520cf036d0b0d9e0d7a627294c2460b23e817ccecef05b198c5950d523a",
+      "bytes": 1550002,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 55,
+      "title": "Nested plot typed ports",
+      "file": "images/55-Nested-plot-typed-ports.png",
+      "sha256": "95c38aa53a30061a7c17996febb2866dfd95dbba0dd12c85eabca26876e15b03",
+      "bytes": 1496272,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 56,
+      "title": "Arc finalization continuity",
+      "file": "images/56-Arc-finalization-continuity.png",
+      "sha256": "ede4bbdb748d543aadbbb2228ee2278829476cbc3a8709694ed9db80efb57296",
+      "bytes": 1582560,
+      "kind": "generated full-scope concept"
+    },
+    {
+      "screen": 57,
+      "title": "Extensions developer validation",
+      "file": "images/57-Extensions-developer-validation.png",
+      "sha256": "c783f997284e33db54af3e69d859800b5b91e7276b5aa0ae7a54ebbb6fc6ed7d",
+      "bytes": 1487647,
+      "kind": "generated full-scope concept"
+    }
+  ]
+}

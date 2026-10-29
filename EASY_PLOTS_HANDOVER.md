@@ -1,3 +1,11 @@
+# Current handover pointer — 29 October 2026
+
+**Read [HANDOVER.md](HANDOVER.md), [MEMORY.md](MEMORY.md), and [NEXT_STEPS_UI.md](docs/NEXT_STEPS_UI.md) first.** Those entries supersede all completion/readiness and UI-restoration claims below. Product/UI incomplete; coding paused by the user; full-scope images and continuation instructions are preserved in GitHub. The exact agreed layout is still a design target. [57-image catalog](docs/design/full-scope-2026-10-29/README.md).
+
+The remainder is historical transfer material, preserved for context; it does not authorize resuming implementation against the user's later image-only instruction.
+
+---
+
 # Current handover — 2026-10-29, v1.13.0-dev
 
 The original v1.09 project was continued; do not restart it. All125 decisions have individual engineering reviews,97 candidate contracts have reviewed semantic mappings with explicit deviations, and there are **no implementation blockers** in the functional-entry gate. **1,147 actual Node cases PASS/0fail/0skip;214 runtime modules syntax PASS; global/spatial/convergence Chromium PASS; spec/review/qualification checks PASS.** `docs/QUALIFICATION_STATUS.json` and `docs/FULL_SCOPE_QUALIFICATION.csv` are the current evidence, not the historical counts below.

@@ -1,3 +1,19 @@
+# Current authoritative checkpoint — 29 October 2026: images and GitHub preservation
+
+Read `HANDOVER.md` first. User STOPPED CODING after rejecting another UI approximation; exact approved layout still exists only in prototype/images. Prior claims that it had been restored were overstatements. Do not repeat them. Latest authorized work: generate images only, then back up images/docs to GitHub because credits are down to ~2%. Resume coding only when requested; thereafter no permission between routine batches.
+
+User explicitly chose full agreed 125-decision scope INCLUDING UNFINISHED FEATURES, with no additions. Saved set `docs/design/full-scope-2026-10-29/`: 57 individual PNGs (3 approved original references +54 concepts), linked README and SHA-256 MANIFEST.json. Initial images invented unsupported AI/official D&D adapter/incorrect version, backup/certification and bulk-review details; screens30/31/32 were replaced and old versions excluded. All designs still require per-control scope/UX review. Sample illustrations/footer counts/labels do not add requirements; no claim that57images prove all125decisions specified or implemented. Full scope basis remains assessment + spec/Decision_Register_125.csv, not generated controls.
+
+Next steps: docs/NEXT_STEPS_UI.md is authoritative continuation order: recover/verify files → reconcile screen actions with ADRs → faithfully port3approved layouts → native storage/discovery/role entry → editor/review/world/session/maintenance workflows → full-scope/native qualification. No service rewrites or another approximate shell. Prior 34-view backlog is incomplete existing-interface inventory, not the57-image catalog or readiness measure.
+
+Runtime unchanged at1.14.1-dev, source a52d83b, tagv1.14.1-dev; prior docsmain dd5824b. Tagged install ZIP releases/v1.14.1-dev/module.zip SHA256 be8825fe8bfd0c614d36250a3a2f0c1ae664b1335ef0309305fd29d90bccdba1. Latest1190Node/227syntax/5browser PASS is prior local evidence, not rerun for this checkpoint; no native Foundry acceptance. The product/UI remain INCOMPLETE. Target nativeFoundry14.369+, no required backend, GM authority, knowledge-safe projections, distinct save/publish/activate/execute.
+
+Refresh-loss report: user did NOT click Save in1.14.0; do not claim storage corruption or recovery.1.14.1 immediately persists new drafts and autosaves guided edits900ms with pending/error/beforeunload protection; same vault must be unlocked after reload. Composed coGM bootstrap/integration remains a possible unresolved gap. Other feature gaps are retained in NEXT_STEPS_UI and125assessment.
+
+This checkpoint backs up images/docs only. Existing docs/WORK_ORDER.md edits and docs/UI_REMAINING_COUNT.md are preserved with corrected historical priority. GitHub main is the recovery source; ephemeral /workspace,/tmp and chat download artifacts are not. Preserve old tags and tested source. Prior release asset uploads failed401; tagged Git-tracked module ZIP is verified. Never upload Foundry proprietary distribution ZIPs or credentials. User explicitly authorizes committing/pushing this preservation work. Verify remote HEAD/file hashes before reporting backup complete.
+
+# Earlier entries — historical; latest direction above overrides
+
 # Current work — draft persistence and reference UI correction, 29 October 2026
 
 User reported losing a drafted plot on world refresh and challenged deviation from the supplied UI screenshots. User then explicitly clarified: they created/edited WITHOUT clicking Save draft. In 1.14.0 this lived only in memory; do not call it world-storage corruption or claim recovery of the lost unsaved work. Root acknowledged prioritizing service navigation over implementing the supplied design and overclaiming browser persistence proof (old test saved explicitly and did not reload the whole page).
