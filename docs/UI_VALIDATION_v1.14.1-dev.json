@@ -55,5 +55,13 @@
   "specification": "PASS: specification inventory, JSON schema fixtures, TypeScript contracts and coverage inventory",
   "nativeFoundryAcceptance": "NOT RUN",
   "visualTarget": "docs/design/gm-player-preview.html",
-  "remaining": "docs/UI_SCREEN_MIGRATION.md and 125-decision assessment"
+  "remaining": "docs/UI_SCREEN_MIGRATION.md and 125-decision assessment",
+  "publication": {
+    "commit": "a52d83b7f4478fd129549737244b5826cd101fc1",
+    "tag": "v1.14.1-dev",
+    "url": "https://github.com/Somel1978/easy-plots/releases/tag/v1.14.1-dev",
+    "moduleZipSha256": "be8825fe8bfd0c614d36250a3a2f0c1ae664b1335ef0309305fd29d90bccdba1",
+    "taggedZipDownloadedAndVerified": true,
+    "assetsUploaded": false
+  }
 }
