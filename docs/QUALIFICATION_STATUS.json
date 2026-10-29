@@ -1,0 +1,35 @@
+{
+  "candidate_mapping_review_is_signature_equivalence": false,
+  "completion_percentage": null,
+  "completion_percentage_reason": "Source inventories, case totals and observation labels do not establish full acceptance.",
+  "contradiction_count": 0,
+  "engineering_reviews_missing_or_open": [],
+  "functional_implementation_gate": "ready-for-final-native-qualification",
+  "functional_open_decisions": [],
+  "local_suite": {
+    "file": "docs/local-test-evidence-v1.13.jsonl",
+    "reason": "Actual complete case-level Node execution; no native execution implied",
+    "source_digest": "4469f67fa72189a417bc21c6b70e209577c90e5dc873f5c05513fdd7a4801e28",
+    "status": "current-pass"
+  },
+  "manifest_compatibility": {
+    "basis": "author-requested convention; not executed compatibility evidence",
+    "declaration": {
+      "minimum": "14.369",
+      "verified": "14.369"
+    }
+  },
+  "native_runs": [],
+  "qualification_input_digest": "89c333279ae12868a46d29fe913c6de63b4a0bcfb6691c43cf6e4136acebfa09",
+  "release_gate": "blocked",
+  "release_version": "1.13.0-dev",
+  "schema_version": 1,
+  "scope": {
+    "candidate_contracts": 97,
+    "decisions": 125,
+    "requirement_groups": 28
+  },
+  "semantic_contract_gate": "reviewed",
+  "semantic_open_contracts": [],
+  "source_digest": "4469f67fa72189a417bc21c6b70e209577c90e5dc873f5c05513fdd7a4801e28"
+}

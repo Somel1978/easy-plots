@@ -1,0 +1,39 @@
+{
+  "id": "easy-plots",
+  "title": "Easy Plots",
+  "description": "Foundry-native Easy Plots narrative engine development workspace with protected domain services, causal event review, typed graph authoring, persistent campaign continuity, blueprint revisions, knowledge disclosures and investigation milestones.",
+  "version": "1.13.0-dev",
+  "authors": [
+    {
+      "name": "Somel"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14.369",
+    "verified": "14.369"
+  },
+  "esmodules": [
+    "src/bootstrap/index.mjs"
+  ],
+  "styles": [
+    "static/easy-plots.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "pt-PT",
+      "name": "Português (Portugal)",
+      "path": "lang/pt-PT.json"
+    }
+  ],
+  "socket": true,
+  "url": "https://modulesfvttai.pedrolemos.com/p/easy-plots",
+  "manifest": "https://modulesfvttai.pedrolemos.com/p/easy-plots/module.json",
+  "download": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases/1.13.0-dev/module.zip",
+  "bugs": "https://modulesfvttai.pedrolemos.com/p/easy-plots/issues",
+  "changelog": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases#1.13.0-dev"
+}

@@ -1,0 +1,44 @@
+/** ApplicationV2 spatial workbench, with an explicit observer preview. */
+import {secureUUID} from '../contracts/digest.mjs';
+import {planKnownRoute} from '../domains/locations.mjs';
+import {validateSpatialProjection} from '../domains/spatial-contract.mjs';
+const el=(tag,text='')=>{const node=document.createElement(tag);node.textContent=String(text);return node;};
+const eventId=()=>`ep:event:spatial_${secureUUID().replaceAll('-','_')}`;
+export function renderSpatialProjection(value,{onNavigate=null}={}){
+ const view=validateSpatialProjection(value),root=el('section');root.className='ep-spatial-map';root.append(el('h3',view.locations.find(l=>l.id===view.regionId).name));const list=el('ul');
+ for(const place of view.locations){const row=el('li',`${place.name} (${place.kind})`);row.dataset.publicLocation=place.id;if(place.atlasId&&onNavigate){const button=el('button','Open region');button.type='button';button.addEventListener('click',()=>onNavigate(place.atlasId));row.append(button);}list.append(row);}root.append(list);
+ const routes=el('ul');for(const route of view.routes){const from=view.locations.find(l=>l.id===route.fromId),to=view.locations.find(l=>l.id===route.toId);routes.append(el('li',`${route.name}: ${from.name} → ${to.name} (${route.status})`));}root.append(el('h4','Known routes'),routes);
+ const select=()=>{const input=el('select');for(const place of view.locations){const option=el('option',place.name);option.value=place.id;input.append(option);}return input;},from=select(),to=select(),plan=el('button','Find known route'),result=el('p');plan.type='button';plan.addEventListener('click',()=>{const route=planKnownRoute({fromId:from.value,toId:to.value,links:view.routes.map(r=>({...r,open:r.status==='open'})),authorizedLinkIds:view.routes.map(r=>r.id),maxLinks:32,maxHops:32});result.textContent=route.status==='known-route'?route.linkIds.map(id=>view.routes.find(r=>r.id===id).name).join(' → ')||'Already at this location':'No known open route';});root.append(el('label','From'),from,el('label','To'),to,plan,result);return root;
+}
+export function makeSpatialDeskWindow(Base,{gameInstance,service}={}){
+ return class EasyPlotsSpatialDesk extends Base {
+  static DEFAULT_OPTIONS={id:'easy-plots-spatial-desk',window:{title:'Easy Plots — Spatial atlas',resizable:true},position:{width:880,height:760}};
+  #scope='world';#region='';#atlas='';#regionDraft='';#viewDraft='';#message='';#preview=null;#busy=false;
+  async #loadAtlas(reference){const row=await service.inspectView({scope:this.#scope,atlasId:reference});this.#atlas=row.id;this.#region=row.data.regionId;this.#viewDraft=JSON.stringify({observerId:row.data.observerId,discoveries:row.data.discoveries.map(({discoveryId,receiptId,nextAtlasId})=>({discoveryId,receiptId,...(nextAtlasId?{nextAtlasId}:{})})),routeKnowledge:row.data.routeKnowledge.map(({routeId,receiptId})=>({routeId,receiptId})),correctionIds:row.data.correctionIds,expectedRevision:row.revision},null,2);this.#preview=await service.projection({scope:this.#scope,atlasId:row.id,observerId:row.data.observerId});}
+  async _renderHTML(){
+   const root=el('section');root.className='ep-editor ep-spatial-desk';if(!gameInstance.user?.isGM){root.append(el('p','GM authority required'));return root;}root.append(el('h2','Selected region atlas'),el('p','Inspect one region and its direct children. Publish an observer view using that observer’s discovery and knowledge receipts. Place names and route descriptions come from disclosed claim wording.'));
+   const field=(label,value,key)=>{const input=el('input');input.className='ep-input';input.dataset.field=key;input.value=value;root.append(el('label',label),input);return input;},scope=field('Scope',this.#scope,'scope'),region=field('Selected canonical region',this.#region,'region'),atlas=field('Public atlas ID (leave blank to create)',this.#atlas,'atlas');
+   const button=(action,label)=>{const b=el('button',label);b.type='button';b.dataset.action=action;root.append(b);};button('inspect','Inspect selected region');
+   const regionDraft=el('textarea');regionDraft.className='ep-input';regionDraft.dataset.field='region-manifest';regionDraft.rows=5;regionDraft.value=this.#regionDraft||JSON.stringify({locationIds:[],routeIds:[],expectedRevision:null},null,2);root.append(el('h3','Bounded region membership'),regionDraft);button('save-region','Save region membership');
+   const viewDraft=el('textarea');viewDraft.className='ep-input';viewDraft.dataset.field='observer-view';viewDraft.rows=9;viewDraft.value=this.#viewDraft||JSON.stringify({observerId:'ep:observer:example_001',discoveries:[{discoveryId:'ep:discovery:example_001',receiptId:'ep:knowledge-receipt:example_001'}],routeKnowledge:[],correctionIds:[],expectedRevision:null},null,2);root.append(el('h3','Observer atlas publication'),viewDraft);button('save-view','Save approved observer atlas');button('preview','Preview observer atlas');
+   if(this.#message)root.append(el('p',this.#message));if(this.#preview)root.append(renderSpatialProjection(this.#preview,{onNavigate:next=>{if(this.#busy)return;this.#busy=true;void this.#loadAtlas(next).catch(error=>{this.#preview=null;this.#message=`Spatial action rejected: ${error.code??error.message}`;}).finally(()=>{this.#busy=false;void this.render();});}}));
+   root.addEventListener('click',event=>{const chosen=event.target.closest?.('button[data-action]');if(!chosen||this.#busy)return;void(async()=>{this.#busy=true;try{this.#scope=scope.value;this.#region=region.value;this.#atlas=atlas.value.trim();this.#regionDraft=regionDraft.value;this.#viewDraft=viewDraft.value;if(this.#regionDraft.length>12000||this.#viewDraft.length>22000)throw Error('Spatial form exceeds its budget');const action=chosen.dataset.action;
+    if(action==='inspect'){const snapshot=await service.inspectRegion({scope:this.#scope,regionId:this.#region});this.#regionDraft=JSON.stringify({locationIds:snapshot.manifest.data.locationIds,routeIds:snapshot.manifest.data.routeIds,expectedRevision:snapshot.manifest.revision},null,2);this.#message=`${snapshot.region.data.name}: ${snapshot.children.length} direct children, ${snapshot.routes.length} routes. Canonical details are GM private.`;}
+    else if(action==='save-region'){const saved=await service.saveRegion({...JSON.parse(this.#regionDraft),scope:this.#scope,regionId:this.#region,sourceEventId:eventId()});this.#regionDraft=JSON.stringify({locationIds:saved.data.locationIds,routeIds:saved.data.routeIds,expectedRevision:saved.revision},null,2);this.#message='Region membership saved.';}
+    else if(action==='save-view'){const saved=await service.saveView({...JSON.parse(this.#viewDraft),scope:this.#scope,regionId:this.#region,atlasId:this.#atlas||null,sourceEventId:eventId()});this.#atlas=saved.id;const draft=JSON.parse(this.#viewDraft);draft.expectedRevision=saved.revision;this.#viewDraft=JSON.stringify(draft,null,2);this.#message=`Observer atlas published: ${saved.id}`;}
+    if(action==='preview'||action==='save-view'){await this.#loadAtlas(this.#atlas);this.#message='Current observer projection loaded.';}
+   }catch(error){this.#preview=null;this.#message=`Spatial action rejected: ${error.code??error.message}`;}finally{this.#busy=false;await this.render();}})();});return root;
+  }
+  _replaceHTML(result,content){content.replaceChildren(result);}
+ };
+}
+/** Player window obtains only the authenticated allowlisted projection. */
+export function makePlayerSpatialWindow(Base,{transport}={}){
+ return class EasyPlotsPlayerAtlas extends Base {
+  static DEFAULT_OPTIONS={id:'easy-plots-player-atlas',window:{title:'Easy Plots — Known places',resizable:true},position:{width:720,height:620}};
+  #atlas='';#actor='';#scope='world';#view=null;#message='';#busy=false;
+  async _renderHTML(){const root=el('section');root.className='ep-editor ep-player-atlas';const atlas=el('input'),actor=el('input'),scope=el('input');atlas.value=this.#atlas;actor.value=this.#actor;scope.value=this.#scope;atlas.dataset.field='atlas';actor.dataset.field='actor';scope.dataset.field='scope';root.append(el('label','Atlas reference'),atlas,el('label','Your Actor ID'),actor,el('label','Scope'),scope);const load=el('button','Open known places');load.type='button';load.addEventListener('click',()=>{this.#atlas=atlas.value;this.#actor=actor.value;this.#scope=scope.value;void this.#load();});root.append(load);if(this.#message)root.append(el('p',this.#message));if(this.#view)root.append(renderSpatialProjection(this.#view,{onNavigate:next=>{this.#atlas=next;void this.#load();}}));return root;}
+  async #load(){if(this.#busy)return;this.#busy=true;try{this.#view=await transport.request({atlasId:this.#atlas,actorId:this.#actor,scope:this.#scope});this.#message='';}catch{this.#view=null;this.#message='No approved atlas is available for this Actor.';}finally{this.#busy=false;await this.render();}}
+  _replaceHTML(result,content){content.replaceChildren(result);}
+ };
+}

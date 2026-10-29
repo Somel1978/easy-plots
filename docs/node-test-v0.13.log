@@ -1,0 +1,991 @@
+
+> easy-plots@0.13.0-dev check
+> node tools/check-source.mjs && npm test
+
+PASS: syntax check for 51 module files
+
+> easy-plots@0.13.0-dev test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: one canonical event fans out to independent bounded subscribers without executing effects
+ok 1 - one canonical event fans out to independent bounded subscribers without executing effects
+  ---
+  duration_ms: 2.307604
+  type: 'test'
+  ...
+# Subtest: dependency fanout rejects unbounded inputs and unknown link types
+ok 2 - dependency fanout rejects unbounded inputs and unknown link types
+  ---
+  duration_ms: 0.705834
+  type: 'test'
+  ...
+# Subtest: aggregation does not leak secret milestones or automatically award effects
+ok 3 - aggregation does not leak secret milestones or automatically award effects
+  ---
+  duration_ms: 0.20317
+  type: 'test'
+  ...
+# Subtest: continuity links stable references and keeps future hooks dormant
+ok 4 - continuity links stable references and keeps future hooks dormant
+  ---
+  duration_ms: 0.572952
+  type: 'test'
+  ...
+# Subtest: blueprints adopt nonconflicting upstream changes while preserving instance overrides
+ok 5 - blueprints adopt nonconflicting upstream changes while preserving instance overrides
+  ---
+  duration_ms: 0.894522
+  type: 'test'
+  ...
+# Subtest: published blueprint revisions cannot be silently overwritten
+ok 6 - published blueprint revisions cannot be silently overwritten
+  ---
+  duration_ms: 0.245419
+  type: 'test'
+  ...
+# Subtest: simulation leaves original world facts unchanged and executes no effect
+ok 7 - simulation leaves original world facts unchanged and executes no effect
+  ---
+  duration_ms: 0.609207
+  type: 'test'
+  ...
+# Subtest: nonconvergent simulation reports budget exhaustion
+ok 8 - nonconvergent simulation reports budget exhaustion
+  ---
+  duration_ms: 0.285374
+  type: 'test'
+  ...
+# Subtest: true branch proposes only the verified milestone, not the false effect
+ok 9 - true branch proposes only the verified milestone, not the false effect
+  ---
+  duration_ms: 40.011582
+  type: 'test'
+  ...
+# Subtest: false branch proposes only the other effect
+ok 10 - false branch proposes only the other effect
+  ---
+  duration_ms: 11.759788
+  type: 'test'
+  ...
+# Subtest: milestone qualification is persisted only after GM approves and executes
+ok 11 - milestone qualification is persisted only after GM approves and executes
+  ---
+  duration_ms: 19.868911
+  type: 'test'
+  ...
+# Subtest: milestone provider does not grant qualification twice for different event operations
+ok 12 - milestone provider does not grant qualification twice for different event operations
+  ---
+  duration_ms: 7.950315
+  type: 'test'
+  ...
+# Subtest: editor supports branch edges with explicit true and false output ports
+ok 13 - editor supports branch edges with explicit true and false output ports
+  ---
+  duration_ms: 4.76652
+  type: 'test'
+  ...
+# Subtest: valid graph contracts and typed ports
+ok 14 - valid graph contracts and typed ports
+  ---
+  duration_ms: 2.845644
+  type: 'test'
+  ...
+# Subtest: graph rejects dangling edge
+ok 15 - graph rejects dangling edge
+  ---
+  duration_ms: 1.640921
+  type: 'test'
+  ...
+# Subtest: graph rejects mismatched port types
+ok 16 - graph rejects mismatched port types
+  ---
+  duration_ms: 0.450811
+  type: 'test'
+  ...
+# Subtest: graph rejects unverified required capabilities
+ok 17 - graph rejects unverified required capabilities
+  ---
+  duration_ms: 0.44085
+  type: 'test'
+  ...
+# Subtest: stable ids reject traversal and unknown namespace
+ok 18 - stable ids reject traversal and unknown namespace
+  ---
+  duration_ms: 0.373254
+  type: 'test'
+  ...
+# Subtest: conditions evaluate literal and reference
+ok 19 - conditions evaluate literal and reference
+  ---
+  duration_ms: 0.398876
+  type: 'test'
+  ...
+# Subtest: condition prevents protected reference in public context
+ok 20 - condition prevents protected reference in public context
+  ---
+  duration_ms: 0.46481
+  type: 'test'
+  ...
+# Subtest: conditions block prototype traversal and unauthenticated provider calls
+ok 21 - conditions block prototype traversal and unauthenticated provider calls
+  ---
+  duration_ms: 0.255817
+  type: 'test'
+  ...
+# Subtest: condition recursion budgets enforced
+ok 22 - condition recursion budgets enforced
+  ---
+  duration_ms: 0.90124
+  type: 'test'
+  ...
+# Subtest: Portable SHA-256 matches standard known vectors
+ok 23 - Portable SHA-256 matches standard known vectors
+  ---
+  duration_ms: 7.294271
+  type: 'test'
+  ...
+# Subtest: Portable SHA-256 matches WebCrypto for UTF-8 and longer documents
+ok 24 - Portable SHA-256 matches WebCrypto for UTF-8 and longer documents
+  ---
+  duration_ms: 14.677042
+  type: 'test'
+  ...
+# Subtest: Deterministic pack IDs match previous WebCrypto-based format
+ok 25 - Deterministic pack IDs match previous WebCrypto-based format
+  ---
+  duration_ms: 1.713178
+  type: 'test'
+  ...
+# Subtest: Secure UUID v4 is generated without randomUUID if getRandomValues exists
+ok 26 - Secure UUID v4 is generated without randomUUID if getRandomValues exists
+  ---
+  duration_ms: 1.055986
+  type: 'test'
+  ...
+# Subtest: typed faction node authors, publishes, proposes and executes only after GM approval
+ok 27 - typed faction node authors, publishes, proposes and executes only after GM approval
+  ---
+  duration_ms: 46.256143
+  type: 'test'
+  ...
+# Subtest: other domain node types compile to exact registered effect IDs
+ok 28 - other domain node types compile to exact registered effect IDs
+  ---
+  duration_ms: 28.100808
+  type: 'test'
+  ...
+# Subtest: editor refuses non-JSON typed node content
+ok 29 - editor refuses non-JSON typed node content
+  ---
+  duration_ms: 2.2603
+  type: 'test'
+  ...
+# Subtest: native faction standing provider writes verified attributed delta
+ok 30 - native faction standing provider writes verified attributed delta
+  ---
+  duration_ms: 19.645891
+  type: 'test'
+  ...
+# Subtest: rank is not a generic faction numeric change
+ok 31 - rank is not a generic faction numeric change
+  ---
+  duration_ms: 0.342609
+  type: 'test'
+  ...
+# Subtest: obligation is settled exactly once and direction preserved
+ok 32 - obligation is settled exactly once and direction preserved
+  ---
+  duration_ms: 4.161737
+  type: 'test'
+  ...
+# Subtest: canonical evidence attestation stays protected and durable
+ok 33 - canonical evidence attestation stays protected and durable
+  ---
+  duration_ms: 2.846247
+  type: 'test'
+  ...
+# Subtest: unguarded player guess never validates a milestone
+ok 34 - unguarded player guess never validates a milestone
+  ---
+  duration_ms: 1.826385
+  type: 'test'
+  ...
+# Subtest: time jump only classifies due authored events; no invented outcomes
+ok 35 - time jump only classifies due authored events; no invented outcomes
+  ---
+  duration_ms: 1.248445
+  type: 'test'
+  ...
+# Subtest: temporal operation budget enforced
+ok 36 - temporal operation budget enforced
+  ---
+  duration_ms: 0.861211
+  type: 'test'
+  ...
+# Subtest: claims filtered by actual observer and published disclosure
+ok 37 - claims filtered by actual observer and published disclosure
+  ---
+  duration_ms: 0.807827
+  type: 'test'
+  ...
+# Subtest: competing exclusive endings require GM reconciliation
+ok 38 - competing exclusive endings require GM reconciliation
+  ---
+  duration_ms: 0.374274
+  type: 'test'
+  ...
+# Subtest: domain store verifies scoped persistence and rejects stale revisions
+ok 39 - domain store verifies scoped persistence and rejects stale revisions
+  ---
+  duration_ms: 4.425288
+  type: 'test'
+  ...
+# Subtest: domain store never accepts non-GM writes or unscoped data
+ok 40 - domain store never accepts non-GM writes or unscoped data
+  ---
+  duration_ms: 0.383721
+  type: 'test'
+  ...
+# Subtest: faction agenda cannot react to truth it has not learned
+ok 41 - faction agenda cannot react to truth it has not learned
+  ---
+  duration_ms: 1.088407
+  type: 'test'
+  ...
+# Subtest: membership and rank changes are not numeric reputation deltas
+ok 42 - membership and rank changes are not numeric reputation deltas
+  ---
+  duration_ms: 0.461622
+  type: 'test'
+  ...
+# Subtest: directional relationship transitions preserve history and never update reverse edge
+ok 43 - directional relationship transitions preserve history and never update reverse edge
+  ---
+  duration_ms: 1.670245
+  type: 'test'
+  ...
+# Subtest: observer relationship views reveal only explicitly disclosed beliefs
+ok 44 - observer relationship views reveal only explicitly disclosed beliefs
+  ---
+  duration_ms: 0.652339
+  type: 'test'
+  ...
+# Subtest: obligation requires exact debtor and creditor provenance
+ok 45 - obligation requires exact debtor and creditor provenance
+  ---
+  duration_ms: 0.307609
+  type: 'test'
+  ...
+# Subtest: investigation arguments never reveal private GM truth
+ok 46 - investigation arguments never reveal private GM truth
+  ---
+  duration_ms: 0.327484
+  type: 'test'
+  ...
+# Subtest: investigation viability is GM-only scoped classification, not auto success
+ok 47 - investigation viability is GM-only scoped classification, not auto success
+  ---
+  duration_ms: 0.853233
+  type: 'test'
+  ...
+# Subtest: attempt identity distinguishes duplicate deliveries from repeated opportunities
+ok 48 - attempt identity distinguishes duplicate deliveries from repeated opportunities
+  ---
+  duration_ms: 0.69204
+  type: 'test'
+  ...
+# Subtest: v14 simulated transport: verified sender and targeted GM-to-player reply
+ok 49 - v14 simulated transport: verified sender and targeted GM-to-player reply
+  ---
+  duration_ms: 5.967265
+  type: 'test'
+  ...
+# Subtest: payload claiming to be GM cannot impersonate server-attested sender
+ok 50 - payload claiming to be GM cannot impersonate server-attested sender
+  ---
+  duration_ms: 15.245566
+  type: 'test'
+  ...
+# Subtest: Actor ownership denial returns generic rejection
+ok 51 - Actor ownership denial returns generic rejection
+  ---
+  duration_ms: 0.979741
+  type: 'test'
+  ...
+# Subtest: no durable queue means never claim an accepted request
+ok 52 - no durable queue means never claim an accepted request
+  ---
+  duration_ms: 31.837629
+  type: 'test'
+  ...
+# Subtest: transport refuses to register if module manifest socket is disabled
+ok 53 - transport refuses to register if module manifest socket is disabled
+  ---
+  duration_ms: 0.76652
+  type: 'test'
+  ...
+# Subtest: a player cannot forge a queued receipt for another player
+ok 54 - a player cannot forge a queued receipt for another player
+  ---
+  duration_ms: 40.932529
+  type: 'test'
+  ...
+# Subtest: duplicate request IDs are idempotent only with durable queue contract
+ok 55 - duplicate request IDs are idempotent only with durable queue contract
+  ---
+  duration_ms: 21.08617
+  type: 'test'
+  ...
+# Subtest: payload allowlist drops claimed identity, hidden metadata and actions
+ok 56 - payload allowlist drops claimed identity, hidden metadata and actions
+  ---
+  duration_ms: 0.437676
+  type: 'test'
+  ...
+# Subtest: rejects oversized or malformed player intents
+ok 57 - rejects oversized or malformed player intents
+  ---
+  duration_ms: 0.726661
+  type: 'test'
+  ...
+# Subtest: no designated active GM: fail closed before sending
+ok 58 - no designated active GM: fail closed before sending
+  ---
+  duration_ms: 0.52001
+  type: 'test'
+  ...
+# Subtest: stopped transport rejects pending requests and removes listener
+ok 59 - stopped transport rejects pending requests and removes listener
+  ---
+  duration_ms: 0.39445
+  type: 'test'
+  ...
+# Subtest: native world Actor authorizer checks real permission, never player-claimed ownership
+ok 60 - native world Actor authorizer checks real permission, never player-claimed ownership
+  ---
+  duration_ms: 0.407931
+  type: 'test'
+  ...
+# Subtest: native durable queue adapter remains unavailable until verified
+ok 61 - native durable queue adapter remains unavailable until verified
+  ---
+  duration_ms: 1.216876
+  type: 'test'
+  ...
+# Subtest: Native integration factory refuses implicit secrets and opportunity authorization
+ok 62 - Native integration factory refuses implicit secrets and opportunity authorization
+  ---
+  duration_ms: 2.504023
+  type: 'test'
+  ...
+# Subtest: Explicitly composed integration exposes no automatically started socket or effects
+ok 63 - Explicitly composed integration exposes no automatically started socket or effects
+  ---
+  duration_ms: 3.311158
+  type: 'test'
+  ...
+# Subtest: Protected Compendium defaults to denied without exact live test evidence
+ok 64 - Protected Compendium defaults to denied without exact live test evidence
+  ---
+  duration_ms: 2.114275
+  type: 'test'
+  ...
+# Subtest: Player-readable pack cannot be used even if supplied attestation claims success
+ok 65 - Player-readable pack cannot be used even if supplied attestation claims success
+  ---
+  duration_ms: 0.404483
+  type: 'test'
+  ...
+# Subtest: Native pack record survives new repository and enforces revisions
+ok 66 - Native pack record survives new repository and enforces revisions
+  ---
+  duration_ms: 16.672844
+  type: 'test'
+  ...
+# Subtest: Index cursor is bounded, no global pack load or getIndex()
+ok 67 - Index cursor is bounded, no global pack load or getIndex()
+  ---
+  duration_ms: 4.096297
+  type: 'test'
+  ...
+# Subtest: Interrupted record creation leaves detectable pending index
+ok 68 - Interrupted record creation leaves detectable pending index
+  ---
+  duration_ms: 3.079861
+  type: 'test'
+  ...
+# Subtest: Retry after pending index can recover a failed record creation
+ok 69 - Retry after pending index can recover a failed record creation
+  ---
+  duration_ms: 1.957022
+  type: 'test'
+  ...
+# Subtest: GM authority loss during mutation does not return a successful acknowledgement
+ok 70 - GM authority loss during mutation does not return a successful acknowledgement
+  ---
+  duration_ms: 1.589807
+  type: 'test'
+  ...
+# Subtest: Intent queue durable request, deduplication, permission and opportunity rechecks
+ok 71 - Intent queue durable request, deduplication, permission and opportunity rechecks
+  ---
+  duration_ms: 16.878174
+  type: 'test'
+  ...
+# Subtest: Intent queue denies request replay with mismatched payload
+ok 72 - Intent queue denies request replay with mismatched payload
+  ---
+  duration_ms: 16.519826
+  type: 'test'
+  ...
+# Subtest: Native effect journal persists idempotency and guarded state changes
+ok 73 - Native effect journal persists idempotency and guarded state changes
+  ---
+  duration_ms: 8.457497
+  type: 'test'
+  ...
+# Subtest: Opaque deterministic 16 character Foundry IDs are stable and distinct
+ok 74 - Opaque deterministic 16 character Foundry IDs are stable and distinct
+  ---
+  duration_ms: 2.10198
+  type: 'test'
+  ...
+# Subtest: GM may explicitly reconcile a partially indexed existing record
+ok 75 - GM may explicitly reconcile a partially indexed existing record
+  ---
+  duration_ms: 4.13555
+  type: 'test'
+  ...
+# Subtest: Stored payload size is bounded before oversized record creation
+ok 76 - Stored payload size is bounded before oversized record creation
+  ---
+  duration_ms: 2.776744
+  type: 'test'
+  ...
+# Subtest: A new GM cannot silently resume an uncertain previous GM writer
+ok 77 - A new GM cannot silently resume an uncertain previous GM writer
+  ---
+  duration_ms: 0.300066
+  type: 'test'
+  ...
+# Subtest: mock native Compendium sustains indexed publication and event review across integration re-creation
+ok 78 - mock native Compendium sustains indexed publication and event review across integration re-creation
+  ---
+  duration_ms: 81.372416
+  type: 'test'
+  ...
+# Subtest: native protected pack index gate still fails closed in reactive composition
+ok 79 - native protected pack index gate still fails closed in reactive composition
+  ---
+  duration_ms: 2.182863
+  type: 'test'
+  ...
+# Subtest: native Hooks are never enabled just by configuring storage or activating a graph
+ok 80 - native Hooks are never enabled just by configuring storage or activating a graph
+  ---
+  duration_ms: 29.258654
+  type: 'test'
+  ...
+# Subtest: mock native Compendium persists GM decision and verified effect across subsystem reconstruction
+ok 81 - mock native Compendium persists GM decision and verified effect across subsystem reconstruction
+  ---
+  duration_ms: 88.128387
+  type: 'test'
+  ...
+# Subtest: persistent draft save and new registry instance read same graph
+ok 82 - persistent draft save and new registry instance read same graph
+  ---
+  duration_ms: 18.66842
+  type: 'test'
+  ...
+# Subtest: published immutable snapshot survives later draft edits and separate activation pointer
+ok 83 - published immutable snapshot survives later draft edits and separate activation pointer
+  ---
+  duration_ms: 34.133059
+  type: 'test'
+  ...
+# Subtest: stale draft and activation operations are denied
+ok 84 - stale draft and activation operations are denied
+  ---
+  duration_ms: 15.248265
+  type: 'test'
+  ...
+# Subtest: republishing same revision is idempotent and does not overwrite it
+ok 85 - republishing same revision is idempotent and does not overwrite it
+  ---
+  duration_ms: 5.284452
+  type: 'test'
+  ...
+# Subtest: corrupted immutable snapshot detected by fingerprint before activation
+ok 86 - corrupted immutable snapshot detected by fingerprint before activation
+  ---
+  duration_ms: 6.484014
+  type: 'test'
+  ...
+# Subtest: unknown executable node providers and oversized graphs fail closed at draft save
+ok 87 - unknown executable node providers and oversized graphs fail closed at draft save
+  ---
+  duration_ms: 3.674674
+  type: 'test'
+  ...
+# Subtest: bounded draft query returns only scope records
+ok 88 - bounded draft query returns only scope records
+  ---
+  duration_ms: 3.321184
+  type: 'test'
+  ...
+# Subtest: graph editor model authors, connects, saves, publishes and activates a plot
+ok 89 - graph editor model authors, connects, saves, publishes and activates a plot
+  ---
+  duration_ms: 21.854125
+  type: 'test'
+  ...
+# Subtest: graph editor rejects invalid connections and cycles, root removal and malformed JSON
+ok 90 - graph editor rejects invalid connections and cycles, root removal and malformed JSON
+  ---
+  duration_ms: 2.01885
+  type: 'test'
+  ...
+# Subtest: graph editor refuses to lose unsaved work via direct load
+ok 91 - graph editor refuses to lose unsaved work via direct load
+  ---
+  duration_ms: 1.92263
+  type: 'test'
+  ...
+# Subtest: graph authoring context requires real GM authority rather than user-supplied flags
+ok 92 - graph authoring context requires real GM authority rather than user-supplied flags
+  ---
+  duration_ms: 0.798219
+  type: 'test'
+  ...
+# Subtest: publication reachability warnings need an explicit GM acknowledgement
+ok 93 - publication reachability warnings need an explicit GM acknowledgement
+  ---
+  duration_ms: 8.945738
+  type: 'test'
+  ...
+# Subtest: moving a node is captured in draft and rejects invalid coordinates
+ok 94 - moving a node is captured in draft and rejects invalid coordinates
+  ---
+  duration_ms: 1.397964
+  type: 'test'
+  ...
+# Subtest: published graph does not activate merely by being published
+ok 95 - published graph does not activate merely by being published
+  ---
+  duration_ms: 5.014941
+  type: 'test'
+  ...
+# Subtest: mocked native Foundry Compendium persists draft snapshot and active pointer separately
+ok 96 - mocked native Foundry Compendium persists draft snapshot and active pointer separately
+  ---
+  duration_ms: 40.994298
+  type: 'test'
+  ...
+# Subtest: native Compendium publication is denied without live access evidence
+ok 97 - native Compendium publication is denied without live access evidence
+  ---
+  duration_ms: 3.618869
+  type: 'test'
+  ...
+# Subtest: interrupted native snapshot write cannot activate a non-durable revision
+ok 98 - interrupted native snapshot write cannot activate a non-durable revision
+  ---
+  duration_ms: 20.82305
+  type: 'test'
+  ...
+# Subtest: native graph registry rejects a snapshot with an incomplete partition index
+ok 99 - native graph registry rejects a snapshot with an incomplete partition index
+  ---
+  duration_ms: 17.858876
+  type: 'test'
+  ...
+# Subtest: registry rejects duplicate provider names and malformed providers
+ok 100 - registry rejects duplicate provider names and malformed providers
+  ---
+  duration_ms: 3.323224
+  type: 'test'
+  ...
+# Subtest: narrative state provider writes bounded persistent record with causal identity
+ok 101 - narrative state provider writes bounded persistent record with causal identity
+  ---
+  duration_ms: 17.681141
+  type: 'test'
+  ...
+# Subtest: state effect payload validation prevents oversized and privileged arbitrary property values
+ok 102 - state effect payload validation prevents oversized and privileged arbitrary property values
+  ---
+  duration_ms: 1.099568
+  type: 'test'
+  ...
+# Subtest: effect cannot execute without durable explicit approval
+ok 103 - effect cannot execute without durable explicit approval
+  ---
+  duration_ms: 22.010559
+  type: 'test'
+  ...
+# Subtest: approval transitions to one-time execution, verification and persisted review
+ok 104 - approval transitions to one-time execution, verification and persisted review
+  ---
+  duration_ms: 21.940787
+  type: 'test'
+  ...
+# Subtest: GM rejection never writes narrative state or operation journal
+ok 105 - GM rejection never writes narrative state or operation journal
+  ---
+  duration_ms: 30.617831
+  type: 'test'
+  ...
+# Subtest: stale published revision forbids approval and execution
+ok 106 - stale published revision forbids approval and execution
+  ---
+  duration_ms: 33.965085
+  type: 'test'
+  ...
+# Subtest: stale activation after approval cannot execute an approved effect
+ok 107 - stale activation after approval cannot execute an approved effect
+  ---
+  duration_ms: 13.675512
+  type: 'test'
+  ...
+# Subtest: effect apply acknowledgment uncertainty leaves review and journal requiring recovery
+ok 108 - effect apply acknowledgment uncertainty leaves review and journal requiring recovery
+  ---
+  duration_ms: 21.45027
+  type: 'test'
+  ...
+# Subtest: forged proposal identity rejected; no direct effect access
+ok 109 - forged proposal identity rejected; no direct effect access
+  ---
+  duration_ms: 18.979036
+  type: 'test'
+  ...
+# Subtest: GM authority revocation prevents review and execution
+ok 110 - GM authority revocation prevents review and execution
+  ---
+  duration_ms: 6.739132
+  type: 'test'
+  ...
+# Subtest: review persists over service recreation (same repository)
+ok 111 - review persists over service recreation (same repository)
+  ---
+  duration_ms: 9.784309
+  type: 'test'
+  ...
+# Subtest: native Hook adapter emits only allowlisted provenance and top-level keys
+ok 112 - native Hook adapter emits only allowlisted provenance and top-level keys
+  ---
+  duration_ms: 2.814782
+  type: 'test'
+  ...
+# Subtest: hook normalization rejects unauthorized hook names and forged sources
+ok 113 - hook normalization rejects unauthorized hook names and forged sources
+  ---
+  duration_ms: 0.889069
+  type: 'test'
+  ...
+# Subtest: the four supported v14 hooks have bounded, explicit contracts
+ok 114 - the four supported v14 hooks have bounded, explicit contracts
+  ---
+  duration_ms: 0.522347
+  type: 'test'
+  ...
+# Subtest: Hooks remain unregistered until explicit start, are idempotent, and detach on stop
+ok 115 - Hooks remain unregistered until explicit start, are idempotent, and detach on stop
+  ---
+  duration_ms: 1.230133
+  type: 'test'
+  ...
+# Subtest: starting hooks requires a currently authorized designated GM
+ok 116 - starting hooks requires a currently authorized designated GM
+  ---
+  duration_ms: 0.347053
+  type: 'test'
+  ...
+# Subtest: a hooked native update creates durable review proposals, not effects
+ok 117 - a hooked native update creates durable review proposals, not effects
+  ---
+  duration_ms: 58.04637
+  type: 'test'
+  ...
+# Subtest: unsubscribed document events do not create durable entries
+ok 118 - unsubscribed document events do not create durable entries
+  ---
+  duration_ms: 55.957284
+  type: 'test'
+  ...
+# Subtest: losing GM designation stops listeners and prevents further recording
+ok 119 - losing GM designation stops listeners and prevents further recording
+  ---
+  duration_ms: 43.500415
+  type: 'test'
+  ...
+# Subtest: Hook errors are GM-local codes without untrusted document values
+ok 120 - Hook errors are GM-local codes without untrusted document values
+  ---
+  duration_ms: 50.218297
+  type: 'test'
+  ...
+# Subtest: hook source IDs are unique per observed native occurrence
+ok 121 - hook source IDs are unique per observed native occurrence
+  ---
+  duration_ms: 76.862984
+  type: 'test'
+  ...
+# Subtest: staging subscriptions and activation uses the same bounded repository
+ok 122 - staging subscriptions and activation uses the same bounded repository
+  ---
+  duration_ms: 19.818591
+  type: 'test'
+  ...
+# Subtest: published-only graphs do not subscribe before activation
+ok 123 - published-only graphs do not subscribe before activation
+  ---
+  duration_ms: 10.305815
+  type: 'test'
+  ...
+# Subtest: subscription catalog prohibits invalid event types and scope
+ok 124 - subscription catalog prohibits invalid event types and scope
+  ---
+  duration_ms: 1.028083
+  type: 'test'
+  ...
+# Subtest: stage is idempotent by graph identifier with version replacement
+ok 125 - stage is idempotent by graph identifier with version replacement
+  ---
+  duration_ms: 2.464272
+  type: 'test'
+  ...
+# Subtest: stale revision subscription never evaluates the old graph
+ok 126 - stale revision subscription never evaluates the old graph
+  ---
+  duration_ms: 11.837216
+  type: 'test'
+  ...
+# Subtest: stale index entries cannot dispatch if graph is deactivated
+ok 127 - stale index entries cannot dispatch if graph is deactivated
+  ---
+  duration_ms: 15.411902
+  type: 'test'
+  ...
+# Subtest: activation never occurs when subscription staging fails
+ok 128 - activation never occurs when subscription staging fails
+  ---
+  duration_ms: 19.678815
+  type: 'test'
+  ...
+# Subtest: tampered index metadata fails closed before loading subscribers
+ok 129 - tampered index metadata fails closed before loading subscribers
+  ---
+  duration_ms: 15.578963
+  type: 'test'
+  ...
+# Subtest: durable ledger acknowledges once, stores source and verifies transitions
+ok 130 - durable ledger acknowledges once, stores source and verifies transitions
+  ---
+  duration_ms: 7.592568
+  type: 'test'
+  ...
+# Subtest: durable ledger rejects event ID reuse with different payload
+ok 131 - durable ledger rejects event ID reuse with different payload
+  ---
+  duration_ms: 1.654945
+  type: 'test'
+  ...
+# Subtest: ledger never acknowledges a write without a read-back match
+ok 132 - ledger never acknowledges a write without a read-back match
+  ---
+  duration_ms: 1.412305
+  type: 'test'
+  ...
+# Subtest: accepted but incomplete event requires explicit recovery, never silent replay
+ok 133 - accepted but incomplete event requires explicit recovery, never silent replay
+  ---
+  duration_ms: 11.083661
+  type: 'test'
+  ...
+# Subtest: true condition creates a persisted GM-review proposal and never calls providers
+ok 134 - true condition creates a persisted GM-review proposal and never calls providers
+  ---
+  duration_ms: 9.524512
+  type: 'test'
+  ...
+# Subtest: false condition evaluates without proposing any consequence
+ok 135 - false condition evaluates without proposing any consequence
+  ---
+  duration_ms: 10.616758
+  type: 'test'
+  ...
+# Subtest: unsubscribed events do not hydrate graphs or create durable history
+ok 136 - unsubscribed events do not hydrate graphs or create durable history
+  ---
+  duration_ms: 2.231819
+  type: 'test'
+  ...
+# Subtest: event ledger uses targeted hashed shard, not all-event scans
+ok 137 - event ledger uses targeted hashed shard, not all-event scans
+  ---
+  duration_ms: 1.969936
+  type: 'test'
+  ...
+# Subtest: GM authority is enforced by catalog, ledger, and router
+ok 138 - GM authority is enforced by catalog, ledger, and router
+  ---
+  duration_ms: 6.524185
+  type: 'test'
+  ...
+# Subtest: excess per-event subscriber count is rejected before write
+ok 139 - excess per-event subscriber count is rejected before write
+  ---
+  duration_ms: 2.804815
+  type: 'test'
+  ...
+# Subtest: a failing condition remains an uncertain durable event without any effects
+ok 140 - a failing condition remains an uncertain durable event without any effects
+  ---
+  duration_ms: 28.788653
+  type: 'test'
+  ...
+# Subtest: end-to-end published graph proposes effect only when condition qualifies
+ok 141 - end-to-end published graph proposes effect only when condition qualifies
+  ---
+  duration_ms: 5.678836
+  type: 'test'
+  ...
+# Subtest: approved event writes journal before native effect and verifies
+ok 142 - approved event writes journal before native effect and verifies
+  ---
+  duration_ms: 2.142834
+  type: 'test'
+  ...
+# Subtest: lost acknowledgement after native apply is uncertain and never blindly retried
+ok 143 - lost acknowledgement after native apply is uncertain and never blindly retried
+  ---
+  duration_ms: 2.074402
+  type: 'test'
+  ...
+# Subtest: unconfirmed verification remains uncertain
+ok 144 - unconfirmed verification remains uncertain
+  ---
+  duration_ms: 1.052129
+  type: 'test'
+  ...
+# Subtest: unauthenticated execution never invokes provider
+ok 145 - unauthenticated execution never invokes provider
+  ---
+  duration_ms: 1.45311
+  type: 'test'
+  ...
+# Subtest: event routing ignores unrelated event types
+ok 146 - event routing ignores unrelated event types
+  ---
+  duration_ms: 1.177008
+  type: 'test'
+  ...
+# Subtest: bounded active graph routing fails on too many subscribers
+ok 147 - bounded active graph routing fails on too many subscribers
+  ---
+  duration_ms: 2.936944
+  type: 'test'
+  ...
+# Subtest: only local GM session creates trusted authority context
+ok 148 - only local GM session creates trusted authority context
+  ---
+  duration_ms: 2.064343
+  type: 'test'
+  ...
+# Subtest: socket supplied identity is not native attestation
+ok 149 - socket supplied identity is not native attestation
+  ---
+  duration_ms: 0.219288
+  type: 'test'
+  ...
+# Subtest: intent gate fails closed until verified native path configured
+ok 150 - intent gate fails closed until verified native path configured
+  ---
+  duration_ms: 0.472806
+  type: 'test'
+  ...
+# Subtest: native gates reject unverified confidential stores/requests
+ok 151 - native gates reject unverified confidential stores/requests
+  ---
+  duration_ms: 0.291187
+  type: 'test'
+  ...
+# Subtest: allowlisted projection never copies secret fields or metadata
+ok 152 - allowlisted projection never copies secret fields or metadata
+  ---
+  duration_ms: 1.36018
+  type: 'test'
+  ...
+# Subtest: unlisted player fails closed with no existence oracle
+ok 153 - unlisted player fails closed with no existence oracle
+  ---
+  duration_ms: 0.271065
+  type: 'test'
+  ...
+# Subtest: scoped repository forbids unbounded query
+ok 154 - scoped repository forbids unbounded query
+  ---
+  duration_ms: 1.858463
+  type: 'test'
+  ...
+# Subtest: registry does not mutate active published revision when draft changes
+ok 155 - registry does not mutate active published revision when draft changes
+  ---
+  duration_ms: 1.884383
+  type: 'test'
+  ...
+# Subtest: operation journal uses create-once and state guards
+ok 156 - operation journal uses create-once and state guards
+  ---
+  duration_ms: 0.661347
+  type: 'test'
+  ...
+# Subtest: due scheduler classifies deterministic expiry vs uncertain actions
+ok 157 - due scheduler classifies deterministic expiry vs uncertain actions
+  ---
+  duration_ms: 2.050279
+  type: 'test'
+  ...
+# Subtest: no eligible GM means no background timer run
+ok 158 - no eligible GM means no background timer run
+  ---
+  duration_ms: 0.183656
+  type: 'test'
+  ...
+# Subtest: alias linking does not automatically expose underlying identity or transfer obligations
+ok 159 - alias linking does not automatically expose underlying identity or transfer obligations
+  ---
+  duration_ms: 0.342196
+  type: 'test'
+  ...
+# Subtest: identity merging is proposed rather than performed
+ok 160 - identity merging is proposed rather than performed
+  ---
+  duration_ms: 0.34321
+  type: 'test'
+  ...
+# Subtest: route search cannot use undisclosed paths
+ok 161 - route search cannot use undisclosed paths
+  ---
+  duration_ms: 0.794308
+  type: 'test'
+  ...
+# Subtest: session brief remains GM-only until explicit recap selection
+ok 162 - session brief remains GM-only until explicit recap selection
+  ---
+  duration_ms: 0.851156
+  type: 'test'
+  ...
+1..162
+# tests 162
+# suites 0
+# pass 162
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1350.064255

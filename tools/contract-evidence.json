@@ -1,0 +1,1643 @@
+{
+  "easy-plots.core.event-received": {
+    "engine_nodes": [
+      "core.trigger.event"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "Generic canonical-event trigger has targeted local source/filter/routing tests; this does not establish completion of related architectural decisions.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.document-event": {
+    "engine_nodes": [
+      "core.trigger.document-event"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "Specialized native document trigger has targeted source-provenance and filtering tests; real Foundry acceptance remains deferred.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.schedule-due": {
+    "engine_nodes": [
+      "core.trigger.schedule-due"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "Specialized schedule trigger has targeted canonical due-source tests; complete temporal-domain acceptance is not implied.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.manual-trigger": {
+    "engine_nodes": [
+      "core.trigger.manual"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "Specialized manual trigger has targeted source-separation and GM-event tests; complete event-domain acceptance is not implied.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.evaluate-condition": {
+    "engine_nodes": [
+      "core.data.event",
+      "core.data.compare"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/canonical-event-data.test.mjs",
+      "tests/data-guards.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "Composed canonical-event extraction and typed comparison produce a protected boolean without conflating event claims with authoritative state.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.branch-exclusive": {
+    "engine_nodes": [
+      "core.branch.data",
+      "core.branch.condition"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/data-guards.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "core.branch.data consumes an explicit protected boolean data input and selects one flow output. Predicate-based core.branch.condition remains separately supported.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.branch-parallel": {
+    "engine_nodes": [
+      "core.branch.parallel"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.core.join": {
+    "engine_nodes": [
+      "core.flow.join"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.core.subgraph-call": {
+    "engine_nodes": [
+      "core.subgraph.call",
+      "core.data.call",
+      "core.data.parameter",
+      "core.data.export"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Pure typed calls and event/effect subgraph calls are implemented separately; a single mixed effect/data invocation is still outstanding.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.core.event-filter": {
+    "engine_nodes": [
+      "core.event.filter"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.core.state-read": {
+    "engine_nodes": [
+      "core.state.value"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "local-contract-tests",
+    "assessment": "Typed scalar/JSON/entity output and entity-key input; protected bounded native reads with revision revalidation. The old core.state.read remains a separate branch-only contract.",
+    "foundry_validation": "not-run"
+  },
+  "easy-plots.core.state-proposal": {
+    "engine_nodes": [
+      "core.effect.proposal"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.core.approval-gate": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Durable GM approval exists in service layer; no graph node emitting an approval capability.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.core.rate-budget-gate": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Global evaluation budgets exist; no authored per-key rate gate.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.core.publish-view": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Reviewed recipient-specific projections exist; no generic approved-data graph output.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.core.effect-intent": {
+    "engine_nodes": [
+      "core.effect.proposal"
+    ],
+    "runtime_sources": [
+      "src/runtime/proposal-review.mjs",
+      "src/runtime/durable-router.mjs",
+      "src/graph/typed-data.mjs"
+    ],
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Effects are immutable proposals requiring separate durable GM approval; graph continuation from an approved operation is not implemented.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.quests.qualify-milestone": {
+    "engine_nodes": [
+      "core.milestone.qualify"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.quests.complete-milestone": {
+    "engine_nodes": [
+      "core.milestone.complete-reviewed"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.quests.quest-projection": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.quests.unlock-opportunity": {
+    "engine_nodes": [
+      "core.quest.opportunity"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.quests.cross-plot-dependency": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.quests.outcome-exclusivity": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.quests.objective-closure": {
+    "engine_nodes": [
+      "core.quest.objective"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-investigation-milestones.mjs",
+      "src/orchestration/persistent-quest-projections.mjs",
+      "src/orchestration/crossplot-coordinator.mjs"
+    ],
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.canonical-fact": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "core.world.fact writes a proposed canonical fact; it is not a read-only fact-producing data provider. No graph read mapping is certified.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.knowledge.observer-claim": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "core.knowledge.belief records a proposed observer belief; the proposed claim-producing data interface is missing.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.knowledge.evidence-discovered": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.evidence-corroboration": {
+    "engine_nodes": [
+      "core.gate.evidence-corroborated"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.knowledge-policy": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.disclosure-request": {
+    "engine_nodes": [
+      "core.knowledge.approve-recipient"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.retraction": {
+    "engine_nodes": [
+      "core.knowledge.retraction"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.belief-update": {
+    "engine_nodes": [
+      "core.knowledge.belief"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.rumor-propagation": {
+    "engine_nodes": [
+      "core.knowledge.rumor"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.hypothesis-evaluation": {
+    "engine_nodes": [
+      "core.investigation.reviewed-hypothesis"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.knowledge.safe-affordance": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-knowledge.mjs",
+      "src/orchestration/persistent-knowledge-propagation.mjs"
+    ],
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.investigation.opportunity": {
+    "engine_nodes": [
+      "core.investigation.opportunity"
+    ],
+    "runtime_sources": [
+      "src/orchestration/investigation-workbench.mjs",
+      "src/orchestration/investigation-viability.mjs"
+    ],
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.investigation.shared-evidence": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/investigation-workbench.mjs",
+      "src/orchestration/investigation-viability.mjs"
+    ],
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.investigation.contribution-ledger": {
+    "engine_nodes": [
+      "core.investigation.contribution"
+    ],
+    "runtime_sources": [
+      "src/orchestration/investigation-workbench.mjs",
+      "src/orchestration/investigation-viability.mjs"
+    ],
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.investigation.viability-check": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/investigation-workbench.mjs",
+      "src/orchestration/investigation-viability.mjs"
+    ],
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.investigation.conclusion-review": {
+    "engine_nodes": [
+      "core.investigation.conclusion"
+    ],
+    "runtime_sources": [
+      "src/orchestration/investigation-workbench.mjs",
+      "src/orchestration/investigation-viability.mjs"
+    ],
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.factions.membership-change": {
+    "engine_nodes": [
+      "core.faction.membership"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.factions.renown-change": {
+    "engine_nodes": [
+      "core.faction.renown"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.factions.rank-and-privilege-check": {
+    "engine_nodes": [
+      "core.gate.faction-rank"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Rank event gate alone does not establish independently authorized privileges; typed member input and complete eligibility output remain missing.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.factions.agenda-due": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.factions.agenda-evaluate": {
+    "engine_nodes": [
+      "core.faction.agenda"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.factions.threat-clock-tick": {
+    "engine_nodes": [
+      "core.pressure.clock"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.factions.faction-reaction": {
+    "engine_nodes": [
+      "core.faction.review-agenda",
+      "core.faction.schedule-reviewed-action"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-faction-agenda.mjs",
+      "src/runtime/reviewed-faction-schedule-provider.mjs"
+    ],
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.people.identity-persona": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Persona linkage mutation exists, but it does not implement a read-only identity output.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.people.relationship-evaluate": {
+    "engine_nodes": [
+      "core.gate.relationship"
+    ],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.people.debt-and-favor": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Obligation mutation and event gates exist; an authoritative obligation-producing data interface is still required.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.people.obligation-update": {
+    "engine_nodes": [
+      "core.obligation.resolve"
+    ],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.people.npc-schedule": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Authored schedule records and bounded due planning exist; the NPC-specific due trigger interface remains missing.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.people.npc-agenda": {
+    "engine_nodes": [
+      "core.npc.agenda"
+    ],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.people.persona-reveal": {
+    "engine_nodes": [
+      "core.identity.persona-link"
+    ],
+    "runtime_sources": [
+      "src/domains/identity.mjs",
+      "src/domains/relationships.mjs",
+      "src/orchestration/npc-schedule-planner.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.spatial.location-hierarchy": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/domains/locations.mjs",
+      "src/runtime/narrative-capabilities.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Route mutation is not a read-only hierarchy provider; no graph data mapping is established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.spatial.route-check": {
+    "engine_nodes": [
+      "core.gate.route-status"
+    ],
+    "runtime_sources": [
+      "src/domains/locations.mjs",
+      "src/runtime/narrative-capabilities.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Existing event predicate does not read authoritative route availability or expose the proposed typed location-to-availability contract.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.spatial.discover-location": {
+    "engine_nodes": [
+      "core.location.discovery"
+    ],
+    "runtime_sources": [
+      "src/domains/locations.mjs",
+      "src/runtime/narrative-capabilities.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.spatial.geographic-trigger": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/domains/locations.mjs",
+      "src/runtime/narrative-capabilities.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.spatial.travel-event": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/domains/locations.mjs",
+      "src/runtime/narrative-capabilities.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.fiction-time-guard": {
+    "engine_nodes": [
+      "core.gate.world-time"
+    ],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.due-event": {
+    "engine_nodes": [
+      "core.trigger.schedule-due"
+    ],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.deadline-check": {
+    "engine_nodes": [
+      "core.gate.deadline"
+    ],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.delayed-consequence": {
+    "engine_nodes": [
+      "core.time.scheduled-action"
+    ],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.world-time-plan": {
+    "engine_nodes": [
+      "core.time.transition-plan"
+    ],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.time-reconcile": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.timeline-view": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.temporal.alternate-branch": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/temporal-coordinator.mjs",
+      "src/storage/native-temporal-index.mjs"
+    ],
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.encounters.encounter-ready": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/platform/foundry-rolls.mjs",
+      "src/platform/foundry-opposed-rolls.mjs",
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.encounters.native-roll": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/platform/foundry-rolls.mjs",
+      "src/platform/foundry-opposed-rolls.mjs",
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Active/passive and opposed native d20 services are available to the GM; no typed roll-producing graph provider or game-system-specific adapter is registered.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.encounters.partial-success-band": {
+    "engine_nodes": [
+      "core.branch.roll-band"
+    ],
+    "runtime_sources": [
+      "src/platform/foundry-rolls.mjs",
+      "src/platform/foundry-opposed-rolls.mjs",
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.encounters.combat-event": {
+    "engine_nodes": [
+      "core.trigger.document-event"
+    ],
+    "runtime_sources": [
+      "src/platform/foundry-rolls.mjs",
+      "src/platform/foundry-opposed-rolls.mjs",
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Native Combat Hooks produce private observations only; outcome selection is a separate reviewed operation.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.encounters.encounter-closure": {
+    "engine_nodes": [
+      "core.encounter.outcome"
+    ],
+    "runtime_sources": [
+      "src/platform/foundry-rolls.mjs",
+      "src/platform/foundry-opposed-rolls.mjs",
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.arcs.ending-eligibility": {
+    "engine_nodes": [
+      "core.branch.arc-ending"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-arc-resolution.mjs",
+      "src/orchestration/campaign-closure.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.arcs.primary-ending-selection": {
+    "engine_nodes": [
+      "core.arc.conclude"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-arc-resolution.mjs",
+      "src/orchestration/campaign-closure.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.arcs.epilogue-projection": {
+    "engine_nodes": [
+      "core.arc.epilogue"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-arc-resolution.mjs",
+      "src/orchestration/campaign-closure.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.arcs.continuity-manifest": {
+    "engine_nodes": [
+      "core.campaign.continuity"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-arc-resolution.mjs",
+      "src/orchestration/campaign-closure.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.arcs.dormant-hook-activation": {
+    "engine_nodes": [
+      "core.story.hook"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-arc-resolution.mjs",
+      "src/orchestration/campaign-closure.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.arcs.aftereffect": {
+    "engine_nodes": [
+      "core.time.scheduled-action"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-arc-resolution.mjs",
+      "src/orchestration/campaign-closure.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.resources.native-resource-plan": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/platform/foundry-resource-binding.mjs",
+      "src/platform/foundry-journal-provider.mjs",
+      "src/orchestration/persistent-blueprints.mjs"
+    ],
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.resources.materialize-foundry-document": {
+    "engine_nodes": [
+      "core.resource.materialize-journal",
+      "core.resource.materialize-actor",
+      "core.resource.materialize-item"
+    ],
+    "runtime_sources": [
+      "src/platform/foundry-resource-binding.mjs",
+      "src/platform/foundry-journal-provider.mjs",
+      "src/orchestration/persistent-blueprints.mjs"
+    ],
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.resources.resource-drift-verify": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/platform/foundry-resource-binding.mjs",
+      "src/platform/foundry-journal-provider.mjs",
+      "src/orchestration/persistent-blueprints.mjs"
+    ],
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.resources.guided-rebind": {
+    "engine_nodes": [
+      "core.resource.bind-native"
+    ],
+    "runtime_sources": [
+      "src/platform/foundry-resource-binding.mjs",
+      "src/platform/foundry-journal-provider.mjs",
+      "src/orchestration/persistent-blueprints.mjs"
+    ],
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.resources.blueprint-inherit": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/platform/foundry-resource-binding.mjs",
+      "src/platform/foundry-journal-provider.mjs",
+      "src/orchestration/persistent-blueprints.mjs"
+    ],
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.resources.blueprint-merge-preview": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/platform/foundry-resource-binding.mjs",
+      "src/platform/foundry-journal-provider.mjs",
+      "src/orchestration/persistent-blueprints.mjs"
+    ],
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.session-agenda": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.narrative-health": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.why-why-not": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.what-if": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.forecast": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.reviewed-recap": {
+    "engine_nodes": [
+      "core.campaign.recap"
+    ],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.planning.attention-priority": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/orchestration/persistent-plans.mjs",
+      "src/orchestration/persistent-session-handoff.mjs",
+      "src/ui/planning-lab.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.intents.submit-affordance": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/storage/native-intents.mjs",
+      "src/orchestration/persistent-voting.mjs",
+      "src/platform/foundry-socket.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.intents.gm-review-request": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/storage/native-intents.mjs",
+      "src/orchestration/persistent-voting.mjs",
+      "src/platform/foundry-socket.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.intents.vote-collection": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/storage/native-intents.mjs",
+      "src/orchestration/persistent-voting.mjs",
+      "src/platform/foundry-socket.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.intents.attempt-deduplicate": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/storage/native-intents.mjs",
+      "src/orchestration/persistent-voting.mjs",
+      "src/platform/foundry-socket.mjs"
+    ],
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.publication.graph-preflight": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/graph/persistent-registry.mjs",
+      "src/runtime/active-subscriptions.mjs"
+    ],
+    "test_sources": [
+      "tests/publication-hardening.test.mjs",
+      "tests/persistent-graphs.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "PersistentGraphRegistry publication preflight is the actual service. core.condition is not an implementation of graph preflight.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established",
+    "review_scope": "Specific interface observation; full user-facing behavior and decision completion remain unassessed."
+  },
+  "easy-plots.publication.publish-snapshot": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/graph/persistent-registry.mjs",
+      "src/runtime/active-subscriptions.mjs"
+    ],
+    "test_sources": [
+      "tests/publication-hardening.test.mjs",
+      "tests/persistent-graphs.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  },
+  "easy-plots.publication.activate-snapshot": {
+    "engine_nodes": [],
+    "runtime_sources": [
+      "src/graph/persistent-registry.mjs",
+      "src/runtime/active-subscriptions.mjs"
+    ],
+    "test_sources": [
+      "tests/publication-hardening.test.mjs",
+      "tests/persistent-graphs.test.mjs"
+    ],
+    "status": "review-needed",
+    "assessment": "Preliminary related-code inventory only. End-to-end behavior and original-contract equivalence have not been individually established.",
+    "foundry_validation": "not-run",
+    "completion_assessment": "not-established"
+  }
+}

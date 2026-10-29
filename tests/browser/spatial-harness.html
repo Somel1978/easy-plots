@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Spatial atlas DOM acceptance</title><link rel="stylesheet" href="/static/easy-plots.css"></head><body>
+<main id="windows"></main>
+<script type="module">
+import {spatialFixture,spatialIds as ids} from '../spatial-fixtures.mjs';
+import {makeSpatialDeskWindow,makePlayerSpatialWindow} from '../../src/ui/spatial-desk.mjs';
+import {NativeFoundrySpatialTransport} from '../../src/platform/foundry-spatial-transport.mjs';
+class RenderStub {
+ constructor(){this.element=document.createElement('article');document.querySelector('#windows').append(this.element);}
+ async render(){this.element.replaceChildren(await this._renderHTML());return this;}
+ close(){this.element.remove();}
+}
+const fixture=await spatialFixture(),hostile='<img src=x onerror="window.__spatialInjected=true">',receipt=await fixture.receipt('chromium_hostile',hostile);
+const draft={observerId:ids.observer,discoveries:fixture.view.discoveries.map((binding,index)=>index===2?{...binding,receiptId:receipt.id}:binding),routeKnowledge:fixture.view.routeKnowledge,correctionIds:[],expectedRevision:null};
+const users=new Map([['spatial-browser-GM-001',{id:'spatial-browser-GM-001',isGM:true,active:true}],['spatial-browser-player-001',{id:'spatial-browser-player-001',isGM:false,active:true}],['spatial-browser-stranger-001',{id:'spatial-browser-stranger-001',isGM:false,active:true}]]),listeners=new Map(),traffic=[];
+function makeGame(id){const callbacks=new Set();listeners.set(id,callbacks);return {world:{id:'spatial-browser-world'},user:users.get(id),users:{get:id=>users.get(id),get activeGM(){return users.get('spatial-browser-GM-001');}},modules:{get:()=>({socket:true})},socket:{on:(_name,fn)=>callbacks.add(fn),off:(_name,fn)=>callbacks.delete(fn),emit:(_name,packet,{recipients}={})=>{if(!Array.isArray(recipients)||recipients.length!==1)throw Error('No broadcast');traffic.push({from:id,to:recipients,packet:structuredClone(packet)});for(const recipient of recipients)for(const callback of listeners.get(recipient)??[])queueMicrotask(()=>callback(structuredClone(packet),id));}}};}
+const game=makeGame('spatial-browser-GM-001'),playerGame=makeGame('spatial-browser-player-001'),strangerGame=makeGame('spatial-browser-stranger-001'),proof={worldId:game.world.id,socketSenderVerified:true,socketRecipientVerified:true,socketForgeryRejected:true,socketNoBroadcastVerified:true};
+const server=new NativeFoundrySpatialTransport({gameInstance:game,attestation:proof,service:fixture.spatial,actorAuthorization:async(user,actor)=>user===playerGame.user.id&&actor==='spatial-browser-Actor-001',resolveObserver:async()=>ids.observer});server.start();
+const client=new NativeFoundrySpatialTransport({gameInstance:playerGame,attestation:proof}),stranger=new NativeFoundrySpatialTransport({gameInstance:strangerGame,attestation:proof});client.start();stranger.start();
+const GMWindow=makeSpatialDeskWindow(RenderStub,{gameInstance:game,service:fixture.spatial});let current=await new GMWindow().render();
+window.__spatialTest={fixture,ids,draft,hostile,traffic,client,stranger,async showPlayer(){current.close();const Player=makePlayerSpatialWindow(RenderStub,{transport:client});current=await new Player().render();},async readAtlas(id){return fixture.spatial.inspectView({atlasId:id});}};
+window.__ready=true;
+</script></body></html>

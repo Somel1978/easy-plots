@@ -1,0 +1,98 @@
+spec_candidate,candidate_role,closest_engine_node,node_registered,contract_equivalence,note
+easy-plots.core.event-received,trigger,core.trigger.event,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.core.document-event,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.schedule-due,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.manual-trigger,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.evaluate-condition,logic,core.condition,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.core.branch-exclusive,logic,core.branch.condition,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.core.branch-parallel,logic,core.branch.parallel,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.core.join,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.subgraph-call,logic,core.subgraph.call,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.core.event-filter,logic,core.event.filter,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.core.state-read,data,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.state-proposal,state,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.approval-gate,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.rate-budget-gate,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.publish-view,projection,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.core.effect-intent,effect,core.effect.proposal,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.quests.qualify-milestone,state,core.milestone.qualify,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.quests.complete-milestone,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.quests.quest-projection,projection,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.quests.unlock-opportunity,state,core.quest.opportunity,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.quests.cross-plot-dependency,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.quests.outcome-exclusivity,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.quests.objective-closure,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.knowledge.canonical-fact,data,core.world.fact,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.knowledge.observer-claim,data,core.knowledge.belief,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.knowledge.evidence-discovered,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.knowledge.evidence-corroboration,logic,core.gate.evidence-corroborated,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.knowledge.knowledge-policy,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.knowledge.disclosure-request,state,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.knowledge.retraction,state,core.knowledge.retraction,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.knowledge.belief-update,state,core.knowledge.belief,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.knowledge.rumor-propagation,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.knowledge.hypothesis-evaluation,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.knowledge.safe-affordance,projection,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.investigation.opportunity,state,core.investigation.opportunity,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.investigation.shared-evidence,state,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.investigation.contribution-ledger,state,core.investigation.contribution,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.investigation.viability-check,diagnostic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.investigation.conclusion-review,effect,core.investigation.conclusion,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.factions.membership-change,effect,core.faction.membership,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.factions.renown-change,effect,core.faction.renown,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.factions.rank-and-privilege-check,logic,core.gate.faction-rank,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.factions.agenda-due,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.factions.agenda-evaluate,logic,core.faction.agenda,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.factions.threat-clock-tick,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.factions.faction-reaction,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.people.identity-persona,data,core.identity.persona-link,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.people.relationship-evaluate,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.people.debt-and-favor,data,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.people.obligation-update,effect,core.obligation.resolve,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.people.npc-schedule,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.people.npc-agenda,logic,core.npc.agenda,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.people.persona-reveal,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.spatial.location-hierarchy,data,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.spatial.route-check,logic,core.gate.route-status,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.spatial.discover-location,effect,core.location.discovery,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.spatial.geographic-trigger,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.spatial.travel-event,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.temporal.fiction-time-guard,logic,core.gate.world-time,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.temporal.due-event,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.temporal.deadline-check,logic,core.gate.deadline,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.temporal.delayed-consequence,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.temporal.world-time-plan,diagnostic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.temporal.time-reconcile,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.temporal.timeline-view,projection,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.temporal.alternate-branch,simulation,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.encounters.encounter-ready,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.encounters.native-roll,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.encounters.partial-success-band,logic,core.branch.roll-band,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.encounters.combat-event,trigger,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.encounters.encounter-closure,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.arcs.ending-eligibility,logic,core.branch.arc-ending,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.arcs.primary-ending-selection,effect,core.arc.conclude,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.arcs.epilogue-projection,projection,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.arcs.continuity-manifest,state,core.campaign.continuity,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.arcs.dormant-hook-activation,effect,core.story.hook,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.arcs.aftereffect,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.resources.native-resource-plan,state,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.resources.materialize-foundry-document,effect,core.resource.materialize-journal,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.resources.resource-drift-verify,diagnostic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.resources.guided-rebind,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.resources.blueprint-inherit,data,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.resources.blueprint-merge-preview,simulation,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.planning.session-agenda,projection,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.planning.narrative-health,diagnostic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.planning.why-why-not,diagnostic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.planning.what-if,simulation,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.planning.forecast,simulation,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.planning.reviewed-recap,projection,core.campaign.recap,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.planning.attention-priority,presentation,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.intents.submit-affordance,presentation,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.intents.gm-review-request,state,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.intents.vote-collection,state,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.intents.attempt-deduplicate,logic,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.publication.graph-preflight,diagnostic,core.condition,yes,requires-contract-review,Registered analog; detailed semantics may differ
+easy-plots.publication.publish-snapshot,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist
+easy-plots.publication.activate-snapshot,effect,,not-established,requires-contract-review,No direct editor node mapping established; separate domain service may exist

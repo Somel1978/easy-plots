@@ -1,0 +1,125 @@
+1|Execute a graph mixing narrative records and effect nodes|Only eligible authored branches request authorized effects; narrative nodes remain distinguishable
+2|Evaluate a branch requiring GM approval alongside an automatic condition|Approval-gated consequences do not execute before GM authorization
+3|Create narrative fact with and without a native Foundry binding|Both retain stable identity and validity; missing native binding is diagnosable
+4|Connect flow, condition, event and data ports incorrectly|Valid typed edges work; incompatible connections fail preflight
+5|Call a versioned child subgraph through typed interface ports|Port contracts validate and child changes do not corrupt parent snapshot
+6|Resolve exclusive and parallel branches from the same input|Exclusivity and concurrent paths follow published policy without duplicate effects
+7|Restart after state event and request controlled rollback|Event history persists and corrective event preserves original provenance
+8|Observe same fact as informed and uninformed recipients|Only authorized audience receives disclosed fact and metadata
+9|Update qualifying event while GM workspace open|Affected widgets update without hydrating unrelated graph partitions
+10|Reference a native Actor and a lightweight fictional entity|Both resolve through stable narrative IDs without mandatory Actor duplication
+11|Join/leave faction and modify renown independently|Membership and reputation remain distinct historical states
+12|Trigger faction agenda without player-visible prerequisites|Agenda is GM-reviewed and private knowledge remains protected
+13|Increase renown without changing membership rank|No rank or privilege changes unless independent conditions authorize them
+14|Trigger mutually reactive faction rules|Cycle budget halts unintended repeated reactions and records diagnostic
+15|Propagate a true fact and a false rumor to different observers|Canonical truth is separate from observer beliefs and rumor claims
+16|Advance campaign time past a scheduled deadline|Due states are indexed and reconciled without day-by-day simulation
+17|Register a third-party provider through declared public API|Provider can validate and execute only permitted contract capabilities
+18|Two GMs with different delegation rights edit protected plots|Unauthorized GM action rejected; authorized edits revision checked
+19|Save world record and export/reuse narrative template|World state persists and portable template excludes unwanted native identities
+20|Prepare native resource in context of a plot|Document is created only after GM approval and provenance is recorded
+21|Resize/popout graph ApplicationV2 workspace|Editor preserves interaction, focus and graph state after window changes
+22|Switch narrative/execution/knowledge graph layers|Layer navigation shows only authorized elements and preserves connections
+23|Expand and collapse a node density presentation|Visual change never mutates canonical node execution semantics
+24|Submit invalid expression and a valid typed AST|Unsafe expression rejected; valid rule evaluates predictably
+25|Run hypothetical branch containing native effect node|Canonical world and native documents remain unchanged
+26|Edit visual labels and then structural node ports on live graph|Cosmetic edits follow policy; structural change requires published snapshot
+27|Disconnect eligible GM during native effect sequence|Durable journal records state and later review avoids blind replay
+28|Two GMs write same narrative record from stale revisions|Conflict detected and no silent last-writer authoritative overwrite
+29|Deliver grouped notices with different observer permissions|Each recipient sees only authorized grouped facts and references
+30|Player contributes to scene narrative requiring GM review|Contribution cannot change canonical facts before explicit authorization
+31|Complete plot milestone and open player quest view|Quest displays authorized projection rather than independent conflicting state
+32|Update directional relationship then inspect historical time|Current and historical directions remain distinct and correct
+33|Discover route and location hierarchy from selected region|Authorized spatial links appear; secret neighboring locations remain hidden
+34|Schedule an NPC move then stop time before event|Due schedule remains pending, not falsely marked completed
+35|Evaluate NPC personal agenda conditioned on private fact|Agenda does not trigger from information the NPC has not learned
+36|Record favor owed by Actor A to Actor B|Debt persists directionally and is not inferred reciprocal
+37|Compare fiction, execution and observer-knowledge chronologies|Distinct timestamps and causality sort consistently
+38|Correct a mistaken historical claim|Original event retained; corrections and downstream review are appended
+39|Create hypothetical alternate timeline and commit nothing|Only one branch remains canonical; previews cannot mutate it
+40|Instantiate reusable plot blueprint twice|Instances have distinct IDs while preserving source blueprint revision
+41|Finish native encounter with alternate outcomes|Selected outcome generates one verified plot event, not every possible ending
+42|Link evidence into deduction graph with contradicting claim|Inference displays evidence and uncertainty, not hidden canonical answer
+43|Submit player investigation board edits for GM review|Only approved edits enter canonical/public shared board
+44|Share a clue without publishing its hidden source|Recipient gains allowed clue with preserved protected provenance
+45|Render chat/journal referencing private clue|Unauthorized clients cannot inspect hidden entry or metadata
+46|Conduct vote with scoped eligible Actors|Each Actor vote validated and result follows authored rule
+47|Expire quorum vote with offline participants|Offline/deadline policies applied without inventing participant votes
+48|Schedule delayed consequence and restart world|Due item persists and executes only when prerequisites/authority hold
+49|Tick threat clock under authorized event|Clock increases exactly as policy specifies and never duplicates on retry
+50|Generate emergent plot suggestion|Suggestion remains isolated until GM explicitly commits it
+51|Assemble next-session plan from pinned active plots|Plan uses bounded references and remains an editable GM preparation artifact
+52|Open GM cockpit with multiple active plots|Focused actionable information loads, secrets stay in GM-only projection
+53|Attempt to close plot with unresolved required objective|GM receives explainable closure conditions and alternate ending options
+54|Run narrative health on a scoped investigation|Detects intentional unreachable objective as warning not invented fix
+55|Search a narrative term in one permitted domain|Query bounded and results honor user access boundaries
+56|Explain why a node did not trigger|Report identifies failed permitted conditions to GM without public secret leaks
+57|Find broken binding and run reviewable repair|Repair preserves stable IDs and changes only approved references
+58|Change a dependency required by only one cached graph|Only impacted compiled partitions invalidated and reloaded
+59|Archive a concluded arc then request its summary|Summary resolves lazily; event history retained without preload
+60|Dispatch one hook in campaign with thousands dormant plots|Only matched index hits and bounded graph shards accessed
+61|Read protected narrative record from native Compendium|Native permission and index visibility enforce defined confidentiality
+62|Grow graph beyond initial partition threshold|Adaptive split preserves IDs, indexed traversal and all references
+63|Read top-level, shard and historical index tiers|Tiered index lookup finds relevant data without complete hydration
+64|Fetch same plot as GM and player|Separate DTOs omit protected source details and hidden counts
+65|Lose current GM while operation result uncertain|New GM verifies journal and target before marking completion
+66|Probe confidential store, flags, pack metadata as player|GM-only record and its identity cannot be enumerated
+67|Request Actor action with ownership/delegation mismatch|Permission verified against actual current Actor context
+68|Rebind missing Actor document to new UUID|Narrative ID and event lineage do not change
+69|Delete original Foundry resource under reference|Reference status reports missing and guided rebind offered
+70|Emit versioned canonical event and replay typed fixture|Event schema validates and causal lineage remains stable
+71|Disable required integration provider during gameplay|GM sees actionable diagnostic and unsafe effects do not execute
+72|Migrate old data fixtures with deliberate interruption|Source preserved and migration can resume or recover without identity loss
+73|Load graph with unavailable node provider version|Unknown placeholder preserves persisted data without executing invalid node
+74|Submit effect through undeclared capability|Provider validation/authorization denies operation
+75|Run developer test lab on mock effect interruption|Fault observable in journal and trace without altering real campaign
+76|Register provider with lazy manifest and no relevant plots|Provider implementation not eagerly loaded or globally scanned
+77|Edit draft while published graph remains active|Published snapshot and live runtime semantics stay immutable
+78|Update one graph node contract|Only dependent published-candidate validations become stale
+79|Restart after long offline interval with many due events|Startup stays bounded and catch-up queue persists incomplete work
+80|Fire Foundry Hook while most plots dormant|Indexed subscriptions dispatch only relevant eligible triggers
+81|Drop noncritical event signal and a critical event signal|Reliability tiers apply reconciliation for critical signals
+82|Process event with stale input revision|Effect blocked/reviewed rather than committing under wrong state
+83|Attempt native multi-document updates with interrupted batch|Journal distinguishes confirmed writes from uncertain partial steps
+84|Send duplicate message after effect confirmed|Effect provider verifies native state; one-time result not applied twice
+85|Flood scheduler with mixed-priority tasks|Bounded prioritization preserves required safety and avoids starvation
+86|Enable sampled diagnostics under representative load|Instrumentation respects sampling, privacy and configurable budget
+87|Run cyclical graph beyond budget|Execution safely stops with explainable cycle/convergence diagnostic
+88|Execute mechanical roll affecting condition|Evaluation stores roll ID, relevant inputs, revisions and provenance
+89|Perform blind native roll with private narrative fact|Roll visibility and narrative knowledge follow separate rules
+90|Player submits privileged narrative intent|Intent becomes queued request; no independent player-side effect
+91|Restart during pending GM-approved player request|Durable lifecycle persists and revalidates before resolution
+92|GM reviews intent in compact context dialog|Approver sees necessary provenance and explicit effect preview
+93|Use dock, inspector and full canvas on same active plot|All views reflect same authoritative version without redundant writes
+94|Pin and unpin GM focus across scene changes|Pinned focus persists and passive focus follows configured context
+95|Age out ephemeral attention with one manually pinned event|Transient signals decay; pinned narrative significance remains
+96|Create reviewed session handoff from unresolved plots|Handoff links relevant events and pending work without copying histories
+97|Forecast plausible faction agenda outcome|Prediction grounded in known conditions, not automatic canonical effect
+98|Change forecast dependency revision|Only affected forecasts become stale; unaffected ones remain valid
+99|Stage native resource preparation and defer activation|Manifest tracks planned vs materialized vs active separately
+100|Edit blueprint and local instance divergent field|Three-way merge identifies conflict and preserves local overrides
+101|Archive exclusive generated resource with GM edits|Ownership guard prevents accidental destructive deletion
+102|Run resource audit on only selected partition|Find orphan/drift/duplicate without traversing all world documents
+103|Rebind missing NPC with ambiguous matches|GM chooses reviewed candidate; historical narrative identity preserved
+104|Reveal persona secret or retire alias|Underlying entity and persona lineages remain distinct
+105|Update persona reputation without entity-wide propagation|Only explicitly authorized observer/relation scopes change
+106|Propagate rumor through configured faction network|Bounded depth, credibility, delay and secrecy rules respected
+107|Retract evidence source from an observer|Belief revision preserves earlier reason and independently queues downstream review
+108|Present allowed action menu to player|Hidden actions, entities, status/error and metadata are not leaked
+109|Resolve passive/contested/hidden roll with partial band|Adapter policy and separate disclosure applied without correctness oracle
+110|Resend same attempt with new transport retry nonce|Recognized as delivery retry; meaningful reattempt requires changed context
+111|Two party members independently uncover private evidence|Individual knowledge retained; party objective avoids duplicate consequence
+112|Check investigation with no current discovery paths|GM sees viability diagnostic, alternative authored paths, legitimate failure permitted
+113|Compare multiple theories against public evidence|Players see authorized arguments only; GM truth evaluation remains protected
+114|Complete evidence milestone and submit unsupported correct guess|Only qualifying event marks milestone; guessed truth yields no oracle/reward
+115|One event relevant to three plotted quests|Independent target checks, bounded subscribers and one-time effects
+116|Resolve arc with conflicting exclusive endings|GM review blocks conflicts; secondary and partial outcomes preserved
+117|Create next arc from completed one|Manifest uses live entity references and dormant hooks rather than duplication
+118|Skip months and inspect due faction action|Due is not assumed completed; uncertain off-screen events remain open
+119|Publish candidate containing secret disclosure path|Severity gate blocks unsafe snapshot and reports required coverage
+120|Qualify complete module against feature scope checklist|All agreed domains, not just core MVP, must have integrated acceptance evidence
+121|Modify stable event contract after publication|Version bump/migration checks required, UI-only change may stay internal
+122|Review one decision against requirement, contract and test|Bidirectional traceability exists and contradictions are explicitly logged
+123|Merge concurrent batch implementing two dependent features|Incremental integration gates run; shared contracts owned and versioned
+124|Advertise Foundry compatibility for untested build|Release matrix declines unsupported claim without passing evidence
+125|Propose new external server after architecture closure|Change rejected pending explicit amendment; full module single-deliverable scope retained

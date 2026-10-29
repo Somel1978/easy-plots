@@ -1,0 +1,15 @@
+# Resource lifecycle integration — ADR-083/099
+
+`OrderedNativeBatches` reuses the existing effect journal for every approved child. Plans are immutable, one-shot and bounded to six steps. Unknown acknowledgments stop later work. Explicit reconciliation verifies original documents; it never calls native create again. A proven unstarted suffix becomes a distinct plan requiring a new proposal and approval.
+
+`ResourceManifests` uses the existing resource-manifest kind. Preparation stages the target graph requirement directory before saving the immutable manifest. A lost setup write therefore blocks consumers. Exact retries repair metadata only. The manifest accepts shell-only batches with unique resource IDs, records the owning materialization graph independently of the consumer graph, and never creates native documents itself.
+
+The phases are planned, materialized, and active. Materialized requires a completed original batch and current native type/ID/opaque proof/GM ownership checks against every confirmed child journal. Activation is a separate published graph effect under ordinary proposal approval. It pins the exact consumer graph publication and activation revision. Changes in the active graph or missing/changed native documents block consumer approval and execution. Stored historical activation proof remains available for reconciliation.
+
+The Resource lifecycle window prepares and inspects manifests, confirms observed materialization, configures a separate activation branch in the selected draft, and submits a reviewed intent after publication/activation. It preserves the story root and uses typed event inputs for the three current revision numbers. It never predicts a future publication version. The activation intent only produces proposals; viewing the desk or submitting the intent does not activate resources.
+
+Native composition includes source preflight callbacks. They bind static compilation to immutable batch/specification identities and exact child provider contracts, excluding mutable run and lifecycle state. Runtime proof guards remain independent. A source materialization batch is exempt only when its exact graph, scope, identity, revision and fingerprint match a registered requirement; activation proposals remain separately approved administration. Other consumer effects cannot bypass required resources.
+
+No native resource deletion, automatic cleanup, automatic repair, cross-document transaction guarantee or borrowed/shared resource ownership is introduced. Legacy manifests remain inspectable as legacy-unverified and are not silently reinterpreted. The native-resource inspector retains its original binding and reverse-reference audit.
+
+Executed focused proof is in tests/resource-manifests.test.mjs and tests/native-resource-lifecycle.test.mjs. The global Chromium test exercises the resource desk and separate Event Review activation after an Actor/Item materialization batch. Native Compendium tests are adapter evidence; actual Foundry permissions, sockets and multiplayer acceptance remain the final phase.

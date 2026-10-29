@@ -1,0 +1,31 @@
+test_id,name,owner,procedure_oracle,expected,priority
+TEST-GRF-001,Typed graph port validation,W3,Wrong port type rejected without mutation,Block/diagnostic,P0
+TEST-RUL-001,No code execution in author predicates,W3,Arbitrary JS payload is rejected by validator,Block/diagnostic,P0
+TEST-ID-001,Stable ID after Native UUID rebind,W1,Rebind does not alter canonical NarrativeId/history,Pass,P0
+TEST-STO-001,Protected Foundry storage reads,W1/W2,Player API cannot enumerate protected records/packs,Block on leak,P0
+TEST-IDX-001,Lazy bounded indexed plot dispatch,W1,Dormant graph documents not hydrated,Pass budget,P0
+TEST-SEC-001,Player secrecy adversarial API/socket,W2,No GM-only fields/identifiers in payload/error/metadata,Block on leak,P0
+TEST-SEC-002,Spoofed user actor authority,W2,Forged socket principal never authorizes privileged effect,Block on leak,P0
+TEST-OPS-001,Interrupted effect verification,W2,"Lost ACK after write yields verification, not blind second write",Pass recoverable,P0
+TEST-OPS-002,Co-GM stale concurrency,W2,Revision mismatch flagged; no blind overwrite,Pass conflict,P0
+TEST-INT-001,Player intent lifecycle,W2,Request queued reviewed revalidated and resolved with safe receipt,Pass,P0
+TEST-PUB-001,Draft vs published immutability,W3,Draft mutation cannot alter active graph; blocker stops publication,Pass,P0
+TEST-EXT-001,Provider capability unavailable,W4,Unavailable action disabled not guessed,Pass safe failure,P0
+TEST-ENC-001,Native roll visibility and provenance,W4,Authorized check records native roll without narrative leak,Pass,P1
+TEST-KNO-001,True guess no answer oracle,W5,Unverified correct guess does not mark puzzle complete,Pass,P0
+TEST-INV-001,Competing theories per observer,W5,Private evidence only visible to authorized party,Pass,P1
+TEST-QST-001,One source event multiple milestone consumers,W5,Separate qualification no repeated award,Pass,P0
+TEST-FAC-001,Faction does not know undisclosed secret,W6,Reaction predicate remains unevaluated/false until knowledge event,Pass,P1
+TEST-REL-001,Persona reveal does not merge debts,W6,Relationships/obligations keep scoped provenance,Pass,P1
+TEST-TIME-001,Six-month jump skips uncertain actions,W6,Due events reviewed; no fictional off-screen successes invented,Pass,P0
+TEST-SPA-001,Location changes/bindings,W6,Moved location retains stable ref and safe projection,Pass,P1
+TEST-ARC-001,Partial campaign resolution,W7,"Exclusive ending GM review, unresolved threads retained",Pass,P0
+TEST-RSC-001,Rebind and native GM edits,W7,No destructive auto-repair of external native resources,Pass,P1
+TEST-BLU-001,Three-way blueprint merge conflicts,W7,Ambiguous local changes require GM decision,Pass,P1
+TEST-SIM-001,What-if isolation,W7,Simulation leaves canonical docs unchanged,Pass,P0
+TEST-PLAN-001,GM foresight/reports,W7,Forecast provenance and revision freshness shown,Pass,P1
+TEST-UI-001,GM and player end-to-end use,W8,Accessible AppV2 workflow no JSON required,Pass,P0
+TEST-DIA-001,Corrupt index recovery,W9,Selective audit and repair without whole campaign data loss,Pass,P0
+TEST-MIG-001,Interrupted migration with backup,W9,World restored/reconciled without unexplained ID loss,Pass,P0
+TEST-COMP-001,Exact compatibility matrix verified,W9,Only tested Foundry+system versions advertised,Pass,P0
+TEST-GOV-001,Complete-scope acceptance,W0/W9,All approved feature domains evidenced in one deployable module,Pass,P0

@@ -1,0 +1,20 @@
+
+> easy-plots@1.11.0-dev spec:check
+> python spec/tools/validate_spec_v02.py && python tools/report-coverage.py --check
+
+PASS: 125 decisions, 125 decision-specific proposed tests, 28 requirement groups
+PASS: 97 unique candidate node providers, 57 unique logical record groups
+PASS: 2 JSON Schema bundles structurally valid; existing fixture validation checked; both TS proposal files compile
+NOT RUN: actual Foundry VTT, permissions, sockets, co-GM, native effects, migrations, performance
+PASS: traceability inventory for 97 candidate contracts and 125 decisions; 120 editor node types
+Local contract-test mappings: 7
+Other candidate contracts awaiting individual semantic review: 90
+Missing-feature count: not determined by this inventory.
+Inventory validation is not a feature-completeness or Foundry certification.
+
+> easy-plots@1.11.0-dev review:check
+> python tools/review-decisions.py --check
+
+PASS: 125 individual observations; references checked against 773 actual passing cases
+{'evidence-present': 74, 'partial': 48, 'confirmed-gap': 3}
+Evidence-present is not a completed-decision count. No final Foundry scenario has been run.

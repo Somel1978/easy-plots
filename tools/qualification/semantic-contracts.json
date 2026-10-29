@@ -1,0 +1,1505 @@
+{
+  "easy-plots.core.event-received": {
+    "interface_status": "direct",
+    "engine_nodes": [
+      "core.trigger.event"
+    ],
+    "service_entrypoints": [
+      "src/runtime/durable-router.mjs#DurableReactiveRouter"
+    ],
+    "semantic_mapping": "Canonical event trigger starts evaluation from the durable authenticated event envelope.",
+    "deviation_or_limit": "Event output is GM protected; execution remains proposal/review/journal, and native delivery still requires final qualification.",
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.document-event": {
+    "interface_status": "direct",
+    "engine_nodes": [
+      "core.trigger.document-event"
+    ],
+    "service_entrypoints": [
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "semantic_mapping": "Document Hooks are admitted through native provenance and the specialized document-event trigger.",
+    "deviation_or_limit": "A document observation does not authorize a native consequence or establish Combat outcome.",
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.schedule-due": {
+    "interface_status": "direct",
+    "engine_nodes": [
+      "core.trigger.schedule-due"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/temporal-coordinator.mjs#GMTemporalCoordinator"
+    ],
+    "semantic_mapping": "Verified due records produce canonical schedule-due input for subscribed published graphs.",
+    "deviation_or_limit": "Only due records selected through the bounded coordinator are authoritative; clock movement alone does not apply effects.",
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.manual-trigger": {
+    "interface_status": "direct",
+    "engine_nodes": [
+      "core.trigger.manual"
+    ],
+    "service_entrypoints": [
+      "src/runtime/manual-event-gateway.mjs"
+    ],
+    "semantic_mapping": "Explicit GM manual ingress produces a canonical manual event for the specialized trigger.",
+    "deviation_or_limit": "Submitting the manual event does not approve downstream effect proposals.",
+    "test_sources": [
+      "tests/specialized-triggers.test.mjs",
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.evaluate-condition": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.data.event",
+      "core.data.compare"
+    ],
+    "service_entrypoints": [
+      "src/graph/typed-data.mjs"
+    ],
+    "semantic_mapping": "Event data extraction and typed comparison compose a protected boolean value.",
+    "deviation_or_limit": "Two authored nodes replace the candidate's single event-to-boolean node; field/type choices are explicit.",
+    "test_sources": [
+      "tests/canonical-event-data.test.mjs",
+      "tests/data-guards.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.branch-exclusive": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.branch.data",
+      "core.branch.condition"
+    ],
+    "service_entrypoints": [
+      "src/runtime/data-guards.mjs"
+    ],
+    "semantic_mapping": "A typed predicate feeds core.branch.data and selects exactly one event path.",
+    "deviation_or_limit": "The input also needs the event carrier; core.branch.condition separately evaluates configured predicates.",
+    "test_sources": [
+      "tests/data-guards.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.branch-parallel": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.branch.parallel"
+    ],
+    "service_entrypoints": [
+      "src/runtime/durable-router.mjs#DurableReactiveRouter"
+    ],
+    "semantic_mapping": "core.branch.parallel fans the event carrier across eligible connected paths.",
+    "deviation_or_limit": "The catalog's flow[] is represented by multiple event edges; ordering and deduplication require evaluator tests, not port-count equivalence.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.join": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.flow.join"
+    ],
+    "service_entrypoints": [
+      "src/graph/flow-join.mjs#validateFlowJoin"
+    ],
+    "semantic_mapping": "core.flow.join validates a configured rendezvous over event-flow arrivals.",
+    "deviation_or_limit": "One declared event input represents configured incoming edges; the proposed flow[] interface is not a literal matching port.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.subgraph-call": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.subgraph.call",
+      "core.data.call",
+      "core.data.parameter",
+      "core.data.export",
+      "core.subgraph.mixed"
+    ],
+    "service_entrypoints": [
+      "src/graph/subgraph-call.mjs"
+    ],
+    "semantic_mapping": "Published subgraph calls include pure typed calls, event calls and core.subgraph.mixed with typed parameters/exports and effect proposals.",
+    "deviation_or_limit": "Parameters, published versions, arguments and revisions are pinned; composition replaces the catalog's generic typed[] interface.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs",
+      "tests/mixed-subgraph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.event-filter": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.event.filter"
+    ],
+    "service_entrypoints": [
+      "src/graph/logic-nodes.mjs"
+    ],
+    "semantic_mapping": "core.event.filter forwards only matching canonical event envelopes.",
+    "deviation_or_limit": "Filtering is configured on the node and never authenticates an untrusted envelope by itself.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.state-read": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.state.value"
+    ],
+    "service_entrypoints": [
+      "src/graph/typed-data.mjs"
+    ],
+    "semantic_mapping": "core.state.value reads an entity-keyed authoritative state into an explicitly configured typed output with revision evidence.",
+    "deviation_or_limit": "core.state.read is a separate comparison/branch node; it must not be substituted for arbitrary value output.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.state-proposal": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.effect.proposal"
+    ],
+    "service_entrypoints": [
+      "src/runtime/proposal-review.mjs#DurableProposalReview"
+    ],
+    "semantic_mapping": "core.effect.proposal stages an immutable state/effect intent in durable GM review.",
+    "deviation_or_limit": "Intent is a protected review record, not a graph output capability; opening or evaluating never applies it.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.approval-gate": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/proposal-review.mjs#DurableProposalReview"
+    ],
+    "semantic_mapping": "GM decide and execute operate on a persisted proposal with independent approval and execution checks.",
+    "deviation_or_limit": "No graph approval token is emitted; approval is a server-validated review state that cannot be wired as ordinary data.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.rate-budget-gate": {
+    "interface_status": "partial",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/durable-router.mjs#DurableReactiveRouter"
+    ],
+    "semantic_mapping": "Runtime work budgets bound evaluation and protect against unbounded execution.",
+    "deviation_or_limit": "A configured per-key authored rate gate corresponding to the candidate interface is not established by global budgets.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.publish-view": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/knowledge-publications.mjs#KnowledgePublications"
+    ],
+    "semantic_mapping": "Reviewed projection/publication workflows select allowlisted data and authorized recipients before protected delivery.",
+    "deviation_or_limit": "There is no generic arbitrary approved-data-to-view node; each publication family has a bounded reviewed contract.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.core.effect-intent": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.effect.proposal"
+    ],
+    "service_entrypoints": [
+      "src/runtime/approved-operation-gateway.mjs#ApprovedOperationEventGateway"
+    ],
+    "semantic_mapping": "DurableProposalReview executes approved intents through EffectCoordinator; verified original operations may explicitly emit a continuation event.",
+    "deviation_or_limit": "Operations live in journals, not graph data ports; continuation requires a separate approved gateway step and fresh target proposals.",
+    "test_sources": [
+      "tests/typed-data-flow.test.mjs",
+      "tests/typed-subgraphs.test.mjs",
+      "tests/proposal-review.test.mjs",
+      "tests/approved-operation-gateway.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.qualify-milestone": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.milestone.qualify"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-investigation-milestones.mjs#PersistentInvestigationMilestones"
+    ],
+    "semantic_mapping": "core.milestone.qualify creates a proposed milestone qualification backed by canonical evidence.",
+    "deviation_or_limit": "The milestone is persisted through the approved provider; it is not exposed as an arbitrary milestone data output.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.complete-milestone": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.milestone.complete-reviewed"
+    ],
+    "service_entrypoints": [
+      "src/runtime/reviewed-milestone-provider.mjs"
+    ],
+    "semantic_mapping": "core.milestone.complete-reviewed rechecks the qualification before a separately approved completion.",
+    "deviation_or_limit": "Input is an event with configured protected references, not an untrusted milestone object; resulting state is persisted.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.quest-projection": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-quest-projections.mjs#PersistentQuestProjections"
+    ],
+    "semantic_mapping": "Revision-pinned quest publications are prepared, reviewed and projected for a verified observer.",
+    "deviation_or_limit": "Projection is a service/player transport workflow, not an objective-to-public-view graph port.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.unlock-opportunity": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.quest.opportunity"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.quest.opportunity proposes the canonical opportunity change through the normal journaled effect path.",
+    "deviation_or_limit": "An opportunity record is a persisted consequence; there is no output token that bypasses review.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.cross-plot-dependency": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/crossplot-coordinator.mjs#GMCrossPlotCoordinator"
+    ],
+    "semantic_mapping": "The crossplot coordinator records explicit dependencies and routes independent target proposals with provenance.",
+    "deviation_or_limit": "Configured subscribed targets replace target[] data output; each target still requires its own authorization and review.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.outcome-exclusivity": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-investigation-milestones.mjs#PersistentInvestigationMilestones"
+    ],
+    "semantic_mapping": "Milestone/quest qualification and closure retain exclusive outcome selection in protected state.",
+    "deviation_or_limit": "A generic state-to-eligibility data node is not established; workflow-specific exclusivity must be reviewed against the candidate.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.quests.objective-closure": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.quest.objective"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.quest.objective proposes canonical objective state changes, preserving source/history.",
+    "deviation_or_limit": "Reviewed state mutation replaces review-to-status data flow; eligibility and downstream fanout remain separate.",
+    "test_sources": [
+      "tests/quest-projection-native-flow.test.mjs",
+      "tests/branch-milestone.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.canonical-fact": {
+    "interface_status": "partial",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge.mjs#PersistentKnowledgeLedger"
+    ],
+    "semantic_mapping": "Canonical claims/facts and observer disclosures are protected revisioned records; core.world.fact proposes canonical fact writes.",
+    "deviation_or_limit": "The candidate's read-only out:fact graph provider is not implemented by the write proposal node.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.observer-claim": {
+    "interface_status": "partial",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge.mjs#PersistentKnowledgeLedger"
+    ],
+    "semantic_mapping": "The ledger records observer claims/disclosures and bounded authorized projections.",
+    "deviation_or_limit": "core.knowledge.belief writes a proposed belief; it is not a read-only out:claim data node.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.evidence-discovered": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge-propagation.mjs#PersistentKnowledgePropagation"
+    ],
+    "semantic_mapping": "Discovery/disclosure events flow through canonical event routing and reviewed knowledge propagation.",
+    "deviation_or_limit": "No dedicated typed evidence output is established; native observations and observer learning remain distinct steps.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.evidence-corroboration": {
+    "interface_status": "partial",
+    "engine_nodes": [
+      "core.gate.evidence-corroborated"
+    ],
+    "service_entrypoints": [
+      "src/graph/advanced-logic.mjs"
+    ],
+    "semantic_mapping": "core.gate.evidence-corroborated branches event flow using configured corroboration criteria.",
+    "deviation_or_limit": "It does not implement evidence[] input plus a structured authoritative assessment output.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.knowledge-policy": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge-propagation.mjs#PersistentKnowledgePropagation"
+    ],
+    "semantic_mapping": "Propagation plans pin disclosure, connections and recipient state before individual recipient approval.",
+    "deviation_or_limit": "Policy is a protected plan/workflow rather than arbitrary fact-to-policy graph data.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.disclosure-request": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.knowledge.approve-recipient"
+    ],
+    "service_entrypoints": [
+      "src/runtime/reviewed-knowledge-provider.mjs"
+    ],
+    "semantic_mapping": "core.knowledge.approve-recipient revalidates a pinned propagation plan and creates only the selected recipient's receipt.",
+    "deviation_or_limit": "An event and configured references replace knowledge-to-intent ports; observer knowledge never spreads by projection alone.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.retraction": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.knowledge.retraction"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/knowledge-revisions.mjs"
+    ],
+    "semantic_mapping": "core.knowledge.retraction creates a reviewed correction preserving the original receipt and causal history.",
+    "deviation_or_limit": "Correction is a new protected revision, not deletion of historical claims or an unrestricted graph revision value.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.belief-update": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.knowledge.belief"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge.mjs#PersistentKnowledgeLedger"
+    ],
+    "semantic_mapping": "core.knowledge.belief proposes an observer-specific belief/state change through canonical effects.",
+    "deviation_or_limit": "Evidence validation and recipient authority are workflow inputs; belief is persisted rather than emitted as data.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.rumor-propagation": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.knowledge.rumor"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge-propagation.mjs#PersistentKnowledgePropagation"
+    ],
+    "semantic_mapping": "Rumor propagation pins the original disclosure and selected connections then records independently approved recipient knowledge.",
+    "deviation_or_limit": "Rumor stance is preserved as observer knowledge and never upgraded to canonical truth; targets are reviewed protected plan records, not arbitrary output data.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.hypothesis-evaluation": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.investigation.reviewed-hypothesis"
+    ],
+    "service_entrypoints": [
+      "src/runtime/reviewed-hypothesis-provider.mjs"
+    ],
+    "semantic_mapping": "core.investigation.reviewed-hypothesis persists the reviewed hypothesis after rechecking selected observer evidence.",
+    "deviation_or_limit": "Public claims do not become canonical truth; the result is a protected GM review record instead of a reusable approval capability.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.knowledge.safe-affordance": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/security/projection.mjs"
+    ],
+    "semantic_mapping": "Player projections and request gates expose only authored allowlisted affordances for a verified actor/observer.",
+    "deviation_or_limit": "Affordances are produced by bounded projection/transport contracts; no generic policy-to-action graph node is certified.",
+    "test_sources": [
+      "tests/knowledge-revisions.test.mjs",
+      "tests/reviewed-knowledge-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.investigation.opportunity": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.investigation.opportunity"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/investigation-workbench.mjs#GMInvestigationWorkbench"
+    ],
+    "semantic_mapping": "core.investigation.opportunity stages a canonical opportunity through the GM-reviewed domain provider.",
+    "deviation_or_limit": "Attempt identity and eligibility are separately protected; event input is not the candidate's arbitrary context value.",
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.investigation.shared-evidence": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge-propagation.mjs#PersistentKnowledgePropagation"
+    ],
+    "semantic_mapping": "Recipient-approved disclosure creates independently recorded observer knowledge used by investigation boards.",
+    "deviation_or_limit": "Sharing never grants every participant knowledge implicitly; there is no generic disclosure-to-knowledge graph output.",
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.investigation.contribution-ledger": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.investigation.contribution"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.investigation.contribution records a reviewed contribution with stable source and history.",
+    "deviation_or_limit": "Credit is a canonical persisted record, not a flow output that can authorize a second award.",
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.investigation.viability-check": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/investigation-viability.mjs#analyzeInvestigationViability"
+    ],
+    "semantic_mapping": "A bounded diagnostic evaluates objectives, available opportunities and verified evidence with explicit coverage.",
+    "deviation_or_limit": "The report is a service result; partial input coverage must remain visible and cannot prove global viability.",
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.investigation.conclusion-review": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.investigation.conclusion"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/investigation-workbench.mjs#GMInvestigationWorkbench"
+    ],
+    "semantic_mapping": "core.investigation.conclusion proposes reviewed investigation closure while preserving hypothesis/evidence provenance.",
+    "deviation_or_limit": "Closure persists state after approval; hypothesis data alone never authorizes the mutation.",
+    "test_sources": [
+      "tests/investigation-workbench.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.membership-change": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.faction.membership"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.faction.membership proposes canonical faction membership changes independently of renown and relationships.",
+    "deviation_or_limit": "Authorized-event input and durable review replace a graph authorization token and membership output.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.renown-change": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.faction.renown"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.faction.renown proposes renown changes with stable source identity and canonical history.",
+    "deviation_or_limit": "Renown does not imply membership or rank/privilege grants; resulting value is stored rather than a data-port result.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.rank-and-privilege-check": {
+    "interface_status": "partial",
+    "engine_nodes": [
+      "core.gate.faction-rank"
+    ],
+    "service_entrypoints": [
+      "src/graph/advanced-logic.mjs"
+    ],
+    "semantic_mapping": "core.gate.faction-rank evaluates configured rank predicates on event flow.",
+    "deviation_or_limit": "A typed authoritative member input and independently authorized complete privilege/eligibility output are not established.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.agenda-due": {
+    "interface_status": "composition",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/reviewed-faction-scheduling.mjs"
+    ],
+    "semantic_mapping": "Reviewed faction schedules become canonical due events through the shared temporal gateway.",
+    "deviation_or_limit": "Generic schedule-due filtering and protected faction references replace a dedicated faction-specific trigger.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.agenda-evaluate": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.faction.agenda"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-faction-agenda.mjs#PersistentFactionAgenda"
+    ],
+    "semantic_mapping": "core.faction.agenda proposes a protected agenda record and reviewed scheduling evaluates its selected evidence.",
+    "deviation_or_limit": "The mutation node is not by itself an authoritative knowledge-to-decision data evaluator.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.threat-clock-tick": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.pressure.clock"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.pressure.clock proposes a bounded pressure-clock change through approval and journaling.",
+    "deviation_or_limit": "Clock state is persisted; an approved-event claim in graph data cannot substitute for GM authorization.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.factions.faction-reaction": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.faction.review-agenda",
+      "core.faction.schedule-reviewed-action"
+    ],
+    "service_entrypoints": [
+      "src/runtime/reviewed-faction-agenda-provider.mjs"
+    ],
+    "semantic_mapping": "core.faction.review-agenda and schedule-reviewed-action stage a selected agenda reaction and its due commitment.",
+    "deviation_or_limit": "Assessment, scheduling and eventual effect remain separately reviewed records rather than one automatic agenda-effect.",
+    "test_sources": [
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/reviewed-faction-schedule.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.identity-persona": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-identities.mjs#PersistentNarrativeIdentities"
+    ],
+    "semantic_mapping": "PersistentNarrativeIdentities.resolve reads stable entity/persona records and optional native bindings.",
+    "deviation_or_limit": "The read service exists; no standalone typed out:identity graph provider is established by persona-link mutation.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/domain-workflow-scenarios.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.relationship-evaluate": {
+    "interface_status": "partial",
+    "engine_nodes": [
+      "core.gate.relationship"
+    ],
+    "service_entrypoints": [
+      "src/graph/advanced-logic.mjs"
+    ],
+    "semantic_mapping": "core.gate.relationship evaluates configured event predicates; canonical relations are stored independently.",
+    "deviation_or_limit": "The gate does not implement arbitrary observer-to-authoritative-relation typed data flow.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.debt-and-favor": {
+    "interface_status": "partial",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "Canonical obligation records, mutation proposals and obligation gates track debts/favors without native Actors.",
+    "deviation_or_limit": "A read-only out:obligation graph data provider is not established by those mutation/gate nodes.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.obligation-update": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.obligation.resolve"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.obligation.resolve proposes a protected obligation resolution with original history retained.",
+    "deviation_or_limit": "Result is persisted through separate authorization, not an unrestricted obligation data output.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.npc-schedule": {
+    "interface_status": "composition",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-npc-actions.mjs#PersistentNPCActions"
+    ],
+    "semantic_mapping": "NPC schedule and agenda records feed reviewed commitments and the indexed temporal due gateway.",
+    "deviation_or_limit": "A selected schedule-specific due event replaces the generic proposed out:due graph value; knowledge and availability are rechecked.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/persistent-npc-actions.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.npc-agenda": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.npc.agenda"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-npc-actions.mjs#PersistentNPCActions"
+    ],
+    "semantic_mapping": "core.npc.agenda stores the authored agenda; PersistentNPCActions assesses NPC knowledge, availability and schedule revisions.",
+    "deviation_or_limit": "The agenda mutation is not a generic context-to-intent data node; reviewed action preparation is a separate workflow.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/persistent-npc-actions.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.people.persona-reveal": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.identity.persona-link"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-knowledge-propagation.mjs#PersistentKnowledgePropagation"
+    ],
+    "semantic_mapping": "Persona reveal is recipient-specific reviewed knowledge propagation over stable identity/persona records.",
+    "deviation_or_limit": "core.identity.persona-link only records a relationship and cannot itself disclose identity to every observer.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs",
+      "tests/reviewed-faction-graph.test.mjs",
+      "tests/domain-workflow-scenarios.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.spatial.location-hierarchy": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-spatial.mjs#PersistentSpatialAtlas"
+    ],
+    "semantic_mapping": "A selected persisted region supplies a bounded hierarchy and same-observer linked region navigation using pinned discovery/knowledge revisions.",
+    "deviation_or_limit": "The service and public atlas DTO implement selected-region navigation; the proposed arbitrary out:location graph data port is not asserted.",
+    "test_sources": [
+      "tests/persistent-spatial.test.mjs",
+      "tests/spatial-native.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.spatial.route-check": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.gate.route-status"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-spatial.mjs#PersistentSpatialAtlas"
+    ],
+    "semantic_mapping": "The atlas route service resolves known passable paths only through pinned observer-visible places, routes and selected corrections.",
+    "deviation_or_limit": "An authoritative observer-specific service result replaces the proposed arbitrary typed location-to-availability graph node. The event predicate alone is not equivalent.",
+    "test_sources": [
+      "tests/persistent-spatial.test.mjs",
+      "tests/spatial-transport.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.spatial.discover-location": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.location.discovery"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.location.discovery proposes a canonical observer discovery after independent authorization.",
+    "deviation_or_limit": "Knowledge projection and recipient disclosure remain separate; no automatic generic knowledge output is granted.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.spatial.geographic-trigger": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "semantic_mapping": "Native document observations can be filtered and routed into authored location-related proposals.",
+    "deviation_or_limit": "No dedicated canonical geographic crossing predicate/trigger is established merely by accepting document Hooks.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.spatial.travel-event": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/manual-event-gateway.mjs"
+    ],
+    "semantic_mapping": "An authored reviewed journey can enter canonical manual/event routing with stable causal identity.",
+    "deviation_or_limit": "A dedicated typed journey-producing graph trigger is not established by generic ingress.",
+    "test_sources": [
+      "tests/temporal-identity-spatial.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.fiction-time-guard": {
+    "interface_status": "partial",
+    "engine_nodes": [
+      "core.gate.world-time"
+    ],
+    "service_entrypoints": [
+      "src/graph/advanced-logic.mjs"
+    ],
+    "semantic_mapping": "core.gate.world-time branches an event against authored time criteria.",
+    "deviation_or_limit": "A predicate on configured/event data is not a typed worldtime-to-boolean authoritative clock provider.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.due-event": {
+    "interface_status": "direct",
+    "engine_nodes": [
+      "core.trigger.schedule-due"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/temporal-coordinator.mjs#GMTemporalCoordinator"
+    ],
+    "semantic_mapping": "The indexed temporal coordinator verifies due sources before core.trigger.schedule-due evaluation.",
+    "deviation_or_limit": "Due eligibility is distinct from authorization and never auto-executes pending consequences.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.deadline-check": {
+    "interface_status": "partial",
+    "engine_nodes": [
+      "core.gate.deadline"
+    ],
+    "service_entrypoints": [
+      "src/graph/advanced-logic.mjs"
+    ],
+    "semantic_mapping": "core.gate.deadline branches event flow against the authored deadline condition.",
+    "deviation_or_limit": "The event gate does not expose a typed time-to-state result or imply full index coverage.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.delayed-consequence": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.time.scheduled-action"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/temporal-coordinator.mjs#GMTemporalCoordinator"
+    ],
+    "semantic_mapping": "core.time.scheduled-action persists a reviewed scheduled action in a bounded temporal index.",
+    "deviation_or_limit": "Queueing does not authorize due execution; due proposals require their own review and original revisions.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.world-time-plan": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.time.transition-plan"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/temporal-catchup.mjs#PersistentTemporalCatchup"
+    ],
+    "semantic_mapping": "Transition planning and durable catch-up cursor pages bound work over an explicit interval.",
+    "deviation_or_limit": "The plan is a protected persisted service record, not a graph interval-to-plan output; cursor advancement emits no effects.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs",
+      "tests/temporal-catchup.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.time-reconcile": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/temporal-catchup.mjs#PersistentTemporalCatchup"
+    ],
+    "semantic_mapping": "Catch-up verifies original due pages and advances explicit durable buckets; temporal gateway emits approved events separately.",
+    "deviation_or_limit": "No single automatic approved-plan-to-events node is certified; event emission and consequences remain independently authorized.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs",
+      "tests/temporal-catchup.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.timeline-view": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-chronology.mjs#PersistentNarrativeChronology"
+    ],
+    "semantic_mapping": "Chronology query selects a timeline, bounded interval and optional observer with protected disclosure filtering.",
+    "deviation_or_limit": "Timeline is a service projection; canonical history and observer knowledge are distinct and incomplete coverage is explicit.",
+    "test_sources": [
+      "tests/temporal-coordinator.test.mjs",
+      "tests/native-temporal-index.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.temporal.alternate-branch": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-timelines.mjs#PersistentTimelineBranches"
+    ],
+    "semantic_mapping": "Versioned isolated fact-state branches retain source-pinned lineage and source-proven canonical selection through PersistentTimelineBranches.",
+    "deviation_or_limit": "Selection observes actual separately approved same-ID world facts; no hypothesis is committed and no chronology is fabricated. A protected service replaces the proposed snapshot-to-hypothesis port.",
+    "test_sources": [
+      "tests/persistent-timeline-branches.test.mjs",
+      "tests/native-timeline-session.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.encounters.encounter-ready": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/manual-event-gateway.mjs"
+    ],
+    "semantic_mapping": "Reviewed encounter input can enter the canonical manual/event gateway before graph evaluation.",
+    "deviation_or_limit": "No dedicated ready trigger or automatic Combat creation follows from generic event submission.",
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.encounters.native-roll": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.roll.value"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/roll-system-policies.mjs#RollSystemPolicies"
+    ],
+    "semantic_mapping": "D20/opposed coordinators pin exact authored system/version/build policies and preserve original attempt outcomes; core.roll.value reads resolved results.",
+    "deviation_or_limit": "There is no graph node that creates a native roll during data evaluation; authored d20 policies do not certify system-native rules compatibility.",
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs",
+      "tests/roll-system-policies.test.mjs",
+      "tests/roll-input-graph.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.encounters.partial-success-band": {
+    "interface_status": "composition",
+    "engine_nodes": [
+      "core.branch.roll-band"
+    ],
+    "service_entrypoints": [
+      "src/runtime/roll-input.mjs"
+    ],
+    "semantic_mapping": "core.roll.value reads a pinned resolved total/outcome; core.branch.roll-band selects authored result bands.",
+    "deviation_or_limit": "Band classification never rerolls or reveals secret thresholds; event predicate and typed authoritative read are distinct.",
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.encounters.combat-event": {
+    "interface_status": "direct",
+    "engine_nodes": [
+      "core.trigger.document-event"
+    ],
+    "service_entrypoints": [
+      "src/platform/foundry-hook-ingress.mjs"
+    ],
+    "semantic_mapping": "Verified native Combat document Hooks enter the specialized document-event trigger.",
+    "deviation_or_limit": "Hook observation is private evidence; canonical outcome selection/closure is a separate reviewed workflow.",
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.encounters.encounter-closure": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.encounter.outcome",
+      "core.trigger.encounter-closed"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/encounter-closures.mjs#PersistentEncounterClosures"
+    ],
+    "semantic_mapping": "A verified original deleteCombat operation is selected once per world/Combat UUID and can emit core.trigger.encounter-closed.",
+    "deviation_or_limit": "core.encounter.outcome proposes the native outcome; unique closure and explicit event emission add separate approvals and do not delete Combat on observation.",
+    "test_sources": [
+      "tests/foundry-rolls.test.mjs",
+      "tests/opposed-rolls.test.mjs",
+      "tests/encounter-closures.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.arcs.ending-eligibility": {
+    "interface_status": "partial",
+    "engine_nodes": [
+      "core.branch.arc-ending"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/campaign-closure.mjs#planCampaignClosure"
+    ],
+    "semantic_mapping": "The closure planner evaluates authored ending contracts and facets; core.branch.arc-ending branches event flow.",
+    "deviation_or_limit": "A branch gate alone does not expose a typed ending[] eligibility result; the bounded planner carries coverage/source evidence.",
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.arcs.primary-ending-selection": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.arc.conclude"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-arc-resolution.mjs#PersistentArcResolutions"
+    ],
+    "semantic_mapping": "core.arc.conclude and the protected resolution workflow select a reviewed primary ending at a pinned arc revision.",
+    "deviation_or_limit": "Resolution is persisted and reviewed independently; graph data cannot act as an approved-choice capability.",
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.arcs.epilogue-projection": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.arc.epilogue"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-arc-resolution.mjs#PersistentArcResolutions"
+    ],
+    "semantic_mapping": "core.arc.epilogue records reviewed narrative epilogue content for later observer-specific projection.",
+    "deviation_or_limit": "Recording content does not publish it to every player; service projection replaces a generic resolution-to-view node.",
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.arcs.continuity-manifest": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.campaign.continuity"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-arc-archives.mjs#PersistentArcArchives"
+    ],
+    "semantic_mapping": "core.campaign.continuity and arc archives preserve approved references and provenance for campaign continuation.",
+    "deviation_or_limit": "References are protected persisted records; native resources are optional and not implicitly created.",
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.arcs.dormant-hook-activation": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.story.hook"
+    ],
+    "service_entrypoints": [
+      "src/runtime/canonical-domain-effects.mjs"
+    ],
+    "semantic_mapping": "core.story.hook proposes a narrative hook's canonical state transition.",
+    "deviation_or_limit": "Narrative hook activation is distinct from publishing/activating executable graph snapshots.",
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.arcs.aftereffect": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.time.scheduled-action"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/temporal-coordinator.mjs#GMTemporalCoordinator"
+    ],
+    "semantic_mapping": "core.time.scheduled-action stores a future narrative consequence with stable source and bounded due index.",
+    "deviation_or_limit": "Scheduling never authorizes the eventual live effect and does not emit a future value data port.",
+    "test_sources": [
+      "tests/persistent-arc-resolution.test.mjs",
+      "tests/campaign-closure.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.resources.native-resource-plan": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.resource.ordered-batch"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/resource-manifests.mjs#ResourceManifests"
+    ],
+    "semantic_mapping": "The canonical resource manifest records planned, journal-verified materialized and separately approved active phases over immutable shell-only batch plans.",
+    "deviation_or_limit": "Original native proofs and exact graph activation are checked independently; generic template-to-manifest data ports are replaced by protected service workflows.",
+    "test_sources": [
+      "tests/resource-manifests.test.mjs",
+      "tests/native-resource-lifecycle.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.resources.materialize-foundry-document": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.resource.materialize-journal",
+      "core.resource.materialize-actor",
+      "core.resource.materialize-item"
+    ],
+    "service_entrypoints": [
+      "src/platform/foundry-actor-item-provider.mjs"
+    ],
+    "semantic_mapping": "Journal/Actor/Item materialization nodes create only explicitly approved native resources through protected original-operation journals.",
+    "deviation_or_limit": "UUIDs are verified persisted outcomes; unknown acknowledgements require original confirmation and never automatic recreation.",
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.resources.resource-drift-verify": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/resource-reconciliation.mjs#auditResourceReferences"
+    ],
+    "semantic_mapping": "Bounded resource audit compares narrative references, bindings and known resources and exposes drift/unknowns.",
+    "deviation_or_limit": "A service diagnostic replaces a generic manifest-to-report graph provider and must not claim world-wide coverage from a subset.",
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.resources.guided-rebind": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.resource.bind-native"
+    ],
+    "service_entrypoints": [
+      "src/platform/foundry-resource-binding.mjs#createFoundryResourceBindingProvider"
+    ],
+    "semantic_mapping": "core.resource.bind-native uses an explicit reviewed selected native UUID and protected narrative binding.",
+    "deviation_or_limit": "Candidates are suggestions only; binding never edits borrowed native resource content or approves arbitrary player references.",
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.resources.blueprint-inherit": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-blueprints.mjs#PersistentBlueprintCatalog"
+    ],
+    "semantic_mapping": "Versioned field blueprints instantiate protected instances with explicit local overrides; graph templates create linked drafts separately.",
+    "deviation_or_limit": "Instantiation does not materialize native resources, publish graphs or activate them automatically.",
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.resources.blueprint-merge-preview": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-blueprints.mjs#PersistentBlueprintCatalog"
+    ],
+    "semantic_mapping": "planAdoption computes a revision-pinned field diff preserving explicit local overrides before reviewed adoption.",
+    "deviation_or_limit": "Graph-template whole-graph update adoption is a different workflow and is not certified by field-merge tests.",
+    "test_sources": [
+      "tests/native-resource-binding.test.mjs",
+      "tests/persistent-blueprints.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.session-agenda": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-session-preparation.mjs#PersistentSessionPreparation"
+    ],
+    "semantic_mapping": "Persistent multi-plot preparation pins exact active publications, activation revisions and named bounded source references with private owner-GM agenda edits.",
+    "deviation_or_limit": "Preparation is a protected service, separate from Handoff/publication/effects, rather than a generic plot[]-to-plan graph node.",
+    "test_sources": [
+      "tests/persistent-session-preparation.test.mjs",
+      "tests/native-timeline-session.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.narrative-health": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/focused-health-service.mjs#GMFocusedHealthService"
+    ],
+    "semantic_mapping": "Focused health inspects explicit bounded scopes and reports coverage, missing references and severity.",
+    "deviation_or_limit": "A focused diagnostic cannot imply complete-world health; input scope/coverage stays part of the report.",
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.why-why-not": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/explainability.mjs"
+    ],
+    "semantic_mapping": "Recorded evaluations expose causal why/why-not information tied to source events and proposals.",
+    "deviation_or_limit": "Diagnostic explanation is GM protected and does not execute the event or imply absent unobserved causes.",
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.what-if": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/durable-router.mjs#DurableReactiveRouter"
+    ],
+    "semantic_mapping": "simulatePublished runs the actual published evaluator with isolated hypotheses and simulated providers, storing no live effects.",
+    "deviation_or_limit": "Native providers, native randomness and live event emission are excluded; saved plan submission is a separate reviewed gateway.",
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs",
+      "tests/published-graph-simulation.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.forecast": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-forecasts.mjs#PersistentNarrativeForecasts"
+    ],
+    "semantic_mapping": "A bounded forecast service previews and persists source-pinned forecasts with explicit assumptions.",
+    "deviation_or_limit": "Forecasts express authored hypotheses rather than guaranteed live future outcomes or automatic plans.",
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.reviewed-recap": {
+    "interface_status": "workflow",
+    "engine_nodes": [
+      "core.campaign.recap"
+    ],
+    "service_entrypoints": [
+      "src/orchestration/persistent-session-handoff.mjs#PersistentSessionHandoff"
+    ],
+    "semantic_mapping": "core.campaign.recap and the session handoff store reviewed recap content and selected verified references.",
+    "deviation_or_limit": "A recap write does not authorize publication; player projection rechecks the intended observer.",
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.planning.attention-priority": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-gm-focus.mjs#PersistentGMFocus"
+    ],
+    "semantic_mapping": "Protected focus state pins graph/event attention with bounded snapshots and explicit scene selection.",
+    "deviation_or_limit": "Priority/focus is advisory and cannot change effect authorization or expose hidden signals to players.",
+    "test_sources": [
+      "tests/persistent-plans.test.mjs",
+      "tests/persistent-session-handoff.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.intents.submit-affordance": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/platform/foundry-board-transport.mjs"
+    ],
+    "semantic_mapping": "Authenticated player transports map known public affordances into bounded protected requests with actor/observer rechecks.",
+    "deviation_or_limit": "Player-supplied protected IDs and arbitrary actions are refused; submission is not approval or execution.",
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.intents.gm-review-request": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/player-board-edits.mjs#PlayerBoardEdits"
+    ],
+    "semantic_mapping": "Player requests become immutable private review records; a configured draft handler produces independently approved effects.",
+    "deviation_or_limit": "Review records are service state; no graph approval capability or direct player write is emitted.",
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.intents.vote-collection": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/orchestration/persistent-voting.mjs#PersistentNarrativeVotes"
+    ],
+    "semantic_mapping": "Protected ballots and reviewed final decisions retain participant authorization and bounded choice semantics.",
+    "deviation_or_limit": "Votes do not automatically execute consequences; result projection is separately allowlisted per observer.",
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.intents.attempt-deduplicate": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/runtime/event-ledger.mjs"
+    ],
+    "semantic_mapping": "Stable attempt/event identities, immutable fingerprints and effect journals distinguish original, duplicate and uncertain outcomes.",
+    "deviation_or_limit": "Deduplication is enforced by persistent gateways/journals; it is not a reusable generic classification port and unknown effects cannot replay.",
+    "test_sources": [
+      "tests/persistent-voting.test.mjs",
+      "tests/scoped-actor-authorization.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.publication.graph-preflight": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/graph/publication-preflight.mjs"
+    ],
+    "semantic_mapping": "Persistent publication preflight records exact dependency identities plus actionable blocker/warning severity and required coverage before publication.",
+    "deviation_or_limit": "The registry service rechecks native source/disclosure contracts and scoped GM rights; core.condition is not an implementation and incomplete coverage is explicit.",
+    "test_sources": [
+      "tests/graph-preflight.test.mjs",
+      "tests/native-reactive.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.publication.publish-snapshot": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/graph/persistent-registry.mjs#PersistentGraphRegistry"
+    ],
+    "semantic_mapping": "publish freezes a revision-pinned validated draft into immutable pages under contextual authoring authority.",
+    "deviation_or_limit": "Publishing does not activate the snapshot; warning acknowledgement and publication permissions are separate checks.",
+    "test_sources": [
+      "tests/publication-hardening.test.mjs",
+      "tests/persistent-graphs.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  },
+  "easy-plots.publication.activate-snapshot": {
+    "interface_status": "workflow",
+    "engine_nodes": [],
+    "service_entrypoints": [
+      "src/graph/persistent-registry.mjs#PersistentGraphRegistry"
+    ],
+    "semantic_mapping": "activate selects an immutable published version with expected activation revision and current authoring authority.",
+    "deviation_or_limit": "An approved-snapshot claim in data cannot authorize activation; permission and source revision are rechecked by the registry.",
+    "test_sources": [
+      "tests/publication-hardening.test.mjs",
+      "tests/persistent-graphs.test.mjs"
+    ],
+    "equivalence_claim": "requires-individual-engineering-review"
+  }
+}

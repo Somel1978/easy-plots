@@ -1,0 +1,10 @@
+{
+  "contract": "canonical-event",
+  "versions": {
+    "1.0.0": {
+      "schemaSha256": "857f30561fa80dc8d8f4630aa03dee3d9fa837c3f5aec99e5b8d6d8cbf1dda4a",
+      "migration": "Existing unversioned events retain their original fingerprints; no inferred upgrade."
+    }
+  },
+  "policy": "A changed stable descriptor requires a new version and explicit compatibility/migration handling. UI source does not define this contract."
+}

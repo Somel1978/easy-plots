@@ -1,0 +1,882 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/easy-plots/schemas/proposed-core-v1.json",
+  "title": "Easy Plots proposed core V1 record contracts — SPECIFICATION DRAFT",
+  "description": "Not yet approved or tested against Foundry native persistence. example.invalid is a placeholder, not a service URL.",
+  "$defs": {
+    "Port": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "direction",
+        "valueType",
+        "multiplicity",
+        "required",
+        "accessClass"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "input",
+            "output"
+          ]
+        },
+        "valueType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "multiplicity": {
+          "enum": [
+            "single",
+            "many"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        }
+      }
+    },
+    "Endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodeId",
+        "portId"
+      ],
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "portId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "graphId",
+        "typeId",
+        "typeVersion",
+        "label",
+        "role",
+        "ports",
+        "data",
+        "accessClass"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "graphId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "typeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "typeVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "narrative",
+            "logic",
+            "effect",
+            "presentation"
+          ]
+        },
+        "ports": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Port"
+          }
+        },
+        "data": {
+          "type": "object"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "parentSubgraphId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "disabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Edge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "source",
+        "target",
+        "kind",
+        "accessClass"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "$ref": "#/$defs/Endpoint"
+        },
+        "target": {
+          "$ref": "#/$defs/Endpoint"
+        },
+        "kind": {
+          "enum": [
+            "flow",
+            "condition",
+            "event",
+            "data",
+            "relationship"
+          ]
+        },
+        "priority": {
+          "type": "integer"
+        },
+        "guard": {
+          "type": "object"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        }
+      }
+    },
+    "Graph": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "graph"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "partitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "rootNodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Node"
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Edge"
+          }
+        },
+        "subgraphRefs": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "requiredCapabilityIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "semanticHash": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "schemaVersion",
+        "revision",
+        "partitionId",
+        "updatedAt",
+        "accessClass",
+        "provenance",
+        "name",
+        "rootNodeId",
+        "nodes",
+        "edges",
+        "subgraphRefs",
+        "requiredCapabilityIds",
+        "semanticHash"
+      ]
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "event"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "partitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "eventType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eventVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "worldId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "enum": [
+                "foundry-hook",
+                "gm-decision",
+                "approved-intent",
+                "scheduler",
+                "reconciliation"
+              ]
+            },
+            "sourceId": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false
+        },
+        "causalParentIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "correlationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originOperationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "involvedActorIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "realTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "worldTime": {
+          "type": "number"
+        },
+        "payload": {
+          "type": "object"
+        },
+        "payloadAccess": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "schemaVersion",
+        "revision",
+        "partitionId",
+        "updatedAt",
+        "accessClass",
+        "provenance",
+        "eventType",
+        "eventVersion",
+        "worldId",
+        "origin",
+        "causalParentIds",
+        "correlationId",
+        "involvedActorIds",
+        "realTime",
+        "payload",
+        "payloadAccess"
+      ]
+    },
+    "Intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "intent"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "partitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "intentType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requestState": {
+          "enum": [
+            "received",
+            "validated",
+            "queued",
+            "rejected",
+            "gm-review",
+            "authorized",
+            "executing",
+            "verifying",
+            "completed",
+            "failed",
+            "uncertain",
+            "cancelled"
+          ]
+        },
+        "claimedUserId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verifiedUserId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requestedActorId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "opportunityId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approach": {
+          "type": "string"
+        },
+        "input": {
+          "type": "object"
+        },
+        "expectedGraphRevision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "schemaVersion",
+        "revision",
+        "partitionId",
+        "updatedAt",
+        "accessClass",
+        "provenance",
+        "intentType",
+        "requestState",
+        "requestedActorId",
+        "opportunityId",
+        "input",
+        "expectedGraphRevision",
+        "createdAt"
+      ]
+    },
+    "EffectOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "effect-operation"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "partitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "effectId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operationState": {
+          "enum": [
+            "planned",
+            "validated",
+            "authorized",
+            "prepared",
+            "applying",
+            "verifying",
+            "completed",
+            "denied",
+            "failed",
+            "uncertain",
+            "compensation-proposed",
+            "manually-reconciled"
+          ]
+        },
+        "causeEventId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nativeTarget": {
+          "type": "object"
+        },
+        "providerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expectedTargetRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "intendedMutation": {
+          "type": "object"
+        },
+        "nativeReceipt": {
+          "type": "object"
+        },
+        "verificationOutcome": {
+          "enum": [
+            "confirmed",
+            "not-applied",
+            "uncertain",
+            "requires-gm"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "schemaVersion",
+        "revision",
+        "partitionId",
+        "updatedAt",
+        "accessClass",
+        "provenance",
+        "effectId",
+        "operationState",
+        "causeEventId",
+        "providerId",
+        "providerVersion",
+        "idempotencyKey",
+        "intendedMutation"
+      ]
+    },
+    "Preflight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "publication-report"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "partitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "candidateGraphId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidateRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "severity",
+              "affectedIds",
+              "explanation"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "minLength": 1
+              },
+              "severity": {
+                "enum": [
+                  "pass",
+                  "warning",
+                  "blocker",
+                  "unverified"
+                ]
+              },
+              "affectedIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "explanation": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "dependencyRevisions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "requiredCoverageComplete": {
+          "type": "boolean"
+        },
+        "gmAcknowledgementIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "schemaVersion",
+        "revision",
+        "partitionId",
+        "updatedAt",
+        "accessClass",
+        "provenance",
+        "candidateGraphId",
+        "candidateRevision",
+        "findings",
+        "dependencyRevisions",
+        "requiredCoverageComplete",
+        "gmAcknowledgementIds"
+      ]
+    },
+    "Milestone": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "const": "milestone"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "partitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessClass": {
+          "enum": [
+            "gm-secret",
+            "gm",
+            "observer-private",
+            "party",
+            "published"
+          ]
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "objectiveId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "milestoneType": {
+          "enum": [
+            "discovery",
+            "corroboration",
+            "verified-conclusion",
+            "decision",
+            "intervention",
+            "disclosure",
+            "failure"
+          ]
+        },
+        "requiredEventTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "preconditions": {
+          "type": "object"
+        },
+        "completionPolicy": {
+          "enum": [
+            "published-rule",
+            "gm-review",
+            "gm-manual"
+          ]
+        },
+        "repeatPolicy": {
+          "enum": [
+            "once",
+            "per-actor",
+            "per-opportunity",
+            "explicit-repeat"
+          ]
+        },
+        "awardIntentIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "schemaVersion",
+        "revision",
+        "partitionId",
+        "updatedAt",
+        "accessClass",
+        "provenance",
+        "objectiveId",
+        "milestoneType",
+        "requiredEventTypes",
+        "preconditions",
+        "completionPolicy",
+        "repeatPolicy",
+        "awardIntentIds"
+      ]
+    }
+  }
+}

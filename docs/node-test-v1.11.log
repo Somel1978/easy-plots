@@ -1,0 +1,10 @@
+
+> easy-plots@1.11.0-dev check
+> node tools/check-source.mjs && npm run test:evidence
+
+PASS: syntax check for 139 module files
+
+> easy-plots@1.11.0-dev test:evidence
+> node tools/run-test-evidence.mjs
+
+PASS: 773 tests; 0 failed; 0 skipped. Evidence: /workspace/easy-plots/docs/local-test-evidence-v1.11.jsonl

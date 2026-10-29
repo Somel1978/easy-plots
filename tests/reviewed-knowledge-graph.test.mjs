@@ -1,0 +1,55 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {MemoryPartitionRepository,MemoryOperationJournal} from '../src/storage/memory.mjs';
+import {createLocalGMContext} from '../src/security/authority.mjs';
+import {PersistentGraphRegistry} from '../src/graph/persistent-registry.mjs';
+import {GraphEditorModel} from '../src/editor/model.mjs';
+import {ActiveTriggerCatalog,IndexedGraphRegistry} from '../src/runtime/active-subscriptions.mjs';
+import {DurableEventLedger} from '../src/runtime/event-ledger.mjs';
+import {DurableReactiveRouter} from '../src/runtime/durable-router.mjs';
+import {DurableProposalReview} from '../src/runtime/proposal-review.mjs';
+import {EffectProviderRegistry} from '../src/runtime/provider-registry.mjs';
+import {NarrativeDomainStore} from '../src/domains/domain-store.mjs';
+import {PersistentKnowledgeLedger} from '../src/orchestration/persistent-knowledge.mjs';
+import {PersistentKnowledgePropagation} from '../src/orchestration/persistent-knowledge-propagation.mjs';
+import {createReviewedKnowledgeProvider} from '../src/runtime/reviewed-knowledge-provider.mjs';
+const id=x=>`ep:${x}`;
+test('GM-reviewed graph disclosure uses canonical plan and produces only observer-safe facts',async()=>{
+ const gmProvider=()=>createLocalGMContext({user:{id:'GM',isGM:true},epoch:'test'},'world');
+ const repository=new MemoryPartitionRepository(),journal=new MemoryOperationJournal();
+ const domains=new NarrativeDomainStore({repository,gmProvider});
+ const knowledge=new PersistentKnowledgeLedger({domains});
+ const service=new PersistentKnowledgePropagation({domains,knowledge});
+ const alice=id('actor:alice_001'),planId=id('propagation:plan_001');
+ const claimId=id('claim:private_001'),sourceEventId=id('event:original_001');
+ await knowledge.createClaim({claimId,publicId:id('public:port_001'),publicText:'A stranger was seen at the docks',canonicalTruth:'Marrek was the stranger',sourceEventId:id('event:truth_001')});
+ await service.plan({planId,sourceEventId,worldTime:50,
+   disclosure:{eventId:sourceEventId,claimId,sourceId:id('actor:witness_001'),initialRecipientIds:[alice],stance:'reported'},
+   recipientStates:[{observerId:alice,knownEventIds:[]}],connections:[]});
+ const providers=new EffectProviderRegistry();providers.register(createReviewedKnowledgeProvider({service,gmProvider}));
+ const base=new PersistentGraphRegistry({repository,gmProvider}),catalog=new ActiveTriggerCatalog({repository,gmProvider});
+ const registry=new IndexedGraphRegistry({registry:base,catalog});
+ const ledger=new DurableEventLedger({repository,gmProvider});const router=new DurableReactiveRouter({registry,catalog,ledger,gmProvider});
+ const editor=new GraphEditorModel({registry});const graph=editor.newGraph('Disclose the witness report');
+ const node=editor.addNode('core.knowledge.approve-recipient');editor.connect(graph.rootNodeId,node);
+ editor.updateSelected({payloadJSON:JSON.stringify({scope:'world',planId,recipientId:alice,expectedPlanRevision:1,worldTime:50})});
+ await editor.save();const published=await editor.publish();await editor.activate(published.publishedVersion);
+ const evt=id('event:approve_001');
+ assert.equal((await router.ingest({id:evt,eventType:'evidence.discovered',source:{kind:'test-fixture'},payload:{}})).status,'review-required');
+ const proposal=(await ledger.get(evt)).proposals[0];assert.equal(proposal.providerId,'narrative.approve-knowledge-recipient');
+ const reviews=new DurableProposalReview({repository,ledger,registry,providers,journal,gmProvider});
+ await reviews.decide(evt,proposal.operationId,{approve:true});
+ assert.deepEqual(await service.projection({planId,observerId:alice,worldTime:100}),{claims:[]});
+ const result=await reviews.execute(evt,proposal.operationId);assert.equal(result.status,'completed');
+ const view=await service.projection({planId,observerId:alice,worldTime:100});
+ assert.equal(view.claims[0].text,'A stranger was seen at the docks');
+ assert.equal(JSON.stringify(view).includes('Marrek'),false);
+ assert.equal((await journal.get(proposal.idempotencyKey)).state,'completed');
+});
+test('knowledge effect cannot publish arbitrary truth fields in graph payload',async()=>{
+ const gmProvider=()=>createLocalGMContext({user:{id:'GM',isGM:true}},'world');
+ const repository=new MemoryPartitionRepository();const registry=new PersistentGraphRegistry({repository,gmProvider});
+ const editor=new GraphEditorModel({registry});const graph=editor.newGraph('Unsafe knowledge payload');
+ editor.addNode('core.knowledge.approve-recipient');editor.connect(graph.rootNodeId,editor.selectedNode.id);
+ editor.updateSelected({payloadJSON:JSON.stringify({...editor.selectedNode.data.payload,canonicalTruth:'private answer'})});
+ await assert.rejects(editor.save(),{code:'KNOWLEDGE_EFFECT'});
+});

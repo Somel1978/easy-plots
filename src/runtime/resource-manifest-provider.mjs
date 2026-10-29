@@ -1,0 +1,5 @@
+import {EasyPlotsError} from '../contracts/errors.mjs';
+import {assertPlainObject,assertNarrativeId,clone} from '../contracts/record.mjs';
+export const RESOURCE_ACTIVATION_PROVIDER='narrative.activate-resource-manifest';
+export function validateResourceActivation(p){assertPlainObject(p,'RESOURCE_ACTIVATION');if(Object.keys(p).sort().join(',')!=='expectedActivationRevision,expectedManifestRevision,graphId,manifestId,publishedVersion,scope'||!/^[a-z][a-z0-9-]{0,45}$/.test(p.scope??'')||[p.expectedManifestRevision,p.expectedActivationRevision,p.publishedVersion].some(v=>!Number.isSafeInteger(v)||v<1))throw new EasyPlotsError('RESOURCE_ACTIVATION','Exact manifest, publication and activation revisions required');assertNarrativeId(p.manifestId);assertNarrativeId(p.graphId);if(!p.graphId.startsWith('ep:graph:'))throw new EasyPlotsError('RESOURCE_ACTIVATION','Owning target graph required');return clone(p);}
+export function createResourceManifestProvider({service}={}){return Object.freeze({id:RESOURCE_ACTIVATION_PROVIDER,version:'1.0.0',validate:validateResourceActivation,apply:(p,c)=>service.activate(p,c),verify:(p,c)=>service.verifyActivation(p,c)});}

@@ -1,0 +1,11 @@
+workstream,name,owned_paths,dependencies,deliverables,verification,integration_partners
+W0,Contracts / integration governance,src/contracts; test schemas; ADR register,none,"TypeScript contracts, validators, shared fixtures, versioning, risk register","TS contracts compile, ID+event schema tests, dependency review",ALL
+W1,Persistence and indices,src/storage; src/platform/documents,W0,"Native repository, shard/index reader, migrations, protected-store tests",TEST-STO-001; TEST-IDX-001; SPIKE-STO-001,"W2,W3,W6"
+W2,Security + runtime,src/security; src/runtime,"W0,W1 API","GM policy, socket risk mitigation, intents, journal/recovery scheduler",TEST-SEC-001; TEST-OPS-001; SPIKE-SEC-001,"W3,W4,W8"
+W3,Graph + publication,src/graph; src/domains/plots/compiler,"W0,W1 API,W2 policy","Typed compiler, validation, drafts, publish and activate",TEST-GRF-001; TEST-PUB-001,"W5,W8"
+W4,Foundry + game system effects,src/capabilities; src/platform/hooks,"W0,W2 effects API","Native docs/roll/Chat/Combat adapters, verified effect provider",TEST-ENC-001; TEST-EXT-001; SPIKE-SYS-001,"W2,W6"
+W5,Knowledge + quests + investigations,src/domains/knowledge; plots; investigation,"W0,W3 APIs,W2 projection","Clues, evidence, hypotheses, milestones, cross-plot dependency",TEST-KNO-001; TEST-INV-001; TEST-QST-001,"W6,W8"
+W6,Social + temporal + spatial,src/domains/people; factions; temporal; spatial,"W0,W1,W2,W4 APIs","Identity/personas, faction agendas, schedules, relationships, maps",TEST-FAC-001; TEST-TIME-001; TEST-REL-001,"W5,W7"
+W7,Arcs + resources + simulation + GM planning,src/domains/arcs; planning; simulation; resources,"W0,W3,W5,W6 contracts","Arc resolution, blueprints, continuity, foresight, resource staging",TEST-ARC-001; TEST-BLU-001; TEST-RSC-001,W8
+W8,ApplicationV2 GM/player UX,src/ui; static/templates; styles,"W0,W2 projection mocks","Graph UI, player boards, cockpit, inspector, approval queues",TEST-UI-001; accessibility smoke,"W3,W5,W6,W7"
+W9,QA + integration/release,src/tests; src/devtools; build,"W0, incremental all","Real Foundry integration, hostile clients, fault injection, migration, scale",TEST-SEC-001 through TEST-COMP-001; full module audit,ALL

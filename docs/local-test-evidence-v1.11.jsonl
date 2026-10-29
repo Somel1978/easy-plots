@@ -1,0 +1,889 @@
+{"event":"run:start","version":"1.11.0-dev","sourceDigest":"68c2cb5ee990f76c70ac554df1186fba1b66513f3231422b7b7ea288b717d534","testFiles":["tests/advanced-domains.test.mjs","tests/advanced-logic-contracts.test.mjs","tests/automatic-domain-search.test.mjs","tests/board-transport.test.mjs","tests/branch-milestone.test.mjs","tests/campaign-closure.test.mjs","tests/campaign-planning-workflows.test.mjs","tests/canonical-domain-integration.test.mjs","tests/canonical-event-data.test.mjs","tests/canonical-search.test.mjs","tests/causal-planning-window.test.mjs","tests/continuity-desk-contract.test.mjs","tests/continuity-transport.test.mjs","tests/contracts.test.mjs","tests/crossplot-coordinator.test.mjs","tests/crossplot-index.test.mjs","tests/data-guards.test.mjs","tests/digest.test.mjs","tests/domain-correction.test.mjs","tests/domain-gates.test.mjs","tests/domain-graph-integration.test.mjs","tests/domain-history.test.mjs","tests/domain-providers.test.mjs","tests/domains.test.mjs","tests/due-event-gateway.test.mjs","tests/due-ui.test.mjs","tests/editor-layout.test.mjs","tests/expanded-domains.test.mjs","tests/explainability.test.mjs","tests/extended-providers.test.mjs","tests/faction-orchestration.test.mjs","tests/flow-join.test.mjs","tests/focused-health-service.test.mjs","tests/foundry-rolls.test.mjs","tests/foundry-transport.test.mjs","tests/gm-cockpit.test.mjs","tests/gm-handover-fencing.test.mjs","tests/graph-chunks.test.mjs","tests/graph-long-chain.test.mjs","tests/graph-view-state.test.mjs","tests/health-planning.test.mjs","tests/investigation-board.test.mjs","tests/investigation-milestones.test.mjs","tests/investigation-workbench.test.mjs","tests/journal-graph-integration.test.mjs","tests/journal-materialization.test.mjs","tests/knowledge-propagation.test.mjs","tests/knowledge-revisions.test.mjs","tests/legacy-canonical-adoption.test.mjs","tests/logic-nodes.test.mjs","tests/manual-event-gateway.test.mjs","tests/module-manifest.test.mjs","tests/more-logic-nodes.test.mjs","tests/narrative-capabilities.test.mjs","tests/narrative-health.test.mjs","tests/native-actor-item.test.mjs","tests/native-integration.test.mjs","tests/native-migrations.test.mjs","tests/native-persistence.test.mjs","tests/native-plan-integration.test.mjs","tests/native-provenance-preflight.test.mjs","tests/native-reactive.test.mjs","tests/native-resource-binding.test.mjs","tests/native-reverse-references.test.mjs","tests/native-temporal-index.test.mjs","tests/new-workflows-native.test.mjs","tests/node-extensions.test.mjs","tests/notification-transport.test.mjs","tests/opposed-rolls.test.mjs","tests/orchestration-integration.test.mjs","tests/paged-registry.test.mjs","tests/persistent-arc-resolution.test.mjs","tests/persistent-blueprints.test.mjs","tests/persistent-faction-agenda.test.mjs","tests/persistent-forecasts.test.mjs","tests/persistent-gm-focus.test.mjs","tests/persistent-graphs.test.mjs","tests/persistent-investigation-milestones.test.mjs","tests/persistent-knowledge-propagation.test.mjs","tests/persistent-knowledge.test.mjs","tests/persistent-native.test.mjs","tests/persistent-notifications.test.mjs","tests/persistent-plans.test.mjs","tests/persistent-session-handoff.test.mjs","tests/persistent-voting.test.mjs","tests/planning-lab.test.mjs","tests/proposal-review.test.mjs","tests/publication-hardening.test.mjs","tests/quest-projection-native-flow.test.mjs","tests/quest-projections.test.mjs","tests/reactive-hooks.test.mjs","tests/reactive-persistence.test.mjs","tests/resource-reconciliation.test.mjs","tests/reverse-reference-graph.test.mjs","tests/reviewed-faction-graph.test.mjs","tests/reviewed-faction-schedule.test.mjs","tests/reviewed-hypothesis-graph.test.mjs","tests/reviewed-knowledge-graph.test.mjs","tests/reviewed-milestone-graph.test.mjs","tests/runtime-scheduling.test.mjs","tests/runtime.test.mjs","tests/scoped-actor-authorization.test.mjs","tests/scoped-gm-changes.test.mjs","tests/scoped-search.test.mjs","tests/security.test.mjs","tests/specialized-triggers.test.mjs","tests/state-read-node.test.mjs","tests/storage.test.mjs","tests/subgraph-call.test.mjs","tests/temporal-coordinator.test.mjs","tests/temporal-identity-spatial.test.mjs","tests/typed-data-flow.test.mjs","tests/typed-subgraphs.test.mjs","tests/voting.test.mjs"]}
+{"event":"test:pass","name":"one canonical event fans out to independent bounded subscribers without executing effects","file":"tests/advanced-domains.test.mjs","line":6,"nesting":0,"duration_ms":2.928245}
+{"event":"test:pass","name":"dependency fanout rejects unbounded inputs and unknown link types","file":"tests/advanced-domains.test.mjs","line":14,"nesting":0,"duration_ms":0.896774}
+{"event":"test:pass","name":"aggregation does not leak secret milestones or automatically award effects","file":"tests/advanced-domains.test.mjs","line":18,"nesting":0,"duration_ms":0.236374}
+{"event":"test:pass","name":"continuity links stable references and keeps future hooks dormant","file":"tests/advanced-domains.test.mjs","line":21,"nesting":0,"duration_ms":0.423098}
+{"event":"test:pass","name":"blueprints adopt nonconflicting upstream changes while preserving instance overrides","file":"tests/advanced-domains.test.mjs","line":26,"nesting":0,"duration_ms":0.40537}
+{"event":"test:pass","name":"published blueprint revisions cannot be silently overwritten","file":"tests/advanced-domains.test.mjs","line":31,"nesting":0,"duration_ms":0.224729}
+{"event":"test:pass","name":"simulation leaves original world facts unchanged and executes no effect","file":"tests/advanced-domains.test.mjs","line":34,"nesting":0,"duration_ms":0.382992}
+{"event":"test:pass","name":"nonconvergent simulation reports budget exhaustion","file":"tests/advanced-domains.test.mjs","line":38,"nesting":0,"duration_ms":0.288679}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":25.019791,"file":"tests/advanced-domains.test.mjs"}
+{"event":"test:pass","name":"specialized gate core.gate.event-origin authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":6.101134}
+{"event":"test:pass","name":"specialized gate core.gate.causal-depth authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.753077}
+{"event":"test:pass","name":"specialized gate core.gate.after-time authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.694376}
+{"event":"test:pass","name":"specialized gate core.gate.before-time authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.408569}
+{"event":"test:pass","name":"specialized gate core.gate.faction-pressure authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.504673}
+{"event":"test:pass","name":"specialized gate core.gate.investigation-progress authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.323213}
+{"event":"test:pass","name":"specialized gate core.gate.evidence-corroborated authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.778114}
+{"event":"test:pass","name":"specialized gate core.gate.obligation-status authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.579166}
+{"event":"test:pass","name":"specialized gate core.gate.npc-disposition authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.473818}
+{"event":"test:pass","name":"specialized gate core.gate.milestone-credit authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.79129}
+{"event":"test:pass","name":"specialized gate core.gate.identity-persona authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.631044}
+{"event":"test:pass","name":"specialized gate core.gate.route-status authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.360497}
+{"event":"test:pass","name":"specialized gate core.branch.investigation-outcome authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":1.231608}
+{"event":"test:pass","name":"specialized gate core.branch.arc-ending authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.317669}
+{"event":"test:pass","name":"specialized gate core.branch.threat-clock authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.235896}
+{"event":"test:pass","name":"specialized gate core.gate.social-debt authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.180648}
+{"event":"test:pass","name":"specialized gate core.gate.faction-operation authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.116215}
+{"event":"test:pass","name":"specialized gate core.gate.resource-integrity authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.143992}
+{"event":"test:pass","name":"specialized gate core.gate.blueprint-version authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.164632}
+{"event":"test:pass","name":"specialized gate core.gate.player-contribution authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.136704}
+{"event":"test:pass","name":"specialized gate core.gate.campaign-readiness authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.102399}
+{"event":"test:pass","name":"specialized gate core.gate.identity-disclosure authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.543595}
+{"event":"test:pass","name":"specialized gate core.branch.request-result authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.194138}
+{"event":"test:pass","name":"specialized gate core.branch.reputation authorable, validates, executes","file":"tests/advanced-logic-contracts.test.mjs","line":34,"nesting":0,"duration_ms":0.161087}
+{"event":"test:pass","name":"specialized logic fails closed for missing corroboration and unverified outcomes","file":"tests/advanced-logic-contracts.test.mjs","line":48,"nesting":0,"duration_ms":0.275628}
+{"event":"test:pass","name":"advanced node editor attaches only its declared ports","file":"tests/advanced-logic-contracts.test.mjs","line":53,"nesting":0,"duration_ms":6.398579}
+{"event":"test:summary","success":true,"counts":{"tests":26,"failed":0,"passed":26,"cancelled":0,"skipped":0,"todo":0,"topLevel":26,"suites":0},"duration_ms":59.045745,"file":"tests/advanced-logic-contracts.test.mjs"}
+{"event":"test:pass","name":"GM search automatically follows revisioned canonical domain writes","file":"tests/automatic-domain-search.test.mjs","line":19,"nesting":0,"duration_ms":52.356572}
+{"event":"test:pass","name":"incomplete search index does not roll back verified domain write; targeted repair works","file":"tests/automatic-domain-search.test.mjs","line":27,"nesting":0,"duration_ms":12.384108}
+{"event":"test:pass","name":"unsupported or untitled records do not create search postings","file":"tests/automatic-domain-search.test.mjs","line":41,"nesting":0,"duration_ms":2.648192}
+{"event":"test:pass","name":"bounded shard compaction removes only verified stale postings when bucket fills","file":"tests/automatic-domain-search.test.mjs","line":48,"nesting":0,"duration_ms":97.410689}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":173.002711,"file":"tests/automatic-domain-search.test.mjs"}
+{"event":"test:pass","name":"targeted authenticated request returns only disclosed evidence and offered actions","file":"tests/board-transport.test.mjs","line":40,"nesting":0,"duration_ms":7.213369}
+{"event":"test:pass","name":"invalid ownership returns generic unavailable without reading protected store","file":"tests/board-transport.test.mjs","line":49,"nesting":0,"duration_ms":1.820487}
+{"event":"test:pass","name":"forged sender in payload cannot retrieve another actor board","file":"tests/board-transport.test.mjs","line":56,"nesting":0,"duration_ms":21.379426}
+{"event":"test:pass","name":"bad GM projection is rejected rather than sent, with no partial leak","file":"tests/board-transport.test.mjs","line":64,"nesting":0,"duration_ms":0.830938}
+{"event":"test:pass","name":"player cannot request a board without active GM","file":"tests/board-transport.test.mjs","line":70,"nesting":0,"duration_ms":0.793802}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":44.721283,"file":"tests/board-transport.test.mjs"}
+{"event":"test:pass","name":"true branch proposes only the verified milestone, not the false effect","file":"tests/branch-milestone.test.mjs","line":43,"nesting":0,"duration_ms":54.679927}
+{"event":"test:pass","name":"false branch proposes only the other effect","file":"tests/branch-milestone.test.mjs","line":51,"nesting":0,"duration_ms":35.335416}
+{"event":"test:pass","name":"milestone qualification is persisted only after GM approves and executes","file":"tests/branch-milestone.test.mjs","line":56,"nesting":0,"duration_ms":57.298873}
+{"event":"test:pass","name":"milestone provider does not grant qualification twice for different event operations","file":"tests/branch-milestone.test.mjs","line":66,"nesting":0,"duration_ms":3.187717}
+{"event":"test:pass","name":"editor supports branch edges with explicit true and false output ports","file":"tests/branch-milestone.test.mjs","line":71,"nesting":0,"duration_ms":3.060978}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":167.100476,"file":"tests/branch-milestone.test.mjs"}
+{"event":"test:pass","name":"partial arc ending keeps incomplete objectives and hooks dormant","file":"tests/campaign-closure.test.mjs","line":8,"nesting":0,"duration_ms":3.410291}
+{"event":"test:pass","name":"eligible ending requires explicit review and revision","file":"tests/campaign-closure.test.mjs","line":14,"nesting":0,"duration_ms":3.303101}
+{"event":"test:pass","name":"mutually exclusive eligible endings block finalize pending reconciliation","file":"tests/campaign-closure.test.mjs","line":19,"nesting":0,"duration_ms":0.561741}
+{"event":"test:pass","name":"unknown facet not interpreted as true or false","file":"tests/campaign-closure.test.mjs","line":24,"nesting":0,"duration_ms":0.725501}
+{"event":"test:pass","name":"historical closure does not mutate living world state","file":"tests/campaign-closure.test.mjs","line":28,"nesting":0,"duration_ms":0.408585}
+{"event":"test:pass","name":"duplicate objective, hook and invalid ending rejected","file":"tests/campaign-closure.test.mjs","line":32,"nesting":0,"duration_ms":0.734225}
+{"event":"test:pass","name":"finalization cannot ignore an unverified competing ending","file":"tests/campaign-closure.test.mjs","line":37,"nesting":0,"duration_ms":0.3248}
+{"event":"test:summary","success":true,"counts":{"tests":7,"failed":0,"passed":7,"cancelled":0,"skipped":0,"todo":0,"topLevel":7,"suites":0},"duration_ms":30.680513,"file":"tests/campaign-closure.test.mjs"}
+{"event":"test:pass","name":"NPC scheduler honors both canonical and NPC-specific knowledge","file":"tests/campaign-planning-workflows.test.mjs","line":7,"nesting":0,"duration_ms":3.574775}
+{"event":"test:pass","name":"analyzer reports uncertainty on incomplete dependency scope, not unjustified failure","file":"tests/campaign-planning-workflows.test.mjs","line":13,"nesting":0,"duration_ms":3.354974}
+{"event":"test:pass","name":"continuity handoff uses source references and never starts a sequel","file":"tests/campaign-planning-workflows.test.mjs","line":20,"nesting":0,"duration_ms":2.266033}
+{"event":"test:pass","name":"planning lab exposes functional fixtures for all new workflows","file":"tests/campaign-planning-workflows.test.mjs","line":27,"nesting":0,"duration_ms":0.552351}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":26.751528,"file":"tests/campaign-planning-workflows.test.mjs"}
+{"event":"test:pass","name":"ADR-031: approved objective graph effect feeds the canonical quest publication service","file":"tests/canonical-domain-integration.test.mjs","line":35,"nesting":0,"duration_ms":90.016819}
+{"event":"test:pass","name":"ADR-012: approved fact graph effect supplies truth to the faction agenda without granting faction knowledge","file":"tests/canonical-domain-integration.test.mjs","line":47,"nesting":0,"duration_ms":32.017377}
+{"event":"test:pass","name":"ADR-031: objective updates retain authored metadata and invalidate approved quest projections","file":"tests/canonical-domain-integration.test.mjs","line":58,"nesting":0,"duration_ms":9.300941}
+{"event":"test:pass","name":"ADR-032: approved relationship graph transitions feed immutable directional domain history","file":"tests/canonical-domain-integration.test.mjs","line":73,"nesting":0,"duration_ms":88.083954}
+{"event":"test:pass","name":"ADR-015: graph belief changes retain observer-specific history without rewriting canonical truth","file":"tests/canonical-domain-integration.test.mjs","line":85,"nesting":0,"duration_ms":48.615167}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":278.717534,"file":"tests/canonical-domain-integration.test.mjs"}
+{"event":"test:pass","name":"ADR-070: typed event values use the persisted canonical occurrence throughout approval","file":"tests/canonical-event-data.test.mjs","line":28,"nesting":0,"duration_ms":76.632857}
+{"event":"test:pass","name":"ADR-004: event comparison produces a typed boolean consumed by an exclusive flow branch","file":"tests/canonical-event-data.test.mjs","line":35,"nesting":0,"duration_ms":55.567528}
+{"event":"test:pass","name":"canonical event data cannot resolve without an explicit runtime event context","file":"tests/canonical-event-data.test.mjs","line":46,"nesting":0,"duration_ms":1.699414}
+{"event":"test:pass","name":"missing or differently typed event fields fail closed without default coercion","file":"tests/canonical-event-data.test.mjs","line":50,"nesting":0,"duration_ms":22.294943}
+{"event":"test:pass","name":"canonical event extraction rejects inherited properties and unsafe paths","file":"tests/canonical-event-data.test.mjs","line":56,"nesting":0,"duration_ms":1.566491}
+{"event":"test:pass","name":"ADR-088: protected canonical event corruption is detected before effect approval","file":"tests/canonical-event-data.test.mjs","line":63,"nesting":0,"duration_ms":20.802417}
+{"event":"test:pass","name":"canonical event inputs cannot change while subscription lookup is pending","file":"tests/canonical-event-data.test.mjs","line":69,"nesting":0,"duration_ms":33.855162}
+{"event":"test:summary","success":true,"counts":{"tests":7,"failed":0,"passed":7,"cancelled":0,"skipped":0,"todo":0,"topLevel":7,"suites":0},"duration_ms":225.651263,"file":"tests/canonical-event-data.test.mjs"}
+{"event":"test:pass","name":"verified search derives title and exact keywords from canonical GM domain source","file":"tests/canonical-search.test.mjs","line":10,"nesting":0,"duration_ms":30.936853}
+{"event":"test:pass","name":"canonical record update invalidates old verified search even before reindex","file":"tests/canonical-search.test.mjs","line":20,"nesting":0,"duration_ms":21.921658}
+{"event":"test:pass","name":"unsupported domain and phantom source fail closed","file":"tests/canonical-search.test.mjs","line":32,"nesting":0,"duration_ms":4.159852}
+{"event":"test:pass","name":"search source cannot claim a trusted revision without trusted domain adapter","file":"tests/canonical-search.test.mjs","line":39,"nesting":0,"duration_ms":3.371042}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":76.902526,"file":"tests/canonical-search.test.mjs"}
+{"event":"test:pass","name":"GM-only causal planning inspector renders safe element content, not innerHTML","file":"tests/causal-planning-window.test.mjs","line":5,"nesting":0,"duration_ms":1.746393}
+{"event":"test:pass","name":"player cannot render protected planning inspector controls","file":"tests/causal-planning-window.test.mjs","line":15,"nesting":0,"duration_ms":0.624043}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":13.503936,"file":"tests/causal-planning-window.test.mjs"}
+{"event":"test:pass","name":"continuity desk refuses missing protected domain providers","file":"tests/continuity-desk-contract.test.mjs","line":5,"nesting":0,"duration_ms":2.236901}
+{"event":"test:pass","name":"continuity desk is an ApplicationV2-class-compatible GM-only constructor","file":"tests/continuity-desk-contract.test.mjs","line":8,"nesting":0,"duration_ms":0.410471}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":17.020367,"file":"tests/continuity-desk-contract.test.mjs"}
+{"event":"test:pass","name":"a player receives only a projected approved session recap through a targeted native reply","file":"tests/continuity-transport.test.mjs","line":18,"nesting":0,"duration_ms":4.760881}
+{"event":"test:pass","name":"a finalized vote result exposes no ballots, GM identity or hidden state","file":"tests/continuity-transport.test.mjs","line":24,"nesting":0,"duration_ms":1.023755}
+{"event":"test:pass","name":"an unauthorized Actor receives indistinguishable unavailable response and no record data","file":"tests/continuity-transport.test.mjs","line":29,"nesting":0,"duration_ms":1.13137}
+{"event":"test:pass","name":"player rejects a forged GM reply, times out, and never trusts actorId in socket payload as proof","file":"tests/continuity-transport.test.mjs","line":33,"nesting":0,"duration_ms":0.610341}
+{"event":"test:pass","name":"strict projections reject private fields, hidden counts and oversized values","file":"tests/continuity-transport.test.mjs","line":38,"nesting":0,"duration_ms":0.359401}
+{"event":"test:pass","name":"player can request a knowledge-safe quest view with no hidden objective IDs","file":"tests/continuity-transport.test.mjs","line":43,"nesting":0,"duration_ms":0.718216}
+{"event":"test:pass","name":"quest projection rejects GM metadata and extra private objective fields","file":"tests/continuity-transport.test.mjs","line":54,"nesting":0,"duration_ms":0.183385}
+{"event":"test:summary","success":true,"counts":{"tests":7,"failed":0,"passed":7,"cancelled":0,"skipped":0,"todo":0,"topLevel":7,"suites":0},"duration_ms":26.187276,"file":"tests/continuity-transport.test.mjs"}
+{"event":"test:pass","name":"valid graph contracts and typed ports","file":"tests/contracts.test.mjs","line":7,"nesting":0,"duration_ms":2.40898}
+{"event":"test:pass","name":"graph rejects dangling edge","file":"tests/contracts.test.mjs","line":8,"nesting":0,"duration_ms":1.161579}
+{"event":"test:pass","name":"graph rejects mismatched port types","file":"tests/contracts.test.mjs","line":9,"nesting":0,"duration_ms":0.290169}
+{"event":"test:pass","name":"graph rejects unverified required capabilities","file":"tests/contracts.test.mjs","line":10,"nesting":0,"duration_ms":0.316006}
+{"event":"test:pass","name":"stable ids reject traversal and unknown namespace","file":"tests/contracts.test.mjs","line":11,"nesting":0,"duration_ms":0.765107}
+{"event":"test:pass","name":"conditions evaluate literal and reference","file":"tests/contracts.test.mjs","line":12,"nesting":0,"duration_ms":0.806947}
+{"event":"test:pass","name":"condition prevents protected reference in public context","file":"tests/contracts.test.mjs","line":13,"nesting":0,"duration_ms":2.803577}
+{"event":"test:pass","name":"conditions block prototype traversal and unauthenticated provider calls","file":"tests/contracts.test.mjs","line":14,"nesting":0,"duration_ms":0.25011}
+{"event":"test:pass","name":"condition recursion budgets enforced","file":"tests/contracts.test.mjs","line":15,"nesting":0,"duration_ms":1.168458}
+{"event":"test:summary","success":true,"counts":{"tests":9,"failed":0,"passed":9,"cancelled":0,"skipped":0,"todo":0,"topLevel":9,"suites":0},"duration_ms":33.721239,"file":"tests/contracts.test.mjs"}
+{"event":"test:pass","name":"cross-plot link is not eligible from an unrelated plot event of the same type","file":"tests/crossplot-coordinator.test.mjs","line":19,"nesting":0,"duration_ms":13.412906}
+{"event":"test:pass","name":"same causal event independently qualifies a target only on current canonical revision","file":"tests/crossplot-coordinator.test.mjs","line":24,"nesting":0,"duration_ms":6.414796}
+{"event":"test:pass","name":"knowledge and approved-scope constraints remain independent of source verification","file":"tests/crossplot-coordinator.test.mjs","line":31,"nesting":0,"duration_ms":26.771593}
+{"event":"test:pass","name":"missing canonical target never inherits a stale indexed revision","file":"tests/crossplot-coordinator.test.mjs","line":38,"nesting":0,"duration_ms":3.701639}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":61.14461,"file":"tests/crossplot-coordinator.test.mjs"}
+{"event":"test:pass","name":"exact indexed subscription qualifies only with protected GM-known facts and matching revisions","file":"tests/crossplot-index.test.mjs","line":7,"nesting":0,"duration_ms":25.936022}
+{"event":"test:pass","name":"stale dependency target revision prevents eligibility","file":"tests/crossplot-index.test.mjs","line":17,"nesting":0,"duration_ms":3.779954}
+{"event":"test:pass","name":"crossplot changes to existing link require separate link identity","file":"tests/crossplot-index.test.mjs","line":23,"nesting":0,"duration_ms":12.23687}
+{"event":"test:pass","name":"crossplot rejects arbitrary payloads and incomplete authority","file":"tests/crossplot-index.test.mjs","line":27,"nesting":0,"duration_ms":0.541878}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":53.028643,"file":"tests/crossplot-index.test.mjs"}
+{"event":"test:pass","name":"ADR-006: an authoritative typed boolean selects exactly one authored branch","file":"tests/data-guards.test.mjs","line":39,"nesting":0,"duration_ms":102.785856}
+{"event":"test:pass","name":"ADR-082: a changed guard revision blocks an otherwise static approved effect","file":"tests/data-guards.test.mjs","line":48,"nesting":0,"duration_ms":51.767711}
+{"event":"test:pass","name":"a guard value cannot be replaced by a matching untrusted event claim","file":"tests/data-guards.test.mjs","line":55,"nesting":0,"duration_ms":26.025886}
+{"event":"test:pass","name":"valid unchanged typed-guard evidence passes durable GM approval and execution","file":"tests/data-guards.test.mjs","line":59,"nesting":0,"duration_ms":49.191048}
+{"event":"test:pass","name":"canonical JSON equality compares normalized content without object coercion","file":"tests/data-guards.test.mjs","line":64,"nesting":0,"duration_ms":19.595297}
+{"event":"test:pass","name":"typed string containment is explicit and never coerces numeric operands","file":"tests/data-guards.test.mjs","line":69,"nesting":0,"duration_ms":18.056267}
+{"event":"test:pass","name":"typed boolean branches reject incomplete or incompatible inputs at publication","file":"tests/data-guards.test.mjs","line":75,"nesting":0,"duration_ms":1.829746}
+{"event":"test:pass","name":"legacy comparison-branch dependencies are now also revalidated after approval","file":"tests/data-guards.test.mjs","line":81,"nesting":0,"duration_ms":23.251229}
+{"event":"test:pass","name":"absence is an authoritative branch observation invalidated when state is created","file":"tests/data-guards.test.mjs","line":87,"nesting":0,"duration_ms":23.597396}
+{"event":"test:pass","name":"AND joins carry the private-state evidence from every required branch","file":"tests/data-guards.test.mjs","line":93,"nesting":0,"duration_ms":38.950687}
+{"event":"test:pass","name":"conflicting convergent guard evidence fails closed rather than selecting a revision","file":"tests/data-guards.test.mjs","line":103,"nesting":0,"duration_ms":1.338281}
+{"event":"test:pass","name":"generic static effect payloads are checked against the published template at review","file":"tests/data-guards.test.mjs","line":108,"nesting":0,"duration_ms":34.759431}
+{"event":"test:summary","success":true,"counts":{"tests":12,"failed":0,"passed":12,"cancelled":0,"skipped":0,"todo":0,"topLevel":12,"suites":0},"duration_ms":406.402392,"file":"tests/data-guards.test.mjs"}
+{"event":"test:pass","name":"Portable SHA-256 matches standard known vectors","file":"tests/digest.test.mjs","line":7,"nesting":0,"duration_ms":3.760443}
+{"event":"test:pass","name":"Portable SHA-256 matches WebCrypto for UTF-8 and longer documents","file":"tests/digest.test.mjs","line":11,"nesting":0,"duration_ms":22.097802}
+{"event":"test:pass","name":"Deterministic pack IDs match previous WebCrypto-based format","file":"tests/digest.test.mjs","line":18,"nesting":0,"duration_ms":5.381141}
+{"event":"test:pass","name":"Secure UUID v4 is generated without randomUUID if getRandomValues exists","file":"tests/digest.test.mjs","line":23,"nesting":0,"duration_ms":2.14645}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":41.450247,"file":"tests/digest.test.mjs"}
+{"event":"test:pass","name":"ADR-007: a reviewed graph correction restores narrative state while retaining both original events and revisions","file":"tests/domain-correction.test.mjs","line":31,"nesting":0,"duration_ms":61.437795}
+{"event":"test:pass","name":"correction preview is read-only and its payload cannot select native resource types or arbitrary storage","file":"tests/domain-correction.test.mjs","line":40,"nesting":0,"duration_ms":10.267052}
+{"event":"test:pass","name":"state changes after correction approval prevent historical overwrite","file":"tests/domain-correction.test.mjs","line":46,"nesting":0,"duration_ms":30.971398}
+{"event":"test:pass","name":"corrupt historical data and original-event reuse cannot authorize a correction","file":"tests/domain-correction.test.mjs","line":52,"nesting":0,"duration_ms":12.218043}
+{"event":"test:pass","name":"corrective operation identities are idempotent and cannot be reused for a different reason","file":"tests/domain-correction.test.mjs","line":59,"nesting":0,"duration_ms":11.14076}
+{"event":"test:pass","name":"correction history and execution remain inaccessible after GM authority is revoked","file":"tests/domain-correction.test.mjs","line":65,"nesting":0,"duration_ms":12.555989}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":148.245569,"file":"tests/domain-correction.test.mjs"}
+{"event":"test:pass","name":"core.gate.faction-membership: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":4.13179}
+{"event":"test:pass","name":"core.gate.faction-rank: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.520225}
+{"event":"test:pass","name":"core.gate.npc-location: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.747939}
+{"event":"test:pass","name":"core.gate.quest-state: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.248802}
+{"event":"test:pass","name":"core.gate.arc-state: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.29338}
+{"event":"test:pass","name":"core.gate.pressure-threshold: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.192799}
+{"event":"test:pass","name":"core.gate.knowledge-claim: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.448068}
+{"event":"test:pass","name":"core.gate.relationship: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.237077}
+{"event":"test:pass","name":"core.gate.disclosure-recipient: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":0.823624}
+{"event":"test:pass","name":"core.branch.authorized-choice: authored condition matches exact canonical data only","file":"tests/domain-gates.test.mjs","line":17,"nesting":0,"duration_ms":3.951307}
+{"event":"test:pass","name":"secrecy gates fail closed with missing observer authorization and invalid choices","file":"tests/domain-gates.test.mjs","line":34,"nesting":0,"duration_ms":7.04362}
+{"event":"test:summary","success":true,"counts":{"tests":11,"failed":0,"passed":11,"cancelled":0,"skipped":0,"todo":0,"topLevel":11,"suites":0},"duration_ms":39.405081,"file":"tests/domain-gates.test.mjs"}
+{"event":"test:pass","name":"typed faction node authors, publishes, proposes and executes only after GM approval","file":"tests/domain-graph-integration.test.mjs","line":25,"nesting":0,"duration_ms":53.972657}
+{"event":"test:pass","name":"other domain node types compile to exact registered effect IDs","file":"tests/domain-graph-integration.test.mjs","line":39,"nesting":0,"duration_ms":28.807261}
+{"event":"test:pass","name":"editor refuses non-JSON typed node content","file":"tests/domain-graph-integration.test.mjs","line":50,"nesting":0,"duration_ms":1.687792}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":93.71915,"file":"tests/domain-graph-integration.test.mjs"}
+{"event":"test:pass","name":"ADR-032: revisioned canonical relationships retain directional historical values after service recreation","file":"tests/domain-history.test.mjs","line":12,"nesting":0,"duration_ms":12.413001}
+{"event":"test:pass","name":"ADR-007: corrective state preserves the prior event and immutable preimage","file":"tests/domain-history.test.mjs","line":19,"nesting":0,"duration_ms":4.313599}
+{"event":"test:pass","name":"historical snapshots are private, integrity checked and read by exact locator","file":"tests/domain-history.test.mjs","line":27,"nesting":0,"duration_ms":7.592717}
+{"event":"test:pass","name":"history failure prevents replacement of the authoritative source","file":"tests/domain-history.test.mjs","line":35,"nesting":0,"duration_ms":2.135102}
+{"event":"test:pass","name":"an interrupted canonical replacement can retain its preimage without inventing the new revision","file":"tests/domain-history.test.mjs","line":41,"nesting":0,"duration_ms":4.387286}
+{"event":"test:pass","name":"history indices and scopes are independently verified","file":"tests/domain-history.test.mjs","line":47,"nesting":0,"duration_ms":4.17107}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":44.906162,"file":"tests/domain-history.test.mjs"}
+{"event":"test:pass","name":"native faction standing provider writes verified attributed delta","file":"tests/domain-providers.test.mjs","line":16,"nesting":0,"duration_ms":21.973796}
+{"event":"test:pass","name":"rank is not a generic faction numeric change","file":"tests/domain-providers.test.mjs","line":23,"nesting":0,"duration_ms":0.591548}
+{"event":"test:pass","name":"obligation is settled exactly once and direction preserved","file":"tests/domain-providers.test.mjs","line":26,"nesting":0,"duration_ms":3.738789}
+{"event":"test:pass","name":"canonical evidence attestation stays protected and durable","file":"tests/domain-providers.test.mjs","line":32,"nesting":0,"duration_ms":3.078557}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":37.494569,"file":"tests/domain-providers.test.mjs"}
+{"event":"test:pass","name":"unguarded player guess never validates a milestone","file":"tests/domains.test.mjs","line":6,"nesting":0,"duration_ms":1.464945}
+{"event":"test:pass","name":"time jump only classifies due authored events; no invented outcomes","file":"tests/domains.test.mjs","line":13,"nesting":0,"duration_ms":3.284001}
+{"event":"test:pass","name":"temporal operation budget enforced","file":"tests/domains.test.mjs","line":17,"nesting":0,"duration_ms":0.760822}
+{"event":"test:pass","name":"claims filtered by actual observer and published disclosure","file":"tests/domains.test.mjs","line":20,"nesting":0,"duration_ms":0.570734}
+{"event":"test:pass","name":"competing exclusive endings require GM reconciliation","file":"tests/domains.test.mjs","line":24,"nesting":0,"duration_ms":0.552402}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":33.634626,"file":"tests/domains.test.mjs"}
+{"event":"test:pass","name":"due event is indexed, time checked and deduplicated without committing faction action","file":"tests/due-event-gateway.test.mjs","line":28,"nesting":0,"duration_ms":48.71996}
+{"event":"test:pass","name":"stale index entries or changed canonical state fail without creating an event","file":"tests/due-event-gateway.test.mjs","line":38,"nesting":0,"duration_ms":11.034099}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":66.279614,"file":"tests/due-event-gateway.test.mjs"}
+{"event":"test:pass","name":"GM temporal inspector requires explicit selection and acknowledgement before queuing a due event","file":"tests/due-ui.test.mjs","line":16,"nesting":0,"duration_ms":69.496535}
+{"event":"test:summary","success":true,"counts":{"tests":1,"failed":0,"passed":1,"cancelled":0,"skipped":0,"todo":0,"topLevel":1,"suites":0},"duration_ms":82.955385,"file":"tests/due-ui.test.mjs"}
+{"event":"test:pass","name":"new nodes wrap into a bounded grid instead of disappearing beyond the canvas","file":"tests/editor-layout.test.mjs","line":12,"nesting":0,"duration_ms":9.055732}
+{"event":"test:pass","name":"paged graph draft lists authoritative title without reading graph body","file":"tests/editor-layout.test.mjs","line":23,"nesting":0,"duration_ms":16.479377}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":32.208545,"file":"tests/editor-layout.test.mjs"}
+{"event":"test:pass","name":"domain store verifies scoped persistence and rejects stale revisions","file":"tests/expanded-domains.test.mjs","line":10,"nesting":0,"duration_ms":16.964748}
+{"event":"test:pass","name":"domain store never accepts non-GM writes or unscoped data","file":"tests/expanded-domains.test.mjs","line":21,"nesting":0,"duration_ms":0.60666}
+{"event":"test:pass","name":"faction agenda cannot react to truth it has not learned","file":"tests/expanded-domains.test.mjs","line":25,"nesting":0,"duration_ms":1.362893}
+{"event":"test:pass","name":"membership and rank changes are not numeric reputation deltas","file":"tests/expanded-domains.test.mjs","line":31,"nesting":0,"duration_ms":0.64546}
+{"event":"test:pass","name":"directional relationship transitions preserve history and never update reverse edge","file":"tests/expanded-domains.test.mjs","line":36,"nesting":0,"duration_ms":0.484319}
+{"event":"test:pass","name":"observer relationship views reveal only explicitly disclosed beliefs","file":"tests/expanded-domains.test.mjs","line":42,"nesting":0,"duration_ms":0.478384}
+{"event":"test:pass","name":"obligation requires exact debtor and creditor provenance","file":"tests/expanded-domains.test.mjs","line":47,"nesting":0,"duration_ms":0.20848}
+{"event":"test:pass","name":"investigation arguments never reveal private GM truth","file":"tests/expanded-domains.test.mjs","line":52,"nesting":0,"duration_ms":0.382056}
+{"event":"test:pass","name":"investigation viability is GM-only scoped classification, not auto success","file":"tests/expanded-domains.test.mjs","line":60,"nesting":0,"duration_ms":0.506449}
+{"event":"test:pass","name":"attempt identity distinguishes duplicate deliveries from repeated opportunities","file":"tests/expanded-domains.test.mjs","line":64,"nesting":0,"duration_ms":0.627133}
+{"event":"test:summary","success":true,"counts":{"tests":10,"failed":0,"passed":10,"cancelled":0,"skipped":0,"todo":0,"topLevel":10,"suites":0},"duration_ms":35.410486,"file":"tests/expanded-domains.test.mjs"}
+{"event":"test:pass","name":"durable graph evaluation retains bounded causal trace without event payload","file":"tests/explainability.test.mjs","line":23,"nesting":0,"duration_ms":36.224995}
+{"event":"test:pass","name":"condition-blocked trace explains why an effect was not reached","file":"tests/explainability.test.mjs","line":33,"nesting":0,"duration_ms":17.835672}
+{"event":"test:pass","name":"no matching evaluation is not falsely diagnosed as a failed branch","file":"tests/explainability.test.mjs","line":41,"nesting":0,"duration_ms":13.286264}
+{"event":"test:pass","name":"GM authority and corrupt traces fail closed","file":"tests/explainability.test.mjs","line":46,"nesting":0,"duration_ms":1.739523}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":75.962262,"file":"tests/explainability.test.mjs"}
+{"event":"test:pass","name":"narrative.record-world-fact: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":35.464016}
+{"event":"test:pass","name":"core.world.fact: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":51.352459}
+{"event":"test:pass","name":"narrative.set-relationship: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":5.363665}
+{"event":"test:pass","name":"core.relationship.transition: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":37.581462}
+{"event":"test:pass","name":"narrative.record-observer-belief: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":3.449145}
+{"event":"test:pass","name":"core.knowledge.belief: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":28.633696}
+{"event":"test:pass","name":"narrative.transition-objective: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":3.299318}
+{"event":"test:pass","name":"core.quest.objective: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":26.294639}
+{"event":"test:pass","name":"narrative.record-disclosure: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":8.286304}
+{"event":"test:pass","name":"core.knowledge.disclose: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":49.21851}
+{"event":"test:pass","name":"narrative.finalize-arc: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":4.527148}
+{"event":"test:pass","name":"core.arc.conclude: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":45.448328}
+{"event":"test:pass","name":"narrative.transition-story-hook: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":9.945074}
+{"event":"test:pass","name":"core.story.hook: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":20.70322}
+{"event":"test:pass","name":"narrative.transition-scheduled-action: exact approved effect, verified read and duplicate protection","file":"tests/extended-providers.test.mjs","line":34,"nesting":0,"duration_ms":2.206193}
+{"event":"test:pass","name":"core.time.scheduled-action: graph publication → event → persistent review → effect","file":"tests/extended-providers.test.mjs","line":45,"nesting":0,"duration_ms":12.078499}
+{"event":"test:pass","name":"world fact revisions update under compare-and-swap, never under stale proposals","file":"tests/extended-providers.test.mjs","line":64,"nesting":0,"duration_ms":3.97211}
+{"event":"test:pass","name":"objective transitions check from-state, protected beliefs keep observer identity","file":"tests/extended-providers.test.mjs","line":74,"nesting":0,"duration_ms":1.604274}
+{"event":"test:pass","name":"invalid protected payloads fail before any effect","file":"tests/extended-providers.test.mjs","line":85,"nesting":0,"duration_ms":0.90047}
+{"event":"test:summary","success":true,"counts":{"tests":19,"failed":0,"passed":19,"cancelled":0,"skipped":0,"todo":0,"topLevel":19,"suites":0},"duration_ms":364.127181,"file":"tests/extended-providers.test.mjs"}
+{"event":"test:pass","name":"faction due action requires known fact not merely canonical truth","file":"tests/faction-orchestration.test.mjs","line":7,"nesting":0,"duration_ms":3.256365}
+{"event":"test:pass","name":"no future due index triggers an invented action","file":"tests/faction-orchestration.test.mjs","line":13,"nesting":0,"duration_ms":2.479763}
+{"event":"test:pass","name":"unknown faction context stays unknown and inactive agenda is skipped","file":"tests/faction-orchestration.test.mjs","line":17,"nesting":0,"duration_ms":0.363537}
+{"event":"test:pass","name":"duplicate source agenda or due index rejected","file":"tests/faction-orchestration.test.mjs","line":21,"nesting":0,"duration_ms":2.139041}
+{"event":"test:pass","name":"proposals ordered by due time, do not commit or mutate source","file":"tests/faction-orchestration.test.mjs","line":25,"nesting":0,"duration_ms":2.602198}
+{"event":"test:pass","name":"clock advancement bounded, revision checked and consequence not automatic","file":"tests/faction-orchestration.test.mjs","line":30,"nesting":0,"duration_ms":2.020836}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":59.999506,"file":"tests/faction-orchestration.test.mjs"}
+{"event":"test:pass","name":"all-mode join passes only when all incoming branches execute","file":"tests/flow-join.test.mjs","line":25,"nesting":0,"duration_ms":48.782004}
+{"event":"test:pass","name":"all-mode join blocks when one authored predecessor does not qualify","file":"tests/flow-join.test.mjs","line":31,"nesting":0,"duration_ms":21.803902}
+{"event":"test:pass","name":"any-mode join produces one effect even with two incoming arrivals","file":"tests/flow-join.test.mjs","line":47,"nesting":0,"duration_ms":22.516501}
+{"event":"test:pass","name":"all-mode publication rejects fewer than two incoming links and invalid configuration","file":"tests/flow-join.test.mjs","line":50,"nesting":0,"duration_ms":3.61871}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":104.89826,"file":"tests/flow-join.test.mjs"}
+{"event":"test:pass","name":"focused health reads only exact selected records and marks unknown coverage","file":"tests/focused-health-service.test.mjs","line":9,"nesting":0,"duration_ms":8.4171}
+{"event":"test:pass","name":"unknown states remain unverified, not silently assumed completed","file":"tests/focused-health-service.test.mjs","line":17,"nesting":0,"duration_ms":0.91042}
+{"event":"test:pass","name":"unbounded list and player authority are refused","file":"tests/focused-health-service.test.mjs","line":23,"nesting":0,"duration_ms":1.822803}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":28.964497,"file":"tests/focused-health-service.test.mjs"}
+{"event":"test:pass","name":"active native roll is durable, GM-only, classifies partial and does not reroll","file":"tests/foundry-rolls.test.mjs","line":18,"nesting":0,"duration_ms":33.068894}
+{"event":"test:pass","name":"invalid retry of attempt identity is refused","file":"tests/foundry-rolls.test.mjs","line":24,"nesting":0,"duration_ms":5.591781}
+{"event":"test:pass","name":"failed roll leaves uncertain record and never silently rolls again","file":"tests/foundry-rolls.test.mjs","line":28,"nesting":0,"duration_ms":4.894516}
+{"event":"test:pass","name":"passive checks use fixed formula and cannot fabricate dice rolls","file":"tests/foundry-rolls.test.mjs","line":33,"nesting":0,"duration_ms":2.724991}
+{"event":"test:pass","name":"unowned Actor is refused and input budgets are enforced","file":"tests/foundry-rolls.test.mjs","line":37,"nesting":0,"duration_ms":0.979058}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":62.562398,"file":"tests/foundry-rolls.test.mjs"}
+{"event":"test:pass","name":"v14 simulated transport: verified sender and targeted GM-to-player reply","file":"tests/foundry-transport.test.mjs","line":53,"nesting":0,"duration_ms":4.008516}
+{"event":"test:pass","name":"payload claiming to be GM cannot impersonate server-attested sender","file":"tests/foundry-transport.test.mjs","line":63,"nesting":0,"duration_ms":15.571471}
+{"event":"test:pass","name":"Actor ownership denial returns generic rejection","file":"tests/foundry-transport.test.mjs","line":77,"nesting":0,"duration_ms":1.02357}
+{"event":"test:pass","name":"no durable queue means never claim an accepted request","file":"tests/foundry-transport.test.mjs","line":84,"nesting":0,"duration_ms":33.671413}
+{"event":"test:pass","name":"transport refuses to register if module manifest socket is disabled","file":"tests/foundry-transport.test.mjs","line":91,"nesting":0,"duration_ms":0.458552}
+{"event":"test:pass","name":"a player cannot forge a queued receipt for another player","file":"tests/foundry-transport.test.mjs","line":97,"nesting":0,"duration_ms":42.716411}
+{"event":"test:pass","name":"duplicate request IDs are idempotent only with durable queue contract","file":"tests/foundry-transport.test.mjs","line":108,"nesting":0,"duration_ms":20.505435}
+{"event":"test:pass","name":"payload allowlist drops claimed identity, hidden metadata and actions","file":"tests/foundry-transport.test.mjs","line":118,"nesting":0,"duration_ms":0.409871}
+{"event":"test:pass","name":"rejects oversized or malformed player intents","file":"tests/foundry-transport.test.mjs","line":127,"nesting":0,"duration_ms":0.989975}
+{"event":"test:pass","name":"no designated active GM: fail closed before sending","file":"tests/foundry-transport.test.mjs","line":133,"nesting":0,"duration_ms":0.612749}
+{"event":"test:pass","name":"stopped transport rejects pending requests and removes listener","file":"tests/foundry-transport.test.mjs","line":140,"nesting":0,"duration_ms":0.40018}
+{"event":"test:pass","name":"native world Actor authorizer checks real permission, never player-claimed ownership","file":"tests/foundry-transport.test.mjs","line":148,"nesting":0,"duration_ms":4.813614}
+{"event":"test:pass","name":"native durable queue adapter remains unavailable until verified","file":"tests/foundry-transport.test.mjs","line":159,"nesting":0,"duration_ms":0.448023}
+{"event":"test:summary","success":true,"counts":{"tests":13,"failed":0,"passed":13,"cancelled":0,"skipped":0,"todo":0,"topLevel":13,"suites":0},"duration_ms":143.24085,"file":"tests/foundry-transport.test.mjs"}
+{"event":"test:pass","name":"GM cockpit reads only explicitly requested focused graph and matching events","file":"tests/gm-cockpit.test.mjs","line":6,"nesting":0,"duration_ms":2.553948}
+{"event":"test:pass","name":"GM cockpit rejects unbounded or unauthorized focus","file":"tests/gm-cockpit.test.mjs","line":17,"nesting":0,"duration_ms":2.140877}
+{"event":"test:pass","name":"nested graph focus includes its causal events without unrelated graph proposals","file":"tests/gm-cockpit.test.mjs","line":22,"nesting":0,"duration_ms":0.401941}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":18.264046,"file":"tests/gm-cockpit.test.mjs"}
+{"event":"test:pass","name":"writer captures designated GM and observes handover even if old GM becomes active again","file":"tests/gm-handover-fencing.test.mjs","line":14,"nesting":0,"duration_ms":3.632851}
+{"event":"test:pass","name":"handover during an awaited write does not return successful acknowledgement","file":"tests/gm-handover-fencing.test.mjs","line":26,"nesting":0,"duration_ms":1.976182}
+{"event":"test:pass","name":"hook monitor installation requires observable hooks and never silently doubles listeners","file":"tests/gm-handover-fencing.test.mjs","line":37,"nesting":0,"duration_ms":1.100604}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":27.969387,"file":"tests/gm-handover-fencing.test.mjs"}
+{"event":"test:pass","name":"large published graph is stored as immutable bounded pages and reconstructed on demand","file":"tests/graph-chunks.test.mjs","line":14,"nesting":0,"duration_ms":196.212314}
+{"event":"test:pass","name":"single page lookup does not load entire graph partitions","file":"tests/graph-chunks.test.mjs","line":21,"nesting":0,"duration_ms":38.378067}
+{"event":"test:pass","name":"interrupted chunk write never publishes a manifest","file":"tests/graph-chunks.test.mjs","line":27,"nesting":0,"duration_ms":13.450925}
+{"event":"test:pass","name":"missing or modified pages fail immutability checks","file":"tests/graph-chunks.test.mjs","line":36,"nesting":0,"duration_ms":23.23577}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":278.673219,"file":"tests/graph-chunks.test.mjs"}
+{"event":"test:pass","name":"2,500-node flow validation uses bounded iterative traversal rather than recursive JS stack","file":"tests/graph-long-chain.test.mjs","line":7,"nesting":0,"duration_ms":177.599527}
+{"event":"test:pass","name":"large graph still detects a hidden back-edge cycle","file":"tests/graph-long-chain.test.mjs","line":11,"nesting":0,"duration_ms":23.570173}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":450.694731,"file":"tests/graph-long-chain.test.mjs"}
+{"event":"test:pass","name":"ADR-022: switching narrative/execution/knowledge layers preserves the complete canonical graph","file":"tests/graph-view-state.test.mjs","line":14,"nesting":0,"duration_ms":41.46698}
+{"event":"test:pass","name":"cross-layer connections remain in the graph and are counted in the filtered view","file":"tests/graph-view-state.test.mjs","line":23,"nesting":0,"duration_ms":17.65689}
+{"event":"test:pass","name":"ADR-023: compact/expanded density never changes canonical execution or draft revision","file":"tests/graph-view-state.test.mjs","line":27,"nesting":0,"duration_ms":8.616996}
+{"event":"test:pass","name":"individual layer assignment is a view preference, not a node data mutation","file":"tests/graph-view-state.test.mjs","line":35,"nesting":0,"duration_ms":8.615919}
+{"event":"test:pass","name":"invalid view operations fail without touching saved or unsaved graph state","file":"tests/graph-view-state.test.mjs","line":40,"nesting":0,"duration_ms":13.545176}
+{"event":"test:pass","name":"view snapshots cannot be used to mutate internal presentation preferences","file":"tests/graph-view-state.test.mjs","line":47,"nesting":0,"duration_ms":3.817071}
+{"event":"test:pass","name":"new or reloaded plots do not retain stale node overrides from another graph","file":"tests/graph-view-state.test.mjs","line":51,"nesting":0,"duration_ms":4.570762}
+{"event":"test:pass","name":"individual nodes can collapse while the global density is expanded","file":"tests/graph-view-state.test.mjs","line":56,"nesting":0,"duration_ms":3.618893}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":117.925919,"file":"tests/graph-view-state.test.mjs"}
+{"event":"test:pass","name":"GM planning lab evaluates health using only supplied scoped records","file":"tests/health-planning.test.mjs","line":8,"nesting":0,"duration_ms":1.708976}
+{"event":"test:pass","name":"health report can be saved as GM-private plan without creating effects","file":"tests/health-planning.test.mjs","line":12,"nesting":0,"duration_ms":2.01396}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":16.133328,"file":"tests/health-planning.test.mjs"}
+{"event":"test:pass","name":"player board is allowlisted, knowledge-filtered and conceals undisclosed counts","file":"tests/investigation-board.test.mjs","line":14,"nesting":0,"duration_ms":4.453975}
+{"event":"test:pass","name":"excessive or unauthorized board content is rejected","file":"tests/investigation-board.test.mjs","line":24,"nesting":0,"duration_ms":0.926641}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":22.305305,"file":"tests/investigation-board.test.mjs"}
+{"event":"test:pass","name":"discovered evidence qualifies but never automatically grants a reward","file":"tests/investigation-milestones.test.mjs","line":7,"nesting":0,"duration_ms":2.27344}
+{"event":"test:pass","name":"two observers may contribute independently without repeating the milestone","file":"tests/investigation-milestones.test.mjs","line":11,"nesting":0,"duration_ms":2.815882}
+{"event":"test:pass","name":"hidden evidence and correct guesses do not qualify","file":"tests/investigation-milestones.test.mjs","line":16,"nesting":0,"duration_ms":0.31137}
+{"event":"test:pass","name":"verified conclusion requires separate authorized event identity","file":"tests/investigation-milestones.test.mjs","line":20,"nesting":0,"duration_ms":0.343236}
+{"event":"test:pass","name":"existing milestone never reawarded","file":"tests/investigation-milestones.test.mjs","line":25,"nesting":0,"duration_ms":0.275951}
+{"event":"test:pass","name":"duplicate evidence event is rejected","file":"tests/investigation-milestones.test.mjs","line":29,"nesting":0,"duration_ms":0.787392}
+{"event":"test:pass","name":"player progress projection excludes GM-only milestone totals and truth","file":"tests/investigation-milestones.test.mjs","line":32,"nesting":0,"duration_ms":0.358368}
+{"event":"test:pass","name":"verified conclusion requires independent, explicitly authorized verification evidence","file":"tests/investigation-milestones.test.mjs","line":36,"nesting":0,"duration_ms":0.641902}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":50.190981,"file":"tests/investigation-milestones.test.mjs"}
+{"event":"test:pass","name":"GM-reviewed hypothesis persists with stable causal provenance and safe player view","file":"tests/investigation-workbench.test.mjs","line":29,"nesting":0,"duration_ms":48.767278}
+{"event":"test:pass","name":"theory submission is idempotent per reviewed canonical event","file":"tests/investigation-workbench.test.mjs","line":42,"nesting":0,"duration_ms":7.534431}
+{"event":"test:pass","name":"author cannot cite evidence not known to them or duplicate arguments","file":"tests/investigation-workbench.test.mjs","line":47,"nesting":0,"duration_ms":0.943683}
+{"event":"test:pass","name":"sharing requires recipients to already know every cited clue","file":"tests/investigation-workbench.test.mjs","line":52,"nesting":0,"duration_ms":5.266886}
+{"event":"test:pass","name":"revision changes and hidden verdict fields cannot enter the player record","file":"tests/investigation-workbench.test.mjs","line":60,"nesting":0,"duration_ms":3.157968}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":81.396303,"file":"tests/investigation-workbench.test.mjs"}
+{"event":"test:pass","name":"native Journal shell node follows published graph → protected proposal → GM approval → durable effect","file":"tests/journal-graph-integration.test.mjs","line":13,"nesting":0,"duration_ms":71.023003}
+{"event":"test:summary","success":true,"counts":{"tests":1,"failed":0,"passed":1,"cancelled":0,"skipped":0,"todo":0,"topLevel":1,"suites":0},"duration_ms":80.292755,"file":"tests/journal-graph-integration.test.mjs"}
+{"event":"test:pass","name":"approved shell materialization is idempotent and only stores opaque native metadata","file":"tests/journal-materialization.test.mjs","line":14,"nesting":0,"duration_ms":21.42012}
+{"event":"test:pass","name":"duplicate existing native ID without provenance aborts before modification","file":"tests/journal-materialization.test.mjs","line":21,"nesting":0,"duration_ms":2.557228}
+{"event":"test:pass","name":"native lost acknowledgement leaves prepared record and prevents implicit recreation","file":"tests/journal-materialization.test.mjs","line":26,"nesting":0,"duration_ms":4.360939}
+{"event":"test:pass","name":"materializer rejects arbitrary metadata, raw html, and published secret flags","file":"tests/journal-materialization.test.mjs","line":32,"nesting":0,"duration_ms":0.79763}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":37.179826,"file":"tests/journal-materialization.test.mjs"}
+{"event":"test:pass","name":"propagation distinguishes direct / delayed / reviewed recipients without committing","file":"tests/knowledge-propagation.test.mjs","line":7,"nesting":0,"duration_ms":4.51684}
+{"event":"test:pass","name":"explicit denied links do not transmit","file":"tests/knowledge-propagation.test.mjs","line":13,"nesting":0,"duration_ms":2.183835}
+{"event":"test:pass","name":"cycles converge with deduplicated recipients","file":"tests/knowledge-propagation.test.mjs","line":17,"nesting":0,"duration_ms":0.829696}
+{"event":"test:pass","name":"known disclosure is not delivered again","file":"tests/knowledge-propagation.test.mjs","line":21,"nesting":0,"duration_ms":0.398986}
+{"event":"test:pass","name":"missing recipient is explicitly excluded rather than guessed","file":"tests/knowledge-propagation.test.mjs","line":25,"nesting":0,"duration_ms":0.285249}
+{"event":"test:pass","name":"distortion must be explicitly provenance backed","file":"tests/knowledge-propagation.test.mjs","line":29,"nesting":0,"duration_ms":0.821672}
+{"event":"test:pass","name":"bounds prevent broad propagation and invalid policies","file":"tests/knowledge-propagation.test.mjs","line":34,"nesting":0,"duration_ms":0.295548}
+{"event":"test:pass","name":"player projection only includes preauthorized published disclosure without truth metadata","file":"tests/knowledge-propagation.test.mjs","line":38,"nesting":0,"duration_ms":1.231269}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":33.603957,"file":"tests/knowledge-propagation.test.mjs"}
+{"event":"test:pass","name":"retraction preserves historical disclosure and requires GM review","file":"tests/knowledge-revisions.test.mjs","line":6,"nesting":0,"duration_ms":1.857751}
+{"event":"test:pass","name":"only authorized observer-specific records are proposed","file":"tests/knowledge-revisions.test.mjs","line":11,"nesting":0,"duration_ms":0.706209}
+{"event":"test:pass","name":"dependent nodes are invalidated once and never automatically executed","file":"tests/knowledge-revisions.test.mjs","line":15,"nesting":0,"duration_ms":0.289989}
+{"event":"test:pass","name":"unrelated claim untouched; duplicate observer contexts rejected","file":"tests/knowledge-revisions.test.mjs","line":20,"nesting":0,"duration_ms":1.45556}
+{"event":"test:pass","name":"invalid correction does not silently assert truth","file":"tests/knowledge-revisions.test.mjs","line":24,"nesting":0,"duration_ms":0.370858}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":22.951138,"file":"tests/knowledge-revisions.test.mjs"}
+{"event":"test:pass","name":"ADR-072: legacy hashed records require explicit reviewed adoption and keep the original source untouched","file":"tests/legacy-canonical-adoption.test.mjs","line":19,"nesting":0,"duration_ms":48.148136}
+{"event":"test:pass","name":"adoption rejects absent approval, stale preview and unreviewed collisions","file":"tests/legacy-canonical-adoption.test.mjs","line":27,"nesting":0,"duration_ms":11.720463}
+{"event":"test:pass","name":"legacy updates after adoption cannot silently replace the canonical source","file":"tests/legacy-canonical-adoption.test.mjs","line":34,"nesting":0,"duration_ms":7.128507}
+{"event":"test:pass","name":"new canonical mutations preserve import provenance and enforce the new canonical revision","file":"tests/legacy-canonical-adoption.test.mjs","line":39,"nesting":0,"duration_ms":10.473243}
+{"event":"test:pass","name":"GM revocation and incomplete legacy indices block adoption before writes","file":"tests/legacy-canonical-adoption.test.mjs","line":46,"nesting":0,"duration_ms":2.058437}
+{"event":"test:pass","name":"registered native providers preserve their explicitly declared migration capabilities","file":"tests/legacy-canonical-adoption.test.mjs","line":51,"nesting":0,"duration_ms":9.006234}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":101.574377,"file":"tests/legacy-canonical-adoption.test.mjs"}
+{"event":"test:pass","name":"core.gate.event-origin is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":46.640768}
+{"event":"test:pass","name":"core.gate.causal-depth is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":5.603144}
+{"event":"test:pass","name":"core.gate.after-time is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":5.000991}
+{"event":"test:pass","name":"core.gate.before-time is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.252671}
+{"event":"test:pass","name":"core.gate.faction-pressure is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":9.243323}
+{"event":"test:pass","name":"core.gate.investigation-progress is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.446075}
+{"event":"test:pass","name":"core.gate.evidence-corroborated is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.591343}
+{"event":"test:pass","name":"core.gate.obligation-status is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.472514}
+{"event":"test:pass","name":"core.gate.npc-disposition is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":6.280274}
+{"event":"test:pass","name":"core.gate.milestone-credit is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":7.966403}
+{"event":"test:pass","name":"core.gate.identity-persona is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":4.914139}
+{"event":"test:pass","name":"core.gate.route-status is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":7.83361}
+{"event":"test:pass","name":"core.branch.investigation-outcome is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":10.022441}
+{"event":"test:pass","name":"core.branch.arc-ending is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":14.410008}
+{"event":"test:pass","name":"core.branch.threat-clock is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":6.63043}
+{"event":"test:pass","name":"core.gate.social-debt is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":9.085605}
+{"event":"test:pass","name":"core.gate.faction-operation is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":7.592345}
+{"event":"test:pass","name":"core.gate.resource-integrity is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":5.049007}
+{"event":"test:pass","name":"core.gate.blueprint-version is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":5.434154}
+{"event":"test:pass","name":"core.gate.player-contribution is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.716064}
+{"event":"test:pass","name":"core.gate.campaign-readiness is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.083199}
+{"event":"test:pass","name":"core.gate.identity-disclosure is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.498049}
+{"event":"test:pass","name":"core.branch.request-result is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":16.239929}
+{"event":"test:pass","name":"core.branch.reputation is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":8.903626}
+{"event":"test:pass","name":"core.branch.parallel is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":6.162033}
+{"event":"test:pass","name":"core.event.filter is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":8.718348}
+{"event":"test:pass","name":"core.gate.world-time is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":9.012696}
+{"event":"test:pass","name":"core.gate.actor is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":10.907453}
+{"event":"test:pass","name":"core.gate.evidence is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":4.534399}
+{"event":"test:pass","name":"core.branch.roll-band is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.533473}
+{"event":"test:pass","name":"core.gate.faction-membership is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.531368}
+{"event":"test:pass","name":"core.gate.faction-rank is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.765407}
+{"event":"test:pass","name":"core.gate.npc-location is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.146652}
+{"event":"test:pass","name":"core.gate.quest-state is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.937203}
+{"event":"test:pass","name":"core.gate.arc-state is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.802657}
+{"event":"test:pass","name":"core.gate.pressure-threshold is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":7.215632}
+{"event":"test:pass","name":"core.gate.knowledge-claim is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":4.99525}
+{"event":"test:pass","name":"core.gate.relationship is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.139572}
+{"event":"test:pass","name":"core.gate.disclosure-recipient is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.527537}
+{"event":"test:pass","name":"core.branch.authorized-choice is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.774341}
+{"event":"test:pass","name":"core.gate.faction-knowledge is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.264386}
+{"event":"test:pass","name":"core.gate.npc-agenda is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":4.482646}
+{"event":"test:pass","name":"core.gate.deadline is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.241479}
+{"event":"test:pass","name":"core.gate.known-route is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.905885}
+{"event":"test:pass","name":"core.gate.continuity is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":6.040118}
+{"event":"test:pass","name":"core.gate.hypothesis is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.971182}
+{"event":"test:pass","name":"core.gate.provenance is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.512053}
+{"event":"test:pass","name":"core.gate.faction-standing is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":2.518118}
+{"event":"test:pass","name":"core.branch.milestone is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":4.591896}
+{"event":"test:pass","name":"core.branch.disclosure is authorable, versioned, validated and published","file":"tests/logic-nodes.test.mjs","line":18,"nesting":0,"duration_ms":3.023369}
+{"event":"test:pass","name":"world-time bounds gate proposals, including missing world time","file":"tests/logic-nodes.test.mjs","line":23,"nesting":0,"duration_ms":47.848458}
+{"event":"test:pass","name":"recorded d100 roll branches cannot roll or infer missing results","file":"tests/logic-nodes.test.mjs","line":33,"nesting":0,"duration_ms":31.722619}
+{"event":"test:pass","name":"gate limits cannot be bypassed with malformed published configurations","file":"tests/logic-nodes.test.mjs","line":43,"nesting":0,"duration_ms":2.123966}
+{"event":"test:summary","success":true,"counts":{"tests":53,"failed":0,"passed":53,"cancelled":0,"skipped":0,"todo":0,"topLevel":53,"suites":0},"duration_ms":412.642826,"file":"tests/logic-nodes.test.mjs"}
+{"event":"test:pass","name":"GM manual event publishes review proposal and duplicate request reuses same ledger identity","file":"tests/manual-event-gateway.test.mjs","line":23,"nesting":0,"duration_ms":58.301212}
+{"event":"test:pass","name":"manual-only trigger ignores native hook event with the same event type","file":"tests/manual-event-gateway.test.mjs","line":31,"nesting":0,"duration_ms":20.598198}
+{"event":"test:pass","name":"manual event rejects player credentials, arbitrary fields and invalid request IDs","file":"tests/manual-event-gateway.test.mjs","line":36,"nesting":0,"duration_ms":8.813011}
+{"event":"test:pass","name":"invalid or unknown event source kind is rejected at publication","file":"tests/manual-event-gateway.test.mjs","line":43,"nesting":0,"duration_ms":9.352417}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":111.719241,"file":"tests/manual-event-gateway.test.mjs"}
+{"event":"test:pass","name":"module manifest follows Somel metadata and actual installable entrypoints","file":"tests/module-manifest.test.mjs","line":8,"nesting":0,"duration_ms":4.168264}
+{"event":"test:pass","name":"English and Portuguese (Portugal) language files have matching translation keys","file":"tests/module-manifest.test.mjs","line":18,"nesting":0,"duration_ms":1.541762}
+{"event":"test:pass","name":"graph localization uses Foundry selected language and readable fallback labels","file":"tests/module-manifest.test.mjs","line":23,"nesting":0,"duration_ms":1.907066}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":21.567362,"file":"tests/module-manifest.test.mjs"}
+{"event":"test:pass","name":"core.gate.faction-knowledge validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":2.006498}
+{"event":"test:pass","name":"core.gate.npc-agenda validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.308087}
+{"event":"test:pass","name":"core.gate.deadline validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.302578}
+{"event":"test:pass","name":"core.gate.known-route validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.262191}
+{"event":"test:pass","name":"core.gate.continuity validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.186718}
+{"event":"test:pass","name":"core.gate.hypothesis validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.154918}
+{"event":"test:pass","name":"core.gate.provenance validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.173375}
+{"event":"test:pass","name":"core.gate.faction-standing validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.113273}
+{"event":"test:pass","name":"core.branch.milestone validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.253277}
+{"event":"test:pass","name":"core.branch.disclosure validates and routes committed-source event","file":"tests/more-logic-nodes.test.mjs","line":16,"nesting":0,"duration_ms":0.346105}
+{"event":"test:pass","name":"invalid source values rejected without mutating world","file":"tests/more-logic-nodes.test.mjs","line":21,"nesting":0,"duration_ms":1.076392}
+{"event":"test:summary","success":true,"counts":{"tests":11,"failed":0,"passed":11,"cancelled":0,"skipped":0,"todo":0,"topLevel":11,"suites":0},"duration_ms":22.132283,"file":"tests/more-logic-nodes.test.mjs"}
+{"event":"test:pass","name":"faction-membership typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":34.607592}
+{"event":"test:pass","name":"core.faction.membership publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":43.350361}
+{"event":"test:pass","name":"faction-agenda typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.709983}
+{"event":"test:pass","name":"core.faction.agenda publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":20.910068}
+{"event":"test:pass","name":"npc-agenda typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":5.61428}
+{"event":"test:pass","name":"core.npc.agenda publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":30.345682}
+{"event":"test:pass","name":"npc-schedule typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.426874}
+{"event":"test:pass","name":"core.npc.schedule publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":23.500573}
+{"event":"test:pass","name":"investigation-hypothesis typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":5.476733}
+{"event":"test:pass","name":"core.investigation.hypothesis publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":17.166975}
+{"event":"test:pass","name":"investigation-contribution typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.49487}
+{"event":"test:pass","name":"core.investigation.contribution publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":16.559354}
+{"event":"test:pass","name":"location-discovery typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.753751}
+{"event":"test:pass","name":"core.location.discovery publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":26.953525}
+{"event":"test:pass","name":"location-route typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.43243}
+{"event":"test:pass","name":"core.location.route publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":18.169475}
+{"event":"test:pass","name":"pressure-clock typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.245783}
+{"event":"test:pass","name":"core.pressure.clock publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":24.116846}
+{"event":"test:pass","name":"deadline-review typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":1.415837}
+{"event":"test:pass","name":"core.deadline.review publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":13.518215}
+{"event":"test:pass","name":"encounter-outcome typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.613663}
+{"event":"test:pass","name":"core.encounter.outcome publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":21.602558}
+{"event":"test:pass","name":"continuity-link typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.627905}
+{"event":"test:pass","name":"core.campaign.continuity publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":17.642469}
+{"event":"test:pass","name":"quest-opportunity typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.704255}
+{"event":"test:pass","name":"core.quest.opportunity publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":15.593032}
+{"event":"test:pass","name":"claim-retraction typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":6.540605}
+{"event":"test:pass","name":"core.knowledge.retraction publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":18.351409}
+{"event":"test:pass","name":"session-objective typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":1.833147}
+{"event":"test:pass","name":"core.session.objective publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":15.466301}
+{"event":"test:pass","name":"timeline-annotation typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":6.644502}
+{"event":"test:pass","name":"core.timeline.annotation publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":18.124641}
+{"event":"test:pass","name":"arc-epilogue typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.36459}
+{"event":"test:pass","name":"core.arc.epilogue publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":12.701395}
+{"event":"test:pass","name":"investigation-opportunity typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":4.464797}
+{"event":"test:pass","name":"core.investigation.opportunity publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":16.869619}
+{"event":"test:pass","name":"identity-persona-link typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.395647}
+{"event":"test:pass","name":"core.identity.persona-link publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":18.343136}
+{"event":"test:pass","name":"identity-succession typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":1.43594}
+{"event":"test:pass","name":"core.identity.succession publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":12.311775}
+{"event":"test:pass","name":"faction-privilege typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.039554}
+{"event":"test:pass","name":"core.faction.privilege publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":9.256228}
+{"event":"test:pass","name":"faction-renown typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.084349}
+{"event":"test:pass","name":"core.faction.renown publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":22.764442}
+{"event":"test:pass","name":"evidence-link typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.092624}
+{"event":"test:pass","name":"core.investigation.evidence-link publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":25.585409}
+{"event":"test:pass","name":"investigation-conclusion typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.905331}
+{"event":"test:pass","name":"core.investigation.conclusion publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":23.376326}
+{"event":"test:pass","name":"knowledge-rumor typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":3.856896}
+{"event":"test:pass","name":"core.knowledge.rumor publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":10.983099}
+{"event":"test:pass","name":"knowledge-credibility typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":1.535215}
+{"event":"test:pass","name":"core.knowledge.credibility publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":24.713899}
+{"event":"test:pass","name":"arc-resolution-facet typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.268834}
+{"event":"test:pass","name":"core.arc.resolution-facet publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":13.542836}
+{"event":"test:pass","name":"time-transition-plan typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.407173}
+{"event":"test:pass","name":"core.time.transition-plan publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":21.916165}
+{"event":"test:pass","name":"resource-provenance typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.572324}
+{"event":"test:pass","name":"core.resource.provenance publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":21.478428}
+{"event":"test:pass","name":"campaign-recap typed native-backed provider applies, verifies, and resists duplicate effects","file":"tests/narrative-capabilities.test.mjs","line":24,"nesting":0,"duration_ms":2.033747}
+{"event":"test:pass","name":"core.campaign.recap publishes, routes, approves and persists an effect","file":"tests/narrative-capabilities.test.mjs","line":39,"nesting":0,"duration_ms":16.656253}
+{"event":"test:pass","name":"capability contracts reject unknown fields, unknown visibility, invalid world times and dangling ids","file":"tests/narrative-capabilities.test.mjs","line":53,"nesting":0,"duration_ms":1.82498}
+{"event":"test:pass","name":"updated clock respects revisions, forbids decreases and preserves provenance","file":"tests/narrative-capabilities.test.mjs","line":62,"nesting":0,"duration_ms":4.285779}
+{"event":"test:pass","name":"historical contributions cannot be overwritten with new operations","file":"tests/narrative-capabilities.test.mjs","line":70,"nesting":0,"duration_ms":5.266992}
+{"event":"test:summary","success":true,"counts":{"tests":63,"failed":0,"passed":63,"cancelled":0,"skipped":0,"todo":0,"topLevel":63,"suites":0},"duration_ms":752.458726,"file":"tests/narrative-capabilities.test.mjs"}
+{"event":"test:pass","name":"health only reports explicitly sourced, bounded GM attention items","file":"tests/narrative-health.test.mjs","line":5,"nesting":0,"duration_ms":1.438358}
+{"event":"test:pass","name":"partial coverage never claims complete world health","file":"tests/narrative-health.test.mjs","line":14,"nesting":0,"duration_ms":0.229943}
+{"event":"test:pass","name":"health resists unbounded reads and malformed input","file":"tests/narrative-health.test.mjs","line":18,"nesting":0,"duration_ms":1.9546}
+{"event":"test:pass","name":"due event does not become overdue on exact boundary","file":"tests/narrative-health.test.mjs","line":23,"nesting":0,"duration_ms":0.245706}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":19.683441,"file":"tests/narrative-health.test.mjs"}
+{"event":"test:pass","name":"Actor shell is GM-owned, opaque, idempotent, and verified against native type","file":"tests/native-actor-item.test.mjs","line":31,"nesting":0,"duration_ms":20.456519}
+{"event":"test:pass","name":"Item shell requires declared game-system type; no document is written on invalid type","file":"tests/native-actor-item.test.mjs","line":42,"nesting":0,"duration_ms":4.230178}
+{"event":"test:pass","name":"Actor type creation refuses missing system type declarations","file":"tests/native-actor-item.test.mjs","line":50,"nesting":0,"duration_ms":0.751488}
+{"event":"test:pass","name":"Unknown native collision is never adopted or overwritten","file":"tests/native-actor-item.test.mjs","line":55,"nesting":0,"duration_ms":2.493238}
+{"event":"test:pass","name":"Lost acknowledgement leaves protected pending record and disables automatic replay","file":"tests/native-actor-item.test.mjs","line":61,"nesting":0,"duration_ms":5.228895}
+{"event":"test:pass","name":"Creation payload rejects unknown fields, secret text, other visibility and non-null revisions","file":"tests/native-actor-item.test.mjs","line":69,"nesting":0,"duration_ms":0.672754}
+{"event":"test:pass","name":"Graph authoring → publication → event → GM approval → Item shell is a journaled operation","file":"tests/native-actor-item.test.mjs","line":75,"nesting":0,"duration_ms":45.767564}
+{"event":"test:summary","success":true,"counts":{"tests":7,"failed":0,"passed":7,"cancelled":0,"skipped":0,"todo":0,"topLevel":7,"suites":0},"duration_ms":96.103066,"file":"tests/native-actor-item.test.mjs"}
+{"event":"test:pass","name":"Native integration factory refuses implicit secrets and opportunity authorization","file":"tests/native-integration.test.mjs","line":9,"nesting":0,"duration_ms":2.267218}
+{"event":"test:pass","name":"Explicitly composed integration exposes no automatically started socket or effects","file":"tests/native-integration.test.mjs","line":15,"nesting":0,"duration_ms":6.739869}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":19.26074,"file":"tests/native-integration.test.mjs"}
+{"event":"test:pass","name":"migration preview is pure, bounded and identity preserving","file":"tests/native-migrations.test.mjs","line":12,"nesting":0,"duration_ms":21.228068}
+{"event":"test:pass","name":"contract changes to narrative identities are rejected before native writes","file":"tests/native-migrations.test.mjs","line":20,"nesting":0,"duration_ms":1.512722}
+{"event":"test:pass","name":"migration stops on unknown future contracts and missing steps","file":"tests/native-migrations.test.mjs","line":26,"nesting":0,"duration_ms":0.594674}
+{"event":"test:pass","name":"interrupted migration stays journaled and requires inspection instead of blind retry","file":"tests/native-migrations.test.mjs","line":30,"nesting":0,"duration_ms":5.334158}
+{"event":"test:pass","name":"audit locator stays deterministic and migration authority is mandatory","file":"tests/native-migrations.test.mjs","line":43,"nesting":0,"duration_ms":1.864552}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":37.739774,"file":"tests/native-migrations.test.mjs"}
+{"event":"test:pass","name":"Protected Compendium defaults to denied without exact live test evidence","file":"tests/native-persistence.test.mjs","line":52,"nesting":0,"duration_ms":3.018849}
+{"event":"test:pass","name":"Player-readable pack cannot be used even if supplied attestation claims success","file":"tests/native-persistence.test.mjs","line":58,"nesting":0,"duration_ms":0.759203}
+{"event":"test:pass","name":"Native pack record survives new repository and enforces revisions","file":"tests/native-persistence.test.mjs","line":62,"nesting":0,"duration_ms":17.309378}
+{"event":"test:pass","name":"Index cursor is bounded, no global pack load or getIndex()","file":"tests/native-persistence.test.mjs","line":73,"nesting":0,"duration_ms":3.430997}
+{"event":"test:pass","name":"Interrupted record creation leaves detectable pending index","file":"tests/native-persistence.test.mjs","line":83,"nesting":0,"duration_ms":3.029022}
+{"event":"test:pass","name":"Retry after pending index can recover a failed record creation","file":"tests/native-persistence.test.mjs","line":99,"nesting":0,"duration_ms":4.209869}
+{"event":"test:pass","name":"GM authority loss during mutation does not return a successful acknowledgement","file":"tests/native-persistence.test.mjs","line":111,"nesting":0,"duration_ms":1.681527}
+{"event":"test:pass","name":"Intent queue durable request, deduplication, permission and opportunity rechecks","file":"tests/native-persistence.test.mjs","line":125,"nesting":0,"duration_ms":15.546694}
+{"event":"test:pass","name":"Intent queue denies request replay with mismatched payload","file":"tests/native-persistence.test.mjs","line":148,"nesting":0,"duration_ms":5.152592}
+{"event":"test:pass","name":"Native effect journal persists idempotency and guarded state changes","file":"tests/native-persistence.test.mjs","line":158,"nesting":0,"duration_ms":5.541849}
+{"event":"test:pass","name":"Opaque deterministic 16 character Foundry IDs are stable and distinct","file":"tests/native-persistence.test.mjs","line":167,"nesting":0,"duration_ms":1.000556}
+{"event":"test:pass","name":"GM may explicitly reconcile a partially indexed existing record","file":"tests/native-persistence.test.mjs","line":174,"nesting":0,"duration_ms":2.902837}
+{"event":"test:pass","name":"Stored payload size is bounded before oversized record creation","file":"tests/native-persistence.test.mjs","line":187,"nesting":0,"duration_ms":1.847113}
+{"event":"test:pass","name":"A new GM cannot silently resume an uncertain previous GM writer","file":"tests/native-persistence.test.mjs","line":195,"nesting":0,"duration_ms":0.326169}
+{"event":"test:summary","success":true,"counts":{"tests":14,"failed":0,"passed":14,"cancelled":0,"skipped":0,"todo":0,"topLevel":14,"suites":0},"duration_ms":83.227146,"file":"tests/native-persistence.test.mjs"}
+{"event":"test:pass","name":"plans share a revisioned native-compatible repository and persist after service reconstruction","file":"tests/native-plan-integration.test.mjs","line":7,"nesting":0,"duration_ms":14.641316}
+{"event":"test:summary","success":true,"counts":{"tests":1,"failed":0,"passed":1,"cancelled":0,"skipped":0,"todo":0,"topLevel":1,"suites":0},"duration_ms":24.181919,"file":"tests/native-plan-integration.test.mjs"}
+{"event":"test:pass","name":"core.resource.materialize-journal: editor binds native provenance to the actual graph","file":"tests/native-provenance-preflight.test.mjs","line":12,"nesting":0,"duration_ms":16.762061}
+{"event":"test:pass","name":"core.resource.materialize-journal: preflight rejects a forged resource origin","file":"tests/native-provenance-preflight.test.mjs","line":19,"nesting":0,"duration_ms":2.908146}
+{"event":"test:pass","name":"core.resource.materialize-actor: editor binds native provenance to the actual graph","file":"tests/native-provenance-preflight.test.mjs","line":12,"nesting":0,"duration_ms":2.408621}
+{"event":"test:pass","name":"core.resource.materialize-actor: preflight rejects a forged resource origin","file":"tests/native-provenance-preflight.test.mjs","line":19,"nesting":0,"duration_ms":1.471255}
+{"event":"test:pass","name":"core.resource.materialize-item: editor binds native provenance to the actual graph","file":"tests/native-provenance-preflight.test.mjs","line":12,"nesting":0,"duration_ms":1.842776}
+{"event":"test:pass","name":"core.resource.materialize-item: preflight rejects a forged resource origin","file":"tests/native-provenance-preflight.test.mjs","line":19,"nesting":0,"duration_ms":1.061043}
+{"event":"test:pass","name":"core.resource.bind-native: editor binds native provenance to the actual graph","file":"tests/native-provenance-preflight.test.mjs","line":12,"nesting":0,"duration_ms":1.688115}
+{"event":"test:pass","name":"core.resource.bind-native: preflight rejects a forged resource origin","file":"tests/native-provenance-preflight.test.mjs","line":19,"nesting":0,"duration_ms":3.300116}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":38.434311,"file":"tests/native-provenance-preflight.test.mjs"}
+{"event":"test:pass","name":"mock native Compendium sustains indexed publication and event review across integration re-creation","file":"tests/native-reactive.test.mjs","line":27,"nesting":0,"duration_ms":194.6927}
+{"event":"test:pass","name":"native protected pack index gate still fails closed in reactive composition","file":"tests/native-reactive.test.mjs","line":50,"nesting":0,"duration_ms":2.352011}
+{"event":"test:pass","name":"native Hooks are never enabled just by configuring storage or activating a graph","file":"tests/native-reactive.test.mjs","line":56,"nesting":0,"duration_ms":77.693297}
+{"event":"test:pass","name":"mock native Compendium persists GM decision and verified effect across subsystem reconstruction","file":"tests/native-reactive.test.mjs","line":63,"nesting":0,"duration_ms":252.239533}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":542.338591,"file":"tests/native-reactive.test.mjs"}
+{"event":"test:pass","name":"Existing Actor bind preserves native document untouched and protected provenance","file":"tests/native-resource-binding.test.mjs","line":26,"nesting":0,"duration_ms":16.035009}
+{"event":"test:pass","name":"Rebind requires the expected old native ID and explicit record revision","file":"tests/native-resource-binding.test.mjs","line":36,"nesting":0,"duration_ms":4.43678}
+{"event":"test:pass","name":"Detach is revision-controlled and does not delete a native Actor","file":"tests/native-resource-binding.test.mjs","line":43,"nesting":0,"duration_ms":1.897479}
+{"event":"test:pass","name":"Missing native target and compendium-pack bound document fail closed","file":"tests/native-resource-binding.test.mjs","line":50,"nesting":0,"duration_ms":1.142206}
+{"event":"test:pass","name":"Binding cannot change the identity, scope, authorization or ownership fields arbitrarily","file":"tests/native-resource-binding.test.mjs","line":56,"nesting":0,"duration_ms":1.270412}
+{"event":"test:pass","name":"Published binding node emits an approved, journaled, protected native reference operation","file":"tests/native-resource-binding.test.mjs","line":62,"nesting":0,"duration_ms":41.371412}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":73.28098,"file":"tests/native-resource-binding.test.mjs"}
+{"event":"test:pass","name":"reverse edge can be recorded twice only by the same causal operation","file":"tests/native-reverse-references.test.mjs","line":15,"nesting":0,"duration_ms":21.477601}
+{"event":"test:pass","name":"reverse lookup is scoped to one native world UUID and provides bounded metadata","file":"tests/native-reverse-references.test.mjs","line":21,"nesting":0,"duration_ms":6.111895}
+{"event":"test:pass","name":"drift and orphan reports do not mutate or automatically rebind native references","file":"tests/native-reverse-references.test.mjs","line":29,"nesting":0,"duration_ms":4.012788}
+{"event":"test:pass","name":"retired links remain in historical index but are not active dependencies","file":"tests/native-reverse-references.test.mjs","line":39,"nesting":0,"duration_ms":5.040888}
+{"event":"test:pass","name":"stale binding, unrelated reference and invalid UUID cannot create reverse edge","file":"tests/native-reverse-references.test.mjs","line":46,"nesting":0,"duration_ms":0.831841}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":49.71326,"file":"tests/native-reverse-references.test.mjs"}
+{"event":"test:pass","name":"due index loads only selected bucket windows and returns sorted GM-review candidates","file":"tests/native-temporal-index.test.mjs","line":19,"nesting":0,"duration_ms":21.963833}
+{"event":"test:pass","name":"stale entries from rescheduling or completion never become due actions","file":"tests/native-temporal-index.test.mjs","line":27,"nesting":0,"duration_ms":3.569334}
+{"event":"test:pass","name":"untrusted index data without matching canonical schedule is ignored","file":"tests/native-temporal-index.test.mjs","line":36,"nesting":0,"duration_ms":4.866466}
+{"event":"test:pass","name":"bounded index enforces bucket span, valid entries and GM authority","file":"tests/native-temporal-index.test.mjs","line":42,"nesting":0,"duration_ms":4.937147}
+{"event":"test:pass","name":"read back rejects malformed indexed record","file":"tests/native-temporal-index.test.mjs","line":50,"nesting":0,"duration_ms":1.748589}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":43.660919,"file":"tests/native-temporal-index.test.mjs"}
+{"event":"test:pass","name":"scoped GM search, session handoff, and private notices persist across service reconstruction","file":"tests/new-workflows-native.test.mjs","line":27,"nesting":0,"duration_ms":134.104381}
+{"event":"test:pass","name":"focused native health reads exact records and cannot certify unindexed world completeness","file":"tests/new-workflows-native.test.mjs","line":49,"nesting":0,"duration_ms":22.915667}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":176.22414,"file":"tests/new-workflows-native.test.mjs"}
+{"event":"test:pass","name":"versioned extension logic composes into authoring and published reactive graph","file":"tests/node-extensions.test.mjs","line":22,"nesting":0,"duration_ms":65.211833}
+{"event":"test:pass","name":"extension contract enforces version, declared ports, shape and no arbitrary effects","file":"tests/node-extensions.test.mjs","line":30,"nesting":0,"duration_ms":37.192337}
+{"event":"test:pass","name":"lazy node provider is registered on demand and never during module init","file":"tests/node-extensions.test.mjs","line":40,"nesting":0,"duration_ms":1.118995}
+{"event":"test:pass","name":"ADR-073: an unavailable provider version loads without losing data and cannot execute or republish","file":"tests/node-extensions.test.mjs","line":46,"nesting":0,"duration_ms":19.477981}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":130.554202,"file":"tests/node-extensions.test.mjs"}
+{"event":"test:pass","name":"authenticated recipient gets only allowlisted safe text and durable receipt","file":"tests/notification-transport.test.mjs","line":36,"nesting":0,"duration_ms":39.184091}
+{"event":"test:pass","name":"rejects foreign recipient mapping before any socket emission","file":"tests/notification-transport.test.mjs","line":49,"nesting":0,"duration_ms":3.450836}
+{"event":"test:pass","name":"pending notifications and expired notices cannot be sent","file":"tests/notification-transport.test.mjs","line":54,"nesting":0,"duration_ms":1.878811}
+{"event":"test:pass","name":"forged client receipt cannot satisfy authentic recipient identity","file":"tests/notification-transport.test.mjs","line":61,"nesting":0,"duration_ms":37.087157}
+{"event":"test:pass","name":"client callback failure leaves uncertain status, not a durable received mark","file":"tests/notification-transport.test.mjs","line":70,"nesting":0,"duration_ms":38.130464}
+{"event":"test:pass","name":"client rejects forged GM sender and overlong payloads","file":"tests/notification-transport.test.mjs","line":76,"nesting":0,"duration_ms":7.397437}
+{"event":"test:pass","name":"concurrent sends for the same notice are rejected before asynchronous recipient lookup","file":"tests/notification-transport.test.mjs","line":86,"nesting":0,"duration_ms":27.081543}
+{"event":"test:pass","name":"an authenticated client duplicate packet is acknowledged but not redisplayed","file":"tests/notification-transport.test.mjs","line":94,"nesting":0,"duration_ms":9.147976}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":176.573213,"file":"tests/notification-transport.test.mjs"}
+{"event":"test:pass","name":"ADR-109: opposed native check records both rolls, causal identities and authored winner","file":"tests/opposed-rolls.test.mjs","line":21,"nesting":0,"duration_ms":25.260209}
+{"event":"test:pass","name":"resolved opposed attempts return stored outcomes without rerolling after recreation","file":"tests/opposed-rolls.test.mjs","line":28,"nesting":0,"duration_ms":8.47453}
+{"event":"test:pass","name":"ADR-084: interruption on the second side leaves the whole attempt uncertain and unreplayed","file":"tests/opposed-rolls.test.mjs","line":32,"nesting":0,"duration_ms":4.199087}
+{"event":"test:pass","name":"passive opposed check consumes no native randomness","file":"tests/opposed-rolls.test.mjs","line":37,"nesting":0,"duration_ms":3.854126}
+{"event":"test:pass","name":"opposed tie policies are authored explicitly and never selected arbitrarily","file":"tests/opposed-rolls.test.mjs","line":41,"nesting":0,"duration_ms":11.454662}
+{"event":"test:pass","name":"opposed partial bands preserve separate winner and degree of outcome","file":"tests/opposed-rolls.test.mjs","line":47,"nesting":0,"duration_ms":5.269994}
+{"event":"test:pass","name":"both opposed Actors must be authorized before randomness or preparation","file":"tests/opposed-rolls.test.mjs","line":51,"nesting":0,"duration_ms":8.746701}
+{"event":"test:pass","name":"GM authority and Actor ownership are rechecked on stored-result access","file":"tests/opposed-rolls.test.mjs","line":55,"nesting":0,"duration_ms":8.446437}
+{"event":"test:pass","name":"opposed attempt identities cannot be reused with modified participants or policies","file":"tests/opposed-rolls.test.mjs","line":59,"nesting":0,"duration_ms":8.683494}
+{"event":"test:pass","name":"opposed contracts reject unsupported formulas, unbounded margins and self-opposition","file":"tests/opposed-rolls.test.mjs","line":63,"nesting":0,"duration_ms":0.52609}
+{"event":"test:pass","name":"opposed records with incomplete indices require manual reconciliation","file":"tests/opposed-rolls.test.mjs","line":68,"nesting":0,"duration_ms":7.885353}
+{"event":"test:pass","name":"lost final-result acknowledgment never rerolls a completed opposed attempt","file":"tests/opposed-rolls.test.mjs","line":72,"nesting":0,"duration_ms":5.573071}
+{"event":"test:pass","name":"Combat hooks carry bounded field names without implying an encounter outcome","file":"tests/opposed-rolls.test.mjs","line":78,"nesting":0,"duration_ms":2.299458}
+{"event":"test:pass","name":"private chat Hook observations never copy content, recipients or roll values","file":"tests/opposed-rolls.test.mjs","line":84,"nesting":0,"duration_ms":0.336109}
+{"event":"test:summary","success":true,"counts":{"tests":14,"failed":0,"passed":14,"cancelled":0,"skipped":0,"todo":0,"topLevel":14,"suites":0},"duration_ms":119.757948,"file":"tests/opposed-rolls.test.mjs"}
+{"event":"test:pass","name":"GM planning lab routes knowledge propagation without native effects","file":"tests/orchestration-integration.test.mjs","line":4,"nesting":0,"duration_ms":2.744332}
+{"event":"test:pass","name":"GM planning lab routes due faction turn without inventing events","file":"tests/orchestration-integration.test.mjs","line":8,"nesting":0,"duration_ms":0.809596}
+{"event":"test:pass","name":"GM planning lab routes arc closure and resource audit","file":"tests/orchestration-integration.test.mjs","line":11,"nesting":0,"duration_ms":0.88544}
+{"event":"test:pass","name":"planning lab rejects unknown mode and oversized input","file":"tests/orchestration-integration.test.mjs","line":16,"nesting":0,"duration_ms":2.156212}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":26.679692,"file":"tests/orchestration-integration.test.mjs"}
+{"event":"test:pass","name":"paged registry saves, publishes and activates a large graph across reinitialization","file":"tests/paged-registry.test.mjs","line":15,"nesting":0,"duration_ms":472.21384}
+{"event":"test:pass","name":"paged snapshots remain immutable while a subsequent draft revision changes","file":"tests/paged-registry.test.mjs","line":31,"nesting":0,"duration_ms":13.948941}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":493.388206,"file":"tests/paged-registry.test.mjs"}
+{"event":"test:pass","name":"GM arc finalization persists a historical snapshot without closing unresolved objectives","file":"tests/persistent-arc-resolution.test.mjs","line":21,"nesting":0,"duration_ms":22.508659}
+{"event":"test:pass","name":"exclusive ending conflicts and unknown alternative prevent durable resolution writes","file":"tests/persistent-arc-resolution.test.mjs","line":31,"nesting":0,"duration_ms":4.326922}
+{"event":"test:pass","name":"staged but unconfirmed resolution never replays automatically","file":"tests/persistent-arc-resolution.test.mjs","line":39,"nesting":0,"duration_ms":1.76724}
+{"event":"test:pass","name":"GM explicitly reconciles a prepared resolution when the arc really concluded","file":"tests/persistent-arc-resolution.test.mjs","line":49,"nesting":0,"duration_ms":15.443889}
+{"event":"test:pass","name":"stale expected revision and wrong resolution identity fail closed","file":"tests/persistent-arc-resolution.test.mjs","line":63,"nesting":0,"duration_ms":1.377295}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":55.35312,"file":"tests/persistent-arc-resolution.test.mjs"}
+{"event":"test:pass","name":"published blueprint snapshots are immutable and retain stable source identity","file":"tests/persistent-blueprints.test.mjs","line":10,"nesting":0,"duration_ms":4.28471}
+{"event":"test:pass","name":"instance update adopts unchanged fields, preserves overrides and does not change native docs","file":"tests/persistent-blueprints.test.mjs","line":15,"nesting":0,"duration_ms":19.651843}
+{"event":"test:pass","name":"conflicts require explicit field-by-field GM review","file":"tests/persistent-blueprints.test.mjs","line":24,"nesting":0,"duration_ms":4.293831}
+{"event":"test:pass","name":"unknown fields and stale instance revisions fail closed","file":"tests/persistent-blueprints.test.mjs","line":33,"nesting":0,"duration_ms":1.342353}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":37.069908,"file":"tests/persistent-blueprints.test.mjs"}
+{"event":"test:pass","name":"faction requires its own known claim and established canonical fact","file":"tests/persistent-faction-agenda.test.mjs","line":17,"nesting":0,"duration_ms":19.391167}
+{"event":"test:pass","name":"faction cannot use other recipients knowledge as if its own","file":"tests/persistent-faction-agenda.test.mjs","line":25,"nesting":0,"duration_ms":7.675}
+{"event":"test:pass","name":"review is explicit, revision checked, deduplicated and has no effects","file":"tests/persistent-faction-agenda.test.mjs","line":30,"nesting":0,"duration_ms":10.146347}
+{"event":"test:pass","name":"published agenda is immutable and rule window cannot be invalid","file":"tests/persistent-faction-agenda.test.mjs","line":39,"nesting":0,"duration_ms":3.545364}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":49.791741,"file":"tests/persistent-faction-agenda.test.mjs"}
+{"event":"test:pass","name":"ADR-097: forecast hypotheses require both canonical conditions and the faction own knowledge","file":"tests/persistent-forecasts.test.mjs","line":24,"nesting":0,"duration_ms":28.298907}
+{"event":"test:pass","name":"ADR-098: dependency changes stale only the affected forecast, including different rules in the same agenda","file":"tests/persistent-forecasts.test.mjs","line":32,"nesting":0,"duration_ms":13.049854}
+{"event":"test:pass","name":"a forecast never treats another observer receipt as faction knowledge","file":"tests/persistent-forecasts.test.mjs","line":42,"nesting":0,"duration_ms":7.329237}
+{"event":"test:pass","name":"forecast dependency manifests survive reconstruction and expire at authored temporal boundaries","file":"tests/persistent-forecasts.test.mjs","line":46,"nesting":0,"duration_ms":17.07388}
+{"event":"test:pass","name":"missing canonical facts are captured as absence dependencies and invalidate when created","file":"tests/persistent-forecasts.test.mjs","line":52,"nesting":0,"duration_ms":5.414594}
+{"event":"test:pass","name":"concurrent source changes prevent a false coherent forecast from being persisted","file":"tests/persistent-forecasts.test.mjs","line":58,"nesting":0,"duration_ms":2.575483}
+{"event":"test:pass","name":"invalid rules, unknown effect fields and unbounded horizons cannot produce forecasts","file":"tests/persistent-forecasts.test.mjs","line":68,"nesting":0,"duration_ms":1.003149}
+{"event":"test:pass","name":"corrupt persisted forecasts fail integrity validation rather than displaying predictions","file":"tests/persistent-forecasts.test.mjs","line":74,"nesting":0,"duration_ms":2.44951}
+{"event":"test:pass","name":"forecast records remain GM-private after authority revocation","file":"tests/persistent-forecasts.test.mjs","line":79,"nesting":0,"duration_ms":7.305499}
+{"event":"test:pass","name":"cached hypotheses expire when an authored future rule window starts even without record changes","file":"tests/persistent-forecasts.test.mjs","line":83,"nesting":0,"duration_ms":10.717905}
+{"event":"test:summary","success":true,"counts":{"tests":10,"failed":0,"passed":10,"cancelled":0,"skipped":0,"todo":0,"topLevel":10,"suites":0},"duration_ms":105.994545,"file":"tests/persistent-forecasts.test.mjs"}
+{"event":"test:pass","name":"ADR-094: persistent pins survive scene changes and restart while unpinned focus follows configured scenes","file":"tests/persistent-gm-focus.test.mjs","line":13,"nesting":0,"duration_ms":30.291073}
+{"event":"test:pass","name":"ADR-095: transient attention ages out while manually pinned narrative significance survives restart","file":"tests/persistent-gm-focus.test.mjs","line":24,"nesting":0,"duration_ms":8.179419}
+{"event":"test:pass","name":"ADR-093: dock, inspector and full canvas share one focus without writing canonical graphs","file":"tests/persistent-gm-focus.test.mjs","line":34,"nesting":0,"duration_ms":3.780625}
+{"event":"test:pass","name":"GM focus rejects stale preferences, guessed event pins and event retargeting","file":"tests/persistent-gm-focus.test.mjs","line":40,"nesting":0,"duration_ms":9.622281}
+{"event":"test:pass","name":"explicit focus respects a persistent pin and subscriber failures cannot corrupt other views","file":"tests/persistent-gm-focus.test.mjs","line":46,"nesting":0,"duration_ms":3.514794}
+{"event":"test:pass","name":"focus scene IDs use own properties and cannot inherit object prototype values","file":"tests/persistent-gm-focus.test.mjs","line":52,"nesting":0,"duration_ms":1.723382}
+{"event":"test:pass","name":"focus and attention stay GM-private with bounded local subscriptions","file":"tests/persistent-gm-focus.test.mjs","line":58,"nesting":0,"duration_ms":0.622839}
+{"event":"test:pass","name":"focus capacity preserves manually pinned signals rather than silently evicting significance","file":"tests/persistent-gm-focus.test.mjs","line":64,"nesting":0,"duration_ms":52.17841}
+{"event":"test:summary","success":true,"counts":{"tests":8,"failed":0,"passed":8,"cancelled":0,"skipped":0,"todo":0,"topLevel":8,"suites":0},"duration_ms":120.666,"file":"tests/persistent-gm-focus.test.mjs"}
+{"event":"test:pass","name":"persistent draft save and new registry instance read same graph","file":"tests/persistent-graphs.test.mjs","line":23,"nesting":0,"duration_ms":21.096896}
+{"event":"test:pass","name":"published immutable snapshot survives later draft edits and separate activation pointer","file":"tests/persistent-graphs.test.mjs","line":32,"nesting":0,"duration_ms":33.263619}
+{"event":"test:pass","name":"stale draft and activation operations are denied","file":"tests/persistent-graphs.test.mjs","line":57,"nesting":0,"duration_ms":8.868672}
+{"event":"test:pass","name":"republishing same revision is idempotent and does not overwrite it","file":"tests/persistent-graphs.test.mjs","line":68,"nesting":0,"duration_ms":7.505355}
+{"event":"test:pass","name":"corrupted immutable snapshot detected by fingerprint before activation","file":"tests/persistent-graphs.test.mjs","line":77,"nesting":0,"duration_ms":6.476381}
+{"event":"test:pass","name":"unknown executable node providers and oversized graphs fail closed at draft save","file":"tests/persistent-graphs.test.mjs","line":87,"nesting":0,"duration_ms":3.550378}
+{"event":"test:pass","name":"bounded draft query returns only scope records","file":"tests/persistent-graphs.test.mjs","line":95,"nesting":0,"duration_ms":2.660712}
+{"event":"test:pass","name":"graph editor model authors, connects, saves, publishes and activates a plot","file":"tests/persistent-graphs.test.mjs","line":103,"nesting":0,"duration_ms":16.246484}
+{"event":"test:pass","name":"graph editor rejects invalid connections and cycles, root removal and malformed JSON","file":"tests/persistent-graphs.test.mjs","line":124,"nesting":0,"duration_ms":1.234176}
+{"event":"test:pass","name":"graph editor refuses to lose unsaved work via direct load","file":"tests/persistent-graphs.test.mjs","line":137,"nesting":0,"duration_ms":1.664128}
+{"event":"test:pass","name":"graph authoring context requires real GM authority rather than user-supplied flags","file":"tests/persistent-graphs.test.mjs","line":143,"nesting":0,"duration_ms":0.515923}
+{"event":"test:pass","name":"publication reachability warnings need an explicit GM acknowledgement","file":"tests/persistent-graphs.test.mjs","line":149,"nesting":0,"duration_ms":2.887}
+{"event":"test:pass","name":"moving a node is captured in draft and rejects invalid coordinates","file":"tests/persistent-graphs.test.mjs","line":159,"nesting":0,"duration_ms":2.420383}
+{"event":"test:pass","name":"published graph does not activate merely by being published","file":"tests/persistent-graphs.test.mjs","line":167,"nesting":0,"duration_ms":3.392411}
+{"event":"test:summary","success":true,"counts":{"tests":14,"failed":0,"passed":14,"cancelled":0,"skipped":0,"todo":0,"topLevel":14,"suites":0},"duration_ms":121.879864,"file":"tests/persistent-graphs.test.mjs"}
+{"event":"test:pass","name":"eligible evidence requires canonical knowledge, then separate GM completion","file":"tests/persistent-investigation-milestones.test.mjs","line":21,"nesting":0,"duration_ms":11.312112}
+{"event":"test:pass","name":"unknown evidence and guessed identity do not qualify a milestone","file":"tests/persistent-investigation-milestones.test.mjs","line":33,"nesting":0,"duration_ms":7.67279}
+{"event":"test:pass","name":"duplicate evidence event is idempotent and conflicting reused identity rejected","file":"tests/persistent-investigation-milestones.test.mjs","line":39,"nesting":0,"duration_ms":1.148595}
+{"event":"test:pass","name":"verified conclusion requires independent verification event, not just evidence","file":"tests/persistent-investigation-milestones.test.mjs","line":44,"nesting":0,"duration_ms":15.432248}
+{"event":"test:pass","name":"stale progress revision cannot complete an otherwise eligible milestone","file":"tests/persistent-investigation-milestones.test.mjs","line":51,"nesting":0,"duration_ms":0.911693}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":55.041932,"file":"tests/persistent-investigation-milestones.test.mjs"}
+{"event":"test:pass","name":"propagation plan is durable, requires GM adjudication and never publishes on its own","file":"tests/persistent-knowledge-propagation.test.mjs","line":23,"nesting":0,"duration_ms":21.559025}
+{"event":"test:pass","name":"delays, out-of-scope users, stale approvals and source identity are enforced","file":"tests/persistent-knowledge-propagation.test.mjs","line":36,"nesting":0,"duration_ms":6.338518}
+{"event":"test:pass","name":"identical approvals are retry safe but conflicting approvals are rejected","file":"tests/persistent-knowledge-propagation.test.mjs","line":47,"nesting":0,"duration_ms":5.552202}
+{"event":"test:pass","name":"interrupted decision persistence can be reconciled from deterministic receipt","file":"tests/persistent-knowledge-propagation.test.mjs","line":55,"nesting":0,"duration_ms":3.055159}
+{"event":"test:pass","name":"different GM contexts cannot access propagation storage","file":"tests/persistent-knowledge-propagation.test.mjs","line":63,"nesting":0,"duration_ms":0.426351}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":43.360226,"file":"tests/persistent-knowledge-propagation.test.mjs"}
+{"event":"test:pass","name":"explicit observer receipt publishes only allowlisted text and public ID","file":"tests/persistent-knowledge.test.mjs","line":13,"nesting":0,"duration_ms":29.693961}
+{"event":"test:pass","name":"receipt deduplicates exact source event and does not silently modify history","file":"tests/persistent-knowledge.test.mjs","line":21,"nesting":0,"duration_ms":6.515016}
+{"event":"test:pass","name":"correction is separate historical event; only explicitly provided corrections are visible","file":"tests/persistent-knowledge.test.mjs","line":27,"nesting":0,"duration_ms":3.785215}
+{"event":"test:pass","name":"pending receipt never reveals claim or its existence in player projection","file":"tests/persistent-knowledge.test.mjs","line":37,"nesting":0,"duration_ms":1.992958}
+{"event":"test:pass","name":"unavailable canonical claim fails without creating a receipt","file":"tests/persistent-knowledge.test.mjs","line":41,"nesting":0,"duration_ms":0.904657}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":70.687929,"file":"tests/persistent-knowledge.test.mjs"}
+{"event":"test:pass","name":"mocked native Foundry Compendium persists draft snapshot and active pointer separately","file":"tests/persistent-native.test.mjs","line":36,"nesting":0,"duration_ms":60.290524}
+{"event":"test:pass","name":"native Compendium publication is denied without live access evidence","file":"tests/persistent-native.test.mjs","line":50,"nesting":0,"duration_ms":3.626458}
+{"event":"test:pass","name":"interrupted native snapshot write cannot activate a non-durable revision","file":"tests/persistent-native.test.mjs","line":56,"nesting":0,"duration_ms":12.905716}
+{"event":"test:pass","name":"native graph registry rejects a snapshot with an incomplete partition index","file":"tests/persistent-native.test.mjs","line":69,"nesting":0,"duration_ms":14.658152}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":102.806138,"file":"tests/persistent-native.test.mjs"}
+{"event":"test:pass","name":"notification is inert until separately approved and never exposes GM detail","file":"tests/persistent-notifications.test.mjs","line":12,"nesting":0,"duration_ms":22.251072}
+{"event":"test:pass","name":"duplicate event is idempotent, foreign source and stale approval rejected","file":"tests/persistent-notifications.test.mjs","line":22,"nesting":0,"duration_ms":1.155023}
+{"event":"test:pass","name":"indexed GM list is bounded, projected clients never see group metadata","file":"tests/persistent-notifications.test.mjs","line":28,"nesting":0,"duration_ms":1.771031}
+{"event":"test:pass","name":"recipient-safe text is mandatory before release and unauthorized store fails closed","file":"tests/persistent-notifications.test.mjs","line":34,"nesting":0,"duration_ms":1.018095}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":41.516807,"file":"tests/persistent-notifications.test.mjs"}
+{"event":"test:pass","name":"GM-only plan persists and can be read without running an effect","file":"tests/persistent-plans.test.mjs","line":9,"nesting":0,"duration_ms":3.169372}
+{"event":"test:pass","name":"plan approvals are version-checked, a separate event and not world execution","file":"tests/persistent-plans.test.mjs","line":14,"nesting":0,"duration_ms":14.418371}
+{"event":"test:pass","name":"unknown planner is rejected and no record written","file":"tests/persistent-plans.test.mjs","line":20,"nesting":0,"duration_ms":0.539711}
+{"event":"test:pass","name":"plan cannot be saved with privileged fake GM context","file":"tests/persistent-plans.test.mjs","line":24,"nesting":0,"duration_ms":0.862463}
+{"event":"test:pass","name":"new GM planning modes are available through shared preview engine","file":"tests/persistent-plans.test.mjs","line":29,"nesting":0,"duration_ms":1.14713}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":30.396785,"file":"tests/persistent-plans.test.mjs"}
+{"event":"test:pass","name":"handoff cannot expose GM notes or draft recaps, and approval is revision checked","file":"tests/persistent-session-handoff.test.mjs","line":14,"nesting":0,"duration_ms":21.954845}
+{"event":"test:pass","name":"handoff survives service reconstruction and never activates dormant hooks","file":"tests/persistent-session-handoff.test.mjs","line":26,"nesting":0,"duration_ms":0.651899}
+{"event":"test:pass","name":"handoff detects stale revision and rejects unscoped duplicated references","file":"tests/persistent-session-handoff.test.mjs","line":31,"nesting":0,"duration_ms":2.169354}
+{"event":"test:pass","name":"player context cannot write protected handoff records","file":"tests/persistent-session-handoff.test.mjs","line":36,"nesting":0,"duration_ms":0.376099}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":36.407642,"file":"tests/persistent-session-handoff.test.mjs"}
+{"event":"test:pass","name":"durable quorum, late ballot rules and final disclosure without ballots","file":"tests/persistent-voting.test.mjs","line":14,"nesting":0,"duration_ms":29.081961}
+{"event":"test:pass","name":"unverified ballots, unauthorized participants and late votes fail closed","file":"tests/persistent-voting.test.mjs","line":28,"nesting":0,"duration_ms":4.791936}
+{"event":"test:pass","name":"GM must explicitly adjudicate a tie; private ballots remain undisclosed","file":"tests/persistent-voting.test.mjs","line":35,"nesting":0,"duration_ms":4.969238}
+{"event":"test:pass","name":"tie policy no-consensus cannot be overridden by an arbitrary GM choice","file":"tests/persistent-voting.test.mjs","line":43,"nesting":0,"duration_ms":3.38916}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":50.769962,"file":"tests/persistent-voting.test.mjs"}
+{"event":"test:pass","name":"GM what-if preview executes only bounded declarative rules","file":"tests/planning-lab.test.mjs","line":3,"nesting":0,"duration_ms":1.623237}
+{"event":"test:pass","name":"time jump preview classifies authored commitments without inventing history","file":"tests/planning-lab.test.mjs","line":8,"nesting":0,"duration_ms":0.446101}
+{"event":"test:pass","name":"arc endings and blueprint merge are explicitly reviewable","file":"tests/planning-lab.test.mjs","line":12,"nesting":0,"duration_ms":0.875351}
+{"event":"test:pass","name":"planning lab refuses unknown modes and oversized input","file":"tests/planning-lab.test.mjs","line":19,"nesting":0,"duration_ms":2.150825}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":22.051846,"file":"tests/planning-lab.test.mjs"}
+{"event":"test:pass","name":"registry rejects duplicate provider names and malformed providers","file":"tests/proposal-review.test.mjs","line":39,"nesting":0,"duration_ms":4.370435}
+{"event":"test:pass","name":"narrative state provider writes bounded persistent record with causal identity","file":"tests/proposal-review.test.mjs","line":43,"nesting":0,"duration_ms":26.316071}
+{"event":"test:pass","name":"state effect payload validation prevents oversized and privileged arbitrary property values","file":"tests/proposal-review.test.mjs","line":53,"nesting":0,"duration_ms":0.997192}
+{"event":"test:pass","name":"effect cannot execute without durable explicit approval","file":"tests/proposal-review.test.mjs","line":60,"nesting":0,"duration_ms":37.180925}
+{"event":"test:pass","name":"approval transitions to one-time execution, verification and persisted review","file":"tests/proposal-review.test.mjs","line":65,"nesting":0,"duration_ms":22.509466}
+{"event":"test:pass","name":"GM rejection never writes narrative state or operation journal","file":"tests/proposal-review.test.mjs","line":77,"nesting":0,"duration_ms":14.526809}
+{"event":"test:pass","name":"stale published revision forbids approval and execution","file":"tests/proposal-review.test.mjs","line":85,"nesting":0,"duration_ms":25.079019}
+{"event":"test:pass","name":"stale activation after approval cannot execute an approved effect","file":"tests/proposal-review.test.mjs","line":91,"nesting":0,"duration_ms":15.873184}
+{"event":"test:pass","name":"effect apply acknowledgment uncertainty leaves review and journal requiring recovery","file":"tests/proposal-review.test.mjs","line":98,"nesting":0,"duration_ms":17.168433}
+{"event":"test:pass","name":"forged proposal identity rejected; no direct effect access","file":"tests/proposal-review.test.mjs","line":113,"nesting":0,"duration_ms":9.91932}
+{"event":"test:pass","name":"GM authority revocation prevents review and execution","file":"tests/proposal-review.test.mjs","line":118,"nesting":0,"duration_ms":15.886678}
+{"event":"test:pass","name":"review persists over service recreation (same repository)","file":"tests/proposal-review.test.mjs","line":124,"nesting":0,"duration_ms":32.70962}
+{"event":"test:summary","success":true,"counts":{"tests":12,"failed":0,"passed":12,"cancelled":0,"skipped":0,"todo":0,"topLevel":12,"suites":0},"duration_ms":240.456271,"file":"tests/proposal-review.test.mjs"}
+{"event":"test:pass","name":"malformed core.faction.standing payload blocks publication before execution","file":"tests/publication-hardening.test.mjs","line":14,"nesting":0,"duration_ms":13.471779}
+{"event":"test:pass","name":"malformed core.obligation.resolve payload blocks publication before execution","file":"tests/publication-hardening.test.mjs","line":14,"nesting":0,"duration_ms":2.856326}
+{"event":"test:pass","name":"malformed core.investigation.attest-evidence payload blocks publication before execution","file":"tests/publication-hardening.test.mjs","line":14,"nesting":0,"duration_ms":2.08126}
+{"event":"test:pass","name":"malformed core.pressure.clock payload blocks publication before execution","file":"tests/publication-hardening.test.mjs","line":14,"nesting":0,"duration_ms":2.131225}
+{"event":"test:pass","name":"forged graph with a cycle fails publication rather than relying on visited-node suppression","file":"tests/publication-hardening.test.mjs","line":20,"nesting":0,"duration_ms":2.071712}
+{"event":"test:pass","name":"acyclic diamond graph is valid despite shared downstream node","file":"tests/publication-hardening.test.mjs","line":27,"nesting":0,"duration_ms":2.131432}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":30.682266,"file":"tests/publication-hardening.test.mjs"}
+{"event":"test:pass","name":"native-targeted quest board is canonical, authorized and omits private notes","file":"tests/quest-projection-native-flow.test.mjs","line":30,"nesting":0,"duration_ms":35.157987}
+{"event":"test:pass","name":"recipient authorization and stale canonical changes fail closed on the transport","file":"tests/quest-projection-native-flow.test.mjs","line":39,"nesting":0,"duration_ms":8.805428}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":53.616161,"file":"tests/quest-projection-native-flow.test.mjs"}
+{"event":"test:pass","name":"draft and approval require canonical objective revision and state; projection reveals only authored values","file":"tests/quest-projections.test.mjs","line":12,"nesting":0,"duration_ms":15.048077}
+{"event":"test:pass","name":"stale canonical objective blocks projection instead of showing outdated status","file":"tests/quest-projections.test.mjs","line":21,"nesting":0,"duration_ms":3.293038}
+{"event":"test:pass","name":"rejects illicit recipient lists and canonical IDs used as public identifiers","file":"tests/quest-projections.test.mjs","line":27,"nesting":0,"duration_ms":1.2994}
+{"event":"test:pass","name":"an approval refuses a canonical objective changed between draft and review","file":"tests/quest-projections.test.mjs","line":34,"nesting":0,"duration_ms":2.201806}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":29.523356,"file":"tests/quest-projections.test.mjs"}
+{"event":"test:pass","name":"native Hook adapter emits only allowlisted provenance and top-level keys","file":"tests/reactive-hooks.test.mjs","line":49,"nesting":0,"duration_ms":3.173775}
+{"event":"test:pass","name":"hook normalization rejects unauthorized hook names and forged sources","file":"tests/reactive-hooks.test.mjs","line":60,"nesting":0,"duration_ms":1.474441}
+{"event":"test:pass","name":"the supported v14 hooks have bounded, explicit contracts","file":"tests/reactive-hooks.test.mjs","line":67,"nesting":0,"duration_ms":0.252797}
+{"event":"test:pass","name":"Hooks remain unregistered until explicit start, are idempotent, and detach on stop","file":"tests/reactive-hooks.test.mjs","line":71,"nesting":0,"duration_ms":1.321215}
+{"event":"test:pass","name":"starting hooks requires a currently authorized designated GM","file":"tests/reactive-hooks.test.mjs","line":78,"nesting":0,"duration_ms":0.528623}
+{"event":"test:pass","name":"a hooked native update creates durable review proposals, not effects","file":"tests/reactive-hooks.test.mjs","line":84,"nesting":0,"duration_ms":65.965721}
+{"event":"test:pass","name":"unsubscribed document events do not create durable entries","file":"tests/reactive-hooks.test.mjs","line":98,"nesting":0,"duration_ms":44.795175}
+{"event":"test:pass","name":"losing GM designation stops listeners and prevents further recording","file":"tests/reactive-hooks.test.mjs","line":106,"nesting":0,"duration_ms":46.31111}
+{"event":"test:pass","name":"Hook errors are GM-local codes without untrusted document values","file":"tests/reactive-hooks.test.mjs","line":117,"nesting":0,"duration_ms":41.85327}
+{"event":"test:pass","name":"hook source IDs are unique per observed native occurrence","file":"tests/reactive-hooks.test.mjs","line":126,"nesting":0,"duration_ms":17.074983}
+{"event":"test:pass","name":"ADR-085: Hook admission budget includes pending subscription lookups","file":"tests/reactive-hooks.test.mjs","line":137,"nesting":0,"duration_ms":34.852254}
+{"event":"test:pass","name":"explicit stop during a subscription lookup prevents subsequent event admission","file":"tests/reactive-hooks.test.mjs","line":147,"nesting":0,"duration_ms":34.527503}
+{"event":"test:pass","name":"queued native Hook work rechecks authority and stop state before entering the durable router","file":"tests/reactive-hooks.test.mjs","line":155,"nesting":0,"duration_ms":2.541888}
+{"event":"test:summary","success":true,"counts":{"tests":13,"failed":0,"passed":13,"cancelled":0,"skipped":0,"todo":0,"topLevel":13,"suites":0},"duration_ms":306.834685,"file":"tests/reactive-hooks.test.mjs"}
+{"event":"test:pass","name":"staging subscriptions and activation uses the same bounded repository","file":"tests/reactive-persistence.test.mjs","line":31,"nesting":0,"duration_ms":21.422696}
+{"event":"test:pass","name":"published-only graphs do not subscribe before activation","file":"tests/reactive-persistence.test.mjs","line":38,"nesting":0,"duration_ms":3.380643}
+{"event":"test:pass","name":"subscription catalog prohibits invalid event types and scope","file":"tests/reactive-persistence.test.mjs","line":44,"nesting":0,"duration_ms":0.915139}
+{"event":"test:pass","name":"stage is idempotent by graph identifier with version replacement","file":"tests/reactive-persistence.test.mjs","line":51,"nesting":0,"duration_ms":3.637214}
+{"event":"test:pass","name":"stale revision subscription never evaluates the old graph","file":"tests/reactive-persistence.test.mjs","line":59,"nesting":0,"duration_ms":9.592932}
+{"event":"test:pass","name":"stale index entries cannot dispatch if graph is deactivated","file":"tests/reactive-persistence.test.mjs","line":73,"nesting":0,"duration_ms":12.693995}
+{"event":"test:pass","name":"activation never occurs when subscription staging fails","file":"tests/reactive-persistence.test.mjs","line":86,"nesting":0,"duration_ms":4.133951}
+{"event":"test:pass","name":"tampered index metadata fails closed before loading subscribers","file":"tests/reactive-persistence.test.mjs","line":101,"nesting":0,"duration_ms":4.925063}
+{"event":"test:pass","name":"durable ledger acknowledges once, stores source and verifies transitions","file":"tests/reactive-persistence.test.mjs","line":109,"nesting":0,"duration_ms":3.414913}
+{"event":"test:pass","name":"durable ledger rejects event ID reuse with different payload","file":"tests/reactive-persistence.test.mjs","line":121,"nesting":0,"duration_ms":2.004492}
+{"event":"test:pass","name":"ledger never acknowledges a write without a read-back match","file":"tests/reactive-persistence.test.mjs","line":126,"nesting":0,"duration_ms":1.100857}
+{"event":"test:pass","name":"accepted but incomplete event requires explicit recovery, never silent replay","file":"tests/reactive-persistence.test.mjs","line":133,"nesting":0,"duration_ms":5.110404}
+{"event":"test:pass","name":"true condition creates a persisted GM-review proposal and never calls providers","file":"tests/reactive-persistence.test.mjs","line":143,"nesting":0,"duration_ms":8.380024}
+{"event":"test:pass","name":"false condition evaluates without proposing any consequence","file":"tests/reactive-persistence.test.mjs","line":154,"nesting":0,"duration_ms":7.69361}
+{"event":"test:pass","name":"unsubscribed events do not hydrate graphs or create durable history","file":"tests/reactive-persistence.test.mjs","line":161,"nesting":0,"duration_ms":3.024091}
+{"event":"test:pass","name":"event ledger uses targeted hashed shard, not all-event scans","file":"tests/reactive-persistence.test.mjs","line":171,"nesting":0,"duration_ms":1.795212}
+{"event":"test:pass","name":"GM authority is enforced by catalog, ledger, and router","file":"tests/reactive-persistence.test.mjs","line":181,"nesting":0,"duration_ms":4.226323}
+{"event":"test:pass","name":"excess per-event subscriber count is rejected before write","file":"tests/reactive-persistence.test.mjs","line":190,"nesting":0,"duration_ms":1.397825}
+{"event":"test:pass","name":"a failing condition remains an uncertain durable event without any effects","file":"tests/reactive-persistence.test.mjs","line":198,"nesting":0,"duration_ms":7.744437}
+{"event":"test:summary","success":true,"counts":{"tests":19,"failed":0,"passed":19,"cancelled":0,"skipped":0,"todo":0,"topLevel":19,"suites":0},"duration_ms":116.274945,"file":"tests/reactive-persistence.test.mjs"}
+{"event":"test:pass","name":"audits drift, missing document and shared bindings without destructive changes","file":"tests/resource-reconciliation.test.mjs","line":5,"nesting":0,"duration_ms":2.414609}
+{"event":"test:pass","name":"unverified and ambiguous native candidates rejected","file":"tests/resource-reconciliation.test.mjs","line":13,"nesting":0,"duration_ms":0.84964}
+{"event":"test:pass","name":"chosen verified native candidate preserves immutable narrative identity","file":"tests/resource-reconciliation.test.mjs","line":18,"nesting":0,"duration_ms":4.935379}
+{"event":"test:pass","name":"rebind checks current revision and detached ownership","file":"tests/resource-reconciliation.test.mjs","line":22,"nesting":0,"duration_ms":0.310558}
+{"event":"test:pass","name":"retirement never automatically deletes shared or exclusive native document","file":"tests/resource-reconciliation.test.mjs","line":27,"nesting":0,"duration_ms":0.872477}
+{"event":"test:pass","name":"duplicate identity and invalid ownership rejected","file":"tests/resource-reconciliation.test.mjs","line":32,"nesting":0,"duration_ms":0.204585}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":29.235853,"file":"tests/resource-reconciliation.test.mjs"}
+{"event":"test:pass","name":"binding and reverse-reference node effects require independent GM approvals and durable journals","file":"tests/reverse-reference-graph.test.mjs","line":21,"nesting":0,"duration_ms":72.651919}
+{"event":"test:pass","name":"reverse-reference graph payload rejects unsupported scopes, actions and public records","file":"tests/reverse-reference-graph.test.mjs","line":55,"nesting":0,"duration_ms":1.034787}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":83.772225,"file":"tests/reverse-reference-graph.test.mjs"}
+{"event":"test:pass","name":"faction agenda review travels through published event, GM approval and durable effect without faction world mutation","file":"tests/reviewed-faction-graph.test.mjs","line":16,"nesting":0,"duration_ms":45.412786}
+{"event":"test:pass","name":"agenda review rejects injected effects and unscoped knowledge at publication","file":"tests/reviewed-faction-graph.test.mjs","line":40,"nesting":0,"duration_ms":2.440033}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":54.049927,"file":"tests/reviewed-faction-graph.test.mjs"}
+{"event":"test:pass","name":"reviewed faction decision can stage one durable, bounded due-time commitment","file":"tests/reviewed-faction-schedule.test.mjs","line":27,"nesting":0,"duration_ms":24.913346}
+{"event":"test:pass","name":"graph event and approved journal create faction due commitment without executing action","file":"tests/reviewed-faction-schedule.test.mjs","line":39,"nesting":0,"duration_ms":57.91403}
+{"event":"test:pass","name":"publication rejects native mutation instructions in faction schedule payload","file":"tests/reviewed-faction-schedule.test.mjs","line":58,"nesting":0,"duration_ms":3.302328}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":94.805935,"file":"tests/reviewed-faction-schedule.test.mjs"}
+{"event":"test:pass","name":"reviewed theory node follows publication, canonical event, GM approval, journal and player-safe projection","file":"tests/reviewed-hypothesis-graph.test.mjs","line":15,"nesting":0,"duration_ms":49.832173}
+{"event":"test:pass","name":"hypothesis node rejects hidden answer-oracle fields at publication","file":"tests/reviewed-hypothesis-graph.test.mjs","line":50,"nesting":0,"duration_ms":2.864524}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":59.239133,"file":"tests/reviewed-hypothesis-graph.test.mjs"}
+{"event":"test:pass","name":"GM-reviewed graph disclosure uses canonical plan and produces only observer-safe facts","file":"tests/reviewed-knowledge-graph.test.mjs","line":16,"nesting":0,"duration_ms":51.196143}
+{"event":"test:pass","name":"knowledge effect cannot publish arbitrary truth fields in graph payload","file":"tests/reviewed-knowledge-graph.test.mjs","line":48,"nesting":0,"duration_ms":1.757792}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":59.338335,"file":"tests/reviewed-knowledge-graph.test.mjs"}
+{"event":"test:pass","name":"reviewed milestone node completes only after canonical evidence and GM effect approval","file":"tests/reviewed-milestone-graph.test.mjs","line":37,"nesting":0,"duration_ms":63.351024}
+{"event":"test:pass","name":"graph publisher rejects invalid reviewed milestone revisions and privileged injected fields","file":"tests/reviewed-milestone-graph.test.mjs","line":49,"nesting":0,"duration_ms":13.026903}
+{"event":"test:summary","success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":85.998685,"file":"tests/reviewed-milestone-graph.test.mjs"}
+{"event":"test:pass","name":"ADR-085: higher priority tasks run first and an old background task gets a bounded fair turn","file":"tests/runtime-scheduling.test.mjs","line":7,"nesting":0,"duration_ms":9.356851}
+{"event":"test:pass","name":"adaptive scheduling reduces concurrency after expensive work and recovers within its configured limit","file":"tests/runtime-scheduling.test.mjs","line":17,"nesting":0,"duration_ms":2.119415}
+{"event":"test:pass","name":"task backpressure rejects excess work and closed queues never run cancelled tasks","file":"tests/runtime-scheduling.test.mjs","line":24,"nesting":0,"duration_ms":3.846781}
+{"event":"test:pass","name":"failed tasks remain failed while diagnostics failures cannot block following tasks","file":"tests/runtime-scheduling.test.mjs","line":32,"nesting":0,"duration_ms":1.114368}
+{"event":"test:pass","name":"ADR-086: representative diagnostics are sampled and bounded with aggregate error counts","file":"tests/runtime-scheduling.test.mjs","line":38,"nesting":0,"duration_ms":4.461804}
+{"event":"test:pass","name":"diagnostics reject private fields and excessive configurations and require live GM authority","file":"tests/runtime-scheduling.test.mjs","line":48,"nesting":0,"duration_ms":0.823903}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":39.982845,"file":"tests/runtime-scheduling.test.mjs"}
+{"event":"test:pass","name":"end-to-end published graph proposes effect only when condition qualifies","file":"tests/runtime.test.mjs","line":15,"nesting":0,"duration_ms":4.425967}
+{"event":"test:pass","name":"approved event writes journal before native effect and verifies","file":"tests/runtime.test.mjs","line":19,"nesting":0,"duration_ms":1.891222}
+{"event":"test:pass","name":"lost acknowledgement after native apply is uncertain and never blindly retried","file":"tests/runtime.test.mjs","line":24,"nesting":0,"duration_ms":3.496745}
+{"event":"test:pass","name":"unconfirmed verification remains uncertain","file":"tests/runtime.test.mjs","line":29,"nesting":0,"duration_ms":1.878581}
+{"event":"test:pass","name":"unauthenticated execution never invokes provider","file":"tests/runtime.test.mjs","line":32,"nesting":0,"duration_ms":2.1636}
+{"event":"test:pass","name":"event routing ignores unrelated event types","file":"tests/runtime.test.mjs","line":35,"nesting":0,"duration_ms":2.136337}
+{"event":"test:pass","name":"bounded active graph routing fails on too many subscribers","file":"tests/runtime.test.mjs","line":38,"nesting":0,"duration_ms":0.694476}
+{"event":"test:summary","success":true,"counts":{"tests":7,"failed":0,"passed":7,"cancelled":0,"skipped":0,"todo":0,"topLevel":7,"suites":0},"duration_ms":32.961118,"file":"tests/runtime.test.mjs"}
+{"event":"test:pass","name":"player may use owned unlinked synthetic Actor in currently viewed scene","file":"tests/scoped-actor-authorization.test.mjs","line":15,"nesting":0,"duration_ms":1.055106}
+{"event":"test:pass","name":"viewing a token does not imply ownership","file":"tests/scoped-actor-authorization.test.mjs","line":18,"nesting":0,"duration_ms":0.257854}
+{"event":"test:pass","name":"remote scene tokens, other viewers and invalid token refs fail closed","file":"tests/scoped-actor-authorization.test.mjs","line":22,"nesting":0,"duration_ms":0.160707}
+{"event":"test:pass","name":"linked tokens do not bypass the world Actor permission path","file":"tests/scoped-actor-authorization.test.mjs","line":29,"nesting":0,"duration_ms":1.290997}
+{"event":"test:pass","name":"GM or inactive player cannot impersonate synthetic token owner","file":"tests/scoped-actor-authorization.test.mjs","line":34,"nesting":0,"duration_ms":0.22694}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":16.52657,"file":"tests/scoped-actor-authorization.test.mjs"}
+{"event":"test:pass","name":"post-commit notifications reach only selected graph subscribers and carry no event values","file":"tests/scoped-gm-changes.test.mjs","line":13,"nesting":0,"duration_ms":3.643255}
+{"event":"test:pass","name":"GM subscriptions are bounded and cannot survive authority revocation or identity changes","file":"tests/scoped-gm-changes.test.mjs","line":20,"nesting":0,"duration_ms":1.155445}
+{"event":"test:pass","name":"view callback failures report only bounded codes and cannot leak private callback messages","file":"tests/scoped-gm-changes.test.mjs","line":30,"nesting":0,"duration_ms":0.639014}
+{"event":"test:pass","name":"ADR-009: focused views are invalidated only after a qualifying graph event is durably reviewable","file":"tests/scoped-gm-changes.test.mjs","line":43,"nesting":0,"duration_ms":56.3507}
+{"event":"test:pass","name":"a failed view notifier cannot rewrite the state of a successfully committed event","file":"tests/scoped-gm-changes.test.mjs","line":50,"nesting":0,"duration_ms":21.916404}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":93.515976,"file":"tests/scoped-gm-changes.test.mjs"}
+{"event":"test:pass","name":"exact-term GM search is bounded and stable across service reconstruction","file":"tests/scoped-search.test.mjs","line":8,"nesting":0,"duration_ms":20.641735}
+{"event":"test:pass","name":"updated keywords invalidate old postings without global scans","file":"tests/scoped-search.test.mjs","line":15,"nesting":0,"duration_ms":6.443939}
+{"event":"test:pass","name":"failed token indexing remains pending and does not appear as ready","file":"tests/scoped-search.test.mjs","line":22,"nesting":0,"duration_ms":6.145781}
+{"event":"test:pass","name":"untrusted keywords and client authority are rejected","file":"tests/scoped-search.test.mjs","line":33,"nesting":0,"duration_ms":1.666312}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":41.859515,"file":"tests/scoped-search.test.mjs"}
+{"event":"test:pass","name":"only local GM session creates trusted authority context","file":"tests/security.test.mjs","line":7,"nesting":0,"duration_ms":7.370618}
+{"event":"test:pass","name":"socket supplied identity is not native attestation","file":"tests/security.test.mjs","line":12,"nesting":0,"duration_ms":0.441792}
+{"event":"test:pass","name":"intent gate fails closed until verified native path configured","file":"tests/security.test.mjs","line":15,"nesting":0,"duration_ms":0.7601}
+{"event":"test:pass","name":"native gates reject unverified confidential stores/requests","file":"tests/security.test.mjs","line":20,"nesting":0,"duration_ms":0.715029}
+{"event":"test:pass","name":"allowlisted projection never copies secret fields or metadata","file":"tests/security.test.mjs","line":24,"nesting":0,"duration_ms":3.210508}
+{"event":"test:pass","name":"unlisted player fails closed with no existence oracle","file":"tests/security.test.mjs","line":30,"nesting":0,"duration_ms":0.524055}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":39.938784,"file":"tests/security.test.mjs"}
+{"event":"test:pass","name":"specialized source kinds are validated at publication, not only dispatch","file":"tests/specialized-triggers.test.mjs","line":16,"nesting":0,"duration_ms":11.199214}
+{"event":"test:pass","name":"manual trigger subscribes and only accepts authentic manual request source","file":"tests/specialized-triggers.test.mjs","line":23,"nesting":0,"duration_ms":26.044547}
+{"event":"test:pass","name":"due trigger cannot be satisfied by manual forgery or a mismatched canonical schedule","file":"tests/specialized-triggers.test.mjs","line":33,"nesting":0,"duration_ms":17.088212}
+{"event":"test:pass","name":"document trigger only accepts native-hook event carrying hook provenance","file":"tests/specialized-triggers.test.mjs","line":42,"nesting":0,"duration_ms":18.82894}
+{"event":"test:summary","success":true,"counts":{"tests":4,"failed":0,"passed":4,"cancelled":0,"skipped":0,"todo":0,"topLevel":4,"suites":0},"duration_ms":80.466057,"file":"tests/specialized-triggers.test.mjs"}
+{"event":"test:pass","name":"state read validates strict bounded contract and labeled output ports","file":"tests/state-read-node.test.mjs","line":32,"nesting":0,"duration_ms":3.407468}
+{"event":"test:pass","name":"published state-read node reads authoritative state, not spoofed event data","file":"tests/state-read-node.test.mjs","line":41,"nesting":0,"duration_ms":63.996373}
+{"event":"test:pass","name":"state read fails closed when authoritative reader is absent or throws","file":"tests/state-read-node.test.mjs","line":51,"nesting":0,"duration_ms":15.336423}
+{"event":"test:pass","name":"state read rejects stale revisions and corrupted records","file":"tests/state-read-node.test.mjs","line":56,"nesting":0,"duration_ms":0.631907}
+{"event":"test:pass","name":"state-read contract is authorable and its typed ports persist through draft publication","file":"tests/state-read-node.test.mjs","line":62,"nesting":0,"duration_ms":12.157252}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":102.228467,"file":"tests/state-read-node.test.mjs"}
+{"event":"test:pass","name":"scoped repository forbids unbounded query","file":"tests/storage.test.mjs","line":5,"nesting":0,"duration_ms":3.626748}
+{"event":"test:pass","name":"registry does not mutate active published revision when draft changes","file":"tests/storage.test.mjs","line":14,"nesting":0,"duration_ms":4.506284}
+{"event":"test:pass","name":"operation journal uses create-once and state guards","file":"tests/storage.test.mjs","line":24,"nesting":0,"duration_ms":1.416937}
+{"event":"test:summary","success":true,"counts":{"tests":3,"failed":0,"passed":3,"cancelled":0,"skipped":0,"todo":0,"topLevel":3,"suites":0},"duration_ms":36.886086,"file":"tests/storage.test.mjs"}
+{"event":"test:pass","name":"parent invokes published inactive subgraph with inherited causal event and verified GM effect","file":"tests/subgraph-call.test.mjs","line":33,"nesting":0,"duration_ms":60.356768}
+{"event":"test:pass","name":"nested proposal cannot be approved after root is deactivated","file":"tests/subgraph-call.test.mjs","line":46,"nesting":0,"duration_ms":24.859115}
+{"event":"test:pass","name":"missing published subgraph leaves event in uncertain state without effects","file":"tests/subgraph-call.test.mjs","line":54,"nesting":0,"duration_ms":21.274362}
+{"event":"test:pass","name":"direct self calls blocked on publication, indirect recursion blocked at runtime","file":"tests/subgraph-call.test.mjs","line":59,"nesting":0,"duration_ms":29.954834}
+{"event":"test:pass","name":"subgraph authoring rejects unknown payload keys and non-integer versions","file":"tests/subgraph-call.test.mjs","line":78,"nesting":0,"duration_ms":0.899738}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":147.981125,"file":"tests/subgraph-call.test.mjs"}
+{"event":"test:pass","name":"authoritative due scheduling supports bounded indexing and GM review","file":"tests/temporal-coordinator.test.mjs","line":17,"nesting":0,"duration_ms":17.198344}
+{"event":"test:pass","name":"resolved time commitment disappears from due window without mutating history","file":"tests/temporal-coordinator.test.mjs","line":23,"nesting":0,"duration_ms":5.569794}
+{"event":"test:pass","name":"moving commitment leaves an inert old index candidate and creates a new due entry","file":"tests/temporal-coordinator.test.mjs","line":30,"nesting":0,"duration_ms":4.257423}
+{"event":"test:pass","name":"index write interruption reports uncertainty, keeps canonical record for repair","file":"tests/temporal-coordinator.test.mjs","line":36,"nesting":0,"duration_ms":0.769334}
+{"event":"test:pass","name":"recover after interruption by staging only an existing canonical commitment","file":"tests/temporal-coordinator.test.mjs","line":41,"nesting":0,"duration_ms":6.487501}
+{"event":"test:summary","success":true,"counts":{"tests":5,"failed":0,"passed":5,"cancelled":0,"skipped":0,"todo":0,"topLevel":5,"suites":0},"duration_ms":44.955969,"file":"tests/temporal-coordinator.test.mjs"}
+{"event":"test:pass","name":"due scheduler classifies deterministic expiry vs uncertain actions","file":"tests/temporal-identity-spatial.test.mjs","line":6,"nesting":0,"duration_ms":7.462119}
+{"event":"test:pass","name":"no eligible GM means no background timer run","file":"tests/temporal-identity-spatial.test.mjs","line":11,"nesting":0,"duration_ms":0.258712}
+{"event":"test:pass","name":"alias linking does not automatically expose underlying identity or transfer obligations","file":"tests/temporal-identity-spatial.test.mjs","line":14,"nesting":0,"duration_ms":0.422209}
+{"event":"test:pass","name":"identity merging is proposed rather than performed","file":"tests/temporal-identity-spatial.test.mjs","line":19,"nesting":0,"duration_ms":0.452452}
+{"event":"test:pass","name":"route search cannot use undisclosed paths","file":"tests/temporal-identity-spatial.test.mjs","line":22,"nesting":0,"duration_ms":0.824927}
+{"event":"test:pass","name":"session brief remains GM-only until explicit recap selection","file":"tests/temporal-identity-spatial.test.mjs","line":28,"nesting":0,"duration_ms":2.537892}
+{"event":"test:summary","success":true,"counts":{"tests":6,"failed":0,"passed":6,"cancelled":0,"skipped":0,"todo":0,"topLevel":6,"suites":0},"duration_ms":29.547744,"file":"tests/temporal-identity-spatial.test.mjs"}
+{"event":"test:pass","name":"ADR-004: typed state data is authorable, published and routed to an approval-only effect","file":"tests/typed-data-flow.test.mjs","line":43,"nesting":0,"duration_ms":77.092174}
+{"event":"test:pass","name":"core.state-read: typed value comes from native state and ignores event-payload claims","file":"tests/typed-data-flow.test.mjs","line":52,"nesting":0,"duration_ms":17.959129}
+{"event":"test:pass","name":"ADR-082: changed input revision blocks approval even when the value is unchanged","file":"tests/typed-data-flow.test.mjs","line":57,"nesting":0,"duration_ms":19.344553}
+{"event":"test:pass","name":"ADR-082: input state is revalidated after durable GM approval and before execution","file":"tests/typed-data-flow.test.mjs","line":63,"nesting":0,"duration_ms":20.55877}
+{"event":"test:pass","name":"ADR-067: revoking GM authority prevents typed reads and proposal execution","file":"tests/typed-data-flow.test.mjs","line":70,"nesting":0,"duration_ms":10.859833}
+{"event":"test:pass","name":"typed literal values require no state provider and survive service recreation","file":"tests/typed-data-flow.test.mjs","line":74,"nesting":0,"duration_ms":14.862674}
+{"event":"test:pass","name":"absent authoritative data fails closed without persisting an effect proposal","file":"tests/typed-data-flow.test.mjs","line":79,"nesting":0,"duration_ms":8.906464}
+{"event":"test:pass","name":"unavailable authoritative data provider fails closed","file":"tests/typed-data-flow.test.mjs","line":84,"nesting":0,"duration_ms":11.069242}
+{"event":"test:pass","name":"typed data mismatches and corrupt state rows are rejected rather than coerced","file":"tests/typed-data-flow.test.mjs","line":88,"nesting":0,"duration_ms":1.76295}
+{"event":"test:pass","name":"authored expected revision is enforced by the lazy state provider","file":"tests/typed-data-flow.test.mjs","line":96,"nesting":0,"duration_ms":20.673897}
+{"event":"test:pass","name":"entity data input selects state by stable narrative identity","file":"tests/typed-data-flow.test.mjs","line":101,"nesting":0,"duration_ms":18.543796}
+{"event":"test:pass","name":"ADR-064: publication blocks data links into less protected ports","file":"tests/typed-data-flow.test.mjs","line":108,"nesting":0,"duration_ms":1.380012}
+{"event":"test:pass","name":"publication rejects ambiguous and disconnected data inputs","file":"tests/typed-data-flow.test.mjs","line":115,"nesting":0,"duration_ms":1.095848}
+{"event":"test:pass","name":"ADR-087: data dependency cycles are blocked at authoring and publication","file":"tests/typed-data-flow.test.mjs","line":120,"nesting":0,"duration_ms":1.288479}
+{"event":"test:pass","name":"unselected branches never resolve private data or produce effects","file":"tests/typed-data-flow.test.mjs","line":126,"nesting":0,"duration_ms":11.214456}
+{"event":"test:pass","name":"typed node edits preserve connected port types atomically","file":"tests/typed-data-flow.test.mjs","line":133,"nesting":0,"duration_ms":1.295788}
+{"event":"test:pass","name":"unbinding keeps the authored static payload and removes only the selected data edge","file":"tests/typed-data-flow.test.mjs","line":138,"nesting":0,"duration_ms":1.176729}
+{"event":"test:pass","name":"bounded typed values reject prototype keys, non-finite numbers and oversized data","file":"tests/typed-data-flow.test.mjs","line":144,"nesting":0,"duration_ms":0.738006}
+{"event":"test:pass","name":"payload bindings cannot target unsafe or nonexisting fields","file":"tests/typed-data-flow.test.mjs","line":150,"nesting":0,"duration_ms":0.999136}
+{"event":"test:pass","name":"ADR-121: bootstrap and both manifests identify the same integrated version","file":"tests/typed-data-flow.test.mjs","line":154,"nesting":0,"duration_ms":0.876957}
+{"event":"test:summary","success":true,"counts":{"tests":20,"failed":0,"passed":20,"cancelled":0,"skipped":0,"todo":0,"topLevel":20,"suites":0},"duration_ms":254.407766,"file":"tests/typed-data-flow.test.mjs"}
+{"event":"test:pass","name":"ADR-005: typed child inputs and outputs preserve values through a pinned published interface","file":"tests/typed-subgraphs.test.mjs","line":41,"nesting":0,"duration_ms":46.945294}
+{"event":"test:pass","name":"ADR-005: parent remains pinned to its original immutable child version","file":"tests/typed-subgraphs.test.mjs","line":46,"nesting":0,"duration_ms":14.48531}
+{"event":"test:pass","name":"typed subgraph publication rejects mismatched names and types before activation","file":"tests/typed-subgraphs.test.mjs","line":53,"nesting":0,"duration_ms":9.67226}
+{"event":"test:pass","name":"typed calls cannot publish without the exact child snapshot","file":"tests/typed-subgraphs.test.mjs","line":59,"nesting":0,"duration_ms":6.0906}
+{"event":"test:pass","name":"duplicate exported names and parameter names are publication blockers","file":"tests/typed-subgraphs.test.mjs","line":64,"nesting":0,"duration_ms":18.056004}
+{"event":"test:pass","name":"typed call parameters have exact cardinality and type contracts","file":"tests/typed-subgraphs.test.mjs","line":69,"nesting":0,"duration_ms":5.858051}
+{"event":"test:pass","name":"unbound parameters are never filled from event payloads or defaults","file":"tests/typed-subgraphs.test.mjs","line":74,"nesting":0,"duration_ms":3.318797}
+{"event":"test:pass","name":"multi-level typed calls share bounded dependencies without running child effects","file":"tests/typed-subgraphs.test.mjs","line":78,"nesting":0,"duration_ms":26.445398}
+{"event":"test:pass","name":"typed nested state lineage is rechecked by the ordinary GM effect review","file":"tests/typed-subgraphs.test.mjs","line":87,"nesting":0,"duration_ms":33.033248}
+{"event":"test:pass","name":"self-calls and indirect recursive data calls fail closed","file":"tests/typed-subgraphs.test.mjs","line":102,"nesting":0,"duration_ms":6.504858}
+{"event":"test:pass","name":"protected child reader absence cannot be treated as an empty successful result","file":"tests/typed-subgraphs.test.mjs","line":110,"nesting":0,"duration_ms":4.785887}
+{"event":"test:pass","name":"immutable child interface comparisons are independent of declaration ordering","file":"tests/typed-subgraphs.test.mjs","line":114,"nesting":0,"duration_ms":5.479075}
+{"event":"test:summary","success":true,"counts":{"tests":12,"failed":0,"passed":12,"cancelled":0,"skipped":0,"todo":0,"topLevel":12,"suites":0},"duration_ms":191.855279,"file":"tests/typed-subgraphs.test.mjs"}
+{"event":"test:pass","name":"votes remain collecting until deadline or all participant ballots","file":"tests/voting.test.mjs","line":7,"nesting":0,"duration_ms":2.331491}
+{"event":"test:pass","name":"deadline tie requires GM or run-off, never arbitrary choice","file":"tests/voting.test.mjs","line":11,"nesting":0,"duration_ms":0.385546}
+{"event":"test:pass","name":"quorum below threshold does not finalize a winner","file":"tests/voting.test.mjs","line":17,"nesting":0,"duration_ms":1.763791}
+{"event":"test:pass","name":"eligible winner awaits GM finalization not immediate effect","file":"tests/voting.test.mjs","line":20,"nesting":0,"duration_ms":0.55341}
+{"event":"test:pass","name":"duplicate, unknown ballots and forged actor are rejected","file":"tests/voting.test.mjs","line":26,"nesting":0,"duration_ms":1.147781}
+{"event":"test:pass","name":"private vote never publishes interim tally or ballots","file":"tests/voting.test.mjs","line":30,"nesting":0,"duration_ms":0.306384}
+{"event":"test:pass","name":"approved final result projected only to authorized recipient","file":"tests/voting.test.mjs","line":35,"nesting":0,"duration_ms":1.628918}
+{"event":"test:summary","success":true,"counts":{"tests":7,"failed":0,"passed":7,"cancelled":0,"skipped":0,"todo":0,"topLevel":7,"suites":0},"duration_ms":30.839979,"file":"tests/voting.test.mjs"}
+{"event":"test:summary","success":true,"counts":{"tests":773,"failed":0,"passed":773,"cancelled":0,"skipped":0,"todo":0,"topLevel":773,"suites":0},"duration_ms":8386.937586,"file":null}

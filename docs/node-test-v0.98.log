@@ -1,0 +1,3728 @@
+
+> easy-plots@0.98.0-dev check
+> node tools/check-source.mjs && npm test
+
+PASS: syntax check for 118 module files
+
+> easy-plots@0.98.0-dev test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: one canonical event fans out to independent bounded subscribers without executing effects
+ok 1 - one canonical event fans out to independent bounded subscribers without executing effects
+  ---
+  duration_ms: 1.721448
+  type: 'test'
+  ...
+# Subtest: dependency fanout rejects unbounded inputs and unknown link types
+ok 2 - dependency fanout rejects unbounded inputs and unknown link types
+  ---
+  duration_ms: 0.462155
+  type: 'test'
+  ...
+# Subtest: aggregation does not leak secret milestones or automatically award effects
+ok 3 - aggregation does not leak secret milestones or automatically award effects
+  ---
+  duration_ms: 0.170477
+  type: 'test'
+  ...
+# Subtest: continuity links stable references and keeps future hooks dormant
+ok 4 - continuity links stable references and keeps future hooks dormant
+  ---
+  duration_ms: 0.248694
+  type: 'test'
+  ...
+# Subtest: blueprints adopt nonconflicting upstream changes while preserving instance overrides
+ok 5 - blueprints adopt nonconflicting upstream changes while preserving instance overrides
+  ---
+  duration_ms: 0.320682
+  type: 'test'
+  ...
+# Subtest: published blueprint revisions cannot be silently overwritten
+ok 6 - published blueprint revisions cannot be silently overwritten
+  ---
+  duration_ms: 0.155283
+  type: 'test'
+  ...
+# Subtest: simulation leaves original world facts unchanged and executes no effect
+ok 7 - simulation leaves original world facts unchanged and executes no effect
+  ---
+  duration_ms: 0.326931
+  type: 'test'
+  ...
+# Subtest: nonconvergent simulation reports budget exhaustion
+ok 8 - nonconvergent simulation reports budget exhaustion
+  ---
+  duration_ms: 0.141363
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.event-origin authorable, validates, executes
+ok 9 - specialized gate core.gate.event-origin authorable, validates, executes
+  ---
+  duration_ms: 2.733811
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.causal-depth authorable, validates, executes
+ok 10 - specialized gate core.gate.causal-depth authorable, validates, executes
+  ---
+  duration_ms: 0.364428
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.after-time authorable, validates, executes
+ok 11 - specialized gate core.gate.after-time authorable, validates, executes
+  ---
+  duration_ms: 0.113201
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.before-time authorable, validates, executes
+ok 12 - specialized gate core.gate.before-time authorable, validates, executes
+  ---
+  duration_ms: 0.131608
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.faction-pressure authorable, validates, executes
+ok 13 - specialized gate core.gate.faction-pressure authorable, validates, executes
+  ---
+  duration_ms: 0.25923
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.investigation-progress authorable, validates, executes
+ok 14 - specialized gate core.gate.investigation-progress authorable, validates, executes
+  ---
+  duration_ms: 0.101563
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.evidence-corroborated authorable, validates, executes
+ok 15 - specialized gate core.gate.evidence-corroborated authorable, validates, executes
+  ---
+  duration_ms: 0.252209
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.obligation-status authorable, validates, executes
+ok 16 - specialized gate core.gate.obligation-status authorable, validates, executes
+  ---
+  duration_ms: 0.10634
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.npc-disposition authorable, validates, executes
+ok 17 - specialized gate core.gate.npc-disposition authorable, validates, executes
+  ---
+  duration_ms: 0.450507
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.milestone-credit authorable, validates, executes
+ok 18 - specialized gate core.gate.milestone-credit authorable, validates, executes
+  ---
+  duration_ms: 0.328995
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.identity-persona authorable, validates, executes
+ok 19 - specialized gate core.gate.identity-persona authorable, validates, executes
+  ---
+  duration_ms: 0.152579
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.route-status authorable, validates, executes
+ok 20 - specialized gate core.gate.route-status authorable, validates, executes
+  ---
+  duration_ms: 0.129675
+  type: 'test'
+  ...
+# Subtest: specialized gate core.branch.investigation-outcome authorable, validates, executes
+ok 21 - specialized gate core.branch.investigation-outcome authorable, validates, executes
+  ---
+  duration_ms: 0.566131
+  type: 'test'
+  ...
+# Subtest: specialized gate core.branch.arc-ending authorable, validates, executes
+ok 22 - specialized gate core.branch.arc-ending authorable, validates, executes
+  ---
+  duration_ms: 0.168533
+  type: 'test'
+  ...
+# Subtest: specialized gate core.branch.threat-clock authorable, validates, executes
+ok 23 - specialized gate core.branch.threat-clock authorable, validates, executes
+  ---
+  duration_ms: 0.092479
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.social-debt authorable, validates, executes
+ok 24 - specialized gate core.gate.social-debt authorable, validates, executes
+  ---
+  duration_ms: 0.114081
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.faction-operation authorable, validates, executes
+ok 25 - specialized gate core.gate.faction-operation authorable, validates, executes
+  ---
+  duration_ms: 0.074311
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.resource-integrity authorable, validates, executes
+ok 26 - specialized gate core.gate.resource-integrity authorable, validates, executes
+  ---
+  duration_ms: 0.069985
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.blueprint-version authorable, validates, executes
+ok 27 - specialized gate core.gate.blueprint-version authorable, validates, executes
+  ---
+  duration_ms: 0.06665
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.player-contribution authorable, validates, executes
+ok 28 - specialized gate core.gate.player-contribution authorable, validates, executes
+  ---
+  duration_ms: 0.080661
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.campaign-readiness authorable, validates, executes
+ok 29 - specialized gate core.gate.campaign-readiness authorable, validates, executes
+  ---
+  duration_ms: 0.078619
+  type: 'test'
+  ...
+# Subtest: specialized gate core.gate.identity-disclosure authorable, validates, executes
+ok 30 - specialized gate core.gate.identity-disclosure authorable, validates, executes
+  ---
+  duration_ms: 0.357608
+  type: 'test'
+  ...
+# Subtest: specialized gate core.branch.request-result authorable, validates, executes
+ok 31 - specialized gate core.branch.request-result authorable, validates, executes
+  ---
+  duration_ms: 1.058302
+  type: 'test'
+  ...
+# Subtest: specialized gate core.branch.reputation authorable, validates, executes
+ok 32 - specialized gate core.branch.reputation authorable, validates, executes
+  ---
+  duration_ms: 0.13935
+  type: 'test'
+  ...
+# Subtest: specialized logic fails closed for missing corroboration and unverified outcomes
+ok 33 - specialized logic fails closed for missing corroboration and unverified outcomes
+  ---
+  duration_ms: 0.130256
+  type: 'test'
+  ...
+# Subtest: advanced node editor attaches only its declared ports
+ok 34 - advanced node editor attaches only its declared ports
+  ---
+  duration_ms: 2.208782
+  type: 'test'
+  ...
+# Subtest: GM search automatically follows revisioned canonical domain writes
+ok 35 - GM search automatically follows revisioned canonical domain writes
+  ---
+  duration_ms: 28.907052
+  type: 'test'
+  ...
+# [Easy Plots] Search index requires targeted repair: SEARCH_SIMULATED_FAILURE
+# Subtest: incomplete search index does not roll back verified domain write; targeted repair works
+ok 36 - incomplete search index does not roll back verified domain write; targeted repair works
+  ---
+  duration_ms: 7.099285
+  type: 'test'
+  ...
+# Subtest: unsupported or untitled records do not create search postings
+ok 37 - unsupported or untitled records do not create search postings
+  ---
+  duration_ms: 2.862805
+  type: 'test'
+  ...
+# Subtest: bounded shard compaction removes only verified stale postings when bucket fills
+ok 38 - bounded shard compaction removes only verified stale postings when bucket fills
+  ---
+  duration_ms: 53.596665
+  type: 'test'
+  ...
+# Subtest: targeted authenticated request returns only disclosed evidence and offered actions
+ok 39 - targeted authenticated request returns only disclosed evidence and offered actions
+  ---
+  duration_ms: 2.733181
+  type: 'test'
+  ...
+# Subtest: invalid ownership returns generic unavailable without reading protected store
+ok 40 - invalid ownership returns generic unavailable without reading protected store
+  ---
+  duration_ms: 0.687755
+  type: 'test'
+  ...
+# Subtest: forged sender in payload cannot retrieve another actor board
+ok 41 - forged sender in payload cannot retrieve another actor board
+  ---
+  duration_ms: 21.711304
+  type: 'test'
+  ...
+# Subtest: bad GM projection is rejected rather than sent, with no partial leak
+ok 42 - bad GM projection is rejected rather than sent, with no partial leak
+  ---
+  duration_ms: 0.59844
+  type: 'test'
+  ...
+# Subtest: player cannot request a board without active GM
+ok 43 - player cannot request a board without active GM
+  ---
+  duration_ms: 0.347353
+  type: 'test'
+  ...
+# Subtest: true branch proposes only the verified milestone, not the false effect
+ok 44 - true branch proposes only the verified milestone, not the false effect
+  ---
+  duration_ms: 23.750457
+  type: 'test'
+  ...
+# Subtest: false branch proposes only the other effect
+ok 45 - false branch proposes only the other effect
+  ---
+  duration_ms: 9.445133
+  type: 'test'
+  ...
+# Subtest: milestone qualification is persisted only after GM approves and executes
+ok 46 - milestone qualification is persisted only after GM approves and executes
+  ---
+  duration_ms: 10.575984
+  type: 'test'
+  ...
+# Subtest: milestone provider does not grant qualification twice for different event operations
+ok 47 - milestone provider does not grant qualification twice for different event operations
+  ---
+  duration_ms: 3.465362
+  type: 'test'
+  ...
+# Subtest: editor supports branch edges with explicit true and false output ports
+ok 48 - editor supports branch edges with explicit true and false output ports
+  ---
+  duration_ms: 1.407878
+  type: 'test'
+  ...
+# Subtest: partial arc ending keeps incomplete objectives and hooks dormant
+ok 49 - partial arc ending keeps incomplete objectives and hooks dormant
+  ---
+  duration_ms: 1.589711
+  type: 'test'
+  ...
+# Subtest: eligible ending requires explicit review and revision
+ok 50 - eligible ending requires explicit review and revision
+  ---
+  duration_ms: 0.945241
+  type: 'test'
+  ...
+# Subtest: mutually exclusive eligible endings block finalize pending reconciliation
+ok 51 - mutually exclusive eligible endings block finalize pending reconciliation
+  ---
+  duration_ms: 0.368104
+  type: 'test'
+  ...
+# Subtest: unknown facet not interpreted as true or false
+ok 52 - unknown facet not interpreted as true or false
+  ---
+  duration_ms: 0.53151
+  type: 'test'
+  ...
+# Subtest: historical closure does not mutate living world state
+ok 53 - historical closure does not mutate living world state
+  ---
+  duration_ms: 0.311839
+  type: 'test'
+  ...
+# Subtest: duplicate objective, hook and invalid ending rejected
+ok 54 - duplicate objective, hook and invalid ending rejected
+  ---
+  duration_ms: 0.364849
+  type: 'test'
+  ...
+# Subtest: finalization cannot ignore an unverified competing ending
+ok 55 - finalization cannot ignore an unverified competing ending
+  ---
+  duration_ms: 0.344799
+  type: 'test'
+  ...
+# Subtest: NPC scheduler honors both canonical and NPC-specific knowledge
+ok 56 - NPC scheduler honors both canonical and NPC-specific knowledge
+  ---
+  duration_ms: 1.071702
+  type: 'test'
+  ...
+# Subtest: analyzer reports uncertainty on incomplete dependency scope, not unjustified failure
+ok 57 - analyzer reports uncertainty on incomplete dependency scope, not unjustified failure
+  ---
+  duration_ms: 0.4321
+  type: 'test'
+  ...
+# Subtest: continuity handoff uses source references and never starts a sequel
+ok 58 - continuity handoff uses source references and never starts a sequel
+  ---
+  duration_ms: 0.816107
+  type: 'test'
+  ...
+# Subtest: planning lab exposes functional fixtures for all new workflows
+ok 59 - planning lab exposes functional fixtures for all new workflows
+  ---
+  duration_ms: 0.324388
+  type: 'test'
+  ...
+# Subtest: verified search derives title and exact keywords from canonical GM domain source
+ok 60 - verified search derives title and exact keywords from canonical GM domain source
+  ---
+  duration_ms: 12.091102
+  type: 'test'
+  ...
+# Subtest: canonical record update invalidates old verified search even before reindex
+ok 61 - canonical record update invalidates old verified search even before reindex
+  ---
+  duration_ms: 10.030625
+  type: 'test'
+  ...
+# Subtest: unsupported domain and phantom source fail closed
+ok 62 - unsupported domain and phantom source fail closed
+  ---
+  duration_ms: 0.999493
+  type: 'test'
+  ...
+# Subtest: search source cannot claim a trusted revision without trusted domain adapter
+ok 63 - search source cannot claim a trusted revision without trusted domain adapter
+  ---
+  duration_ms: 1.76853
+  type: 'test'
+  ...
+# Subtest: GM-only causal planning inspector renders safe element content, not innerHTML
+ok 64 - GM-only causal planning inspector renders safe element content, not innerHTML
+  ---
+  duration_ms: 1.291683
+  type: 'test'
+  ...
+# Subtest: player cannot render protected planning inspector controls
+ok 65 - player cannot render protected planning inspector controls
+  ---
+  duration_ms: 1.031441
+  type: 'test'
+  ...
+# Subtest: continuity desk refuses missing protected domain providers
+ok 66 - continuity desk refuses missing protected domain providers
+  ---
+  duration_ms: 1.206685
+  type: 'test'
+  ...
+# Subtest: continuity desk is an ApplicationV2-class-compatible GM-only constructor
+ok 67 - continuity desk is an ApplicationV2-class-compatible GM-only constructor
+  ---
+  duration_ms: 0.247212
+  type: 'test'
+  ...
+# Subtest: valid graph contracts and typed ports
+ok 68 - valid graph contracts and typed ports
+  ---
+  duration_ms: 1.352744
+  type: 'test'
+  ...
+# Subtest: graph rejects dangling edge
+ok 69 - graph rejects dangling edge
+  ---
+  duration_ms: 0.650267
+  type: 'test'
+  ...
+# Subtest: graph rejects mismatched port types
+ok 70 - graph rejects mismatched port types
+  ---
+  duration_ms: 0.201773
+  type: 'test'
+  ...
+# Subtest: graph rejects unverified required capabilities
+ok 71 - graph rejects unverified required capabilities
+  ---
+  duration_ms: 0.170567
+  type: 'test'
+  ...
+# Subtest: stable ids reject traversal and unknown namespace
+ok 72 - stable ids reject traversal and unknown namespace
+  ---
+  duration_ms: 0.171949
+  type: 'test'
+  ...
+# Subtest: conditions evaluate literal and reference
+ok 73 - conditions evaluate literal and reference
+  ---
+  duration_ms: 0.222965
+  type: 'test'
+  ...
+# Subtest: condition prevents protected reference in public context
+ok 74 - condition prevents protected reference in public context
+  ---
+  duration_ms: 0.156365
+  type: 'test'
+  ...
+# Subtest: conditions block prototype traversal and unauthenticated provider calls
+ok 75 - conditions block prototype traversal and unauthenticated provider calls
+  ---
+  duration_ms: 0.189665
+  type: 'test'
+  ...
+# Subtest: condition recursion budgets enforced
+ok 76 - condition recursion budgets enforced
+  ---
+  duration_ms: 0.303507
+  type: 'test'
+  ...
+# Subtest: cross-plot link is not eligible from an unrelated plot event of the same type
+ok 77 - cross-plot link is not eligible from an unrelated plot event of the same type
+  ---
+  duration_ms: 10.397405
+  type: 'test'
+  ...
+# Subtest: same causal event independently qualifies a target only on current canonical revision
+ok 78 - same causal event independently qualifies a target only on current canonical revision
+  ---
+  duration_ms: 1.687387
+  type: 'test'
+  ...
+# Subtest: knowledge and approved-scope constraints remain independent of source verification
+ok 79 - knowledge and approved-scope constraints remain independent of source verification
+  ---
+  duration_ms: 2.935825
+  type: 'test'
+  ...
+# Subtest: missing canonical target never inherits a stale indexed revision
+ok 80 - missing canonical target never inherits a stale indexed revision
+  ---
+  duration_ms: 5.007891
+  type: 'test'
+  ...
+# Subtest: exact indexed subscription qualifies only with protected GM-known facts and matching revisions
+ok 81 - exact indexed subscription qualifies only with protected GM-known facts and matching revisions
+  ---
+  duration_ms: 10.320679
+  type: 'test'
+  ...
+# Subtest: stale dependency target revision prevents eligibility
+ok 82 - stale dependency target revision prevents eligibility
+  ---
+  duration_ms: 1.534859
+  type: 'test'
+  ...
+# Subtest: crossplot changes to existing link require separate link identity
+ok 83 - crossplot changes to existing link require separate link identity
+  ---
+  duration_ms: 1.669611
+  type: 'test'
+  ...
+# Subtest: crossplot rejects arbitrary payloads and incomplete authority
+ok 84 - crossplot rejects arbitrary payloads and incomplete authority
+  ---
+  duration_ms: 0.300732
+  type: 'test'
+  ...
+# Subtest: Portable SHA-256 matches standard known vectors
+ok 85 - Portable SHA-256 matches standard known vectors
+  ---
+  duration_ms: 1.006303
+  type: 'test'
+  ...
+# Subtest: Portable SHA-256 matches WebCrypto for UTF-8 and longer documents
+ok 86 - Portable SHA-256 matches WebCrypto for UTF-8 and longer documents
+  ---
+  duration_ms: 10.178367
+  type: 'test'
+  ...
+# Subtest: Deterministic pack IDs match previous WebCrypto-based format
+ok 87 - Deterministic pack IDs match previous WebCrypto-based format
+  ---
+  duration_ms: 0.82446
+  type: 'test'
+  ...
+# Subtest: Secure UUID v4 is generated without randomUUID if getRandomValues exists
+ok 88 - Secure UUID v4 is generated without randomUUID if getRandomValues exists
+  ---
+  duration_ms: 0.594825
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-membership: authored condition matches exact canonical data only
+ok 89 - core.gate.faction-membership: authored condition matches exact canonical data only
+  ---
+  duration_ms: 2.150825
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-rank: authored condition matches exact canonical data only
+ok 90 - core.gate.faction-rank: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.309045
+  type: 'test'
+  ...
+# Subtest: core.gate.npc-location: authored condition matches exact canonical data only
+ok 91 - core.gate.npc-location: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.430638
+  type: 'test'
+  ...
+# Subtest: core.gate.quest-state: authored condition matches exact canonical data only
+ok 92 - core.gate.quest-state: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.183836
+  type: 'test'
+  ...
+# Subtest: core.gate.arc-state: authored condition matches exact canonical data only
+ok 93 - core.gate.arc-state: authored condition matches exact canonical data only
+  ---
+  duration_ms: 1.064581
+  type: 'test'
+  ...
+# Subtest: core.gate.pressure-threshold: authored condition matches exact canonical data only
+ok 94 - core.gate.pressure-threshold: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.267522
+  type: 'test'
+  ...
+# Subtest: core.gate.knowledge-claim: authored condition matches exact canonical data only
+ok 95 - core.gate.knowledge-claim: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.297848
+  type: 'test'
+  ...
+# Subtest: core.gate.relationship: authored condition matches exact canonical data only
+ok 96 - core.gate.relationship: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.165679
+  type: 'test'
+  ...
+# Subtest: core.gate.disclosure-recipient: authored condition matches exact canonical data only
+ok 97 - core.gate.disclosure-recipient: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.433993
+  type: 'test'
+  ...
+# Subtest: core.branch.authorized-choice: authored condition matches exact canonical data only
+ok 98 - core.branch.authorized-choice: authored condition matches exact canonical data only
+  ---
+  duration_ms: 0.528604
+  type: 'test'
+  ...
+# Subtest: secrecy gates fail closed with missing observer authorization and invalid choices
+ok 99 - secrecy gates fail closed with missing observer authorization and invalid choices
+  ---
+  duration_ms: 1.678334
+  type: 'test'
+  ...
+# Subtest: typed faction node authors, publishes, proposes and executes only after GM approval
+ok 100 - typed faction node authors, publishes, proposes and executes only after GM approval
+  ---
+  duration_ms: 22.660697
+  type: 'test'
+  ...
+# Subtest: other domain node types compile to exact registered effect IDs
+ok 101 - other domain node types compile to exact registered effect IDs
+  ---
+  duration_ms: 12.107317
+  type: 'test'
+  ...
+# Subtest: editor refuses non-JSON typed node content
+ok 102 - editor refuses non-JSON typed node content
+  ---
+  duration_ms: 0.883679
+  type: 'test'
+  ...
+# Subtest: native faction standing provider writes verified attributed delta
+ok 103 - native faction standing provider writes verified attributed delta
+  ---
+  duration_ms: 11.554235
+  type: 'test'
+  ...
+# Subtest: rank is not a generic faction numeric change
+ok 104 - rank is not a generic faction numeric change
+  ---
+  duration_ms: 0.247272
+  type: 'test'
+  ...
+# Subtest: obligation is settled exactly once and direction preserved
+ok 105 - obligation is settled exactly once and direction preserved
+  ---
+  duration_ms: 2.750526
+  type: 'test'
+  ...
+# Subtest: canonical evidence attestation stays protected and durable
+ok 106 - canonical evidence attestation stays protected and durable
+  ---
+  duration_ms: 2.423365
+  type: 'test'
+  ...
+# Subtest: unguarded player guess never validates a milestone
+ok 107 - unguarded player guess never validates a milestone
+  ---
+  duration_ms: 0.903649
+  type: 'test'
+  ...
+# Subtest: time jump only classifies due authored events; no invented outcomes
+ok 108 - time jump only classifies due authored events; no invented outcomes
+  ---
+  duration_ms: 0.977349
+  type: 'test'
+  ...
+# Subtest: temporal operation budget enforced
+ok 109 - temporal operation budget enforced
+  ---
+  duration_ms: 0.554534
+  type: 'test'
+  ...
+# Subtest: claims filtered by actual observer and published disclosure
+ok 110 - claims filtered by actual observer and published disclosure
+  ---
+  duration_ms: 0.188654
+  type: 'test'
+  ...
+# Subtest: competing exclusive endings require GM reconciliation
+ok 111 - competing exclusive endings require GM reconciliation
+  ---
+  duration_ms: 0.223566
+  type: 'test'
+  ...
+# Subtest: due event is indexed, time checked and deduplicated without committing faction action
+ok 112 - due event is indexed, time checked and deduplicated without committing faction action
+  ---
+  duration_ms: 23.764056
+  type: 'test'
+  ...
+# Subtest: stale index entries or changed canonical state fail without creating an event
+ok 113 - stale index entries or changed canonical state fail without creating an event
+  ---
+  duration_ms: 5.546812
+  type: 'test'
+  ...
+# Subtest: GM temporal inspector requires explicit selection and acknowledgement before queuing a due event
+ok 114 - GM temporal inspector requires explicit selection and acknowledgement before queuing a due event
+  ---
+  duration_ms: 65.326769
+  type: 'test'
+  ...
+# Subtest: new nodes wrap into a bounded grid instead of disappearing beyond the canvas
+ok 115 - new nodes wrap into a bounded grid instead of disappearing beyond the canvas
+  ---
+  duration_ms: 8.795486
+  type: 'test'
+  ...
+# Subtest: paged graph draft lists authoritative title without reading graph body
+ok 116 - paged graph draft lists authoritative title without reading graph body
+  ---
+  duration_ms: 13.720629
+  type: 'test'
+  ...
+# Subtest: domain store verifies scoped persistence and rejects stale revisions
+ok 117 - domain store verifies scoped persistence and rejects stale revisions
+  ---
+  duration_ms: 2.71979
+  type: 'test'
+  ...
+# Subtest: domain store never accepts non-GM writes or unscoped data
+ok 118 - domain store never accepts non-GM writes or unscoped data
+  ---
+  duration_ms: 0.169886
+  type: 'test'
+  ...
+# Subtest: faction agenda cannot react to truth it has not learned
+ok 119 - faction agenda cannot react to truth it has not learned
+  ---
+  duration_ms: 0.539311
+  type: 'test'
+  ...
+# Subtest: membership and rank changes are not numeric reputation deltas
+ok 120 - membership and rank changes are not numeric reputation deltas
+  ---
+  duration_ms: 0.839392
+  type: 'test'
+  ...
+# Subtest: directional relationship transitions preserve history and never update reverse edge
+ok 121 - directional relationship transitions preserve history and never update reverse edge
+  ---
+  duration_ms: 0.446411
+  type: 'test'
+  ...
+# Subtest: observer relationship views reveal only explicitly disclosed beliefs
+ok 122 - observer relationship views reveal only explicitly disclosed beliefs
+  ---
+  duration_ms: 0.289356
+  type: 'test'
+  ...
+# Subtest: obligation requires exact debtor and creditor provenance
+ok 123 - obligation requires exact debtor and creditor provenance
+  ---
+  duration_ms: 0.198539
+  type: 'test'
+  ...
+# Subtest: investigation arguments never reveal private GM truth
+ok 124 - investigation arguments never reveal private GM truth
+  ---
+  duration_ms: 0.404088
+  type: 'test'
+  ...
+# Subtest: investigation viability is GM-only scoped classification, not auto success
+ok 125 - investigation viability is GM-only scoped classification, not auto success
+  ---
+  duration_ms: 0.390938
+  type: 'test'
+  ...
+# Subtest: attempt identity distinguishes duplicate deliveries from repeated opportunities
+ok 126 - attempt identity distinguishes duplicate deliveries from repeated opportunities
+  ---
+  duration_ms: 0.386782
+  type: 'test'
+  ...
+# Subtest: durable graph evaluation retains bounded causal trace without event payload
+ok 127 - durable graph evaluation retains bounded causal trace without event payload
+  ---
+  duration_ms: 19.944572
+  type: 'test'
+  ...
+# Subtest: condition-blocked trace explains why an effect was not reached
+ok 128 - condition-blocked trace explains why an effect was not reached
+  ---
+  duration_ms: 6.212492
+  type: 'test'
+  ...
+# Subtest: no matching evaluation is not falsely diagnosed as a failed branch
+ok 129 - no matching evaluation is not falsely diagnosed as a failed branch
+  ---
+  duration_ms: 4.838937
+  type: 'test'
+  ...
+# Subtest: GM authority and corrupt traces fail closed
+ok 130 - GM authority and corrupt traces fail closed
+  ---
+  duration_ms: 0.829307
+  type: 'test'
+  ...
+# Subtest: narrative.record-world-fact: exact approved effect, verified read and duplicate protection
+ok 131 - narrative.record-world-fact: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 10.823236
+  type: 'test'
+  ...
+# Subtest: core.world.fact: graph publication → event → persistent review → effect
+ok 132 - core.world.fact: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 17.539666
+  type: 'test'
+  ...
+# Subtest: narrative.set-relationship: exact approved effect, verified read and duplicate protection
+ok 133 - narrative.set-relationship: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 2.361601
+  type: 'test'
+  ...
+# Subtest: core.relationship.transition: graph publication → event → persistent review → effect
+ok 134 - core.relationship.transition: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 15.216743
+  type: 'test'
+  ...
+# Subtest: narrative.record-observer-belief: exact approved effect, verified read and duplicate protection
+ok 135 - narrative.record-observer-belief: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 1.840167
+  type: 'test'
+  ...
+# Subtest: core.knowledge.belief: graph publication → event → persistent review → effect
+ok 136 - core.knowledge.belief: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 12.292396
+  type: 'test'
+  ...
+# Subtest: narrative.transition-objective: exact approved effect, verified read and duplicate protection
+ok 137 - narrative.transition-objective: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 1.068157
+  type: 'test'
+  ...
+# Subtest: core.quest.objective: graph publication → event → persistent review → effect
+ok 138 - core.quest.objective: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 8.193345
+  type: 'test'
+  ...
+# Subtest: narrative.record-disclosure: exact approved effect, verified read and duplicate protection
+ok 139 - narrative.record-disclosure: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 1.579705
+  type: 'test'
+  ...
+# Subtest: core.knowledge.disclose: graph publication → event → persistent review → effect
+ok 140 - core.knowledge.disclose: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 10.425319
+  type: 'test'
+  ...
+# Subtest: narrative.finalize-arc: exact approved effect, verified read and duplicate protection
+ok 141 - narrative.finalize-arc: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 1.044911
+  type: 'test'
+  ...
+# Subtest: core.arc.conclude: graph publication → event → persistent review → effect
+ok 142 - core.arc.conclude: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 5.591729
+  type: 'test'
+  ...
+# Subtest: narrative.transition-story-hook: exact approved effect, verified read and duplicate protection
+ok 143 - narrative.transition-story-hook: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 1.299424
+  type: 'test'
+  ...
+# Subtest: core.story.hook: graph publication → event → persistent review → effect
+ok 144 - core.story.hook: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 6.671622
+  type: 'test'
+  ...
+# Subtest: narrative.transition-scheduled-action: exact approved effect, verified read and duplicate protection
+ok 145 - narrative.transition-scheduled-action: exact approved effect, verified read and duplicate protection
+  ---
+  duration_ms: 0.720483
+  type: 'test'
+  ...
+# Subtest: core.time.scheduled-action: graph publication → event → persistent review → effect
+ok 146 - core.time.scheduled-action: graph publication → event → persistent review → effect
+  ---
+  duration_ms: 5.301141
+  type: 'test'
+  ...
+# Subtest: world fact revisions update under compare-and-swap, never under stale proposals
+ok 147 - world fact revisions update under compare-and-swap, never under stale proposals
+  ---
+  duration_ms: 1.576772
+  type: 'test'
+  ...
+# Subtest: objective transitions check from-state, protected beliefs keep observer identity
+ok 148 - objective transitions check from-state, protected beliefs keep observer identity
+  ---
+  duration_ms: 1.205824
+  type: 'test'
+  ...
+# Subtest: invalid protected payloads fail before any effect
+ok 149 - invalid protected payloads fail before any effect
+  ---
+  duration_ms: 0.326391
+  type: 'test'
+  ...
+# Subtest: faction due action requires known fact not merely canonical truth
+ok 150 - faction due action requires known fact not merely canonical truth
+  ---
+  duration_ms: 1.284932
+  type: 'test'
+  ...
+# Subtest: no future due index triggers an invented action
+ok 151 - no future due index triggers an invented action
+  ---
+  duration_ms: 0.253542
+  type: 'test'
+  ...
+# Subtest: unknown faction context stays unknown and inactive agenda is skipped
+ok 152 - unknown faction context stays unknown and inactive agenda is skipped
+  ---
+  duration_ms: 0.146871
+  type: 'test'
+  ...
+# Subtest: duplicate source agenda or due index rejected
+ok 153 - duplicate source agenda or due index rejected
+  ---
+  duration_ms: 0.81155
+  type: 'test'
+  ...
+# Subtest: proposals ordered by due time, do not commit or mutate source
+ok 154 - proposals ordered by due time, do not commit or mutate source
+  ---
+  duration_ms: 0.673993
+  type: 'test'
+  ...
+# Subtest: clock advancement bounded, revision checked and consequence not automatic
+ok 155 - clock advancement bounded, revision checked and consequence not automatic
+  ---
+  duration_ms: 0.244218
+  type: 'test'
+  ...
+# Subtest: all-mode join passes only when all incoming branches execute
+ok 156 - all-mode join passes only when all incoming branches execute
+  ---
+  duration_ms: 25.293908
+  type: 'test'
+  ...
+# Subtest: all-mode join blocks when one authored predecessor does not qualify
+ok 157 - all-mode join blocks when one authored predecessor does not qualify
+  ---
+  duration_ms: 10.78037
+  type: 'test'
+  ...
+# Subtest: any-mode join produces one effect even with two incoming arrivals
+ok 158 - any-mode join produces one effect even with two incoming arrivals
+  ---
+  duration_ms: 9.557893
+  type: 'test'
+  ...
+# Subtest: all-mode publication rejects fewer than two incoming links and invalid configuration
+ok 159 - all-mode publication rejects fewer than two incoming links and invalid configuration
+  ---
+  duration_ms: 2.202403
+  type: 'test'
+  ...
+# Subtest: focused health reads only exact selected records and marks unknown coverage
+ok 160 - focused health reads only exact selected records and marks unknown coverage
+  ---
+  duration_ms: 4.49598
+  type: 'test'
+  ...
+# Subtest: unknown states remain unverified, not silently assumed completed
+ok 161 - unknown states remain unverified, not silently assumed completed
+  ---
+  duration_ms: 0.685201
+  type: 'test'
+  ...
+# Subtest: unbounded list and player authority are refused
+ok 162 - unbounded list and player authority are refused
+  ---
+  duration_ms: 1.126624
+  type: 'test'
+  ...
+# Subtest: active native roll is durable, GM-only, classifies partial and does not reroll
+ok 163 - active native roll is durable, GM-only, classifies partial and does not reroll
+  ---
+  duration_ms: 9.07728
+  type: 'test'
+  ...
+# Subtest: invalid retry of attempt identity is refused
+ok 164 - invalid retry of attempt identity is refused
+  ---
+  duration_ms: 2.519238
+  type: 'test'
+  ...
+# Subtest: failed roll leaves uncertain record and never silently rolls again
+ok 165 - failed roll leaves uncertain record and never silently rolls again
+  ---
+  duration_ms: 1.527617
+  type: 'test'
+  ...
+# Subtest: passive checks use fixed formula and cannot fabricate dice rolls
+ok 166 - passive checks use fixed formula and cannot fabricate dice rolls
+  ---
+  duration_ms: 1.964164
+  type: 'test'
+  ...
+# Subtest: unowned Actor is refused and input budgets are enforced
+ok 167 - unowned Actor is refused and input budgets are enforced
+  ---
+  duration_ms: 0.809988
+  type: 'test'
+  ...
+# Subtest: v14 simulated transport: verified sender and targeted GM-to-player reply
+ok 168 - v14 simulated transport: verified sender and targeted GM-to-player reply
+  ---
+  duration_ms: 2.781212
+  type: 'test'
+  ...
+# Subtest: payload claiming to be GM cannot impersonate server-attested sender
+ok 169 - payload claiming to be GM cannot impersonate server-attested sender
+  ---
+  duration_ms: 15.426829
+  type: 'test'
+  ...
+# Subtest: Actor ownership denial returns generic rejection
+ok 170 - Actor ownership denial returns generic rejection
+  ---
+  duration_ms: 0.731029
+  type: 'test'
+  ...
+# Subtest: no durable queue means never claim an accepted request
+ok 171 - no durable queue means never claim an accepted request
+  ---
+  duration_ms: 31.521282
+  type: 'test'
+  ...
+# Subtest: transport refuses to register if module manifest socket is disabled
+ok 172 - transport refuses to register if module manifest socket is disabled
+  ---
+  duration_ms: 0.355795
+  type: 'test'
+  ...
+# Subtest: a player cannot forge a queued receipt for another player
+ok 173 - a player cannot forge a queued receipt for another player
+  ---
+  duration_ms: 41.259047
+  type: 'test'
+  ...
+# Subtest: duplicate request IDs are idempotent only with durable queue contract
+ok 174 - duplicate request IDs are idempotent only with durable queue contract
+  ---
+  duration_ms: 20.615431
+  type: 'test'
+  ...
+# Subtest: payload allowlist drops claimed identity, hidden metadata and actions
+ok 175 - payload allowlist drops claimed identity, hidden metadata and actions
+  ---
+  duration_ms: 0.373681
+  type: 'test'
+  ...
+# Subtest: rejects oversized or malformed player intents
+ok 176 - rejects oversized or malformed player intents
+  ---
+  duration_ms: 0.460673
+  type: 'test'
+  ...
+# Subtest: no designated active GM: fail closed before sending
+ok 177 - no designated active GM: fail closed before sending
+  ---
+  duration_ms: 0.538139
+  type: 'test'
+  ...
+# Subtest: stopped transport rejects pending requests and removes listener
+ok 178 - stopped transport rejects pending requests and removes listener
+  ---
+  duration_ms: 0.454974
+  type: 'test'
+  ...
+# Subtest: native world Actor authorizer checks real permission, never player-claimed ownership
+ok 179 - native world Actor authorizer checks real permission, never player-claimed ownership
+  ---
+  duration_ms: 0.27895
+  type: 'test'
+  ...
+# Subtest: native durable queue adapter remains unavailable until verified
+ok 180 - native durable queue adapter remains unavailable until verified
+  ---
+  duration_ms: 0.317317
+  type: 'test'
+  ...
+# Subtest: GM cockpit reads only explicitly requested focused graph and matching events
+ok 181 - GM cockpit reads only explicitly requested focused graph and matching events
+  ---
+  duration_ms: 1.571784
+  type: 'test'
+  ...
+# Subtest: GM cockpit rejects unbounded or unauthorized focus
+ok 182 - GM cockpit rejects unbounded or unauthorized focus
+  ---
+  duration_ms: 0.616647
+  type: 'test'
+  ...
+# Subtest: writer captures designated GM and observes handover even if old GM becomes active again
+ok 183 - writer captures designated GM and observes handover even if old GM becomes active again
+  ---
+  duration_ms: 1.732395
+  type: 'test'
+  ...
+# Subtest: handover during an awaited write does not return successful acknowledgement
+ok 184 - handover during an awaited write does not return successful acknowledgement
+  ---
+  duration_ms: 0.361584
+  type: 'test'
+  ...
+# Subtest: hook monitor installation requires observable hooks and never silently doubles listeners
+ok 185 - hook monitor installation requires observable hooks and never silently doubles listeners
+  ---
+  duration_ms: 0.165169
+  type: 'test'
+  ...
+# Subtest: large published graph is stored as immutable bounded pages and reconstructed on demand
+ok 186 - large published graph is stored as immutable bounded pages and reconstructed on demand
+  ---
+  duration_ms: 34.710558
+  type: 'test'
+  ...
+# Subtest: single page lookup does not load entire graph partitions
+ok 187 - single page lookup does not load entire graph partitions
+  ---
+  duration_ms: 10.260288
+  type: 'test'
+  ...
+# Subtest: interrupted chunk write never publishes a manifest
+ok 188 - interrupted chunk write never publishes a manifest
+  ---
+  duration_ms: 9.346536
+  type: 'test'
+  ...
+# Subtest: missing or modified pages fail immutability checks
+ok 189 - missing or modified pages fail immutability checks
+  ---
+  duration_ms: 8.846043
+  type: 'test'
+  ...
+# Subtest: 2,500-node flow validation uses bounded iterative traversal rather than recursive JS stack
+ok 190 - 2,500-node flow validation uses bounded iterative traversal rather than recursive JS stack
+  ---
+  duration_ms: 28.655974
+  type: 'test'
+  ...
+# Subtest: large graph still detects a hidden back-edge cycle
+ok 191 - large graph still detects a hidden back-edge cycle
+  ---
+  duration_ms: 10.983858
+  type: 'test'
+  ...
+# Subtest: GM planning lab evaluates health using only supplied scoped records
+ok 192 - GM planning lab evaluates health using only supplied scoped records
+  ---
+  duration_ms: 1.012462
+  type: 'test'
+  ...
+# Subtest: health report can be saved as GM-private plan without creating effects
+ok 193 - health report can be saved as GM-private plan without creating effects
+  ---
+  duration_ms: 1.080074
+  type: 'test'
+  ...
+# Subtest: player board is allowlisted, knowledge-filtered and conceals undisclosed counts
+ok 194 - player board is allowlisted, knowledge-filtered and conceals undisclosed counts
+  ---
+  duration_ms: 1.649921
+  type: 'test'
+  ...
+# Subtest: excessive or unauthorized board content is rejected
+ok 195 - excessive or unauthorized board content is rejected
+  ---
+  duration_ms: 0.733693
+  type: 'test'
+  ...
+# Subtest: discovered evidence qualifies but never automatically grants a reward
+ok 196 - discovered evidence qualifies but never automatically grants a reward
+  ---
+  duration_ms: 1.976508
+  type: 'test'
+  ...
+# Subtest: two observers may contribute independently without repeating the milestone
+ok 197 - two observers may contribute independently without repeating the milestone
+  ---
+  duration_ms: 0.681685
+  type: 'test'
+  ...
+# Subtest: hidden evidence and correct guesses do not qualify
+ok 198 - hidden evidence and correct guesses do not qualify
+  ---
+  duration_ms: 0.137527
+  type: 'test'
+  ...
+# Subtest: verified conclusion requires separate authorized event identity
+ok 199 - verified conclusion requires separate authorized event identity
+  ---
+  duration_ms: 0.189916
+  type: 'test'
+  ...
+# Subtest: existing milestone never reawarded
+ok 200 - existing milestone never reawarded
+  ---
+  duration_ms: 0.264287
+  type: 'test'
+  ...
+# Subtest: duplicate evidence event is rejected
+ok 201 - duplicate evidence event is rejected
+  ---
+  duration_ms: 0.502896
+  type: 'test'
+  ...
+# Subtest: player progress projection excludes GM-only milestone totals and truth
+ok 202 - player progress projection excludes GM-only milestone totals and truth
+  ---
+  duration_ms: 0.227933
+  type: 'test'
+  ...
+# Subtest: verified conclusion requires independent, explicitly authorized verification evidence
+ok 203 - verified conclusion requires independent, explicitly authorized verification evidence
+  ---
+  duration_ms: 0.223726
+  type: 'test'
+  ...
+# Subtest: GM-reviewed hypothesis persists with stable causal provenance and safe player view
+ok 204 - GM-reviewed hypothesis persists with stable causal provenance and safe player view
+  ---
+  duration_ms: 4.365264
+  type: 'test'
+  ...
+# Subtest: theory submission is idempotent per reviewed canonical event
+ok 205 - theory submission is idempotent per reviewed canonical event
+  ---
+  duration_ms: 2.235943
+  type: 'test'
+  ...
+# Subtest: author cannot cite evidence not known to them or duplicate arguments
+ok 206 - author cannot cite evidence not known to them or duplicate arguments
+  ---
+  duration_ms: 0.564519
+  type: 'test'
+  ...
+# Subtest: sharing requires recipients to already know every cited clue
+ok 207 - sharing requires recipients to already know every cited clue
+  ---
+  duration_ms: 1.259183
+  type: 'test'
+  ...
+# Subtest: revision changes and hidden verdict fields cannot enter the player record
+ok 208 - revision changes and hidden verdict fields cannot enter the player record
+  ---
+  duration_ms: 0.914075
+  type: 'test'
+  ...
+# Subtest: native Journal shell node follows published graph → protected proposal → GM approval → durable effect
+ok 209 - native Journal shell node follows published graph → protected proposal → GM approval → durable effect
+  ---
+  duration_ms: 19.297099
+  type: 'test'
+  ...
+# Subtest: approved shell materialization is idempotent and only stores opaque native metadata
+ok 210 - approved shell materialization is idempotent and only stores opaque native metadata
+  ---
+  duration_ms: 11.122725
+  type: 'test'
+  ...
+# Subtest: duplicate existing native ID without provenance aborts before modification
+ok 211 - duplicate existing native ID without provenance aborts before modification
+  ---
+  duration_ms: 1.885115
+  type: 'test'
+  ...
+# Subtest: native lost acknowledgement leaves prepared record and prevents implicit recreation
+ok 212 - native lost acknowledgement leaves prepared record and prevents implicit recreation
+  ---
+  duration_ms: 1.5896
+  type: 'test'
+  ...
+# Subtest: materializer rejects arbitrary metadata, raw html, and published secret flags
+ok 213 - materializer rejects arbitrary metadata, raw html, and published secret flags
+  ---
+  duration_ms: 0.309345
+  type: 'test'
+  ...
+# Subtest: propagation distinguishes direct / delayed / reviewed recipients without committing
+ok 214 - propagation distinguishes direct / delayed / reviewed recipients without committing
+  ---
+  duration_ms: 2.298476
+  type: 'test'
+  ...
+# Subtest: explicit denied links do not transmit
+ok 215 - explicit denied links do not transmit
+  ---
+  duration_ms: 0.302835
+  type: 'test'
+  ...
+# Subtest: cycles converge with deduplicated recipients
+ok 216 - cycles converge with deduplicated recipients
+  ---
+  duration_ms: 0.384698
+  type: 'test'
+  ...
+# Subtest: known disclosure is not delivered again
+ok 217 - known disclosure is not delivered again
+  ---
+  duration_ms: 0.216376
+  type: 'test'
+  ...
+# Subtest: missing recipient is explicitly excluded rather than guessed
+ok 218 - missing recipient is explicitly excluded rather than guessed
+  ---
+  duration_ms: 0.23954
+  type: 'test'
+  ...
+# Subtest: distortion must be explicitly provenance backed
+ok 219 - distortion must be explicitly provenance backed
+  ---
+  duration_ms: 0.811931
+  type: 'test'
+  ...
+# Subtest: bounds prevent broad propagation and invalid policies
+ok 220 - bounds prevent broad propagation and invalid policies
+  ---
+  duration_ms: 0.282635
+  type: 'test'
+  ...
+# Subtest: player projection only includes preauthorized published disclosure without truth metadata
+ok 221 - player projection only includes preauthorized published disclosure without truth metadata
+  ---
+  duration_ms: 0.395545
+  type: 'test'
+  ...
+# Subtest: retraction preserves historical disclosure and requires GM review
+ok 222 - retraction preserves historical disclosure and requires GM review
+  ---
+  duration_ms: 1.064701
+  type: 'test'
+  ...
+# Subtest: only authorized observer-specific records are proposed
+ok 223 - only authorized observer-specific records are proposed
+  ---
+  duration_ms: 0.199841
+  type: 'test'
+  ...
+# Subtest: dependent nodes are invalidated once and never automatically executed
+ok 224 - dependent nodes are invalidated once and never automatically executed
+  ---
+  duration_ms: 0.182624
+  type: 'test'
+  ...
+# Subtest: unrelated claim untouched; duplicate observer contexts rejected
+ok 225 - unrelated claim untouched; duplicate observer contexts rejected
+  ---
+  duration_ms: 0.586992
+  type: 'test'
+  ...
+# Subtest: invalid correction does not silently assert truth
+ok 226 - invalid correction does not silently assert truth
+  ---
+  duration_ms: 0.161503
+  type: 'test'
+  ...
+# Subtest: core.gate.event-origin is authorable, versioned, validated and published
+ok 227 - core.gate.event-origin is authorable, versioned, validated and published
+  ---
+  duration_ms: 20.793449
+  type: 'test'
+  ...
+# Subtest: core.gate.causal-depth is authorable, versioned, validated and published
+ok 228 - core.gate.causal-depth is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.490279
+  type: 'test'
+  ...
+# Subtest: core.gate.after-time is authorable, versioned, validated and published
+ok 229 - core.gate.after-time is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.616879
+  type: 'test'
+  ...
+# Subtest: core.gate.before-time is authorable, versioned, validated and published
+ok 230 - core.gate.before-time is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.36731
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-pressure is authorable, versioned, validated and published
+ok 231 - core.gate.faction-pressure is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.82576
+  type: 'test'
+  ...
+# Subtest: core.gate.investigation-progress is authorable, versioned, validated and published
+ok 232 - core.gate.investigation-progress is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.268671
+  type: 'test'
+  ...
+# Subtest: core.gate.evidence-corroborated is authorable, versioned, validated and published
+ok 233 - core.gate.evidence-corroborated is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.072049
+  type: 'test'
+  ...
+# Subtest: core.gate.obligation-status is authorable, versioned, validated and published
+ok 234 - core.gate.obligation-status is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.468352
+  type: 'test'
+  ...
+# Subtest: core.gate.npc-disposition is authorable, versioned, validated and published
+ok 235 - core.gate.npc-disposition is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.422262
+  type: 'test'
+  ...
+# Subtest: core.gate.milestone-credit is authorable, versioned, validated and published
+ok 236 - core.gate.milestone-credit is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.926728
+  type: 'test'
+  ...
+# Subtest: core.gate.identity-persona is authorable, versioned, validated and published
+ok 237 - core.gate.identity-persona is authorable, versioned, validated and published
+  ---
+  duration_ms: 4.364554
+  type: 'test'
+  ...
+# Subtest: core.gate.route-status is authorable, versioned, validated and published
+ok 238 - core.gate.route-status is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.804844
+  type: 'test'
+  ...
+# Subtest: core.branch.investigation-outcome is authorable, versioned, validated and published
+ok 239 - core.branch.investigation-outcome is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.916692
+  type: 'test'
+  ...
+# Subtest: core.branch.arc-ending is authorable, versioned, validated and published
+ok 240 - core.branch.arc-ending is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.61043
+  type: 'test'
+  ...
+# Subtest: core.branch.threat-clock is authorable, versioned, validated and published
+ok 241 - core.branch.threat-clock is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.665883
+  type: 'test'
+  ...
+# Subtest: core.gate.social-debt is authorable, versioned, validated and published
+ok 242 - core.gate.social-debt is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.656215
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-operation is authorable, versioned, validated and published
+ok 243 - core.gate.faction-operation is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.812533
+  type: 'test'
+  ...
+# Subtest: core.gate.resource-integrity is authorable, versioned, validated and published
+ok 244 - core.gate.resource-integrity is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.119747
+  type: 'test'
+  ...
+# Subtest: core.gate.blueprint-version is authorable, versioned, validated and published
+ok 245 - core.gate.blueprint-version is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.2849
+  type: 'test'
+  ...
+# Subtest: core.gate.player-contribution is authorable, versioned, validated and published
+ok 246 - core.gate.player-contribution is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.728423
+  type: 'test'
+  ...
+# Subtest: core.gate.campaign-readiness is authorable, versioned, validated and published
+ok 247 - core.gate.campaign-readiness is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.18095
+  type: 'test'
+  ...
+# Subtest: core.gate.identity-disclosure is authorable, versioned, validated and published
+ok 248 - core.gate.identity-disclosure is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.434832
+  type: 'test'
+  ...
+# Subtest: core.branch.request-result is authorable, versioned, validated and published
+ok 249 - core.branch.request-result is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.710476
+  type: 'test'
+  ...
+# Subtest: core.branch.reputation is authorable, versioned, validated and published
+ok 250 - core.branch.reputation is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.46738
+  type: 'test'
+  ...
+# Subtest: core.branch.parallel is authorable, versioned, validated and published
+ok 251 - core.branch.parallel is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.19438
+  type: 'test'
+  ...
+# Subtest: core.event.filter is authorable, versioned, validated and published
+ok 252 - core.event.filter is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.877397
+  type: 'test'
+  ...
+# Subtest: core.gate.world-time is authorable, versioned, validated and published
+ok 253 - core.gate.world-time is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.116257
+  type: 'test'
+  ...
+# Subtest: core.gate.actor is authorable, versioned, validated and published
+ok 254 - core.gate.actor is authorable, versioned, validated and published
+  ---
+  duration_ms: 5.676266
+  type: 'test'
+  ...
+# Subtest: core.gate.evidence is authorable, versioned, validated and published
+ok 255 - core.gate.evidence is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.497606
+  type: 'test'
+  ...
+# Subtest: core.branch.roll-band is authorable, versioned, validated and published
+ok 256 - core.branch.roll-band is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.34718
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-membership is authorable, versioned, validated and published
+ok 257 - core.gate.faction-membership is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.182286
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-rank is authorable, versioned, validated and published
+ok 258 - core.gate.faction-rank is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.345858
+  type: 'test'
+  ...
+# Subtest: core.gate.npc-location is authorable, versioned, validated and published
+ok 259 - core.gate.npc-location is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.326689
+  type: 'test'
+  ...
+# Subtest: core.gate.quest-state is authorable, versioned, validated and published
+ok 260 - core.gate.quest-state is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.890583
+  type: 'test'
+  ...
+# Subtest: core.gate.arc-state is authorable, versioned, validated and published
+ok 261 - core.gate.arc-state is authorable, versioned, validated and published
+  ---
+  duration_ms: 6.068676
+  type: 'test'
+  ...
+# Subtest: core.gate.pressure-threshold is authorable, versioned, validated and published
+ok 262 - core.gate.pressure-threshold is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.972446
+  type: 'test'
+  ...
+# Subtest: core.gate.knowledge-claim is authorable, versioned, validated and published
+ok 263 - core.gate.knowledge-claim is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.852395
+  type: 'test'
+  ...
+# Subtest: core.gate.relationship is authorable, versioned, validated and published
+ok 264 - core.gate.relationship is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.793147
+  type: 'test'
+  ...
+# Subtest: core.gate.disclosure-recipient is authorable, versioned, validated and published
+ok 265 - core.gate.disclosure-recipient is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.817153
+  type: 'test'
+  ...
+# Subtest: core.branch.authorized-choice is authorable, versioned, validated and published
+ok 266 - core.branch.authorized-choice is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.936292
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-knowledge is authorable, versioned, validated and published
+ok 267 - core.gate.faction-knowledge is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.682664
+  type: 'test'
+  ...
+# Subtest: core.gate.npc-agenda is authorable, versioned, validated and published
+ok 268 - core.gate.npc-agenda is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.109893
+  type: 'test'
+  ...
+# Subtest: core.gate.deadline is authorable, versioned, validated and published
+ok 269 - core.gate.deadline is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.902621
+  type: 'test'
+  ...
+# Subtest: core.gate.known-route is authorable, versioned, validated and published
+ok 270 - core.gate.known-route is authorable, versioned, validated and published
+  ---
+  duration_ms: 3.038269
+  type: 'test'
+  ...
+# Subtest: core.gate.continuity is authorable, versioned, validated and published
+ok 271 - core.gate.continuity is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.850062
+  type: 'test'
+  ...
+# Subtest: core.gate.hypothesis is authorable, versioned, validated and published
+ok 272 - core.gate.hypothesis is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.790903
+  type: 'test'
+  ...
+# Subtest: core.gate.provenance is authorable, versioned, validated and published
+ok 273 - core.gate.provenance is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.986427
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-standing is authorable, versioned, validated and published
+ok 274 - core.gate.faction-standing is authorable, versioned, validated and published
+  ---
+  duration_ms: 1.937764
+  type: 'test'
+  ...
+# Subtest: core.branch.milestone is authorable, versioned, validated and published
+ok 275 - core.branch.milestone is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.01475
+  type: 'test'
+  ...
+# Subtest: core.branch.disclosure is authorable, versioned, validated and published
+ok 276 - core.branch.disclosure is authorable, versioned, validated and published
+  ---
+  duration_ms: 2.184575
+  type: 'test'
+  ...
+# Subtest: world-time bounds gate proposals, including missing world time
+ok 277 - world-time bounds gate proposals, including missing world time
+  ---
+  duration_ms: 13.803096
+  type: 'test'
+  ...
+# Subtest: recorded d100 roll branches cannot roll or infer missing results
+ok 278 - recorded d100 roll branches cannot roll or infer missing results
+  ---
+  duration_ms: 10.499049
+  type: 'test'
+  ...
+# Subtest: gate limits cannot be bypassed with malformed published configurations
+ok 279 - gate limits cannot be bypassed with malformed published configurations
+  ---
+  duration_ms: 0.836889
+  type: 'test'
+  ...
+# Subtest: GM manual event publishes review proposal and duplicate request reuses same ledger identity
+ok 280 - GM manual event publishes review proposal and duplicate request reuses same ledger identity
+  ---
+  duration_ms: 19.09713
+  type: 'test'
+  ...
+# Subtest: manual-only trigger ignores native hook event with the same event type
+ok 281 - manual-only trigger ignores native hook event with the same event type
+  ---
+  duration_ms: 10.820391
+  type: 'test'
+  ...
+# Subtest: manual event rejects player credentials, arbitrary fields and invalid request IDs
+ok 282 - manual event rejects player credentials, arbitrary fields and invalid request IDs
+  ---
+  duration_ms: 5.539781
+  type: 'test'
+  ...
+# Subtest: invalid or unknown event source kind is rejected at publication
+ok 283 - invalid or unknown event source kind is rejected at publication
+  ---
+  duration_ms: 4.574319
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-knowledge validates and routes committed-source event
+ok 284 - core.gate.faction-knowledge validates and routes committed-source event
+  ---
+  duration_ms: 2.073689
+  type: 'test'
+  ...
+# Subtest: core.gate.npc-agenda validates and routes committed-source event
+ok 285 - core.gate.npc-agenda validates and routes committed-source event
+  ---
+  duration_ms: 0.271669
+  type: 'test'
+  ...
+# Subtest: core.gate.deadline validates and routes committed-source event
+ok 286 - core.gate.deadline validates and routes committed-source event
+  ---
+  duration_ms: 0.240672
+  type: 'test'
+  ...
+# Subtest: core.gate.known-route validates and routes committed-source event
+ok 287 - core.gate.known-route validates and routes committed-source event
+  ---
+  duration_ms: 0.28655
+  type: 'test'
+  ...
+# Subtest: core.gate.continuity validates and routes committed-source event
+ok 288 - core.gate.continuity validates and routes committed-source event
+  ---
+  duration_ms: 0.235313
+  type: 'test'
+  ...
+# Subtest: core.gate.hypothesis validates and routes committed-source event
+ok 289 - core.gate.hypothesis validates and routes committed-source event
+  ---
+  duration_ms: 0.209084
+  type: 'test'
+  ...
+# Subtest: core.gate.provenance validates and routes committed-source event
+ok 290 - core.gate.provenance validates and routes committed-source event
+  ---
+  duration_ms: 1.040976
+  type: 'test'
+  ...
+# Subtest: core.gate.faction-standing validates and routes committed-source event
+ok 291 - core.gate.faction-standing validates and routes committed-source event
+  ---
+  duration_ms: 0.174673
+  type: 'test'
+  ...
+# Subtest: core.branch.milestone validates and routes committed-source event
+ok 292 - core.branch.milestone validates and routes committed-source event
+  ---
+  duration_ms: 0.430698
+  type: 'test'
+  ...
+# Subtest: core.branch.disclosure validates and routes committed-source event
+ok 293 - core.branch.disclosure validates and routes committed-source event
+  ---
+  duration_ms: 0.409606
+  type: 'test'
+  ...
+# Subtest: invalid source values rejected without mutating world
+ok 294 - invalid source values rejected without mutating world
+  ---
+  duration_ms: 1.035757
+  type: 'test'
+  ...
+# Subtest: faction-membership typed native-backed provider applies, verifies, and resists duplicate effects
+ok 295 - faction-membership typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 21.569957
+  type: 'test'
+  ...
+# Subtest: core.faction.membership publishes, routes, approves and persists an effect
+ok 296 - core.faction.membership publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 23.882485
+  type: 'test'
+  ...
+# Subtest: faction-agenda typed native-backed provider applies, verifies, and resists duplicate effects
+ok 297 - faction-agenda typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 2.02821
+  type: 'test'
+  ...
+# Subtest: core.faction.agenda publishes, routes, approves and persists an effect
+ok 298 - core.faction.agenda publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 18.650261
+  type: 'test'
+  ...
+# Subtest: npc-agenda typed native-backed provider applies, verifies, and resists duplicate effects
+ok 299 - npc-agenda typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 5.11027
+  type: 'test'
+  ...
+# Subtest: core.npc.agenda publishes, routes, approves and persists an effect
+ok 300 - core.npc.agenda publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 9.766318
+  type: 'test'
+  ...
+# Subtest: npc-schedule typed native-backed provider applies, verifies, and resists duplicate effects
+ok 301 - npc-schedule typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.387937
+  type: 'test'
+  ...
+# Subtest: core.npc.schedule publishes, routes, approves and persists an effect
+ok 302 - core.npc.schedule publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 11.646485
+  type: 'test'
+  ...
+# Subtest: investigation-hypothesis typed native-backed provider applies, verifies, and resists duplicate effects
+ok 303 - investigation-hypothesis typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.964304
+  type: 'test'
+  ...
+# Subtest: core.investigation.hypothesis publishes, routes, approves and persists an effect
+ok 304 - core.investigation.hypothesis publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 11.091369
+  type: 'test'
+  ...
+# Subtest: investigation-contribution typed native-backed provider applies, verifies, and resists duplicate effects
+ok 305 - investigation-contribution typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 2.133929
+  type: 'test'
+  ...
+# Subtest: core.investigation.contribution publishes, routes, approves and persists an effect
+ok 306 - core.investigation.contribution publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 9.347558
+  type: 'test'
+  ...
+# Subtest: location-discovery typed native-backed provider applies, verifies, and resists duplicate effects
+ok 307 - location-discovery typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 0.976939
+  type: 'test'
+  ...
+# Subtest: core.location.discovery publishes, routes, approves and persists an effect
+ok 308 - core.location.discovery publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 5.777678
+  type: 'test'
+  ...
+# Subtest: location-route typed native-backed provider applies, verifies, and resists duplicate effects
+ok 309 - location-route typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 0.952002
+  type: 'test'
+  ...
+# Subtest: core.location.route publishes, routes, approves and persists an effect
+ok 310 - core.location.route publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 8.495535
+  type: 'test'
+  ...
+# Subtest: pressure-clock typed native-backed provider applies, verifies, and resists duplicate effects
+ok 311 - pressure-clock typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.587427
+  type: 'test'
+  ...
+# Subtest: core.pressure.clock publishes, routes, approves and persists an effect
+ok 312 - core.pressure.clock publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 10.663015
+  type: 'test'
+  ...
+# Subtest: deadline-review typed native-backed provider applies, verifies, and resists duplicate effects
+ok 313 - deadline-review typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.198462
+  type: 'test'
+  ...
+# Subtest: core.deadline.review publishes, routes, approves and persists an effect
+ok 314 - core.deadline.review publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 13.697949
+  type: 'test'
+  ...
+# Subtest: encounter-outcome typed native-backed provider applies, verifies, and resists duplicate effects
+ok 315 - encounter-outcome typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.36984
+  type: 'test'
+  ...
+# Subtest: core.encounter.outcome publishes, routes, approves and persists an effect
+ok 316 - core.encounter.outcome publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 11.707255
+  type: 'test'
+  ...
+# Subtest: continuity-link typed native-backed provider applies, verifies, and resists duplicate effects
+ok 317 - continuity-link typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.322299
+  type: 'test'
+  ...
+# Subtest: core.campaign.continuity publishes, routes, approves and persists an effect
+ok 318 - core.campaign.continuity publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 14.21339
+  type: 'test'
+  ...
+# Subtest: quest-opportunity typed native-backed provider applies, verifies, and resists duplicate effects
+ok 319 - quest-opportunity typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.223109
+  type: 'test'
+  ...
+# Subtest: core.quest.opportunity publishes, routes, approves and persists an effect
+ok 320 - core.quest.opportunity publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 7.762964
+  type: 'test'
+  ...
+# Subtest: claim-retraction typed native-backed provider applies, verifies, and resists duplicate effects
+ok 321 - claim-retraction typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.107456
+  type: 'test'
+  ...
+# Subtest: core.knowledge.retraction publishes, routes, approves and persists an effect
+ok 322 - core.knowledge.retraction publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 6.441697
+  type: 'test'
+  ...
+# Subtest: session-objective typed native-backed provider applies, verifies, and resists duplicate effects
+ok 323 - session-objective typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.048116
+  type: 'test'
+  ...
+# Subtest: core.session.objective publishes, routes, approves and persists an effect
+ok 324 - core.session.objective publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 6.972366
+  type: 'test'
+  ...
+# Subtest: timeline-annotation typed native-backed provider applies, verifies, and resists duplicate effects
+ok 325 - timeline-annotation typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.315018
+  type: 'test'
+  ...
+# Subtest: core.timeline.annotation publishes, routes, approves and persists an effect
+ok 326 - core.timeline.annotation publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 10.469544
+  type: 'test'
+  ...
+# Subtest: arc-epilogue typed native-backed provider applies, verifies, and resists duplicate effects
+ok 327 - arc-epilogue typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.28941
+  type: 'test'
+  ...
+# Subtest: core.arc.epilogue publishes, routes, approves and persists an effect
+ok 328 - core.arc.epilogue publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 7.02252
+  type: 'test'
+  ...
+# Subtest: investigation-opportunity typed native-backed provider applies, verifies, and resists duplicate effects
+ok 329 - investigation-opportunity typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.183569
+  type: 'test'
+  ...
+# Subtest: core.investigation.opportunity publishes, routes, approves and persists an effect
+ok 330 - core.investigation.opportunity publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 11.29764
+  type: 'test'
+  ...
+# Subtest: identity-persona-link typed native-backed provider applies, verifies, and resists duplicate effects
+ok 331 - identity-persona-link typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.56969
+  type: 'test'
+  ...
+# Subtest: core.identity.persona-link publishes, routes, approves and persists an effect
+ok 332 - core.identity.persona-link publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 8.497879
+  type: 'test'
+  ...
+# Subtest: identity-succession typed native-backed provider applies, verifies, and resists duplicate effects
+ok 333 - identity-succession typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.26376
+  type: 'test'
+  ...
+# Subtest: core.identity.succession publishes, routes, approves and persists an effect
+ok 334 - core.identity.succession publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 10.582264
+  type: 'test'
+  ...
+# Subtest: faction-privilege typed native-backed provider applies, verifies, and resists duplicate effects
+ok 335 - faction-privilege typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.422139
+  type: 'test'
+  ...
+# Subtest: core.faction.privilege publishes, routes, approves and persists an effect
+ok 336 - core.faction.privilege publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 11.396339
+  type: 'test'
+  ...
+# Subtest: faction-renown typed native-backed provider applies, verifies, and resists duplicate effects
+ok 337 - faction-renown typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 2.383204
+  type: 'test'
+  ...
+# Subtest: core.faction.renown publishes, routes, approves and persists an effect
+ok 338 - core.faction.renown publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 17.661209
+  type: 'test'
+  ...
+# Subtest: evidence-link typed native-backed provider applies, verifies, and resists duplicate effects
+ok 339 - evidence-link typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 2.966952
+  type: 'test'
+  ...
+# Subtest: core.investigation.evidence-link publishes, routes, approves and persists an effect
+ok 340 - core.investigation.evidence-link publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 19.887366
+  type: 'test'
+  ...
+# Subtest: investigation-conclusion typed native-backed provider applies, verifies, and resists duplicate effects
+ok 341 - investigation-conclusion typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.275999
+  type: 'test'
+  ...
+# Subtest: core.investigation.conclusion publishes, routes, approves and persists an effect
+ok 342 - core.investigation.conclusion publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 11.535467
+  type: 'test'
+  ...
+# Subtest: knowledge-rumor typed native-backed provider applies, verifies, and resists duplicate effects
+ok 343 - knowledge-rumor typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.231042
+  type: 'test'
+  ...
+# Subtest: core.knowledge.rumor publishes, routes, approves and persists an effect
+ok 344 - core.knowledge.rumor publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 5.981965
+  type: 'test'
+  ...
+# Subtest: knowledge-credibility typed native-backed provider applies, verifies, and resists duplicate effects
+ok 345 - knowledge-credibility typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.197991
+  type: 'test'
+  ...
+# Subtest: core.knowledge.credibility publishes, routes, approves and persists an effect
+ok 346 - core.knowledge.credibility publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 17.437874
+  type: 'test'
+  ...
+# Subtest: arc-resolution-facet typed native-backed provider applies, verifies, and resists duplicate effects
+ok 347 - arc-resolution-facet typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 3.635758
+  type: 'test'
+  ...
+# Subtest: core.arc.resolution-facet publishes, routes, approves and persists an effect
+ok 348 - core.arc.resolution-facet publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 12.081388
+  type: 'test'
+  ...
+# Subtest: time-transition-plan typed native-backed provider applies, verifies, and resists duplicate effects
+ok 349 - time-transition-plan typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 2.263214
+  type: 'test'
+  ...
+# Subtest: core.time.transition-plan publishes, routes, approves and persists an effect
+ok 350 - core.time.transition-plan publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 6.535769
+  type: 'test'
+  ...
+# Subtest: resource-provenance typed native-backed provider applies, verifies, and resists duplicate effects
+ok 351 - resource-provenance typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 0.932212
+  type: 'test'
+  ...
+# Subtest: core.resource.provenance publishes, routes, approves and persists an effect
+ok 352 - core.resource.provenance publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 4.841881
+  type: 'test'
+  ...
+# Subtest: campaign-recap typed native-backed provider applies, verifies, and resists duplicate effects
+ok 353 - campaign-recap typed native-backed provider applies, verifies, and resists duplicate effects
+  ---
+  duration_ms: 1.038241
+  type: 'test'
+  ...
+# Subtest: core.campaign.recap publishes, routes, approves and persists an effect
+ok 354 - core.campaign.recap publishes, routes, approves and persists an effect
+  ---
+  duration_ms: 6.912825
+  type: 'test'
+  ...
+# Subtest: capability contracts reject unknown fields, unknown visibility, invalid world times and dangling ids
+ok 355 - capability contracts reject unknown fields, unknown visibility, invalid world times and dangling ids
+  ---
+  duration_ms: 0.420462
+  type: 'test'
+  ...
+# Subtest: updated clock respects revisions, forbids decreases and preserves provenance
+ok 356 - updated clock respects revisions, forbids decreases and preserves provenance
+  ---
+  duration_ms: 1.446636
+  type: 'test'
+  ...
+# Subtest: historical contributions cannot be overwritten with new operations
+ok 357 - historical contributions cannot be overwritten with new operations
+  ---
+  duration_ms: 2.039748
+  type: 'test'
+  ...
+# Subtest: health only reports explicitly sourced, bounded GM attention items
+ok 358 - health only reports explicitly sourced, bounded GM attention items
+  ---
+  duration_ms: 1.285203
+  type: 'test'
+  ...
+# Subtest: partial coverage never claims complete world health
+ok 359 - partial coverage never claims complete world health
+  ---
+  duration_ms: 0.225329
+  type: 'test'
+  ...
+# Subtest: health resists unbounded reads and malformed input
+ok 360 - health resists unbounded reads and malformed input
+  ---
+  duration_ms: 0.687373
+  type: 'test'
+  ...
+# Subtest: due event does not become overdue on exact boundary
+ok 361 - due event does not become overdue on exact boundary
+  ---
+  duration_ms: 0.211558
+  type: 'test'
+  ...
+# Subtest: Actor shell is GM-owned, opaque, idempotent, and verified against native type
+ok 362 - Actor shell is GM-owned, opaque, idempotent, and verified against native type
+  ---
+  duration_ms: 11.215606
+  type: 'test'
+  ...
+# Subtest: Item shell requires declared game-system type; no document is written on invalid type
+ok 363 - Item shell requires declared game-system type; no document is written on invalid type
+  ---
+  duration_ms: 4.693568
+  type: 'test'
+  ...
+# Subtest: Actor type creation refuses missing system type declarations
+ok 364 - Actor type creation refuses missing system type declarations
+  ---
+  duration_ms: 0.247272
+  type: 'test'
+  ...
+# Subtest: Unknown native collision is never adopted or overwritten
+ok 365 - Unknown native collision is never adopted or overwritten
+  ---
+  duration_ms: 1.049919
+  type: 'test'
+  ...
+# Subtest: Lost acknowledgement leaves protected pending record and disables automatic replay
+ok 366 - Lost acknowledgement leaves protected pending record and disables automatic replay
+  ---
+  duration_ms: 2.101631
+  type: 'test'
+  ...
+# Subtest: Creation payload rejects unknown fields, secret text, other visibility and non-null revisions
+ok 367 - Creation payload rejects unknown fields, secret text, other visibility and non-null revisions
+  ---
+  duration_ms: 0.255854
+  type: 'test'
+  ...
+# Subtest: Graph authoring → publication → event → GM approval → Item shell is a journaled operation
+ok 368 - Graph authoring → publication → event → GM approval → Item shell is a journaled operation
+  ---
+  duration_ms: 19.112617
+  type: 'test'
+  ...
+# Subtest: Native integration factory refuses implicit secrets and opportunity authorization
+ok 369 - Native integration factory refuses implicit secrets and opportunity authorization
+  ---
+  duration_ms: 2.259528
+  type: 'test'
+  ...
+# Subtest: Explicitly composed integration exposes no automatically started socket or effects
+ok 370 - Explicitly composed integration exposes no automatically started socket or effects
+  ---
+  duration_ms: 3.522417
+  type: 'test'
+  ...
+# Subtest: migration preview is pure, bounded and identity preserving
+ok 371 - migration preview is pure, bounded and identity preserving
+  ---
+  duration_ms: 9.745103
+  type: 'test'
+  ...
+# Subtest: contract changes to narrative identities are rejected before native writes
+ok 372 - contract changes to narrative identities are rejected before native writes
+  ---
+  duration_ms: 0.329175
+  type: 'test'
+  ...
+# Subtest: migration stops on unknown future contracts and missing steps
+ok 373 - migration stops on unknown future contracts and missing steps
+  ---
+  duration_ms: 0.340341
+  type: 'test'
+  ...
+# Subtest: interrupted migration stays journaled and requires inspection instead of blind retry
+ok 374 - interrupted migration stays journaled and requires inspection instead of blind retry
+  ---
+  duration_ms: 3.356768
+  type: 'test'
+  ...
+# Subtest: audit locator stays deterministic and migration authority is mandatory
+ok 375 - audit locator stays deterministic and migration authority is mandatory
+  ---
+  duration_ms: 1.825785
+  type: 'test'
+  ...
+# Subtest: Protected Compendium defaults to denied without exact live test evidence
+ok 376 - Protected Compendium defaults to denied without exact live test evidence
+  ---
+  duration_ms: 2.145326
+  type: 'test'
+  ...
+# Subtest: Player-readable pack cannot be used even if supplied attestation claims success
+ok 377 - Player-readable pack cannot be used even if supplied attestation claims success
+  ---
+  duration_ms: 0.50482
+  type: 'test'
+  ...
+# Subtest: Native pack record survives new repository and enforces revisions
+ok 378 - Native pack record survives new repository and enforces revisions
+  ---
+  duration_ms: 16.814465
+  type: 'test'
+  ...
+# Subtest: Index cursor is bounded, no global pack load or getIndex()
+ok 379 - Index cursor is bounded, no global pack load or getIndex()
+  ---
+  duration_ms: 3.047973
+  type: 'test'
+  ...
+# Subtest: Interrupted record creation leaves detectable pending index
+ok 380 - Interrupted record creation leaves detectable pending index
+  ---
+  duration_ms: 2.967583
+  type: 'test'
+  ...
+# Subtest: Retry after pending index can recover a failed record creation
+ok 381 - Retry after pending index can recover a failed record creation
+  ---
+  duration_ms: 3.622968
+  type: 'test'
+  ...
+# Subtest: GM authority loss during mutation does not return a successful acknowledgement
+ok 382 - GM authority loss during mutation does not return a successful acknowledgement
+  ---
+  duration_ms: 2.811017
+  type: 'test'
+  ...
+# Subtest: Intent queue durable request, deduplication, permission and opportunity rechecks
+ok 383 - Intent queue durable request, deduplication, permission and opportunity rechecks
+  ---
+  duration_ms: 17.182799
+  type: 'test'
+  ...
+# Subtest: Intent queue denies request replay with mismatched payload
+ok 384 - Intent queue denies request replay with mismatched payload
+  ---
+  duration_ms: 8.904976
+  type: 'test'
+  ...
+# Subtest: Native effect journal persists idempotency and guarded state changes
+ok 385 - Native effect journal persists idempotency and guarded state changes
+  ---
+  duration_ms: 10.457336
+  type: 'test'
+  ...
+# Subtest: Opaque deterministic 16 character Foundry IDs are stable and distinct
+ok 386 - Opaque deterministic 16 character Foundry IDs are stable and distinct
+  ---
+  duration_ms: 1.474357
+  type: 'test'
+  ...
+# Subtest: GM may explicitly reconcile a partially indexed existing record
+ok 387 - GM may explicitly reconcile a partially indexed existing record
+  ---
+  duration_ms: 3.383537
+  type: 'test'
+  ...
+# Subtest: Stored payload size is bounded before oversized record creation
+ok 388 - Stored payload size is bounded before oversized record creation
+  ---
+  duration_ms: 8.123547
+  type: 'test'
+  ...
+# Subtest: A new GM cannot silently resume an uncertain previous GM writer
+ok 389 - A new GM cannot silently resume an uncertain previous GM writer
+  ---
+  duration_ms: 0.248794
+  type: 'test'
+  ...
+# Subtest: plans share a revisioned native-compatible repository and persist after service reconstruction
+ok 390 - plans share a revisioned native-compatible repository and persist after service reconstruction
+  ---
+  duration_ms: 6.40144
+  type: 'test'
+  ...
+# Subtest: core.resource.materialize-journal: editor binds native provenance to the actual graph
+ok 391 - core.resource.materialize-journal: editor binds native provenance to the actual graph
+  ---
+  duration_ms: 9.210301
+  type: 'test'
+  ...
+# Subtest: core.resource.materialize-journal: preflight rejects a forged resource origin
+ok 392 - core.resource.materialize-journal: preflight rejects a forged resource origin
+  ---
+  duration_ms: 1.920107
+  type: 'test'
+  ...
+# Subtest: core.resource.materialize-actor: editor binds native provenance to the actual graph
+ok 393 - core.resource.materialize-actor: editor binds native provenance to the actual graph
+  ---
+  duration_ms: 1.421026
+  type: 'test'
+  ...
+# Subtest: core.resource.materialize-actor: preflight rejects a forged resource origin
+ok 394 - core.resource.materialize-actor: preflight rejects a forged resource origin
+  ---
+  duration_ms: 0.836388
+  type: 'test'
+  ...
+# Subtest: core.resource.materialize-item: editor binds native provenance to the actual graph
+ok 395 - core.resource.materialize-item: editor binds native provenance to the actual graph
+  ---
+  duration_ms: 1.265163
+  type: 'test'
+  ...
+# Subtest: core.resource.materialize-item: preflight rejects a forged resource origin
+ok 396 - core.resource.materialize-item: preflight rejects a forged resource origin
+  ---
+  duration_ms: 0.894295
+  type: 'test'
+  ...
+# Subtest: core.resource.bind-native: editor binds native provenance to the actual graph
+ok 397 - core.resource.bind-native: editor binds native provenance to the actual graph
+  ---
+  duration_ms: 2.80652
+  type: 'test'
+  ...
+# Subtest: core.resource.bind-native: preflight rejects a forged resource origin
+ok 398 - core.resource.bind-native: preflight rejects a forged resource origin
+  ---
+  duration_ms: 0.674554
+  type: 'test'
+  ...
+# Subtest: mock native Compendium sustains indexed publication and event review across integration re-creation
+ok 399 - mock native Compendium sustains indexed publication and event review across integration re-creation
+  ---
+  duration_ms: 88.269456
+  type: 'test'
+  ...
+# Subtest: native protected pack index gate still fails closed in reactive composition
+ok 400 - native protected pack index gate still fails closed in reactive composition
+  ---
+  duration_ms: 0.874616
+  type: 'test'
+  ...
+# Subtest: native Hooks are never enabled just by configuring storage or activating a graph
+ok 401 - native Hooks are never enabled just by configuring storage or activating a graph
+  ---
+  duration_ms: 23.312989
+  type: 'test'
+  ...
+# Subtest: mock native Compendium persists GM decision and verified effect across subsystem reconstruction
+ok 402 - mock native Compendium persists GM decision and verified effect across subsystem reconstruction
+  ---
+  duration_ms: 92.944675
+  type: 'test'
+  ...
+# Subtest: Existing Actor bind preserves native document untouched and protected provenance
+ok 403 - Existing Actor bind preserves native document untouched and protected provenance
+  ---
+  duration_ms: 8.669117
+  type: 'test'
+  ...
+# Subtest: Rebind requires the expected old native ID and explicit record revision
+ok 404 - Rebind requires the expected old native ID and explicit record revision
+  ---
+  duration_ms: 5.322114
+  type: 'test'
+  ...
+# Subtest: Detach is revision-controlled and does not delete a native Actor
+ok 405 - Detach is revision-controlled and does not delete a native Actor
+  ---
+  duration_ms: 3.032045
+  type: 'test'
+  ...
+# Subtest: Missing native target and compendium-pack bound document fail closed
+ok 406 - Missing native target and compendium-pack bound document fail closed
+  ---
+  duration_ms: 0.830609
+  type: 'test'
+  ...
+# Subtest: Binding cannot change the identity, scope, authorization or ownership fields arbitrarily
+ok 407 - Binding cannot change the identity, scope, authorization or ownership fields arbitrarily
+  ---
+  duration_ms: 0.251218
+  type: 'test'
+  ...
+# Subtest: Published binding node emits an approved, journaled, protected native reference operation
+ok 408 - Published binding node emits an approved, journaled, protected native reference operation
+  ---
+  duration_ms: 21.956193
+  type: 'test'
+  ...
+# Subtest: reverse edge can be recorded twice only by the same causal operation
+ok 409 - reverse edge can be recorded twice only by the same causal operation
+  ---
+  duration_ms: 12.289893
+  type: 'test'
+  ...
+# Subtest: reverse lookup is scoped to one native world UUID and provides bounded metadata
+ok 410 - reverse lookup is scoped to one native world UUID and provides bounded metadata
+  ---
+  duration_ms: 4.664835
+  type: 'test'
+  ...
+# Subtest: drift and orphan reports do not mutate or automatically rebind native references
+ok 411 - drift and orphan reports do not mutate or automatically rebind native references
+  ---
+  duration_ms: 3.274104
+  type: 'test'
+  ...
+# Subtest: retired links remain in historical index but are not active dependencies
+ok 412 - retired links remain in historical index but are not active dependencies
+  ---
+  duration_ms: 6.290931
+  type: 'test'
+  ...
+# Subtest: stale binding, unrelated reference and invalid UUID cannot create reverse edge
+ok 413 - stale binding, unrelated reference and invalid UUID cannot create reverse edge
+  ---
+  duration_ms: 0.533963
+  type: 'test'
+  ...
+# Subtest: due index loads only selected bucket windows and returns sorted GM-review candidates
+ok 414 - due index loads only selected bucket windows and returns sorted GM-review candidates
+  ---
+  duration_ms: 10.053813
+  type: 'test'
+  ...
+# Subtest: stale entries from rescheduling or completion never become due actions
+ok 415 - stale entries from rescheduling or completion never become due actions
+  ---
+  duration_ms: 2.824697
+  type: 'test'
+  ...
+# Subtest: untrusted index data without matching canonical schedule is ignored
+ok 416 - untrusted index data without matching canonical schedule is ignored
+  ---
+  duration_ms: 1.074235
+  type: 'test'
+  ...
+# Subtest: bounded index enforces bucket span, valid entries and GM authority
+ok 417 - bounded index enforces bucket span, valid entries and GM authority
+  ---
+  duration_ms: 0.969187
+  type: 'test'
+  ...
+# Subtest: read back rejects malformed indexed record
+ok 418 - read back rejects malformed indexed record
+  ---
+  duration_ms: 2.723105
+  type: 'test'
+  ...
+# Subtest: scoped GM search, session handoff, and private notices persist across service reconstruction
+ok 419 - scoped GM search, session handoff, and private notices persist across service reconstruction
+  ---
+  duration_ms: 39.406469
+  type: 'test'
+  ...
+# Subtest: focused native health reads exact records and cannot certify unindexed world completeness
+ok 420 - focused native health reads exact records and cannot certify unindexed world completeness
+  ---
+  duration_ms: 8.46519
+  type: 'test'
+  ...
+# Subtest: versioned extension logic composes into authoring and published reactive graph
+ok 421 - versioned extension logic composes into authoring and published reactive graph
+  ---
+  duration_ms: 22.86838
+  type: 'test'
+  ...
+# Subtest: extension contract enforces version, declared ports, shape and no arbitrary effects
+ok 422 - extension contract enforces version, declared ports, shape and no arbitrary effects
+  ---
+  duration_ms: 10.365668
+  type: 'test'
+  ...
+# Subtest: lazy node provider is registered on demand and never during module init
+ok 423 - lazy node provider is registered on demand and never during module init
+  ---
+  duration_ms: 0.568164
+  type: 'test'
+  ...
+# Subtest: authenticated recipient gets only allowlisted safe text and durable receipt
+ok 424 - authenticated recipient gets only allowlisted safe text and durable receipt
+  ---
+  duration_ms: 7.769474
+  type: 'test'
+  ...
+# Subtest: rejects foreign recipient mapping before any socket emission
+ok 425 - rejects foreign recipient mapping before any socket emission
+  ---
+  duration_ms: 1.266675
+  type: 'test'
+  ...
+# Subtest: pending notifications and expired notices cannot be sent
+ok 426 - pending notifications and expired notices cannot be sent
+  ---
+  duration_ms: 0.823328
+  type: 'test'
+  ...
+# Subtest: forged client receipt cannot satisfy authentic recipient identity
+ok 427 - forged client receipt cannot satisfy authentic recipient identity
+  ---
+  duration_ms: 36.793911
+  type: 'test'
+  ...
+# Subtest: client callback failure leaves uncertain status, not a durable received mark
+ok 428 - client callback failure leaves uncertain status, not a durable received mark
+  ---
+  duration_ms: 36.249522
+  type: 'test'
+  ...
+# Subtest: client rejects forged GM sender and overlong payloads
+ok 429 - client rejects forged GM sender and overlong payloads
+  ---
+  duration_ms: 5.483185
+  type: 'test'
+  ...
+# Subtest: concurrent sends for the same notice are rejected before asynchronous recipient lookup
+ok 430 - concurrent sends for the same notice are rejected before asynchronous recipient lookup
+  ---
+  duration_ms: 22.307737
+  type: 'test'
+  ...
+# Subtest: an authenticated client duplicate packet is acknowledged but not redisplayed
+ok 431 - an authenticated client duplicate packet is acknowledged but not redisplayed
+  ---
+  duration_ms: 6.870393
+  type: 'test'
+  ...
+# Subtest: GM planning lab routes knowledge propagation without native effects
+ok 432 - GM planning lab routes knowledge propagation without native effects
+  ---
+  duration_ms: 1.305954
+  type: 'test'
+  ...
+# Subtest: GM planning lab routes due faction turn without inventing events
+ok 433 - GM planning lab routes due faction turn without inventing events
+  ---
+  duration_ms: 0.309425
+  type: 'test'
+  ...
+# Subtest: GM planning lab routes arc closure and resource audit
+ok 434 - GM planning lab routes arc closure and resource audit
+  ---
+  duration_ms: 0.505009
+  type: 'test'
+  ...
+# Subtest: planning lab rejects unknown mode and oversized input
+ok 435 - planning lab rejects unknown mode and oversized input
+  ---
+  duration_ms: 0.344308
+  type: 'test'
+  ...
+# Subtest: paged registry saves, publishes and activates a large graph across reinitialization
+ok 436 - paged registry saves, publishes and activates a large graph across reinitialization
+  ---
+  duration_ms: 291.78837
+  type: 'test'
+  ...
+# Subtest: paged snapshots remain immutable while a subsequent draft revision changes
+ok 437 - paged snapshots remain immutable while a subsequent draft revision changes
+  ---
+  duration_ms: 6.681488
+  type: 'test'
+  ...
+# Subtest: GM arc finalization persists a historical snapshot without closing unresolved objectives
+ok 438 - GM arc finalization persists a historical snapshot without closing unresolved objectives
+  ---
+  duration_ms: 4.363903
+  type: 'test'
+  ...
+# Subtest: exclusive ending conflicts and unknown alternative prevent durable resolution writes
+ok 439 - exclusive ending conflicts and unknown alternative prevent durable resolution writes
+  ---
+  duration_ms: 0.615876
+  type: 'test'
+  ...
+# Subtest: staged but unconfirmed resolution never replays automatically
+ok 440 - staged but unconfirmed resolution never replays automatically
+  ---
+  duration_ms: 0.997861
+  type: 'test'
+  ...
+# Subtest: GM explicitly reconciles a prepared resolution when the arc really concluded
+ok 441 - GM explicitly reconciles a prepared resolution when the arc really concluded
+  ---
+  duration_ms: 1.148597
+  type: 'test'
+  ...
+# Subtest: stale expected revision and wrong resolution identity fail closed
+ok 442 - stale expected revision and wrong resolution identity fail closed
+  ---
+  duration_ms: 0.706653
+  type: 'test'
+  ...
+# Subtest: published blueprint snapshots are immutable and retain stable source identity
+ok 443 - published blueprint snapshots are immutable and retain stable source identity
+  ---
+  duration_ms: 3.062145
+  type: 'test'
+  ...
+# Subtest: instance update adopts unchanged fields, preserves overrides and does not change native docs
+ok 444 - instance update adopts unchanged fields, preserves overrides and does not change native docs
+  ---
+  duration_ms: 2.809225
+  type: 'test'
+  ...
+# Subtest: conflicts require explicit field-by-field GM review
+ok 445 - conflicts require explicit field-by-field GM review
+  ---
+  duration_ms: 1.665404
+  type: 'test'
+  ...
+# Subtest: unknown fields and stale instance revisions fail closed
+ok 446 - unknown fields and stale instance revisions fail closed
+  ---
+  duration_ms: 0.877039
+  type: 'test'
+  ...
+# Subtest: faction requires its own known claim and established canonical fact
+ok 447 - faction requires its own known claim and established canonical fact
+  ---
+  duration_ms: 11.904782
+  type: 'test'
+  ...
+# Subtest: faction cannot use other recipients knowledge as if its own
+ok 448 - faction cannot use other recipients knowledge as if its own
+  ---
+  duration_ms: 2.226578
+  type: 'test'
+  ...
+# Subtest: review is explicit, revision checked, deduplicated and has no effects
+ok 449 - review is explicit, revision checked, deduplicated and has no effects
+  ---
+  duration_ms: 5.274042
+  type: 'test'
+  ...
+# Subtest: published agenda is immutable and rule window cannot be invalid
+ok 450 - published agenda is immutable and rule window cannot be invalid
+  ---
+  duration_ms: 1.750052
+  type: 'test'
+  ...
+# Subtest: persistent draft save and new registry instance read same graph
+ok 451 - persistent draft save and new registry instance read same graph
+  ---
+  duration_ms: 16.05294
+  type: 'test'
+  ...
+# Subtest: published immutable snapshot survives later draft edits and separate activation pointer
+ok 452 - published immutable snapshot survives later draft edits and separate activation pointer
+  ---
+  duration_ms: 19.759295
+  type: 'test'
+  ...
+# Subtest: stale draft and activation operations are denied
+ok 453 - stale draft and activation operations are denied
+  ---
+  duration_ms: 4.477744
+  type: 'test'
+  ...
+# Subtest: republishing same revision is idempotent and does not overwrite it
+ok 454 - republishing same revision is idempotent and does not overwrite it
+  ---
+  duration_ms: 2.562664
+  type: 'test'
+  ...
+# Subtest: corrupted immutable snapshot detected by fingerprint before activation
+ok 455 - corrupted immutable snapshot detected by fingerprint before activation
+  ---
+  duration_ms: 2.918008
+  type: 'test'
+  ...
+# Subtest: unknown executable node providers and oversized graphs fail closed at draft save
+ok 456 - unknown executable node providers and oversized graphs fail closed at draft save
+  ---
+  duration_ms: 1.184301
+  type: 'test'
+  ...
+# Subtest: bounded draft query returns only scope records
+ok 457 - bounded draft query returns only scope records
+  ---
+  duration_ms: 1.420696
+  type: 'test'
+  ...
+# Subtest: graph editor model authors, connects, saves, publishes and activates a plot
+ok 458 - graph editor model authors, connects, saves, publishes and activates a plot
+  ---
+  duration_ms: 14.804574
+  type: 'test'
+  ...
+# Subtest: graph editor rejects invalid connections and cycles, root removal and malformed JSON
+ok 459 - graph editor rejects invalid connections and cycles, root removal and malformed JSON
+  ---
+  duration_ms: 1.067315
+  type: 'test'
+  ...
+# Subtest: graph editor refuses to lose unsaved work via direct load
+ok 460 - graph editor refuses to lose unsaved work via direct load
+  ---
+  duration_ms: 1.56905
+  type: 'test'
+  ...
+# Subtest: graph authoring context requires real GM authority rather than user-supplied flags
+ok 461 - graph authoring context requires real GM authority rather than user-supplied flags
+  ---
+  duration_ms: 0.616277
+  type: 'test'
+  ...
+# Subtest: publication reachability warnings need an explicit GM acknowledgement
+ok 462 - publication reachability warnings need an explicit GM acknowledgement
+  ---
+  duration_ms: 2.277535
+  type: 'test'
+  ...
+# Subtest: moving a node is captured in draft and rejects invalid coordinates
+ok 463 - moving a node is captured in draft and rejects invalid coordinates
+  ---
+  duration_ms: 3.343188
+  type: 'test'
+  ...
+# Subtest: published graph does not activate merely by being published
+ok 464 - published graph does not activate merely by being published
+  ---
+  duration_ms: 6.832274
+  type: 'test'
+  ...
+# Subtest: eligible evidence requires canonical knowledge, then separate GM completion
+ok 465 - eligible evidence requires canonical knowledge, then separate GM completion
+  ---
+  duration_ms: 8.044317
+  type: 'test'
+  ...
+# Subtest: unknown evidence and guessed identity do not qualify a milestone
+ok 466 - unknown evidence and guessed identity do not qualify a milestone
+  ---
+  duration_ms: 1.005853
+  type: 'test'
+  ...
+# Subtest: duplicate evidence event is idempotent and conflicting reused identity rejected
+ok 467 - duplicate evidence event is idempotent and conflicting reused identity rejected
+  ---
+  duration_ms: 1.129649
+  type: 'test'
+  ...
+# Subtest: verified conclusion requires independent verification event, not just evidence
+ok 468 - verified conclusion requires independent verification event, not just evidence
+  ---
+  duration_ms: 1.335629
+  type: 'test'
+  ...
+# Subtest: stale progress revision cannot complete an otherwise eligible milestone
+ok 469 - stale progress revision cannot complete an otherwise eligible milestone
+  ---
+  duration_ms: 1.005903
+  type: 'test'
+  ...
+# Subtest: propagation plan is durable, requires GM adjudication and never publishes on its own
+ok 470 - propagation plan is durable, requires GM adjudication and never publishes on its own
+  ---
+  duration_ms: 10.619881
+  type: 'test'
+  ...
+# Subtest: delays, out-of-scope users, stale approvals and source identity are enforced
+ok 471 - delays, out-of-scope users, stale approvals and source identity are enforced
+  ---
+  duration_ms: 3.488186
+  type: 'test'
+  ...
+# Subtest: identical approvals are retry safe but conflicting approvals are rejected
+ok 472 - identical approvals are retry safe but conflicting approvals are rejected
+  ---
+  duration_ms: 3.419733
+  type: 'test'
+  ...
+# Subtest: interrupted decision persistence can be reconciled from deterministic receipt
+ok 473 - interrupted decision persistence can be reconciled from deterministic receipt
+  ---
+  duration_ms: 2.93257
+  type: 'test'
+  ...
+# Subtest: different GM contexts cannot access propagation storage
+ok 474 - different GM contexts cannot access propagation storage
+  ---
+  duration_ms: 0.366872
+  type: 'test'
+  ...
+# Subtest: explicit observer receipt publishes only allowlisted text and public ID
+ok 475 - explicit observer receipt publishes only allowlisted text and public ID
+  ---
+  duration_ms: 8.662587
+  type: 'test'
+  ...
+# Subtest: receipt deduplicates exact source event and does not silently modify history
+ok 476 - receipt deduplicates exact source event and does not silently modify history
+  ---
+  duration_ms: 1.894899
+  type: 'test'
+  ...
+# Subtest: correction is separate historical event; only explicitly provided corrections are visible
+ok 477 - correction is separate historical event; only explicitly provided corrections are visible
+  ---
+  duration_ms: 1.202769
+  type: 'test'
+  ...
+# Subtest: pending receipt never reveals claim or its existence in player projection
+ok 478 - pending receipt never reveals claim or its existence in player projection
+  ---
+  duration_ms: 2.206918
+  type: 'test'
+  ...
+# Subtest: unavailable canonical claim fails without creating a receipt
+ok 479 - unavailable canonical claim fails without creating a receipt
+  ---
+  duration_ms: 0.459411
+  type: 'test'
+  ...
+# Subtest: mocked native Foundry Compendium persists draft snapshot and active pointer separately
+ok 480 - mocked native Foundry Compendium persists draft snapshot and active pointer separately
+  ---
+  duration_ms: 27.73565
+  type: 'test'
+  ...
+# Subtest: native Compendium publication is denied without live access evidence
+ok 481 - native Compendium publication is denied without live access evidence
+  ---
+  duration_ms: 1.658824
+  type: 'test'
+  ...
+# Subtest: interrupted native snapshot write cannot activate a non-durable revision
+ok 482 - interrupted native snapshot write cannot activate a non-durable revision
+  ---
+  duration_ms: 7.14817
+  type: 'test'
+  ...
+# Subtest: native graph registry rejects a snapshot with an incomplete partition index
+ok 483 - native graph registry rejects a snapshot with an incomplete partition index
+  ---
+  duration_ms: 9.47594
+  type: 'test'
+  ...
+# Subtest: notification is inert until separately approved and never exposes GM detail
+ok 484 - notification is inert until separately approved and never exposes GM detail
+  ---
+  duration_ms: 2.802525
+  type: 'test'
+  ...
+# Subtest: duplicate event is idempotent, foreign source and stale approval rejected
+ok 485 - duplicate event is idempotent, foreign source and stale approval rejected
+  ---
+  duration_ms: 0.743578
+  type: 'test'
+  ...
+# Subtest: indexed GM list is bounded, projected clients never see group metadata
+ok 486 - indexed GM list is bounded, projected clients never see group metadata
+  ---
+  duration_ms: 1.612745
+  type: 'test'
+  ...
+# Subtest: recipient-safe text is mandatory before release and unauthorized store fails closed
+ok 487 - recipient-safe text is mandatory before release and unauthorized store fails closed
+  ---
+  duration_ms: 0.51235
+  type: 'test'
+  ...
+# Subtest: GM-only plan persists and can be read without running an effect
+ok 488 - GM-only plan persists and can be read without running an effect
+  ---
+  duration_ms: 2.376865
+  type: 'test'
+  ...
+# Subtest: plan approvals are version-checked, a separate event and not world execution
+ok 489 - plan approvals are version-checked, a separate event and not world execution
+  ---
+  duration_ms: 1.609991
+  type: 'test'
+  ...
+# Subtest: unknown planner is rejected and no record written
+ok 490 - unknown planner is rejected and no record written
+  ---
+  duration_ms: 1.609861
+  type: 'test'
+  ...
+# Subtest: plan cannot be saved with privileged fake GM context
+ok 491 - plan cannot be saved with privileged fake GM context
+  ---
+  duration_ms: 0.864805
+  type: 'test'
+  ...
+# Subtest: new GM planning modes are available through shared preview engine
+ok 492 - new GM planning modes are available through shared preview engine
+  ---
+  duration_ms: 0.597939
+  type: 'test'
+  ...
+# Subtest: handoff cannot expose GM notes or draft recaps, and approval is revision checked
+ok 493 - handoff cannot expose GM notes or draft recaps, and approval is revision checked
+  ---
+  duration_ms: 3.773574
+  type: 'test'
+  ...
+# Subtest: handoff survives service reconstruction and never activates dormant hooks
+ok 494 - handoff survives service reconstruction and never activates dormant hooks
+  ---
+  duration_ms: 0.458529
+  type: 'test'
+  ...
+# Subtest: handoff detects stale revision and rejects unscoped duplicated references
+ok 495 - handoff detects stale revision and rejects unscoped duplicated references
+  ---
+  duration_ms: 1.296219
+  type: 'test'
+  ...
+# Subtest: player context cannot write protected handoff records
+ok 496 - player context cannot write protected handoff records
+  ---
+  duration_ms: 0.381183
+  type: 'test'
+  ...
+# Subtest: durable quorum, late ballot rules and final disclosure without ballots
+ok 497 - durable quorum, late ballot rules and final disclosure without ballots
+  ---
+  duration_ms: 13.1334
+  type: 'test'
+  ...
+# Subtest: unverified ballots, unauthorized participants and late votes fail closed
+ok 498 - unverified ballots, unauthorized participants and late votes fail closed
+  ---
+  duration_ms: 2.411456
+  type: 'test'
+  ...
+# Subtest: GM must explicitly adjudicate a tie; private ballots remain undisclosed
+ok 499 - GM must explicitly adjudicate a tie; private ballots remain undisclosed
+  ---
+  duration_ms: 3.599834
+  type: 'test'
+  ...
+# Subtest: tie policy no-consensus cannot be overridden by an arbitrary GM choice
+ok 500 - tie policy no-consensus cannot be overridden by an arbitrary GM choice
+  ---
+  duration_ms: 3.054333
+  type: 'test'
+  ...
+# Subtest: GM what-if preview executes only bounded declarative rules
+ok 501 - GM what-if preview executes only bounded declarative rules
+  ---
+  duration_ms: 1.09704
+  type: 'test'
+  ...
+# Subtest: time jump preview classifies authored commitments without inventing history
+ok 502 - time jump preview classifies authored commitments without inventing history
+  ---
+  duration_ms: 0.276326
+  type: 'test'
+  ...
+# Subtest: arc endings and blueprint merge are explicitly reviewable
+ok 503 - arc endings and blueprint merge are explicitly reviewable
+  ---
+  duration_ms: 0.342004
+  type: 'test'
+  ...
+# Subtest: planning lab refuses unknown modes and oversized input
+ok 504 - planning lab refuses unknown modes and oversized input
+  ---
+  duration_ms: 0.450167
+  type: 'test'
+  ...
+# Subtest: registry rejects duplicate provider names and malformed providers
+ok 505 - registry rejects duplicate provider names and malformed providers
+  ---
+  duration_ms: 2.529964
+  type: 'test'
+  ...
+# Subtest: narrative state provider writes bounded persistent record with causal identity
+ok 506 - narrative state provider writes bounded persistent record with causal identity
+  ---
+  duration_ms: 13.215944
+  type: 'test'
+  ...
+# Subtest: state effect payload validation prevents oversized and privileged arbitrary property values
+ok 507 - state effect payload validation prevents oversized and privileged arbitrary property values
+  ---
+  duration_ms: 0.876608
+  type: 'test'
+  ...
+# Subtest: effect cannot execute without durable explicit approval
+ok 508 - effect cannot execute without durable explicit approval
+  ---
+  duration_ms: 15.110744
+  type: 'test'
+  ...
+# Subtest: approval transitions to one-time execution, verification and persisted review
+ok 509 - approval transitions to one-time execution, verification and persisted review
+  ---
+  duration_ms: 15.819449
+  type: 'test'
+  ...
+# Subtest: GM rejection never writes narrative state or operation journal
+ok 510 - GM rejection never writes narrative state or operation journal
+  ---
+  duration_ms: 11.423839
+  type: 'test'
+  ...
+# Subtest: stale published revision forbids approval and execution
+ok 511 - stale published revision forbids approval and execution
+  ---
+  duration_ms: 10.246187
+  type: 'test'
+  ...
+# Subtest: stale activation after approval cannot execute an approved effect
+ok 512 - stale activation after approval cannot execute an approved effect
+  ---
+  duration_ms: 9.084351
+  type: 'test'
+  ...
+# Subtest: effect apply acknowledgment uncertainty leaves review and journal requiring recovery
+ok 513 - effect apply acknowledgment uncertainty leaves review and journal requiring recovery
+  ---
+  duration_ms: 14.25296
+  type: 'test'
+  ...
+# Subtest: forged proposal identity rejected; no direct effect access
+ok 514 - forged proposal identity rejected; no direct effect access
+  ---
+  duration_ms: 4.601651
+  type: 'test'
+  ...
+# Subtest: GM authority revocation prevents review and execution
+ok 515 - GM authority revocation prevents review and execution
+  ---
+  duration_ms: 3.629618
+  type: 'test'
+  ...
+# Subtest: review persists over service recreation (same repository)
+ok 516 - review persists over service recreation (same repository)
+  ---
+  duration_ms: 8.28614
+  type: 'test'
+  ...
+# Subtest: malformed core.faction.standing payload blocks publication before execution
+ok 517 - malformed core.faction.standing payload blocks publication before execution
+  ---
+  duration_ms: 9.142598
+  type: 'test'
+  ...
+# Subtest: malformed core.obligation.resolve payload blocks publication before execution
+ok 518 - malformed core.obligation.resolve payload blocks publication before execution
+  ---
+  duration_ms: 1.141036
+  type: 'test'
+  ...
+# Subtest: malformed core.investigation.attest-evidence payload blocks publication before execution
+ok 519 - malformed core.investigation.attest-evidence payload blocks publication before execution
+  ---
+  duration_ms: 0.94407
+  type: 'test'
+  ...
+# Subtest: malformed core.pressure.clock payload blocks publication before execution
+ok 520 - malformed core.pressure.clock payload blocks publication before execution
+  ---
+  duration_ms: 1.076348
+  type: 'test'
+  ...
+# Subtest: forged graph with a cycle fails publication rather than relying on visited-node suppression
+ok 521 - forged graph with a cycle fails publication rather than relying on visited-node suppression
+  ---
+  duration_ms: 1.238803
+  type: 'test'
+  ...
+# Subtest: acyclic diamond graph is valid despite shared downstream node
+ok 522 - acyclic diamond graph is valid despite shared downstream node
+  ---
+  duration_ms: 0.765671
+  type: 'test'
+  ...
+# Subtest: native Hook adapter emits only allowlisted provenance and top-level keys
+ok 523 - native Hook adapter emits only allowlisted provenance and top-level keys
+  ---
+  duration_ms: 2.177825
+  type: 'test'
+  ...
+# Subtest: hook normalization rejects unauthorized hook names and forged sources
+ok 524 - hook normalization rejects unauthorized hook names and forged sources
+  ---
+  duration_ms: 0.816107
+  type: 'test'
+  ...
+# Subtest: the four supported v14 hooks have bounded, explicit contracts
+ok 525 - the four supported v14 hooks have bounded, explicit contracts
+  ---
+  duration_ms: 0.251919
+  type: 'test'
+  ...
+# Subtest: Hooks remain unregistered until explicit start, are idempotent, and detach on stop
+ok 526 - Hooks remain unregistered until explicit start, are idempotent, and detach on stop
+  ---
+  duration_ms: 1.043359
+  type: 'test'
+  ...
+# Subtest: starting hooks requires a currently authorized designated GM
+ok 527 - starting hooks requires a currently authorized designated GM
+  ---
+  duration_ms: 0.323646
+  type: 'test'
+  ...
+# Subtest: a hooked native update creates durable review proposals, not effects
+ok 528 - a hooked native update creates durable review proposals, not effects
+  ---
+  duration_ms: 55.329911
+  type: 'test'
+  ...
+# Subtest: unsubscribed document events do not create durable entries
+ok 529 - unsubscribed document events do not create durable entries
+  ---
+  duration_ms: 44.44037
+  type: 'test'
+  ...
+# Subtest: losing GM designation stops listeners and prevents further recording
+ok 530 - losing GM designation stops listeners and prevents further recording
+  ---
+  duration_ms: 40.427095
+  type: 'test'
+  ...
+# Subtest: Hook errors are GM-local codes without untrusted document values
+ok 531 - Hook errors are GM-local codes without untrusted document values
+  ---
+  duration_ms: 43.887443
+  type: 'test'
+  ...
+# Subtest: hook source IDs are unique per observed native occurrence
+ok 532 - hook source IDs are unique per observed native occurrence
+  ---
+  duration_ms: 47.75881
+  type: 'test'
+  ...
+# Subtest: staging subscriptions and activation uses the same bounded repository
+ok 533 - staging subscriptions and activation uses the same bounded repository
+  ---
+  duration_ms: 21.685771
+  type: 'test'
+  ...
+# Subtest: published-only graphs do not subscribe before activation
+ok 534 - published-only graphs do not subscribe before activation
+  ---
+  duration_ms: 2.808003
+  type: 'test'
+  ...
+# Subtest: subscription catalog prohibits invalid event types and scope
+ok 535 - subscription catalog prohibits invalid event types and scope
+  ---
+  duration_ms: 0.820675
+  type: 'test'
+  ...
+# Subtest: stage is idempotent by graph identifier with version replacement
+ok 536 - stage is idempotent by graph identifier with version replacement
+  ---
+  duration_ms: 2.126768
+  type: 'test'
+  ...
+# Subtest: stale revision subscription never evaluates the old graph
+ok 537 - stale revision subscription never evaluates the old graph
+  ---
+  duration_ms: 14.475798
+  type: 'test'
+  ...
+# Subtest: stale index entries cannot dispatch if graph is deactivated
+ok 538 - stale index entries cannot dispatch if graph is deactivated
+  ---
+  duration_ms: 10.609211
+  type: 'test'
+  ...
+# Subtest: activation never occurs when subscription staging fails
+ok 539 - activation never occurs when subscription staging fails
+  ---
+  duration_ms: 3.724772
+  type: 'test'
+  ...
+# Subtest: tampered index metadata fails closed before loading subscribers
+ok 540 - tampered index metadata fails closed before loading subscribers
+  ---
+  duration_ms: 4.944546
+  type: 'test'
+  ...
+# Subtest: durable ledger acknowledges once, stores source and verifies transitions
+ok 541 - durable ledger acknowledges once, stores source and verifies transitions
+  ---
+  duration_ms: 3.532793
+  type: 'test'
+  ...
+# Subtest: durable ledger rejects event ID reuse with different payload
+ok 542 - durable ledger rejects event ID reuse with different payload
+  ---
+  duration_ms: 1.358623
+  type: 'test'
+  ...
+# Subtest: ledger never acknowledges a write without a read-back match
+ok 543 - ledger never acknowledges a write without a read-back match
+  ---
+  duration_ms: 0.768616
+  type: 'test'
+  ...
+# Subtest: accepted but incomplete event requires explicit recovery, never silent replay
+ok 544 - accepted but incomplete event requires explicit recovery, never silent replay
+  ---
+  duration_ms: 7.393417
+  type: 'test'
+  ...
+# Subtest: true condition creates a persisted GM-review proposal and never calls providers
+ok 545 - true condition creates a persisted GM-review proposal and never calls providers
+  ---
+  duration_ms: 6.708619
+  type: 'test'
+  ...
+# Subtest: false condition evaluates without proposing any consequence
+ok 546 - false condition evaluates without proposing any consequence
+  ---
+  duration_ms: 9.047701
+  type: 'test'
+  ...
+# Subtest: unsubscribed events do not hydrate graphs or create durable history
+ok 547 - unsubscribed events do not hydrate graphs or create durable history
+  ---
+  duration_ms: 4.23561
+  type: 'test'
+  ...
+# Subtest: event ledger uses targeted hashed shard, not all-event scans
+ok 548 - event ledger uses targeted hashed shard, not all-event scans
+  ---
+  duration_ms: 1.49573
+  type: 'test'
+  ...
+# Subtest: GM authority is enforced by catalog, ledger, and router
+ok 549 - GM authority is enforced by catalog, ledger, and router
+  ---
+  duration_ms: 3.49733
+  type: 'test'
+  ...
+# Subtest: excess per-event subscriber count is rejected before write
+ok 550 - excess per-event subscriber count is rejected before write
+  ---
+  duration_ms: 0.907655
+  type: 'test'
+  ...
+# Subtest: a failing condition remains an uncertain durable event without any effects
+ok 551 - a failing condition remains an uncertain durable event without any effects
+  ---
+  duration_ms: 5.719901
+  type: 'test'
+  ...
+# Subtest: audits drift, missing document and shared bindings without destructive changes
+ok 552 - audits drift, missing document and shared bindings without destructive changes
+  ---
+  duration_ms: 1.424302
+  type: 'test'
+  ...
+# Subtest: unverified and ambiguous native candidates rejected
+ok 553 - unverified and ambiguous native candidates rejected
+  ---
+  duration_ms: 1.357802
+  type: 'test'
+  ...
+# Subtest: chosen verified native candidate preserves immutable narrative identity
+ok 554 - chosen verified native candidate preserves immutable narrative identity
+  ---
+  duration_ms: 0.264908
+  type: 'test'
+  ...
+# Subtest: rebind checks current revision and detached ownership
+ok 555 - rebind checks current revision and detached ownership
+  ---
+  duration_ms: 0.198498
+  type: 'test'
+  ...
+# Subtest: retirement never automatically deletes shared or exclusive native document
+ok 556 - retirement never automatically deletes shared or exclusive native document
+  ---
+  duration_ms: 0.273581
+  type: 'test'
+  ...
+# Subtest: duplicate identity and invalid ownership rejected
+ok 557 - duplicate identity and invalid ownership rejected
+  ---
+  duration_ms: 0.204798
+  type: 'test'
+  ...
+# Subtest: binding and reverse-reference node effects require independent GM approvals and durable journals
+ok 558 - binding and reverse-reference node effects require independent GM approvals and durable journals
+  ---
+  duration_ms: 28.928664
+  type: 'test'
+  ...
+# Subtest: reverse-reference graph payload rejects unsupported scopes, actions and public records
+ok 559 - reverse-reference graph payload rejects unsupported scopes, actions and public records
+  ---
+  duration_ms: 0.754304
+  type: 'test'
+  ...
+# Subtest: faction agenda review travels through published event, GM approval and durable effect without faction world mutation
+ok 560 - faction agenda review travels through published event, GM approval and durable effect without faction world mutation
+  ---
+  duration_ms: 23.165746
+  type: 'test'
+  ...
+# Subtest: agenda review rejects injected effects and unscoped knowledge at publication
+ok 561 - agenda review rejects injected effects and unscoped knowledge at publication
+  ---
+  duration_ms: 2.035401
+  type: 'test'
+  ...
+# Subtest: reviewed faction decision can stage one durable, bounded due-time commitment
+ok 562 - reviewed faction decision can stage one durable, bounded due-time commitment
+  ---
+  duration_ms: 12.772157
+  type: 'test'
+  ...
+# Subtest: graph event and approved journal create faction due commitment without executing action
+ok 563 - graph event and approved journal create faction due commitment without executing action
+  ---
+  duration_ms: 15.265777
+  type: 'test'
+  ...
+# Subtest: publication rejects native mutation instructions in faction schedule payload
+ok 564 - publication rejects native mutation instructions in faction schedule payload
+  ---
+  duration_ms: 1.372634
+  type: 'test'
+  ...
+# Subtest: reviewed theory node follows publication, canonical event, GM approval, journal and player-safe projection
+ok 565 - reviewed theory node follows publication, canonical event, GM approval, journal and player-safe projection
+  ---
+  duration_ms: 25.20187
+  type: 'test'
+  ...
+# Subtest: hypothesis node rejects hidden answer-oracle fields at publication
+ok 566 - hypothesis node rejects hidden answer-oracle fields at publication
+  ---
+  duration_ms: 1.935581
+  type: 'test'
+  ...
+# Subtest: GM-reviewed graph disclosure uses canonical plan and produces only observer-safe facts
+ok 567 - GM-reviewed graph disclosure uses canonical plan and produces only observer-safe facts
+  ---
+  duration_ms: 23.850606
+  type: 'test'
+  ...
+# Subtest: knowledge effect cannot publish arbitrary truth fields in graph payload
+ok 568 - knowledge effect cannot publish arbitrary truth fields in graph payload
+  ---
+  duration_ms: 1.486606
+  type: 'test'
+  ...
+# Subtest: reviewed milestone node completes only after canonical evidence and GM effect approval
+ok 569 - reviewed milestone node completes only after canonical evidence and GM effect approval
+  ---
+  duration_ms: 31.405598
+  type: 'test'
+  ...
+# Subtest: graph publisher rejects invalid reviewed milestone revisions and privileged injected fields
+ok 570 - graph publisher rejects invalid reviewed milestone revisions and privileged injected fields
+  ---
+  duration_ms: 4.436112
+  type: 'test'
+  ...
+# Subtest: end-to-end published graph proposes effect only when condition qualifies
+ok 571 - end-to-end published graph proposes effect only when condition qualifies
+  ---
+  duration_ms: 3.280143
+  type: 'test'
+  ...
+# Subtest: approved event writes journal before native effect and verifies
+ok 572 - approved event writes journal before native effect and verifies
+  ---
+  duration_ms: 0.905372
+  type: 'test'
+  ...
+# Subtest: lost acknowledgement after native apply is uncertain and never blindly retried
+ok 573 - lost acknowledgement after native apply is uncertain and never blindly retried
+  ---
+  duration_ms: 1.008316
+  type: 'test'
+  ...
+# Subtest: unconfirmed verification remains uncertain
+ok 574 - unconfirmed verification remains uncertain
+  ---
+  duration_ms: 1.130179
+  type: 'test'
+  ...
+# Subtest: unauthenticated execution never invokes provider
+ok 575 - unauthenticated execution never invokes provider
+  ---
+  duration_ms: 1.405143
+  type: 'test'
+  ...
+# Subtest: event routing ignores unrelated event types
+ok 576 - event routing ignores unrelated event types
+  ---
+  duration_ms: 0.565661
+  type: 'test'
+  ...
+# Subtest: bounded active graph routing fails on too many subscribers
+ok 577 - bounded active graph routing fails on too many subscribers
+  ---
+  duration_ms: 0.538209
+  type: 'test'
+  ...
+# Subtest: player may use owned unlinked synthetic Actor in currently viewed scene
+ok 578 - player may use owned unlinked synthetic Actor in currently viewed scene
+  ---
+  duration_ms: 0.93721
+  type: 'test'
+  ...
+# Subtest: viewing a token does not imply ownership
+ok 579 - viewing a token does not imply ownership
+  ---
+  duration_ms: 1.222018
+  type: 'test'
+  ...
+# Subtest: remote scene tokens, other viewers and invalid token refs fail closed
+ok 580 - remote scene tokens, other viewers and invalid token refs fail closed
+  ---
+  duration_ms: 0.180592
+  type: 'test'
+  ...
+# Subtest: linked tokens do not bypass the world Actor permission path
+ok 581 - linked tokens do not bypass the world Actor permission path
+  ---
+  duration_ms: 0.167331
+  type: 'test'
+  ...
+# Subtest: GM or inactive player cannot impersonate synthetic token owner
+ok 582 - GM or inactive player cannot impersonate synthetic token owner
+  ---
+  duration_ms: 0.206911
+  type: 'test'
+  ...
+# Subtest: exact-term GM search is bounded and stable across service reconstruction
+ok 583 - exact-term GM search is bounded and stable across service reconstruction
+  ---
+  duration_ms: 13.359209
+  type: 'test'
+  ...
+# Subtest: updated keywords invalidate old postings without global scans
+ok 584 - updated keywords invalidate old postings without global scans
+  ---
+  duration_ms: 12.755727
+  type: 'test'
+  ...
+# Subtest: failed token indexing remains pending and does not appear as ready
+ok 585 - failed token indexing remains pending and does not appear as ready
+  ---
+  duration_ms: 5.374212
+  type: 'test'
+  ...
+# Subtest: untrusted keywords and client authority are rejected
+ok 586 - untrusted keywords and client authority are rejected
+  ---
+  duration_ms: 0.444449
+  type: 'test'
+  ...
+# Subtest: only local GM session creates trusted authority context
+ok 587 - only local GM session creates trusted authority context
+  ---
+  duration_ms: 1.486725
+  type: 'test'
+  ...
+# Subtest: socket supplied identity is not native attestation
+ok 588 - socket supplied identity is not native attestation
+  ---
+  duration_ms: 0.182775
+  type: 'test'
+  ...
+# Subtest: intent gate fails closed until verified native path configured
+ok 589 - intent gate fails closed until verified native path configured
+  ---
+  duration_ms: 0.335815
+  type: 'test'
+  ...
+# Subtest: native gates reject unverified confidential stores/requests
+ok 590 - native gates reject unverified confidential stores/requests
+  ---
+  duration_ms: 0.346982
+  type: 'test'
+  ...
+# Subtest: allowlisted projection never copies secret fields or metadata
+ok 591 - allowlisted projection never copies secret fields or metadata
+  ---
+  duration_ms: 1.240455
+  type: 'test'
+  ...
+# Subtest: unlisted player fails closed with no existence oracle
+ok 592 - unlisted player fails closed with no existence oracle
+  ---
+  duration_ms: 0.513172
+  type: 'test'
+  ...
+# Subtest: scoped repository forbids unbounded query
+ok 593 - scoped repository forbids unbounded query
+  ---
+  duration_ms: 1.763742
+  type: 'test'
+  ...
+# Subtest: registry does not mutate active published revision when draft changes
+ok 594 - registry does not mutate active published revision when draft changes
+  ---
+  duration_ms: 1.888881
+  type: 'test'
+  ...
+# Subtest: operation journal uses create-once and state guards
+ok 595 - operation journal uses create-once and state guards
+  ---
+  duration_ms: 0.588966
+  type: 'test'
+  ...
+# Subtest: parent invokes published inactive subgraph with inherited causal event and verified GM effect
+ok 596 - parent invokes published inactive subgraph with inherited causal event and verified GM effect
+  ---
+  duration_ms: 40.034664
+  type: 'test'
+  ...
+# Subtest: nested proposal cannot be approved after root is deactivated
+ok 597 - nested proposal cannot be approved after root is deactivated
+  ---
+  duration_ms: 10.89985
+  type: 'test'
+  ...
+# Subtest: missing published subgraph leaves event in uncertain state without effects
+ok 598 - missing published subgraph leaves event in uncertain state without effects
+  ---
+  duration_ms: 10.113328
+  type: 'test'
+  ...
+# Subtest: direct self calls blocked on publication, indirect recursion blocked at runtime
+ok 599 - direct self calls blocked on publication, indirect recursion blocked at runtime
+  ---
+  duration_ms: 19.570369
+  type: 'test'
+  ...
+# Subtest: subgraph authoring rejects unknown payload keys and non-integer versions
+ok 600 - subgraph authoring rejects unknown payload keys and non-integer versions
+  ---
+  duration_ms: 0.53197
+  type: 'test'
+  ...
+# Subtest: authoritative due scheduling supports bounded indexing and GM review
+ok 601 - authoritative due scheduling supports bounded indexing and GM review
+  ---
+  duration_ms: 10.520271
+  type: 'test'
+  ...
+# Subtest: resolved time commitment disappears from due window without mutating history
+ok 602 - resolved time commitment disappears from due window without mutating history
+  ---
+  duration_ms: 2.974673
+  type: 'test'
+  ...
+# Subtest: moving commitment leaves an inert old index candidate and creates a new due entry
+ok 603 - moving commitment leaves an inert old index candidate and creates a new due entry
+  ---
+  duration_ms: 4.880609
+  type: 'test'
+  ...
+# Subtest: index write interruption reports uncertainty, keeps canonical record for repair
+ok 604 - index write interruption reports uncertainty, keeps canonical record for repair
+  ---
+  duration_ms: 0.726723
+  type: 'test'
+  ...
+# Subtest: recover after interruption by staging only an existing canonical commitment
+ok 605 - recover after interruption by staging only an existing canonical commitment
+  ---
+  duration_ms: 1.892546
+  type: 'test'
+  ...
+# Subtest: due scheduler classifies deterministic expiry vs uncertain actions
+ok 606 - due scheduler classifies deterministic expiry vs uncertain actions
+  ---
+  duration_ms: 2.012166
+  type: 'test'
+  ...
+# Subtest: no eligible GM means no background timer run
+ok 607 - no eligible GM means no background timer run
+  ---
+  duration_ms: 0.134292
+  type: 'test'
+  ...
+# Subtest: alias linking does not automatically expose underlying identity or transfer obligations
+ok 608 - alias linking does not automatically expose underlying identity or transfer obligations
+  ---
+  duration_ms: 0.827534
+  type: 'test'
+  ...
+# Subtest: identity merging is proposed rather than performed
+ok 609 - identity merging is proposed rather than performed
+  ---
+  duration_ms: 0.147582
+  type: 'test'
+  ...
+# Subtest: route search cannot use undisclosed paths
+ok 610 - route search cannot use undisclosed paths
+  ---
+  duration_ms: 0.376086
+  type: 'test'
+  ...
+# Subtest: session brief remains GM-only until explicit recap selection
+ok 611 - session brief remains GM-only until explicit recap selection
+  ---
+  duration_ms: 0.823088
+  type: 'test'
+  ...
+# Subtest: votes remain collecting until deadline or all participant ballots
+ok 612 - votes remain collecting until deadline or all participant ballots
+  ---
+  duration_ms: 1.138132
+  type: 'test'
+  ...
+# Subtest: deadline tie requires GM or run-off, never arbitrary choice
+ok 613 - deadline tie requires GM or run-off, never arbitrary choice
+  ---
+  duration_ms: 0.284197
+  type: 'test'
+  ...
+# Subtest: quorum below threshold does not finalize a winner
+ok 614 - quorum below threshold does not finalize a winner
+  ---
+  duration_ms: 0.144548
+  type: 'test'
+  ...
+# Subtest: eligible winner awaits GM finalization not immediate effect
+ok 615 - eligible winner awaits GM finalization not immediate effect
+  ---
+  duration_ms: 0.200532
+  type: 'test'
+  ...
+# Subtest: duplicate, unknown ballots and forged actor are rejected
+ok 616 - duplicate, unknown ballots and forged actor are rejected
+  ---
+  duration_ms: 0.785711
+  type: 'test'
+  ...
+# Subtest: private vote never publishes interim tally or ballots
+ok 617 - private vote never publishes interim tally or ballots
+  ---
+  duration_ms: 0.215785
+  type: 'test'
+  ...
+# Subtest: approved final result projected only to authorized recipient
+ok 618 - approved final result projected only to authorized recipient
+  ---
+  duration_ms: 0.543397
+  type: 'test'
+  ...
+1..618
+# tests 618
+# suites 0
+# pass 618
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3307.293779

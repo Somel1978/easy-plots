@@ -1,0 +1,229 @@
+TAP version 13
+# Subtest: valid graph contracts and typed ports
+ok 1 - valid graph contracts and typed ports
+  ---
+  duration_ms: 2.027916
+  type: 'test'
+  ...
+# Subtest: graph rejects dangling edge
+ok 2 - graph rejects dangling edge
+  ---
+  duration_ms: 1.009435
+  type: 'test'
+  ...
+# Subtest: graph rejects mismatched port types
+ok 3 - graph rejects mismatched port types
+  ---
+  duration_ms: 0.192359
+  type: 'test'
+  ...
+# Subtest: graph rejects unverified required capabilities
+ok 4 - graph rejects unverified required capabilities
+  ---
+  duration_ms: 0.273631
+  type: 'test'
+  ...
+# Subtest: stable ids reject traversal and unknown namespace
+ok 5 - stable ids reject traversal and unknown namespace
+  ---
+  duration_ms: 0.176665
+  type: 'test'
+  ...
+# Subtest: conditions evaluate literal and reference
+ok 6 - conditions evaluate literal and reference
+  ---
+  duration_ms: 0.419069
+  type: 'test'
+  ...
+# Subtest: condition prevents protected reference in public context
+ok 7 - condition prevents protected reference in public context
+  ---
+  duration_ms: 0.175764
+  type: 'test'
+  ...
+# Subtest: conditions block prototype traversal and unauthenticated provider calls
+ok 8 - conditions block prototype traversal and unauthenticated provider calls
+  ---
+  duration_ms: 0.269174
+  type: 'test'
+  ...
+# Subtest: condition recursion budgets enforced
+ok 9 - condition recursion budgets enforced
+  ---
+  duration_ms: 1.389447
+  type: 'test'
+  ...
+# Subtest: unguarded player guess never validates a milestone
+ok 10 - unguarded player guess never validates a milestone
+  ---
+  duration_ms: 1.66492
+  type: 'test'
+  ...
+# Subtest: time jump only classifies due authored events; no invented outcomes
+ok 11 - time jump only classifies due authored events; no invented outcomes
+  ---
+  duration_ms: 1.390548
+  type: 'test'
+  ...
+# Subtest: temporal operation budget enforced
+ok 12 - temporal operation budget enforced
+  ---
+  duration_ms: 0.696305
+  type: 'test'
+  ...
+# Subtest: claims filtered by actual observer and published disclosure
+ok 13 - claims filtered by actual observer and published disclosure
+  ---
+  duration_ms: 0.501223
+  type: 'test'
+  ...
+# Subtest: competing exclusive endings require GM reconciliation
+ok 14 - competing exclusive endings require GM reconciliation
+  ---
+  duration_ms: 0.411799
+  type: 'test'
+  ...
+# Subtest: end-to-end published graph proposes effect only when condition qualifies
+ok 15 - end-to-end published graph proposes effect only when condition qualifies
+  ---
+  duration_ms: 5.963535
+  type: 'test'
+  ...
+# Subtest: approved event writes journal before native effect and verifies
+ok 16 - approved event writes journal before native effect and verifies
+  ---
+  duration_ms: 1.305921
+  type: 'test'
+  ...
+# Subtest: lost acknowledgement after native apply is uncertain and never blindly retried
+ok 17 - lost acknowledgement after native apply is uncertain and never blindly retried
+  ---
+  duration_ms: 0.81237
+  type: 'test'
+  ...
+# Subtest: unconfirmed verification remains uncertain
+ok 18 - unconfirmed verification remains uncertain
+  ---
+  duration_ms: 0.61968
+  type: 'test'
+  ...
+# Subtest: unauthenticated execution never invokes provider
+ok 19 - unauthenticated execution never invokes provider
+  ---
+  duration_ms: 1.333152
+  type: 'test'
+  ...
+# Subtest: event routing ignores unrelated event types
+ok 20 - event routing ignores unrelated event types
+  ---
+  duration_ms: 0.915886
+  type: 'test'
+  ...
+# Subtest: bounded active graph routing fails on too many subscribers
+ok 21 - bounded active graph routing fails on too many subscribers
+  ---
+  duration_ms: 0.523115
+  type: 'test'
+  ...
+# Subtest: only local GM session creates trusted authority context
+ok 22 - only local GM session creates trusted authority context
+  ---
+  duration_ms: 2.247986
+  type: 'test'
+  ...
+# Subtest: socket supplied identity is not native attestation
+ok 23 - socket supplied identity is not native attestation
+  ---
+  duration_ms: 0.222033
+  type: 'test'
+  ...
+# Subtest: intent gate fails closed until verified native path configured
+ok 24 - intent gate fails closed until verified native path configured
+  ---
+  duration_ms: 0.513391
+  type: 'test'
+  ...
+# Subtest: native gates reject unverified confidential stores/requests
+ok 25 - native gates reject unverified confidential stores/requests
+  ---
+  duration_ms: 0.40621
+  type: 'test'
+  ...
+# Subtest: allowlisted projection never copies secret fields or metadata
+ok 26 - allowlisted projection never copies secret fields or metadata
+  ---
+  duration_ms: 1.534735
+  type: 'test'
+  ...
+# Subtest: unlisted player fails closed with no existence oracle
+ok 27 - unlisted player fails closed with no existence oracle
+  ---
+  duration_ms: 0.280461
+  type: 'test'
+  ...
+# Subtest: scoped repository forbids unbounded query
+ok 28 - scoped repository forbids unbounded query
+  ---
+  duration_ms: 2.839133
+  type: 'test'
+  ...
+# Subtest: registry does not mutate active published revision when draft changes
+ok 29 - registry does not mutate active published revision when draft changes
+  ---
+  duration_ms: 1.896789
+  type: 'test'
+  ...
+# Subtest: operation journal uses create-once and state guards
+ok 30 - operation journal uses create-once and state guards
+  ---
+  duration_ms: 2.539494
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 194.777056
+# start of coverage report
+# ---------------------------------------------------------------------
+# file                 | line % | branch % | funcs % | uncovered lines
+# ---------------------------------------------------------------------
+# src                  |        |          |         | 
+#  contracts           |        |          |         | 
+#   errors.mjs         |  85.71 |   100.00 |   66.67 | 13-14
+#   record.mjs         |  85.00 |    88.89 |   66.67 | 6-8
+#  domains             |        |          |         | 
+#   arc-resolution.mjs | 100.00 |    72.73 |  100.00 | 
+#   knowledge.mjs      | 100.00 |    71.43 |  100.00 | 
+#   milestones.mjs     |  85.71 |    82.35 |  100.00 | 12-13
+#   temporal.mjs       | 100.00 |    72.73 |  100.00 | 
+#  graph               |        |          |         | 
+#   conditions.mjs     |  84.21 |    71.05 |   60.00 | 29-33 35
+#   registry.mjs       | 100.00 |    72.00 |   90.00 | 
+#   validate.mjs       | 100.00 |    88.46 |   88.89 | 
+#  platform            |        |          |         | 
+#   foundry-gates.mjs  | 100.00 |   100.00 |   66.67 | 
+#  runtime             |        |          |         | 
+#   effects.mjs        | 100.00 |    83.33 |  100.00 | 
+#   engine.mjs         | 100.00 |    84.21 |  100.00 | 
+#  security            |        |          |         | 
+#   authority.mjs      | 100.00 |    94.44 |  100.00 | 
+#   projection.mjs     | 100.00 |    78.95 |  100.00 | 
+#   request-gate.mjs   |  82.35 |    57.14 |  100.00 | 12-13 15
+#  storage             |        |          |         | 
+#   memory.mjs         | 100.00 |    72.41 |   72.73 | 
+# tests                |        |          |         | 
+#  contracts.test.mjs  | 100.00 |   100.00 |  100.00 | 
+#  domains.test.mjs    | 100.00 |   100.00 |  100.00 | 
+#  fixtures.mjs        | 100.00 |   100.00 |  100.00 | 
+#  runtime.test.mjs    | 100.00 |   100.00 |   92.86 | 
+#  security.test.mjs   | 100.00 |   100.00 |  100.00 | 
+#  storage.test.mjs    | 100.00 |   100.00 |  100.00 | 
+# ---------------------------------------------------------------------
+# all files            |  97.19 |    83.48 |   90.85 | 
+# ---------------------------------------------------------------------
+# end of coverage report

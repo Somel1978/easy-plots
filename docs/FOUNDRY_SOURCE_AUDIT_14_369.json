@@ -1,0 +1,50 @@
+{
+  "foundry": {
+    "generation": 14,
+    "build": 369,
+    "channel": "stable"
+  },
+  "checks": [
+    {
+      "name": "Foundry core v14 baseline",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Manifest socket declaration supported",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Server registers module socket channels",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Native server passes authenticated userId",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Native server handles recipient routing",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Client documents expose Actor ownership check",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Player queries are permission gated",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Compendium index fields can be requested",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "Server document read visibility requires live verification",
+      "status": "source-confirmed"
+    },
+    {
+      "name": "ApplicationV2 available",
+      "status": "source-confirmed"
+    }
+  ],
+  "qualifier": "Static source signatures only: not a live permission/security certification"
+}

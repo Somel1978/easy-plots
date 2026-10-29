@@ -1,0 +1,44 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {MemoryPartitionRepository,MemoryOperationJournal} from '../src/storage/memory.mjs';
+import {createLocalGMContext} from '../src/security/authority.mjs';
+import {PersistentGraphRegistry} from '../src/graph/persistent-registry.mjs';
+import {GraphEditorModel} from '../src/editor/model.mjs';
+import {ActiveTriggerCatalog,IndexedGraphRegistry} from '../src/runtime/active-subscriptions.mjs';
+import {DurableEventLedger} from '../src/runtime/event-ledger.mjs';
+import {DurableReactiveRouter} from '../src/runtime/durable-router.mjs';
+import {DurableProposalReview} from '../src/runtime/proposal-review.mjs';
+import {EffectProviderRegistry} from '../src/runtime/provider-registry.mjs';
+import {createFoundryJournalMaterializationProvider} from '../src/platform/foundry-journal-provider.mjs';
+
+test('native Journal shell node follows published graph → protected proposal → GM approval → durable effect',async()=>{
+ const gm=createLocalGMContext({user:{id:'gm-resource-test',isGM:true}},'test-world');
+ const gmProvider=()=>gm,repository=new MemoryPartitionRepository(),journal=new MemoryOperationJournal(),docs=new Map();
+ const gameInstance={journal:{get:id=>docs.get(id)??null,documentClass:{createDocuments:async payloads=>payloads.map(p=>{
+    const doc={id:p._id,name:p.name,ownership:p.ownership,getFlag:(scope,key)=>p.flags?.[scope]?.[key]};
+    docs.set(doc.id,doc);return doc;
+ })}}};
+ const writer={assertEligible:ctx=>assert.equal(ctx.userId,gm.userId)};
+ const providers=new EffectProviderRegistry();
+ providers.register(createFoundryJournalMaterializationProvider({repository,gmProvider,gameInstance,writer}));
+ const raw=new PersistentGraphRegistry({repository,gmProvider});
+ const catalog=new ActiveTriggerCatalog({repository,gmProvider});
+ const registry=new IndexedGraphRegistry({registry:raw,catalog});
+ const ledger=new DurableEventLedger({repository,gmProvider});
+ const router=new DurableReactiveRouter({registry,catalog,ledger,gmProvider});
+ const editor=new GraphEditorModel({registry});
+ const graph=editor.newGraph('Create neutral journal shell'),effect=editor.addNode('core.resource.materialize-journal');
+ editor.connect(graph.rootNodeId,effect);
+ await editor.save();const published=await editor.publish();await editor.activate(published.publishedVersion);
+ const eventId='ep:event:journal_approved001';
+ const ingress=await router.ingest({id:eventId,eventType:'evidence.discovered',source:{kind:'test-fixture'},payload:{}});
+ assert.equal(ingress.status,'review-required');assert.equal(docs.size,0);
+ const proposal=(await ledger.get(eventId)).proposals[0];assert.equal(proposal.providerId,'narrative.materialize-journal-shell');
+ const review=new DurableProposalReview({repository,ledger,registry,providers,journal,gmProvider});
+ await review.decide(eventId,proposal.operationId,{approve:true});
+ assert.equal(docs.size,0);
+ const completed=await review.execute(eventId,proposal.operationId);
+ assert.equal(completed.status,'completed');assert.equal(docs.size,1);
+ const doc=[...docs.values()][0];assert.equal(doc.ownership.default,0);
+ assert.equal(await providers.get(proposal.providerId).verify(proposal.payload,{operationId:proposal.operationId,sourceEventId:eventId}),true);
+ assert.equal((await review.get(eventId,proposal.operationId)).state,'completed');
+});

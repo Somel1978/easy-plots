@@ -1,0 +1,8 @@
+
+> easy-plots@0.6.0-dev spec:check
+> python spec/tools/validate_spec_v02.py
+
+PASS: 125 decisions, 125 decision-specific proposed tests, 28 requirement groups
+PASS: 97 unique candidate node providers, 50 unique logical record groups
+PASS: 2 JSON Schema bundles structurally valid; existing fixture validation checked; both TS proposal files compile
+NOT RUN: actual Foundry VTT, permissions, sockets, co-GM, native effects, migrations, performance

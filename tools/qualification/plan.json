@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "scope": "All 125 agreed decisions, all 28 requirement groups, and all 97 candidate contracts. Local evidence never substitutes for final native acceptance.",
+  "native_dimensions": [
+    {"id": "native-window-lifecycle", "scenario": "Exercise ApplicationV2 open, close, reload, resize, focus and retained drafts in the actual Foundry client."},
+    {"id": "gm-player-permissions", "scenario": "Use GM and independently authenticated player clients to inspect packs, documents, public DTOs and denied requests."},
+    {"id": "hostile-socket-input", "scenario": "Submit forged senders, protected identifiers, malformed payloads, replayed requests and revoked Actor ownership across real sockets."},
+    {"id": "co-gm-handover", "scenario": "Transfer the designated writer during asynchronous requests and reconcile original uncertain effects without duplicate native creation."},
+    {"id": "restart-recovery", "scenario": "Restart world and clients around prepared/completed journals, retained events and partial batches; verify original provenance and no replay."},
+    {"id": "native-document-effects", "scenario": "Execute approved Actor, Item, Journal, Chat, Combat and Roll workflows, including unknown acknowledgements and separate graph activation."},
+    {"id": "system-roll-policy", "scenario": "Execute the exact advertised system/version/build policy, test mismatches, and verify original roll reuse plus observer-safe publication."},
+    {"id": "migration-and-index-repair", "scenario": "Upgrade representative legacy native pages, interrupt migration and index repair, resume, and preserve drafts, published snapshots and history."},
+    {"id": "large-world-performance", "scenario": "Measure bounded indexed event routing, page loading, temporal catch-up and selective staleness with recorded world sizes, limits and timings."},
+    {"id": "observer-confidentiality", "scenario": "Inspect actual player wire traffic and native document payloads for hidden text, protected IDs, audience data and cross-observer inference."},
+    {"id": "concurrent-edit-publication", "scenario": "Race delegated GM saves, publications, activation and role loss; verify revision conflicts, immutable versions and original unknown requests."},
+    {"id": "full-domain-workflows", "scenario": "Execute every TEST-ADR scenario with real native storage and clients, including optional native bindings, crossplot fanout and recovery."}
+  ],
+  "compatibility_targets": [
+    {
+      "target_id": "author-requested-foundry-14.369",
+      "core_version": "14",
+      "core_build": "369",
+      "system_id": null,
+      "system_version": null,
+      "browser": null,
+      "platform": null,
+      "basis": "Author-requested module manifest convention; system/browser/platform are unknown and no executed compatibility is asserted."
+    }
+  ],
+  "native_evidence_files": []
+}

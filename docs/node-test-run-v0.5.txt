@@ -1,0 +1,368 @@
+
+> easy-plots@0.5.0-dev check
+> node --check src/bootstrap/index.mjs && node --check src/storage/native-pack.mjs && node --check src/storage/native-intents.mjs && node --check src/platform/native-integration.mjs && node --check src/security/gm-writer.mjs && node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: valid graph contracts and typed ports
+ok 1 - valid graph contracts and typed ports
+  ---
+  duration_ms: 3.507261
+  type: 'test'
+  ...
+# Subtest: graph rejects dangling edge
+ok 2 - graph rejects dangling edge
+  ---
+  duration_ms: 3.258387
+  type: 'test'
+  ...
+# Subtest: graph rejects mismatched port types
+ok 3 - graph rejects mismatched port types
+  ---
+  duration_ms: 0.521868
+  type: 'test'
+  ...
+# Subtest: graph rejects unverified required capabilities
+ok 4 - graph rejects unverified required capabilities
+  ---
+  duration_ms: 0.588607
+  type: 'test'
+  ...
+# Subtest: stable ids reject traversal and unknown namespace
+ok 5 - stable ids reject traversal and unknown namespace
+  ---
+  duration_ms: 0.365349
+  type: 'test'
+  ...
+# Subtest: conditions evaluate literal and reference
+ok 6 - conditions evaluate literal and reference
+  ---
+  duration_ms: 0.844881
+  type: 'test'
+  ...
+# Subtest: condition prevents protected reference in public context
+ok 7 - condition prevents protected reference in public context
+  ---
+  duration_ms: 0.772634
+  type: 'test'
+  ...
+# Subtest: conditions block prototype traversal and unauthenticated provider calls
+ok 8 - conditions block prototype traversal and unauthenticated provider calls
+  ---
+  duration_ms: 0.614421
+  type: 'test'
+  ...
+# Subtest: condition recursion budgets enforced
+ok 9 - condition recursion budgets enforced
+  ---
+  duration_ms: 0.930815
+  type: 'test'
+  ...
+# Subtest: unguarded player guess never validates a milestone
+ok 10 - unguarded player guess never validates a milestone
+  ---
+  duration_ms: 1.129081
+  type: 'test'
+  ...
+# Subtest: time jump only classifies due authored events; no invented outcomes
+ok 11 - time jump only classifies due authored events; no invented outcomes
+  ---
+  duration_ms: 1.263016
+  type: 'test'
+  ...
+# Subtest: temporal operation budget enforced
+ok 12 - temporal operation budget enforced
+  ---
+  duration_ms: 0.515287
+  type: 'test'
+  ...
+# Subtest: claims filtered by actual observer and published disclosure
+ok 13 - claims filtered by actual observer and published disclosure
+  ---
+  duration_ms: 0.373694
+  type: 'test'
+  ...
+# Subtest: competing exclusive endings require GM reconciliation
+ok 14 - competing exclusive endings require GM reconciliation
+  ---
+  duration_ms: 0.347539
+  type: 'test'
+  ...
+# Subtest: v14 simulated transport: verified sender and targeted GM-to-player reply
+ok 15 - v14 simulated transport: verified sender and targeted GM-to-player reply
+  ---
+  duration_ms: 5.367145
+  type: 'test'
+  ...
+# Subtest: payload claiming to be GM cannot impersonate server-attested sender
+ok 16 - payload claiming to be GM cannot impersonate server-attested sender
+  ---
+  duration_ms: 16.107649
+  type: 'test'
+  ...
+# Subtest: Actor ownership denial returns generic rejection
+ok 17 - Actor ownership denial returns generic rejection
+  ---
+  duration_ms: 2.036137
+  type: 'test'
+  ...
+# Subtest: no durable queue means never claim an accepted request
+ok 18 - no durable queue means never claim an accepted request
+  ---
+  duration_ms: 30.517928
+  type: 'test'
+  ...
+# Subtest: transport refuses to register if module manifest socket is disabled
+ok 19 - transport refuses to register if module manifest socket is disabled
+  ---
+  duration_ms: 0.51668
+  type: 'test'
+  ...
+# Subtest: a player cannot forge a queued receipt for another player
+ok 20 - a player cannot forge a queued receipt for another player
+  ---
+  duration_ms: 41.999165
+  type: 'test'
+  ...
+# Subtest: duplicate request IDs are idempotent only with durable queue contract
+ok 21 - duplicate request IDs are idempotent only with durable queue contract
+  ---
+  duration_ms: 21.565594
+  type: 'test'
+  ...
+# Subtest: payload allowlist drops claimed identity, hidden metadata and actions
+ok 22 - payload allowlist drops claimed identity, hidden metadata and actions
+  ---
+  duration_ms: 0.262466
+  type: 'test'
+  ...
+# Subtest: rejects oversized or malformed player intents
+ok 23 - rejects oversized or malformed player intents
+  ---
+  duration_ms: 1.810584
+  type: 'test'
+  ...
+# Subtest: no designated active GM: fail closed before sending
+ok 24 - no designated active GM: fail closed before sending
+  ---
+  duration_ms: 0.809069
+  type: 'test'
+  ...
+# Subtest: stopped transport rejects pending requests and removes listener
+ok 25 - stopped transport rejects pending requests and removes listener
+  ---
+  duration_ms: 0.943735
+  type: 'test'
+  ...
+# Subtest: native world Actor authorizer checks real permission, never player-claimed ownership
+ok 26 - native world Actor authorizer checks real permission, never player-claimed ownership
+  ---
+  duration_ms: 0.912066
+  type: 'test'
+  ...
+# Subtest: native durable queue adapter remains unavailable until verified
+ok 27 - native durable queue adapter remains unavailable until verified
+  ---
+  duration_ms: 1.586642
+  type: 'test'
+  ...
+# Subtest: Native integration factory refuses implicit secrets and opportunity authorization
+ok 28 - Native integration factory refuses implicit secrets and opportunity authorization
+  ---
+  duration_ms: 6.325356
+  type: 'test'
+  ...
+# Subtest: Explicitly composed integration exposes no automatically started socket or effects
+ok 29 - Explicitly composed integration exposes no automatically started socket or effects
+  ---
+  duration_ms: 1.691187
+  type: 'test'
+  ...
+# Subtest: Protected Compendium defaults to denied without exact live test evidence
+ok 30 - Protected Compendium defaults to denied without exact live test evidence
+  ---
+  duration_ms: 8.786708
+  type: 'test'
+  ...
+# Subtest: Player-readable pack cannot be used even if supplied attestation claims success
+ok 31 - Player-readable pack cannot be used even if supplied attestation claims success
+  ---
+  duration_ms: 0.956375
+  type: 'test'
+  ...
+# Subtest: Native pack record survives new repository and enforces revisions
+ok 32 - Native pack record survives new repository and enforces revisions
+  ---
+  duration_ms: 40.731895
+  type: 'test'
+  ...
+# Subtest: Index cursor is bounded, no global pack load or getIndex()
+ok 33 - Index cursor is bounded, no global pack load or getIndex()
+  ---
+  duration_ms: 7.251378
+  type: 'test'
+  ...
+# Subtest: Interrupted record creation leaves detectable pending index
+ok 34 - Interrupted record creation leaves detectable pending index
+  ---
+  duration_ms: 6.945789
+  type: 'test'
+  ...
+# Subtest: Retry after pending index can recover a failed record creation
+ok 35 - Retry after pending index can recover a failed record creation
+  ---
+  duration_ms: 6.283552
+  type: 'test'
+  ...
+# Subtest: GM authority loss during mutation does not return a successful acknowledgement
+ok 36 - GM authority loss during mutation does not return a successful acknowledgement
+  ---
+  duration_ms: 4.779385
+  type: 'test'
+  ...
+# Subtest: Intent queue durable request, deduplication, permission and opportunity rechecks
+ok 37 - Intent queue durable request, deduplication, permission and opportunity rechecks
+  ---
+  duration_ms: 39.604203
+  type: 'test'
+  ...
+# Subtest: Intent queue denies request replay with mismatched payload
+ok 38 - Intent queue denies request replay with mismatched payload
+  ---
+  duration_ms: 6.836363
+  type: 'test'
+  ...
+# Subtest: Native effect journal persists idempotency and guarded state changes
+ok 39 - Native effect journal persists idempotency and guarded state changes
+  ---
+  duration_ms: 15.159385
+  type: 'test'
+  ...
+# Subtest: Opaque deterministic 16 character Foundry IDs are stable and distinct
+ok 40 - Opaque deterministic 16 character Foundry IDs are stable and distinct
+  ---
+  duration_ms: 1.652281
+  type: 'test'
+  ...
+# Subtest: GM may explicitly reconcile a partially indexed existing record
+ok 41 - GM may explicitly reconcile a partially indexed existing record
+  ---
+  duration_ms: 7.548896
+  type: 'test'
+  ...
+# Subtest: Stored payload size is bounded before oversized record creation
+ok 42 - Stored payload size is bounded before oversized record creation
+  ---
+  duration_ms: 2.602773
+  type: 'test'
+  ...
+# Subtest: A new GM cannot silently resume an uncertain previous GM writer
+ok 43 - A new GM cannot silently resume an uncertain previous GM writer
+  ---
+  duration_ms: 0.242013
+  type: 'test'
+  ...
+# Subtest: end-to-end published graph proposes effect only when condition qualifies
+ok 44 - end-to-end published graph proposes effect only when condition qualifies
+  ---
+  duration_ms: 6.624533
+  type: 'test'
+  ...
+# Subtest: approved event writes journal before native effect and verifies
+ok 45 - approved event writes journal before native effect and verifies
+  ---
+  duration_ms: 2.085783
+  type: 'test'
+  ...
+# Subtest: lost acknowledgement after native apply is uncertain and never blindly retried
+ok 46 - lost acknowledgement after native apply is uncertain and never blindly retried
+  ---
+  duration_ms: 2.306149
+  type: 'test'
+  ...
+# Subtest: unconfirmed verification remains uncertain
+ok 47 - unconfirmed verification remains uncertain
+  ---
+  duration_ms: 1.666519
+  type: 'test'
+  ...
+# Subtest: unauthenticated execution never invokes provider
+ok 48 - unauthenticated execution never invokes provider
+  ---
+  duration_ms: 2.032149
+  type: 'test'
+  ...
+# Subtest: event routing ignores unrelated event types
+ok 49 - event routing ignores unrelated event types
+  ---
+  duration_ms: 1.675904
+  type: 'test'
+  ...
+# Subtest: bounded active graph routing fails on too many subscribers
+ok 50 - bounded active graph routing fails on too many subscribers
+  ---
+  duration_ms: 1.439916
+  type: 'test'
+  ...
+# Subtest: only local GM session creates trusted authority context
+ok 51 - only local GM session creates trusted authority context
+  ---
+  duration_ms: 2.830397
+  type: 'test'
+  ...
+# Subtest: socket supplied identity is not native attestation
+ok 52 - socket supplied identity is not native attestation
+  ---
+  duration_ms: 0.268892
+  type: 'test'
+  ...
+# Subtest: intent gate fails closed until verified native path configured
+ok 53 - intent gate fails closed until verified native path configured
+  ---
+  duration_ms: 1.439544
+  type: 'test'
+  ...
+# Subtest: native gates reject unverified confidential stores/requests
+ok 54 - native gates reject unverified confidential stores/requests
+  ---
+  duration_ms: 0.4815
+  type: 'test'
+  ...
+# Subtest: allowlisted projection never copies secret fields or metadata
+ok 55 - allowlisted projection never copies secret fields or metadata
+  ---
+  duration_ms: 2.398794
+  type: 'test'
+  ...
+# Subtest: unlisted player fails closed with no existence oracle
+ok 56 - unlisted player fails closed with no existence oracle
+  ---
+  duration_ms: 0.467976
+  type: 'test'
+  ...
+# Subtest: scoped repository forbids unbounded query
+ok 57 - scoped repository forbids unbounded query
+  ---
+  duration_ms: 2.036667
+  type: 'test'
+  ...
+# Subtest: registry does not mutate active published revision when draft changes
+ok 58 - registry does not mutate active published revision when draft changes
+  ---
+  duration_ms: 1.70713
+  type: 'test'
+  ...
+# Subtest: operation journal uses create-once and state guards
+ok 59 - operation journal uses create-once and state guards
+  ---
+  duration_ms: 1.372087
+  type: 'test'
+  ...
+1..59
+# tests 59
+# suites 0
+# pass 59
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 530.879219

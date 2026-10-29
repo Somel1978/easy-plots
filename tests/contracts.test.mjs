@@ -1,0 +1,15 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {graph} from './fixtures.mjs';
+import {validateGraph} from '../src/graph/validate.mjs';
+import {evaluateCondition} from '../src/graph/conditions.mjs';
+import {assertNarrativeId} from '../src/contracts/record.mjs';
+const expression={op:'compare',operator:'eq',left:{type:'reference',path:['event','answer'],requiredPermission:'gm-secret'},right:{type:'literal',value:42}};
+test('valid graph contracts and typed ports',()=>{assert.equal(validateGraph(graph()).ok,true)});
+test('graph rejects dangling edge',()=>{let g=graph();g.edges[0].target.nodeId='ep:node:missing_001';assert.throws(()=>validateGraph(g),{code:'DANGLING_EDGE'})});
+test('graph rejects mismatched port types',()=>{let g=graph();g.nodes[1].ports[0].valueType='string';assert.throws(()=>validateGraph(g),{code:'INVALID_PORT_TYPE'})});
+test('graph rejects unverified required capabilities',()=>{let g=graph();g.requiredCapabilityIds=['dnd5e.roll'];assert.throws(()=>validateGraph(g),{code:'MISSING_CAPABILITY'})});
+test('stable ids reject traversal and unknown namespace',()=>{assert.throws(()=>assertNarrativeId('../secret'),{code:'INVALID_ID'});assert.equal(assertNarrativeId('ep:plot:good_001'),'ep:plot:good_001')});
+test('conditions evaluate literal and reference',()=>{assert.equal(evaluateCondition(expression,{values:{event:{answer:42}},clearance:'gm-secret'}),true)});
+test('condition prevents protected reference in public context',()=>{assert.throws(()=>evaluateCondition(expression,{values:{event:{answer:42}},clearance:'published'}),{code:'ACCESS_DENIED'})});
+test('conditions block prototype traversal and unauthenticated provider calls',()=>{assert.throws(()=>evaluateCondition({op:'compare',operator:'eq',left:{type:'reference',path:['constructor'],requiredPermission:'published'},right:{type:'literal',value:null}},{values:{},clearance:'gm-secret'}),{code:'UNRESOLVED_VALUE'});assert.throws(()=>evaluateCondition({op:'provider-predicate',providerId:'x',predicateId:'p'},{clearance:'gm-secret'}),{code:'UNVERIFIED_PROVIDER'})});
+test('condition recursion budgets enforced',()=>{let ast={op:'compare',operator:'eq',left:{type:'literal',value:1},right:{type:'literal',value:1}};for(let i=0;i<40;i++)ast={op:'not',term:ast};assert.throws(()=>evaluateCondition(ast,{maxDepth:10}),{code:'CONDITION_BUDGET'})});

@@ -1,0 +1,33 @@
+{
+  "id": "ep:event:01JTEST00000000000000000001",
+  "kind": "event",
+  "schemaVersion": "1.0.0",
+  "revision": 0,
+  "partitionId": "events/plot/ep:plot:waterdeep/2026-01",
+  "updatedAt": "2026-10-27T14:00:00Z",
+  "accessClass": "gm",
+  "provenance": [
+    {
+      "authorId": "gm-01"
+    }
+  ],
+  "eventType": "evidence.discovered",
+  "eventVersion": "1.0.0",
+  "worldId": "world-example",
+  "origin": {
+    "kind": "gm-decision",
+    "sourceId": "gm-approved-discovery-01"
+  },
+  "causalParentIds": [],
+  "correlationId": "intent-0001",
+  "involvedActorIds": [
+    "actor-rogue-1"
+  ],
+  "realTime": "2026-10-27T14:00:00Z",
+  "worldTime": 9876543,
+  "payload": {
+    "evidenceId": "ep:evidence:manifest",
+    "discovererActorId": "actor-rogue-1"
+  },
+  "payloadAccess": "gm"
+}

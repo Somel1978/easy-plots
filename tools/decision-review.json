@@ -1,0 +1,2461 @@
+{
+  "scope": "Initial source and local scenario evidence review; evidence-present is not complete acceptance or a passed Foundry scenario. No batch estimate is derived from these counts.",
+  "version": "1.13.0-dev",
+  "decisions": [
+    {
+      "decision_id": "ADR-001",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-graph-integration.test.mjs",
+          "name_contains": "typed faction node authors"
+        }
+      ],
+      "observation": "Published domain nodes request effects; runtime and domain tests distinguish evaluation from approved mutation. Complete layered presentation is reviewed separately in ADR-022.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-002",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/proposal-review.test.mjs",
+          "name_contains": "effect cannot execute without durable"
+        }
+      ],
+      "observation": "Automatic conditions propose consequences; durable explicit GM approval remains necessary before provider execution.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-003",
+      "status": "evidence-present",
+      "source_files": [
+        "src/domains/relationships.mjs",
+        "src/domains/identity.mjs",
+        "src/runtime/extended-providers.mjs",
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-workflow-scenarios.test.mjs",
+          "name_contains": "ADR-003:"
+        }
+      ],
+      "observation": "Narrative facts are established through approved graph effects with no native document, survive optional Actor binding and native target deletion, and remain unchanged by binding. Borrowed Actor content is preserved. The integrated scenario uses the actual GM gateway, graph publication and independent effect approvals.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-004",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/typed-data-flow.test.mjs",
+          "name_contains": "ADR-004: typed state data"
+        }
+      ],
+      "observation": "Typed data and event-flow connections are validated; incompatible ports and missing producers are rejected in local integration tests.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-005",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/graph-data-frame.mjs",
+        "src/runtime/proposal-review.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/typed-subgraphs.test.mjs",
+          "name_contains": "ADR-005: parent remains pinned"
+        },
+        {
+          "file": "tests/mixed-subgraph.test.mjs",
+          "name_contains": "mixed"
+        }
+      ],
+      "observation": "Pure and mixed calls remain pinned to immutable child interfaces. Mixed flow proposes child and parent effects separately; typed values alone cannot execute effects. Review reconstructs parameters and rejects changed input revisions.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-006",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/data-guards.test.mjs",
+          "name_contains": "ADR-006: an authoritative typed boolean"
+        }
+      ],
+      "observation": "Boolean selection is exclusive; parallel and all/any join tests cover bounded convergent paths without repeated effects.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-007",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs",
+        "src/runtime/domain-correction-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-correction.test.mjs",
+          "name_contains": "ADR-007: a reviewed"
+        }
+      ],
+      "observation": "A canonical narrative correction now follows published graph, persisted proposal, explicit approval and a verified operation journal. Earlier source events/revisions remain intact and native document/resource undo is excluded.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-008",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs",
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-knowledge.test.mjs",
+          "name_contains": "explicit observer receipt publishes"
+        }
+      ],
+      "observation": "Observer-specific receipts and allowlisted projections withhold undisclosed claims and metadata; native privacy is reserved for final world tests.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-009",
+      "status": "evidence-present",
+      "source_files": [
+        "src/ui/graph-editor.mjs",
+        "src/editor/model.mjs",
+        "src/ui/gm-cockpit.mjs",
+        "src/bootstrap/index.mjs",
+        "src/runtime/scoped-gm-changes.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/scoped-gm-changes.test.mjs",
+          "name_contains": "ADR-009: focused"
+        }
+      ],
+      "observation": "The focused cockpit now subscribes to exact-graph post-commit changes and refreshes relevant event rows. Callbacks contain no event values and view failures cannot roll back accepted events.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-010",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/narrative-capabilities.mjs",
+        "src/runtime/canonical-domain-effects.mjs",
+        "src/orchestration/persistent-identities.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/runtime/extended-providers.mjs",
+        "src/platform/foundry-resource-binding.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-workflow-scenarios.test.mjs",
+          "name_contains": "lightweight and optionally Actor-bound entities"
+        }
+      ],
+      "observation": "Canonical lightweight identities resolve independently of optional native Actor/Item/Journal resource bindings. Approved graph operations persist records without creating an Actor; borrowed native content is untouched and a deleted Actor cannot erase the entity. Native Compendium reconstruction and explicit missing-reference status are covered. Real Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-011",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-faction-agenda.mjs",
+        "src/runtime/domain-providers.mjs",
+        "src/orchestration/npc-schedule-planner.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-workflow-scenarios.test.mjs",
+          "name_contains": "ADR-011:"
+        }
+      ],
+      "observation": "Persistent join, independent renown changes and leave are exercised through approved graph effects; leaving preserves renown, original causal operation history and service-recreated membership state. A native Actor is not required for membership records.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-012",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-faction-agenda.mjs",
+        "src/runtime/domain-providers.mjs",
+        "src/orchestration/npc-schedule-planner.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/canonical-domain-integration.test.mjs",
+          "name_contains": "ADR-012: approved fact graph"
+        }
+      ],
+      "observation": "A formerly disconnected fact write now reaches the agenda's canonical source. The regression separately requires the faction's own knowledge receipt.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-013",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-faction-agenda.mjs",
+        "src/runtime/domain-providers.mjs",
+        "src/orchestration/npc-schedule-planner.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-workflow-scenarios.test.mjs",
+          "name_contains": "ADR-013:"
+        }
+      ],
+      "observation": "Numeric reputation cannot promote rank or grant privileges. Rank and privilege proposals receive independent approvals: an unapproved/rejected promotion cannot execute while an explicitly approved privilege can; a later explicit promotion preserves the privilege revision.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-014",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/approved-operation-gateway.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/event-cascades.mjs",
+        "src/runtime/reviewed-plan-gateway.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/event-cascades.test.mjs",
+          "name_contains": "mutually reactive published faction rules stop"
+        },
+        {
+          "file": "tests/event-cascades.test.mjs",
+          "name_contains": "merged causal roots retain every original budget"
+        },
+        {
+          "file": "tests/event-cascades.test.mjs",
+          "name_contains": "lost reservation acknowledgements"
+        }
+      ],
+      "observation": "Protected causal-root budgets now bound mutually reactive rules before another proposal. Original roots remain charged across merges and restarts; interrupted reservations remain uncertain and cannot replay evaluation. Canonical declared parents carry lineage; unrelated roots intentionally start separate budgets. No arbitrary convergence or automatic world mutation is claimed.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-015",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/knowledge-propagation.test.mjs",
+          "name_contains": "propagation distinguishes direct"
+        }
+      ],
+      "observation": "Canonical facts, claims, observer receipts and rumor propagation are separate; propagation plans do not commit truth or disclosure automatically.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-016",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/native-temporal-index.mjs",
+        "src/orchestration/temporal-coordinator.mjs",
+        "src/domains/scheduler.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/temporal-coordinator.test.mjs",
+          "name_contains": "authoritative due scheduling supports"
+        }
+      ],
+      "observation": "Canonical schedules use bounded due-index windows; a due commitment remains a GM review candidate rather than an invented outcome.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-017",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/narrative-action-api.mjs",
+        "src/runtime/provider-registry.mjs",
+        "src/platform/native-integration.mjs",
+        "src/bootstrap/index.mjs",
+        "src/runtime/proposal-review.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/narrative-action-api.test.mjs",
+          "name_contains": "a declared third-party action validates and executes"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "third-party action re-registers its exact contract"
+        }
+      ],
+      "observation": "The public GM API registers declarative versioned third-party actions wrapping an allowlisted core narrative capability. Fixed scope/constants and typed scalar inputs are visible in the proposal; the exact canonical manifest SHA-256 and target version are pinned in its payload. No action callback receives document or arbitrary effect APIs. Existing independent GM approval, target verification and effect journal remain authoritative; scope override, native mutation target and changed contract fail closed. Re-registration after native reconstruction is explicit. This does not sandbox installed GM JavaScript; real Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-018",
+      "status": "evidence-present",
+      "source_files": [
+        "src/security/plot-authority.mjs",
+        "src/orchestration/gm-plot-authoring.mjs",
+        "src/platform/gm-authoring-transport.mjs",
+        "src/graph/persistent-registry.mjs",
+        "src/platform/native-integration.mjs",
+        "src/ui/plot-authority-desk.mjs",
+        "src/ui/graph-editor.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/gm-plot-authoring.test.mjs",
+          "name_contains": "native targeted co-GM editing"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "native Compendium retains co-GM plot ownership"
+        },
+        {
+          "file": "tests/plot-authority.test.mjs",
+          "name_contains": "two GMs own different plots"
+        }
+      ],
+      "observation": "Per-plot owner and separately delegated edit/publish/activate rights are enforced by the designated physical writer using an authenticated native sender context. Revision checks, read-only editor, explicit legacy adoption/owner transfer/recovery and private command receipts survive reconstruction; uncertain commands cannot replay. Chromium exercises both GM principals and separate publication/activation. Real multi-client Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-019",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/portable-template.mjs",
+        "src/orchestration/graph-templates.mjs",
+        "src/ui/template-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-templates.test.mjs",
+          "name_contains": "ADR-019: portable export"
+        }
+      ],
+      "observation": "Portable full-graph export removes source graph/node/edge identities, native UUIDs and scoped state references into explicit typed local bindings. Immutable template pages and the existing blueprint catalog persist in protected storage. Embedded references without an adapter fail closed rather than silently leaking. Instantiation creates a linked draft only; Foundry persistence/performance acceptance remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-020",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/journal-graph-integration.test.mjs",
+          "name_contains": "native Journal shell node follows"
+        }
+      ],
+      "observation": "Native shell creation follows graph publication, persisted proposal, GM approval and operation journal; separate tests reject provenance collisions.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-021",
+      "status": "partial",
+      "source_files": [
+        "src/ui/graph-editor.mjs",
+        "src/editor/model.mjs",
+        "src/ui/gm-cockpit.mjs",
+        "src/bootstrap/index.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-graphs.test.mjs",
+          "name_contains": "moving a node is captured"
+        }
+      ],
+      "observation": "ApplicationV2 is resizable and positions remain in model state. Native popout/resize/focus behavior still needs its deferred Foundry acceptance test.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-022",
+      "status": "evidence-present",
+      "source_files": [
+        "src/ui/graph-editor.mjs",
+        "src/editor/model.mjs",
+        "src/ui/gm-cockpit.mjs",
+        "src/bootstrap/index.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-view-state.test.mjs",
+          "name_contains": "ADR-022: switching"
+        }
+      ],
+      "observation": "Layer selection is now implemented as a view-only projection: canonical nodes, connections and draft revisions stay unchanged; cross-layer links are counted.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-023",
+      "status": "evidence-present",
+      "source_files": [
+        "src/ui/graph-editor.mjs",
+        "src/editor/model.mjs",
+        "src/ui/gm-cockpit.mjs",
+        "src/bootstrap/index.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-view-state.test.mjs",
+          "name_contains": "ADR-023: compact"
+        }
+      ],
+      "observation": "Compact/comfortable/expanded density and individual expansion are now view-only preferences. Local tests preserve canonical data and saved revisions.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-024",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/contracts.test.mjs",
+          "name_contains": "conditions block prototype traversal"
+        }
+      ],
+      "observation": "Structured predicates reject unsafe paths, unsupported providers and excessive recursion; comparisons are typed and do not evaluate arbitrary script text.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-025",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/durable-router.mjs",
+        "src/ui/planning-lab.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/published-graph-simulation.test.mjs",
+          "name_contains": "ADR-025: an actual published graph"
+        }
+      ],
+      "observation": "The actual pinned published graph evaluator runs with isolated hypotheses, journal and fault providers. Native Actor payloads remain planned; no canonical intake, native provider calls or world writes occur. Native adapter compatibility still needs final Foundry validation.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-026",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/live-graph-appearance.mjs",
+        "src/orchestration/gm-plot-authoring.mjs",
+        "src/ui/live-appearance-desk.mjs",
+        "src/ui/graph-editor.mjs",
+        "src/runtime/gm-cockpit.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/live-graph-appearance.test.mjs",
+          "name_contains": "live cosmetic labels and positions persist separately"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "live appearance separately"
+        }
+      ],
+      "observation": "GM live appearance stores a title and at most64 selected node labels/positions per exact active published version. It never changes the executable snapshot or draft, and rejects ports/data fields, unknown nodes, stale revisions and changed activation. Plot edit grants are rechecked through the designated writer; active view/cockpit and Chromium use the separate projection. Reset preserves history; structural edits still need publication. Native Compendium reconstruction passes locally; final real-world qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-027",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/proposal-review.test.mjs",
+          "name_contains": "effect apply acknowledgment uncertainty"
+        }
+      ],
+      "observation": "Lost acknowledgments leave durable uncertain review/journal state and prevent blind retries; the native writer is fenced on handover.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-028",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs",
+        "src/storage/native-pack.mjs",
+        "src/storage/graph-chunks.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-persistence.test.mjs",
+          "name_contains": "Native pack record survives"
+        }
+      ],
+      "observation": "Expected revisions and read-back verification reject stale writers. Actual concurrent native-document races remain a final-world test, not a transaction guarantee.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-029",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-notifications.mjs",
+        "src/platform/foundry-notification-transport.mjs",
+        "src/contracts/notification-view.mjs",
+        "src/ui/player-notification-inbox.mjs",
+        "src/ui/notification-desk.mjs",
+        "src/runtime/notification-queue-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/grouped-notifications.test.mjs",
+          "name_contains": "ADR-029:"
+        },
+        {
+          "file": "tests/grouped-notifications.test.mjs",
+          "name_contains": "published notification node"
+        }
+      ],
+      "observation": "Notifications now have recipient-specific durable random public groups and explicitly reviewed public titles. A GM index page groups private records by recipient/category; each player inbox groups only locally received allowlisted notices, with bounded counts, urgency, deduplication and local dismissal. A published node queues a private draft only after effect approval; publication and targeted delivery remain separate. v1 ungrouped packets remain compatible; v2 carries only public grouping fields. Native target-build qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-030",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-persistence.test.mjs",
+          "name_contains": "Intent queue durable request"
+        }
+      ],
+      "observation": "Authenticated player contributions enter a durable GM queue; Actor and opportunity conditions are rechecked before reviewed transitions.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-031",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-quest-projections.mjs",
+        "src/orchestration/persistent-investigation-milestones.mjs",
+        "src/runtime/canonical-domain-effects.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/canonical-domain-integration.test.mjs",
+          "name_contains": "ADR-031: approved objective graph"
+        }
+      ],
+      "observation": "Graph objective effects now update the exact source read by quest publication; canonical changes suppress stale approved projections.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-032",
+      "status": "evidence-present",
+      "source_files": [
+        "src/domains/relationships.mjs",
+        "src/domains/identity.mjs",
+        "src/runtime/extended-providers.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs",
+        "src/runtime/canonical-domain-effects.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/canonical-domain-integration.test.mjs",
+          "name_contains": "ADR-032: approved relationship"
+        }
+      ],
+      "observation": "Approved graph relationship transitions now use the canonical directional store and immutable history. Identity retargeting is rejected; prior relation/source events remain readable.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-033",
+      "status": "evidence-present",
+      "source_files": [
+        "src/domains/spatial-contract.mjs",
+        "src/orchestration/persistent-spatial.mjs",
+        "src/platform/native-integration.mjs",
+        "src/runtime/spatial-region-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-spatial.test.mjs",
+          "name_contains": "persisted selected-region hierarchy"
+        },
+        {
+          "file": "tests/spatial-native.test.mjs",
+          "name_contains": "approved region graph"
+        },
+        {
+          "file": "tests/spatial-transport.test.mjs",
+          "name_contains": "Actor ownership and observer binding"
+        }
+      ],
+      "observation": "Persistent selected-region hierarchies, approved place/discovery/route/region effects, pinned observer maps and known-route resolution are composed with authenticated targeted transport. Restart and hidden-change regressions preserve observer knowledge; role/ownership/source changes after awaits fail closed. Bounded selected-region navigation is intentional; there is no global world scan or arbitrary typed candidate data port.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-034",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/narrative-capabilities.mjs",
+        "src/orchestration/persistent-npc-actions.mjs",
+        "src/runtime/npc-action-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-npc-actions.test.mjs",
+          "name_contains": "ADR-034 and ADR-048: approved NPC schedule"
+        }
+      ],
+      "observation": "Approved NPC graph records feed canonical agenda/schedule sources. Reviewed preparation records exact knowledge/source revisions, stages a native due index and survives service reconstruction. Due creates a new approval-only intent and never establishes an off-screen outcome.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-035",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-npc-actions.mjs",
+        "src/orchestration/persistent-knowledge.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-npc-actions.test.mjs",
+          "name_contains": "ADR-035: canonical NPC graph records"
+        }
+      ],
+      "observation": "NPC agenda assessment resolves only selected durable receipts for that NPC, their canonical claims, disclosure availability and selected corrections. Canonical truth alone never supplies NPC knowledge. Prepared source revisions are rechecked at due admission; coverage remains explicitly scoped to supplied receipts/corrections.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-036",
+      "status": "evidence-present",
+      "source_files": [
+        "src/domains/relationships.mjs",
+        "src/domains/identity.mjs",
+        "src/runtime/extended-providers.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-providers.test.mjs",
+          "name_contains": "obligation is settled exactly once"
+        }
+      ],
+      "observation": "Protected obligation operations preserve debtor/creditor direction and causal identity, reject repeats and never infer reciprocal obligations.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-037",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-chronology.mjs",
+        "src/storage/chronology-index.mjs",
+        "src/runtime/event-ledger.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/ui/history-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-chronology.test.mjs",
+          "name_contains": "ADR-037:"
+        },
+        {
+          "file": "tests/persistent-chronology.test.mjs",
+          "name_contains": "never backdates"
+        },
+        {
+          "file": "tests/persistent-chronology.test.mjs",
+          "name_contains": "future or changed receipts"
+        }
+      ],
+      "observation": "Separate indexed fiction, recorded acceptance and observer-knowledge axes sort with causal ties and revision-bound pages. Knowledge uses the later of recorded disclosure and authored availability. Legacy missing dates remain unknown; physical client reading is not asserted.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-038",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/knowledge-reviews.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/platform/native-integration.mjs",
+        "src/ui/knowledge-faction-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-knowledge.test.mjs",
+          "name_contains": "ADR-038:"
+        },
+        {
+          "file": "tests/durable-knowledge-reviews.test.mjs",
+          "name_contains": "ADR-038:"
+        }
+      ],
+      "observation": "Old observer receipts now resolve their actual historical claim revision. Correction staging precedes immutable correction persistence and blocks dependent approval/execution even after acknowledgement loss. Exact registered dependencies produce durable source-specific review jobs; explicit retained conclusions release only the reviewed source digest, while follow-up decisions remain blocked. Original receipts/reasoning remain attributable and effects require their separate approval. Native Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-039",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-timelines.mjs",
+        "src/platform/native-integration.mjs",
+        "src/ui/timeline-branch-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-timeline-session.test.mjs",
+          "name_contains": "preserves isolated branch lineage"
+        }
+      ],
+      "observation": "Versioned isolated fact-state branches retain immutable lineage and source observations. Canonical selection requires same-identity actual world facts after separately approved graph effects; it never commits a hypothesis or fabricates chronology. Native Compendium reconstruction is adapter-tested, while actual Foundry acceptance remains final-phase work.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-040",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/portable-template.mjs",
+        "src/orchestration/graph-templates.mjs",
+        "src/ui/template-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-templates.test.mjs",
+          "name_contains": "ADR-040: one stored reusable graph"
+        }
+      ],
+      "observation": "A stored full-graph template instantiates twice with disjoint graph/node/edge IDs, remapped internal links, exact source blueprint revision and explicit external bindings. Publication/activation remain separate. Interrupted draft creation resumes the same reviewed identity, and local draft edits cannot be overwritten. Existing instances remain pinned when a new template revision is published; graph-level update adoption is still a separate explicit workflow.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-041",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/encounter-closures.mjs",
+        "src/graph/trigger-contract.mjs",
+        "src/platform/native-integration.mjs",
+        "src/ui/encounter-closure-desk.mjs",
+        "src/runtime/event-ledger.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/encounter-closures.test.mjs",
+          "name_contains": "one verified native encounter outcome"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "exact selected encounter closure"
+        }
+      ],
+      "observation": "One explicit GM choice links an observed native Combat deletion to an executed and journal-verified encounter outcome. A world-wide immutable selection per native Combat prevents replacement across scopes or GM succession. Its stable causal event is retained even without subscribers; repeated submission or lost ACK never re-evaluates an accepted event. Specialized closure triggers reject ordinary manual envelopes; matching consequences need independent approval. Node/native adapter and Chromium paths pass locally; real Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-042",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/investigation-workbench.test.mjs",
+          "name_contains": "GM-reviewed hypothesis persists"
+        }
+      ],
+      "observation": "Hypotheses persist evidence-linked arguments while protected GM truth/verdict fields are excluded from player projections.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-043",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/player-board-edits.mjs",
+        "src/platform/foundry-board-transport.mjs",
+        "src/runtime/player-board-edit-provider.mjs",
+        "src/ui/investigation-board.mjs",
+        "src/ui/board-edit-review.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/player-board-edits.test.mjs",
+          "name_contains": "ADR-043: structured public-evidence edits"
+        }
+      ],
+      "observation": "Authenticated native Actor requests cite public clue IDs and a visible-content token. The GM inbox retains private immutable mapped requests; an authored published handler proposes the edit and independent GM effect approval appends a reviewed theory. Own-theory revisions preserve prior canonical history. Hidden-only changes do not alter public tokens; private stale revisions fail closed. Forged sender/ownership, secret references, hidden boards and uncertain completion are tested. No live Foundry multiplayer acceptance is claimed.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-044",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-knowledge.test.mjs",
+          "name_contains": "explicit observer receipt publishes"
+        }
+      ],
+      "observation": "Disclosed knowledge uses independent public IDs and allowlisted text; protected claim/source lineage stays in GM storage.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-045",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/knowledge-publications.mjs",
+        "src/platform/protected-native-publications.mjs",
+        "src/security/publication-envelope.mjs",
+        "src/platform/publication-key-transport.mjs",
+        "src/ui/knowledge-publication-desk.mjs",
+        "src/ui/protected-publication-viewer.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/protected-native-publications.test.mjs",
+          "name_contains": "follows approved plan"
+        },
+        {
+          "file": "tests/publication-key-transport.test.mjs",
+          "name_contains": "authenticated requesting recipient"
+        }
+      ],
+      "observation": "Knowledge-authorized Chat and Journal publications now follow separately approved graph effects. Native world data contains only a generic shell and fixed-size authenticated ciphertext; recipient keys require current Actor/observer authorization and targeted delivery. Chromium covers plan/editor/review, lost acknowledgement confirmation, reconciliation and inert authorized rendering. Real Foundry storage/transport qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-046",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-voting.mjs",
+        "src/orchestration/decisions.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-voting.test.mjs",
+          "name_contains": "durable quorum, late ballot"
+        }
+      ],
+      "observation": "Voting services validate participant identities and preserve private ballots, authored choice rules and final GM adjudication.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-047",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-voting.mjs",
+        "src/orchestration/decisions.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-voting.test.mjs",
+          "name_contains": "GM must explicitly adjudicate"
+        }
+      ],
+      "observation": "Deadlines, quorum and no-consensus/tie policies prevent invented offline votes or arbitrary winners.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-048",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/temporal-coordinator.mjs",
+        "src/runtime/manual-event-gateway.mjs",
+        "src/orchestration/persistent-npc-actions.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-npc-actions.test.mjs",
+          "name_contains": "ADR-034 and ADR-048: approved NPC schedule"
+        }
+      ],
+      "observation": "Integrated regression reconstructs the temporal service/index, finds the approved NPC commitment, records one due event and executes its target only after a distinct GM effect approval. Retry remains deduplicated; interrupted index staging has a separate repair regression.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-049",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-faction-agenda.mjs",
+        "src/runtime/domain-providers.mjs",
+        "src/orchestration/npc-schedule-planner.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/narrative-capabilities.test.mjs",
+          "name_contains": "updated clock respects revisions"
+        }
+      ],
+      "observation": "Clock mutations are revision checked, monotonic and causal; provider/journal idempotency prevents repeat application.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-050",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-plans.mjs",
+        "src/runtime/reviewed-plan-gateway.mjs",
+        "src/ui/planning-lab.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/reviewed-plan-gateway.test.mjs",
+          "name_contains": "ADR-050: saved emergent suggestion"
+        }
+      ],
+      "observation": "Saved emergent suggestions remain isolated until acknowledgement and explicit reviewed live-intent submission. An authored receiving graph maps the suggestion into new proposals with their own GM approvals. Native source revisions, interruption recovery, immutable reviewed plans and accepted-event no-replay are tested. Hypothetical native origins and diagnostic faults are never promoted to native evidence.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-051",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-session-preparation.mjs",
+        "src/platform/native-integration.mjs",
+        "src/ui/session-preparation-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-timeline-session.test.mjs",
+          "name_contains": "preserves named active plot preparation"
+        }
+      ],
+      "observation": "Multiple pinned active graphs retain exact publication and activation revisions, bounded named domain references, and editable private owner-GM agenda/notes. Source status is checked explicitly across reconstruction without campaign scans. Preparation remains separate from reviewed Handoff, public projection and live effects.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-052",
+      "status": "evidence-present",
+      "source_files": [
+        "src/ui/graph-editor.mjs",
+        "src/editor/model.mjs",
+        "src/ui/gm-cockpit.mjs",
+        "src/bootstrap/index.mjs",
+        "src/orchestration/narrative-health.mjs",
+        "src/orchestration/scoped-search.mjs",
+        "src/runtime/explainability.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/gm-cockpit.test.mjs",
+          "name_contains": "GM cockpit reads only"
+        }
+      ],
+      "observation": "The GM cockpit loads only the selected graph and matching explicit event IDs; it does not enumerate unrelated plots or expose a player DTO.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-053",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-arc-resolution.mjs",
+        "src/orchestration/campaign-closure.mjs",
+        "src/domains/continuity.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/campaign-closure.test.mjs",
+          "name_contains": "partial arc ending keeps"
+        }
+      ],
+      "observation": "Arc closure considers authored facets, unresolved objectives and exclusive ending conflicts, and requires explicit revision-bound GM selection.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-054",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/narrative-health.mjs",
+        "src/orchestration/scoped-search.mjs",
+        "src/runtime/explainability.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/campaign-planning-workflows.test.mjs",
+          "name_contains": "analyzer reports uncertainty"
+        }
+      ],
+      "observation": "Scoped viability/health reports preserve incomplete coverage and legitimate failure instead of inventing a successful path or automatic repair.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-055",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/narrative-health.mjs",
+        "src/orchestration/scoped-search.mjs",
+        "src/runtime/explainability.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/canonical-search.test.mjs",
+          "name_contains": "canonical record update invalidates"
+        }
+      ],
+      "observation": "Canonical, permission-scoped search uses bounded postings and rejects stale revisions without world-wide scans.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-056",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/narrative-health.mjs",
+        "src/orchestration/scoped-search.mjs",
+        "src/runtime/explainability.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/explainability.test.mjs",
+          "name_contains": "condition-blocked trace explains"
+        }
+      ],
+      "observation": "Persisted bounded traces distinguish blocked conditions from absent evaluations and are accessible only through GM authority.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-057",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/resource-reconciliation.test.mjs",
+          "name_contains": "chosen verified native candidate"
+        }
+      ],
+      "observation": "Guided rebinding requires an explicitly selected verified candidate and current revision; stable identity is preserved and no document is automatically deleted.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-058",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/compiled-graph-cache.mjs",
+        "src/graph/graph-dependencies.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-dependencies.test.mjs",
+          "name_contains": "compiled graph indexes are reused"
+        },
+        {
+          "file": "tests/graph-dependencies.test.mjs",
+          "name_contains": "cosmetic graph/node overlays"
+        },
+        {
+          "file": "tests/graph-preflight.test.mjs",
+          "name_contains": "actual router cache reuse"
+        }
+      ],
+      "observation": "Compiled immutable graph indexes are reused under exact declared contract identities and only affected dependency partitions invalidate. Cosmetic overlays preserve executable identity; actual state and roll observations are read again for every event. No event values, mutable authorization or native outcomes are cached.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-059",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-arc-archives.mjs",
+        "src/domains/domain-store.mjs",
+        "src/ui/history-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-arc-archives.test.mjs",
+          "name_contains": "ADR-059:"
+        },
+        {
+          "file": "tests/persistent-arc-archives.test.mjs",
+          "name_contains": "after service restart"
+        },
+        {
+          "file": "tests/persistent-arc-archives.test.mjs",
+          "name_contains": "original durable event fingerprint"
+        }
+      ],
+      "observation": "Reviewed concluded-arc archives retain selected exact historical revisions in resumable bounded pages, preserve event fingerprints, and publish a lazy summary without loading history. Selection coverage is explicit-members-only; sources and native resources are never deleted.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-060",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/native-pack.mjs",
+        "src/storage/graph-chunks.mjs",
+        "src/domains/domain-store.mjs",
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/reactive-persistence.test.mjs",
+          "name_contains": "unsubscribed events do not hydrate"
+        }
+      ],
+      "observation": "Event-type indices select bounded active graph snapshots and leave unrelated/dormant graph bodies unread; large-scale performance remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-061",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/native-pack.mjs",
+        "src/storage/graph-chunks.mjs",
+        "src/domains/domain-store.mjs",
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-persistence.test.mjs",
+          "name_contains": "Player-readable pack cannot be used"
+        }
+      ],
+      "observation": "Native storage fails closed for readable/unverified packs and incomplete indices; final actual-client permission certification is still required.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-062",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/temporal-catchup.mjs",
+        "src/storage/native-pack.mjs",
+        "src/storage/native-temporal-index.mjs",
+        "src/storage/partition-policy.mjs",
+        "src/storage/posting-pages.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/adaptive-native-partitions.test.mjs",
+          "name_contains": "native overflow splits multiple index leaves"
+        },
+        {
+          "file": "tests/adaptive-posting-pages.test.mjs",
+          "name_contains": "prepared posting migration retains"
+        },
+        {
+          "file": "tests/temporal-catchup.test.mjs",
+          "name_contains": "dense temporal catch-up retains each posting page"
+        }
+      ],
+      "observation": "Adaptive native index leaves and ordered posting shards grow while preserving stable IDs, locators and bounded page reads. Staged migration retains the original complete view, prepared entries remain distinct from absence, and dense temporal catch-up resumes its exact posting cursor after acknowledgement loss without dropping schedules. Native load/performance qualification is separate.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-063",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/native-pack.mjs",
+        "src/storage/partition-policy.mjs",
+        "src/storage/posting-pages.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/adaptive-native-partitions.test.mjs",
+          "name_contains": "top-level and historical metadata reads hydrate"
+        },
+        {
+          "file": "tests/adaptive-posting-pages.test.mjs",
+          "name_contains": "known missing or altered immutable posting pages"
+        }
+      ],
+      "observation": "Explicit top-level, shard and historical metadata tiers preserve lazy exact payload lookup. Native reconstruction and selected historical reads avoid loading every graph/domain record; known missing/altered pages remain unknown or corrupt instead of false absence. Storage tiers do not imply unlimited campaign-wide query coverage.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-064",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs",
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/board-transport.test.mjs",
+          "name_contains": "invalid ownership returns generic"
+        }
+      ],
+      "observation": "Separate allowlisted audience projections and generic unauthorized receipts prevent private source identifiers and hidden counts from entering responses.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-065",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/storage/native-intents.mjs",
+        "src/ui/event-review-window.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/proposal-review.test.mjs",
+          "name_contains": "successor GM explicitly reconciles"
+        },
+        {
+          "file": "tests/protected-native-publications.test.mjs",
+          "name_contains": "reconciled after GM handover"
+        }
+      ],
+      "observation": "A successor GM can explicitly verify the original persisted operation and reconcile its journal/review to completion without applying effects or reevaluating an inactive graph. Provenance mismatch, missing/prepared journal, failed verification and revoked authority cannot be marked successful. Journal-completed/review-uncertain interruptions resume without reapplying or reverifying; native confirmation is a separate action. Explicit successor adoption of an unchanged unexecuted approval preserves the original GM history and requires a separate Execute action; any prepared journal/index or uncertain execution rejects adoption.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-066",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/native-pack.mjs",
+        "src/storage/graph-chunks.mjs",
+        "src/domains/domain-store.mjs",
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-persistence.test.mjs",
+          "name_contains": "Protected Compendium defaults to denied"
+        }
+      ],
+      "observation": "Pack configuration, source visibility attestations and index gates deny unverified confidential storage; actual hostile-client enumeration testing is deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-067",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/scoped-actor-authorization.test.mjs",
+          "name_contains": "remote scene tokens"
+        }
+      ],
+      "observation": "Actor authorization uses actual current ownership and viewed-scene synthetic-token context, rather than caller-claimed identity.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-068",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-resource-binding.test.mjs",
+          "name_contains": "Rebind requires the expected old"
+        }
+      ],
+      "observation": "Rebind operations preserve narrative resource identity and protected provenance while requiring the exact previous native ID and revision.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-069",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-reverse-references.test.mjs",
+          "name_contains": "drift and orphan reports"
+        }
+      ],
+      "observation": "Scoped native reference inspection detects missing/drift candidates and supports explicit reviewed binding changes without silent adoption.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-070",
+      "status": "evidence-present",
+      "source_files": [
+        "src/contracts/canonical-event.mjs",
+        "src/contracts/canonical-event-schema.mjs",
+        "src/runtime/event-ledger.mjs",
+        "src/runtime/manual-event-gateway.mjs",
+        "src/platform/foundry-hook-ingress.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/versioned-canonical-events.test.mjs",
+          "name_contains": "ADR-070:"
+        },
+        {
+          "file": "tests/versioned-canonical-events.test.mjs",
+          "name_contains": "unknown event versions"
+        },
+        {
+          "file": "tests/versioned-canonical-events.test.mjs",
+          "name_contains": "unversioned events"
+        }
+      ],
+      "observation": "Native/manual/due producers emit eventVersion 1.0.0. The journal verifies a full canonical Event document against the proposed descriptor, keeps causal parents and typed payload stable through approval and deduplicated replay, and rejects unsupported versions. Legacy unversioned records retain their original identity; no implicit migration is claimed.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-071",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs",
+        "src/orchestration/narrative-health.mjs",
+        "src/orchestration/scoped-search.mjs",
+        "src/runtime/explainability.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/proposal-review.test.mjs",
+          "name_contains": "registry rejects duplicate provider"
+        }
+      ],
+      "observation": "Unavailable capabilities and invalid providers fail closed before mutation and surface GM-local diagnostics; no fallback effect executes.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-072",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/migrations.mjs",
+        "src/runtime/canonical-domain-effects.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/legacy-canonical-adoption.test.mjs",
+          "name_contains": "ADR-072: legacy hashed records"
+        }
+      ],
+      "observation": "Migration previews/uncertain audits preserve identity; new reviewed legacy adoption retains the original record and rejects stale sources and collisions.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-073",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/node-extensions.mjs",
+        "src/runtime/provider-registry.mjs",
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/node-extensions.test.mjs",
+          "name_contains": "ADR-073: an unavailable"
+        }
+      ],
+      "observation": "An older unavailable provider version loads with its ports/data intact. Local regression proves that republishing and execution fail closed without losing the stored node.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-074",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs",
+        "src/graph/node-extensions.mjs",
+        "src/runtime/provider-registry.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/node-extensions.test.mjs",
+          "name_contains": "extension contract enforces version"
+        }
+      ],
+      "observation": "Provider registration, declared ports and result allowlists reject undeclared effects; the effect coordinator refuses unavailable capabilities.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-075",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/durable-router.mjs",
+        "src/ui/planning-lab.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/published-graph-simulation.test.mjs",
+          "name_contains": "ADR-075: injectable apply"
+        }
+      ],
+      "observation": "The planning lab runs the real published evaluator and effect coordinator with isolated apply-ack/verification faults. Outcomes show uncertainty and one attempt without invoking or qualifying native providers. Chromium exercises simulation and saving the protected plan.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-076",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/node-extensions.mjs",
+        "src/runtime/provider-registry.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/node-extensions.test.mjs",
+          "name_contains": "lazy node provider is registered"
+        }
+      ],
+      "observation": "Lazy loader registration is inert until explicit demand and does not hydrate unrelated providers or plots at module bootstrap.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-077",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-graphs.test.mjs",
+          "name_contains": "published immutable snapshot survives"
+        }
+      ],
+      "observation": "Draft edits, immutable published revisions and activation pointers remain separate across persistence and subsystem reconstruction.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-078",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/graph-dependencies.mjs",
+        "src/graph/persistent-registry.mjs",
+        "src/graph/persistent-validations.mjs",
+        "src/runtime/proposal-review.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-preflight.test.mjs",
+          "name_contains": "persisted validations selectively become stale"
+        },
+        {
+          "file": "tests/graph-preflight.test.mjs",
+          "name_contains": "legacy publications remain readable"
+        }
+      ],
+      "observation": "Persisted exact dependency manifests and validation sidecars survive reload and selectively mark only affected publications stale. Untracked legacy snapshots remain readable and require explicit current-contract adoption without historical snapshot mutation. Mutable approval/execution guards remain authoritative; closed-over policy changes need explicit contract/version changes.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-079",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/temporal-catchup.mjs",
+        "src/storage/native-temporal-index.mjs",
+        "src/ui/causal-planning-inspector.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/temporal-catchup.test.mjs",
+          "name_contains": "ADR-079: offline catch-up"
+        }
+      ],
+      "observation": "A durable per-bucket job spans intervals beyond the normal window, retains verified immutable candidate pages before committing progress and resumes after service reconstruction or cursor interruption. Each explicit request reads at most eight bounded buckets and emits no events or effects. Coverage is the index as observed per retained bucket; later/backdated index repairs need another job. Canonical scopes cannot shadow each other; old non-world schedules require explicit exact-record reindexing.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-080",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/storage/native-pack.mjs",
+        "src/storage/graph-chunks.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/reactive-persistence.test.mjs",
+          "name_contains": "unsubscribed events do not hydrate"
+        }
+      ],
+      "observation": "Only indexed matching active subscriptions dispatch; published-only and deactivated graphs do not react to native Hooks.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-081",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/signal-reliability.mjs",
+        "src/storage/critical-signal-index.mjs",
+        "src/platform/foundry-hook-ingress.mjs",
+        "src/platform/foundry-source-stamps.mjs",
+        "src/ui/signal-reliability-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/signal-reliability.test.mjs",
+          "name_contains": "ADR-081:"
+        },
+        {
+          "file": "tests/signal-reliability.test.mjs",
+          "name_contains": "missed native callback"
+        },
+        {
+          "file": "tests/signal-reliability.test.mjs",
+          "name_contains": "existing accepted or uncertain"
+        }
+      ],
+      "observation": "Configured critical signals persist discoverable intake before admission; best-effort overload may drop. Restart recovery verifies the original ledger and never automatically replays accepted events. Bounded native-source checkpoints flag unobserved changes within configured coverage; they cannot reconstruct every missed occurrence.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-082",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/data-guards.test.mjs",
+          "name_contains": "ADR-082: a changed guard revision"
+        }
+      ],
+      "observation": "Payload and selected-branch source revisions are rechecked at approval and execution, including absent state and converging paths.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-083",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/ordered-native-batches.mjs",
+        "src/runtime/native-batch-provider.mjs",
+        "src/runtime/effects.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/platform/foundry-actor-item-provider.mjs",
+        "src/platform/foundry-journal-provider.mjs",
+        "src/ui/native-batch-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/ordered-native-batches.test.mjs",
+          "name_contains": "approved native batch verifies ordered Actor"
+        },
+        {
+          "file": "tests/ordered-native-batches.test.mjs",
+          "name_contains": "successor reconciles an original final native-create"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "batch reconstruction distinguishes confirmed"
+        }
+      ],
+      "observation": "One immutable graph-owned plan declares up to6 exact allowlisted versioned steps. A separately approved batch effect executes them in order through the existing effect coordinator, with independent child journals and a durable confirmed prefix. Unknown apply/ACK/verification stops later writes. Explicit reconciliation confirms exact original owned native proofs and journals without calling create/apply again; the original GM approval is preserved. Only a proven contiguous unstarted suffix may form a distinct plan with new approval and recovery provenance. Full step previews appear before approval. Node/native Compendium and Chromium paths pass locally; writes are not claimed atomic and final Foundry recovery qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-084",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs",
+        "src/runtime/approved-operation-gateway.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/proposal-review.test.mjs",
+          "name_contains": "approval transitions to one-time"
+        },
+        {
+          "file": "tests/approved-operation-gateway.test.mjs",
+          "name_contains": "completed-operation continuation starts fresh"
+        }
+      ],
+      "observation": "Completed causal operations are not reapplied, and uncertain native outcomes are not automatically retried after lost acknowledgments. Verified completed operations can explicitly emit a fresh causally linked continuation, whose target effects need independent approval. Uncertain or mismatched journals cannot qualify.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-085",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/priority-scheduler.mjs",
+        "src/platform/native-integration.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/runtime-scheduling.test.mjs",
+          "name_contains": "ADR-085:"
+        }
+      ],
+      "observation": "Bounded critical/interactive/background scheduler adjusts concurrency after expensive work and gives the oldest waiting task a turn after a bounded priority burst. Hooks and selected background inspections share it.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-086",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/bounded-diagnostics.mjs",
+        "src/platform/native-integration.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/runtime-scheduling.test.mjs",
+          "name_contains": "ADR-086:"
+        }
+      ],
+      "observation": "Configurable disabled-by-default sampled GM-local timings retain at most 128 anonymous observations and aggregate outcome counts. Private fields are rejected; full native representative-load qualification is deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-087",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/convergence.mjs",
+        "src/graph/logic-nodes.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/ui/convergence-diagnostics.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/bounded-convergence.test.mjs",
+          "name_contains": "published authored cycle converges"
+        },
+        {
+          "file": "tests/bounded-convergence.test.mjs",
+          "name_contains": "exhausted cyclic execution discards"
+        },
+        {
+          "file": "tests/bounded-convergence.test.mjs",
+          "name_contains": "publication keeps alternate"
+        }
+      ],
+      "observation": "An explicit built-in numeric clamped recurrence provides bounded cyclic execution with fresh event-local rounds and repeat/converged exits. Only declared repeat cycles are admitted; opaque/data/alternate cycles remain rejected. Exhaustion or repeated state discards pending proposals and records terminal diagnostics, while successful effects still require independent approval.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-088",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/roll-input.mjs",
+        "src/runtime/graph-data-frame.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/reviewed-plan-gateway.mjs",
+        "src/graph/typed-data.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/roll-input-graph.test.mjs",
+          "name_contains": "ADR-088:"
+        },
+        {
+          "file": "tests/roll-input-graph.test.mjs",
+          "name_contains": "saved-plan submission"
+        }
+      ],
+      "observation": "Typed core.roll.value reads a resolved native attempt at its exact revision. Conditions and payloads record selected mechanical inputs, original event, request fingerprint and record digest in protected evaluation/proposal evidence. Approval/execution, nested data calls, simulation and saved-plan submission revalidate that source; event payloads cannot substitute values and no read rerolls dice.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-089",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/knowledge-publications.mjs",
+        "src/contracts/private-publication.mjs",
+        "src/platform/protected-native-publications.mjs",
+        "src/platform/publication-key-transport.mjs",
+        "src/ui/knowledge-publication-desk.mjs",
+        "src/ui/protected-publication-viewer.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/protected-native-publications.test.mjs",
+          "name_contains": "ADR-089:"
+        },
+        {
+          "file": "tests/publication-key-transport.test.mjs",
+          "name_contains": "co-GM requests a blind report"
+        }
+      ],
+      "observation": "Mechanical reports use explicit GM-only, all-player or named-observer policies, selected total/outcome fields and independently approved native publication. The generic native Chat shell contains fixed-size ciphertext and no raw Roll, hidden DC/modifier/opponent total or audience. Targeted authenticated grants check actual GM roles or owned Actor/observer identity. Public mechanical reports create no narrative knowledge receipts. Final native Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-090",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-persistence.test.mjs",
+          "name_contains": "Intent queue durable request"
+        }
+      ],
+      "observation": "Privileged player input is authenticated, queued durably and independently reviewed, with no direct player effect execution.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-091",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-persistence.test.mjs",
+          "name_contains": "Intent queue durable request"
+        }
+      ],
+      "observation": "Queue reconstruction and permission/opportunity rechecks preserve pending requests and prevent replay under changed context.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-092",
+      "status": "evidence-present",
+      "source_files": [
+        "src/ui/event-review-window.mjs",
+        "src/runtime/proposal-review.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/roll-input-graph.test.mjs",
+          "name_contains": "direct condition records native roll inputs"
+        }
+      ],
+      "observation": "Event Review now provides a collapsed effect/provenance preview with exact event, graph revision, node, provider, payload, call chain and source/guard observations. Opening the preview applies no effect; approval, execution and uncertain-result reconciliation remain separate actions. The combined preview-to-execution flow is exercised in Chromium; native Foundry window behavior remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-093",
+      "status": "evidence-present",
+      "source_files": [
+        "src/ui/gm-workspace.mjs",
+        "src/platform/native-integration.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-gm-focus.test.mjs",
+          "name_contains": "ADR-093:"
+        }
+      ],
+      "observation": "Shared GM controller coordinates dock, inspector and canvas without canonical writes. DOM coverage checks all three views and preserves unsaved editor changes; native window lifecycle remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-094",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-gm-focus.mjs",
+        "src/platform/native-integration.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-gm-focus.test.mjs",
+          "name_contains": "ADR-094:"
+        }
+      ],
+      "observation": "Per-GM protected pins survive restart and scene changes; configured passive scene focus resumes after unpinning. Scene callbacks read exact preferences and never enumerate plots.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-095",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-gm-focus.mjs",
+        "src/platform/native-integration.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-gm-focus.test.mjs",
+          "name_contains": "ADR-095:"
+        }
+      ],
+      "observation": "Bounded persistent attention has explicit TTL; manually pinned significance survives decay/restart. Reviewed recap authorization remains separate from attention metadata.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-096",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-plans.mjs",
+        "src/domains/session-planner.mjs",
+        "src/domains/simulation.mjs",
+        "src/orchestration/persistent-session-handoff.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-session-handoff.test.mjs",
+          "name_contains": "handoff survives service reconstruction"
+        }
+      ],
+      "observation": "Reviewed handoffs retain bounded source references, revisions and safe recaps without copying histories or activating future hooks.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-097",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-plans.mjs",
+        "src/domains/session-planner.mjs",
+        "src/domains/simulation.mjs",
+        "src/orchestration/persistent-session-handoff.mjs",
+        "src/orchestration/persistent-faction-agenda.mjs",
+        "src/runtime/domain-providers.mjs",
+        "src/orchestration/npc-schedule-planner.mjs",
+        "src/orchestration/persistent-forecasts.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-forecasts.test.mjs",
+          "name_contains": "ADR-097: forecast"
+        }
+      ],
+      "observation": "Persistent GM-only authored hypotheses are grounded in current canonical agenda rules and the faction own explicit knowledge receipts, with explanations and no canonical future effect.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-098",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-plans.mjs",
+        "src/domains/session-planner.mjs",
+        "src/domains/simulation.mjs",
+        "src/orchestration/persistent-session-handoff.mjs",
+        "src/orchestration/persistent-forecasts.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-forecasts.test.mjs",
+          "name_contains": "ADR-098: dependency"
+        }
+      ],
+      "observation": "Forecasts persist only their selected rule dependencies and revalidate them on inspection. Changing another rule in the same agenda leaves an unrelated forecast fresh; affected/expired predictions are withheld.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-099",
+      "status": "evidence-present",
+      "source_files": [
+        "src/editor/resource-activation-branch.mjs",
+        "src/orchestration/resource-manifests.mjs",
+        "src/platform/native-source-preflight.mjs",
+        "src/runtime/resource-manifest-provider.mjs",
+        "src/ui/resource-manifest-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/resource-manifests.test.mjs",
+          "name_contains": "planned resources require journaled materialization"
+        },
+        {
+          "file": "tests/resource-manifests.test.mjs",
+          "name_contains": "resource guards block consumers"
+        },
+        {
+          "file": "tests/native-resource-lifecycle.test.mjs",
+          "name_contains": "native resource phases and original activation journals"
+        }
+      ],
+      "observation": "The canonical resource manifest now distinguishes planned, verified materialized and separately approved active resources. Original native journals and exact graph activation proofs survive reconstruction; consumers recheck presence/ownership/publication before approval and execution. Deleted or reactivated resources block future consumers without erasing historical proofs or recreating borrowed documents.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-100",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-blueprints.mjs",
+        "src/domains/blueprints.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-blueprints.test.mjs",
+          "name_contains": "conflicts require explicit"
+        }
+      ],
+      "observation": "Three-way blueprint adoption preserves local overrides, pins source revisions and requires explicit conflict resolutions without native document mutation.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-101",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/resource-reconciliation.test.mjs",
+          "name_contains": "retirement never automatically deletes"
+        }
+      ],
+      "observation": "Ownership/protected-edit/reverse-reference checks prevent destructive retirement, including borrowed/shared resources and edited exclusive documents.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-102",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-reverse-references.test.mjs",
+          "name_contains": "reverse lookup is scoped"
+        }
+      ],
+      "observation": "Native-UUID reverse lookups and bounded resource audits find drift/orphans without traversing all world documents.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-103",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-resource-binding.mjs",
+        "src/orchestration/resource-reconciliation.mjs",
+        "src/platform/foundry-actor-item-provider.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/resource-reconciliation.test.mjs",
+          "name_contains": "unverified and ambiguous native"
+        }
+      ],
+      "observation": "Guided rebind refuses ambiguous/unverified candidates and uses an explicit current-revision selection while preserving stable narrative identity.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-104",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/narrative-capabilities.mjs",
+        "src/runtime/canonical-domain-effects.mjs",
+        "src/orchestration/persistent-identities.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/runtime/extended-providers.mjs",
+        "src/platform/foundry-resource-binding.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-workflow-scenarios.test.mjs",
+          "name_contains": "a reviewed persona reveal reaches only its selected observer"
+        }
+      ],
+      "observation": "Canonical personas retain a separate immutable entity link and revisioned retirement. The integrated existing knowledge plan and approved-recipient effect disclose only authored text to the selected observer. Retirement preserves the original entity, secret link, historical receipt and persona revision; retired identities cannot reactivate or retarget another entity. Real Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-105",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/narrative-capabilities.mjs",
+        "src/runtime/canonical-domain-effects.mjs",
+        "src/orchestration/persistent-identities.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/runtime/extended-providers.mjs",
+        "src/platform/foundry-resource-binding.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/domain-workflow-scenarios.test.mjs",
+          "name_contains": "persona reputation and one selected directional relationship"
+        }
+      ],
+      "observation": "Integrated persisted persona reputation uses the persona identity, preserving the entity and other alias standing. One independently approved directional relationship changes while the other observer relation and underlying entity relation remain unchanged; no implicit propagation is performed. Real Foundry qualification remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-106",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-knowledge-propagation.test.mjs",
+          "name_contains": "delays, out-of-scope users"
+        }
+      ],
+      "observation": "Persistent propagation plans enforce due times, provenance, recipient scope, bounded traversal and explicit approval without publishing automatically.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-107",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/knowledge-reviews.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/ui/knowledge-faction-desk.mjs",
+        "src/storage/native-pack.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/durable-knowledge-reviews.test.mjs",
+          "name_contains": "ADR-107:"
+        },
+        {
+          "file": "tests/durable-knowledge-reviews.test.mjs",
+          "name_contains": "retained source page resumes"
+        },
+        {
+          "file": "tests/durable-knowledge-reviews.test.mjs",
+          "name_contains": "later follow-up decision"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "native Compendium knowledge guards"
+        }
+      ],
+      "observation": "Registered source-to-conclusion manifests now drive bounded persistent review pages and one review per dependent identity. Pages survive interruption/GM handover without replaying inference; another observer is excluded. Approval/execution consult exact dependent/source indexes and durable retention acknowledgements. Staged corrections can be explicitly reconciled, later review passes can close prior retention, and new source revisions require new review. Scope and known registered-index coverage are explicit; no whole-campaign discovery is implied.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-108",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/board-transport.test.mjs",
+          "name_contains": "bad GM projection is rejected"
+        }
+      ],
+      "observation": "Audience action/board DTOs are allowlisted and transport authorization returns generic failures without hidden-record metadata or criteria.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-109",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/roll-system-policies.mjs",
+        "src/platform/foundry-rolls.mjs",
+        "src/platform/foundry-opposed-rolls.mjs",
+        "src/orchestration/knowledge-publications.mjs",
+        "src/runtime/roll-input.mjs",
+        "src/ui/roll-system-policy-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/roll-system-policies.test.mjs",
+          "name_contains": "pins exact world/system/build policy"
+        },
+        {
+          "file": "tests/roll-system-policies.test.mjs",
+          "name_contains": "opposed checks pin one policy"
+        },
+        {
+          "file": "tests/roll-system-policies.test.mjs",
+          "name_contains": "mechanical disclosure omits adapter metadata"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "selected system roll policy and original mechanical result"
+        }
+      ],
+      "observation": "A protected explicit selection binds a registered policy version/fingerprint to the exact world system/version and Foundry build for the existing GM-authored d20 implementation. Unsupported or changed context and unregistered/changed declarations fail closed before new randomness. Completed and uncertain attempts retain original policy stamps and never reroll; opposed sides share one pinned policy. Active/passive/opposed partial/tie rules remain GM-authored, not claimed native system automation. Protected graph inputs retain adapter provenance; separate mechanical reports omit adapter metadata/DC/modifier/opponent information. Node/native persistence and Chromium paths pass locally; live Foundry acceptance remains deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-110",
+      "status": "evidence-present",
+      "source_files": [
+        "src/platform/foundry-socket.mjs",
+        "src/platform/foundry-actors.mjs",
+        "src/platform/foundry-board-transport.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/expanded-domains.test.mjs",
+          "name_contains": "attempt identity distinguishes"
+        }
+      ],
+      "observation": "Attempt fingerprints distinguish transport delivery retries from meaningful changes in approach/evidence/context rather than granting repeated opportunities.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-111",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-quest-projections.mjs",
+        "src/orchestration/persistent-investigation-milestones.mjs",
+        "src/runtime/canonical-domain-effects.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/investigation-milestones.test.mjs",
+          "name_contains": "two observers may contribute"
+        }
+      ],
+      "observation": "Separate observer knowledge can support shared milestones while one-time completion prevents duplicate consequence/reward.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-112",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/narrative-health.mjs",
+        "src/orchestration/scoped-search.mjs",
+        "src/runtime/explainability.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/campaign-planning-workflows.test.mjs",
+          "name_contains": "analyzer reports uncertainty"
+        }
+      ],
+      "observation": "Scoped viability identifies no known path, incomplete coverage and legitimate failure separately without revealing a correct answer or auto-awarding completion.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-113",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/investigation-workbench.test.mjs",
+          "name_contains": "sharing requires recipients"
+        }
+      ],
+      "observation": "Structured theories cite only known evidence and authorized recipients; player records exclude protected verdict and truth fields.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-114",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-quest-projections.mjs",
+        "src/orchestration/persistent-investigation-milestones.mjs",
+        "src/runtime/canonical-domain-effects.mjs",
+        "src/orchestration/persistent-knowledge.mjs",
+        "src/orchestration/persistent-knowledge-propagation.mjs",
+        "src/orchestration/investigation-workbench.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-investigation-milestones.test.mjs",
+          "name_contains": "unknown evidence and guessed identity"
+        }
+      ],
+      "observation": "Only canonical authorized evidence/verification events qualify milestones; correct guesses and unknown evidence cannot award completion.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-115",
+      "status": "evidence-present",
+      "source_files": [
+        "src/runtime/active-subscriptions.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/platform/foundry-hook-ingress.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "one native update visits only its three active quest subscribers"
+        }
+      ],
+      "observation": "The native Compendium integration registers three Actor-update quests and one unrelated Item-update quest. One normalized native Actor event visits exactly the three relevant active graph IDs and produces three proposals with no automatic effects. Independent approvals produce exactly three native state writes; duplicate ingress preserves evaluations and completed reviews reject another execution. No unrelated quest is loaded. This is adapter evidence; live Foundry load and multi-client qualification remain deferred.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-116",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-arc-resolution.mjs",
+        "src/orchestration/campaign-closure.mjs",
+        "src/domains/continuity.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/persistent-arc-resolution.test.mjs",
+          "name_contains": "exclusive ending conflicts"
+        }
+      ],
+      "observation": "Multidimensional closure rejects exclusive conflicts/unknown alternatives, preserves unresolved threads and uses staged revision-bound GM finalization.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-117",
+      "status": "evidence-present",
+      "source_files": [
+        "src/orchestration/persistent-arc-resolution.mjs",
+        "src/orchestration/campaign-closure.mjs",
+        "src/domains/continuity.mjs",
+        "src/orchestration/persistent-plans.mjs",
+        "src/domains/session-planner.mjs",
+        "src/domains/simulation.mjs",
+        "src/orchestration/persistent-session-handoff.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/campaign-planning-workflows.test.mjs",
+          "name_contains": "continuity handoff uses source references"
+        }
+      ],
+      "observation": "Continuity manifests retain live references and dormant future hooks without copying source graphs or silently starting the next arc.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-118",
+      "status": "evidence-present",
+      "source_files": [
+        "src/storage/native-temporal-index.mjs",
+        "src/orchestration/temporal-coordinator.mjs",
+        "src/domains/scheduler.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/due-event-gateway.test.mjs",
+          "name_contains": "stale index entries or changed"
+        }
+      ],
+      "observation": "Large bounded world-time windows classify pending commitments; verified due-event submission rechecks time/index/revision and never assumes faction action succeeded.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-119",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-validations.mjs",
+        "src/graph/publication-preflight.mjs",
+        "src/platform/native-source-preflight.mjs",
+        "src/ui/graph-preflight-desk.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/graph-preflight.test.mjs",
+          "name_contains": "publication preflight blocks secret disclosure"
+        },
+        {
+          "file": "tests/native-reactive.test.mjs",
+          "name_contains": "native severity preflight persists blocker coverage"
+        }
+      ],
+      "observation": "Publication preflight records actionable severity and required coverage across providers, secret disclosure paths and native source checks. Missing/unavailable contracts block publication; authenticated co-GM review is scoped to rights and private durable receipts. Acknowledgement uncertainty cannot repeat validation writes, and partial coverage never becomes a complete-publication claim.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-120",
+      "status": "evidence-present",
+      "source_files": [
+        "tools/qualification/plan.json",
+        "tools/qualification/qualification.py",
+        "tools/qualification/semantic-contracts.json",
+        "tools/qualify.py"
+      ],
+      "tests": [
+        {
+          "file": "tests/qualification-tools.test.mjs",
+          "name_contains": "ADR-120: complete-scope evidence"
+        }
+      ],
+      "observation": "The qualification engine loads exactly all125 decisions, all28 requirement groups and all97 candidate contracts, validates individually fingerprinted closure reviews and actual completed-suite cases, and records every missing local/native acceptance independently. It refuses count-based completion and keeps full scope visible.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-121",
+      "status": "evidence-present",
+      "source_files": [
+        "src/contracts/canonical-event.mjs",
+        "src/contracts/canonical-event-schema.mjs",
+        "src/runtime/event-ledger.mjs",
+        "src/storage/migrations.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/versioned-canonical-events.test.mjs",
+          "name_contains": "ADR-121:"
+        },
+        {
+          "file": "tests/versioned-canonical-events.test.mjs",
+          "name_contains": "unknown event versions"
+        },
+        {
+          "file": "tests/node-extensions.test.mjs",
+          "name_contains": "extension contract enforces version"
+        }
+      ],
+      "observation": "Canonical Event v1 matches the proposed schema and its pinned version fingerprint; changed descriptors and unsupported event versions require explicit compatibility/migration handling. UI source is outside this contract descriptor. General dependency-cache invalidation remains separately partial under ADR-078.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-122",
+      "status": "evidence-present",
+      "source_files": [
+        "tools/qualification/plan.json",
+        "tools/qualification/qualification.py",
+        "tools/qualification/semantic-contracts.json",
+        "tools/qualify.py"
+      ],
+      "tests": [
+        {
+          "file": "tests/qualification-tools.test.mjs",
+          "name_contains": "ADR-122: normative traceability"
+        }
+      ],
+      "observation": "The trace engine links each authoritative decision, requirement, named contract, candidate contract, actual implementation and case in both directions. It checks missing inverse mappings, scenario-ID/domain contradictions, missing semantic descriptions, unavailable nodes/services, and records explicit service/interface deviations rather than candidate-ID equality.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-123",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [
+        {
+          "file": "tests/canonical-domain-integration.test.mjs",
+          "name_contains": "ADR-031: approved objective graph"
+        }
+      ],
+      "observation": "Dependent changes are integrated in one checkout with failing-before/passing-after regressions; batch counts are not used as acceptance evidence.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-124",
+      "status": "evidence-present",
+      "source_files": [
+        "tools/qualification/plan.json",
+        "tools/qualification/qualification.py",
+        "tools/qualification/semantic-contracts.json",
+        "tools/qualify.py"
+      ],
+      "tests": [
+        {
+          "file": "tests/qualification-tools.test.mjs",
+          "name_contains": "ADR-124: native compatibility"
+        }
+      ],
+      "observation": "The release matrix declines compatibility without current exact source/version, real native environment identity, artifact fingerprints, all125 executed scenarios, all required native dimensions and functional/semantic closure. It rejects mocks, future timestamps, stale artifacts, missing system versions and failed or blocked native evidence.",
+      "foundry_validation": "deferred-final-world-tests"
+    },
+    {
+      "decision_id": "ADR-125",
+      "status": "evidence-present",
+      "source_files": [
+        "src/graph/persistent-registry.mjs",
+        "src/graph/validate.mjs",
+        "src/runtime/durable-router.mjs",
+        "src/runtime/proposal-review.mjs",
+        "src/runtime/effects.mjs",
+        "src/domains/domain-store.mjs"
+      ],
+      "tests": [],
+      "observation": "The runtime remains one native Foundry module with no mandatory external backend or database; developer tooling is outside the installable artifact.",
+      "foundry_validation": "deferred-final-world-tests"
+    }
+  ]
+}
