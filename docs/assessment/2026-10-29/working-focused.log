@@ -1,0 +1,45 @@
+✔ ADR-021: actual bootstrap installs pre-ready v14 controls and a restricted settings menu that open the public control window (223.737072ms)
+✔ launcher callbacks use the current API and report a pre-ready or rejected open without starting native services (0.930743ms)
+✔ GM launchers and the settings entry recheck role loss after controls were prepared (0.39334ms)
+✔ player controls contain only audience tools and repeated registration does not duplicate hooks or menus (0.629184ms)
+✔ home prioritizes setup and prevents unconfigured native buttons from calling unavailable services (13.716164ms)
+✔ configured home enables available tools and displays a reason for missing connections (2.395775ms)
+✔ home rechecks setup before opening a tool and fails closed when setup inspection fails (3.137537ms)
+✔ existing callers default to native availability only when their storage mode is native (0.677045ms)
+✔ world participant GM desk saves only explicitly entered identities and loaded revisions, then retires the same binding (44.127363ms)
+✔ world participant desk displays no private identity inputs or metadata for a player (0.847302ms)
+✔ explicit world participants resolve exact protected narrative, observer and notification identities without a story scan or Actor write (14.400858ms)
+✔ participant bindings reserve narrative and observer IDs across both fields, reject stale revisions and retain retired identities (15.242565ms)
+✔ participant notifications require exactly one actual active owning player and reject ownership lost during awaits (17.834793ms)
+✔ prepared participant bindings fail closed until the GM explicitly completes the exact original metadata after service restart (8.910782ms)
+✔ participant reverse references that are prepared or missing their primary payload cannot authorize a native Actor or recipient (12.714536ms)
+✔ participant world Actor identity, exact fields, GM role and actual GM ownership are checked around protected writes (1.73302ms)
+✔ native pack participant metadata survives service reconstruction and refuses an indexed reverse reference with a missing payload (70.333656ms)
+✔ native participant preparation with ready reverse claims still remains inactive until explicit GM completion (82.837281ms)
+✔ concurrent local participant saves cannot activate duplicate identities and same narrative/observer identity is explicit and supported (3.536544ms)
+✔ player independently probes exact native canary index/document and never treats a missing API as denied (2.011838ms)
+✔ canary content or bootstrap pack visibility fails storage privacy without returning any document content (0.361035ms)
+✖ client-ready timestamp is retained and stale bootstrap needs an actual new player module instance (6.359866ms)
+✔ two reloaded real clients prove appended sender IDs and reciprocal target/witness delivery without narrative packets (6.34587ms)
+✔ no response and a missing witness can never produce socket attestation (3.811161ms)
+✔ an unauthorized witness receiving a supposedly targeted packet permanently rejects no-broadcast proof (2.211976ms)
+✔ forged sender claims, late unselected users and non-allowlisted packet data cannot establish proof (1.951548ms)
+✔ current GM revocation and failed replacement canary verification immediately invalidate prior readiness (1.205484ms)
+✔ wrong world/build sessions and unregistered native sockets are rejected before canary reads (0.722612ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 27
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 595.659678
+
+✖ failing tests:
+
+test at tests/world-setup-verification.test.mjs:24:1
+✖ client-ready timestamp is retained and stale bootstrap needs an actual new player module instance (6.359866ms)
+  TypeError: Cannot read properties of undefined (reading 'probe')
+      at TestContext.<anonymous> (file:///tmp/easy-plots-assessment/working/tests/world-setup-verification.test.mjs:25:290)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

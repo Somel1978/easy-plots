@@ -1,8 +1,10 @@
+> **Status correction —29 October2026:** The shipped module is incomplete. The earlier readiness statement is withdrawn. See the [full scope/code assessment](docs/assessment/2026-10-29/README.md) and its125 individual feature records. Unpublished drafts and proposed screenshots are not released functionality.
+
 # Easy Plots — Integrated Development Workspace v1.13
 
 Foundry VTT v14+ native, GM-authoritative narrative engine targeting **all 125 agreed architectural decisions**. No external backend or separate server. Implementation batches are merged continuously; local automated regression tests during development, full real Foundry end-to-end tests after feature completion.
 
-## Ready for final native qualification
+## Previous qualification result — superseded by product assessment
 
 The complete-scope engineering review covers all125 decisions and97 candidate-contract mappings. `npm run qualify:functional` passes with no implementation blockers. Proposed node signatures with different implemented interfaces have explicit reviewed dispositions; mapping names or node totals are not treated as equivalence.
 
