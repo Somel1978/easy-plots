@@ -108,6 +108,15 @@
       "Event_foundry_combat_updated": "Combat updated",
       "Event_foundry_combat_deleted": "Combat deleted",
       "Event_foundry_chat_created": "Chat message created"
+    },
+    "Launcher": {
+      "Title": "Easy Plots",
+      "Open": "Open Easy Plots",
+      "Editor": "Graph Editor",
+      "Cockpit": "GM Cockpit",
+      "Portal": "Narrative Portal",
+      "Inbox": "Narrative Notifications",
+      "Hint": "Open the Easy Plots control window, graph editor and narrative tools."
     }
   }
 }

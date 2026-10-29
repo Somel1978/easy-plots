@@ -1,3 +1,9 @@
+## Startup/workspace patch1.13.1-dev
+
+Open Easy Plots from the left toolbar or Configure Settings→Module Settings→Easy Plots. The entry is role-aware. GM workspace creates/unlocks encrypted world storage and lists saved plots; New/Open launches the connected Plot Editor. Keep the vault passphrase: it is not stored in world settings and is required after reload.
+
+Player workspace provides owned-character selection, audience tabs, loaded approved views and notifications. **Automatic sharing/discovery remains the next integration task.** This is an incomplete-module development patch, not completion of the125-feature scope. See [the ordered work plan](docs/WORK_ORDER.md) and [startup instructions](docs/STARTUP_WORKSPACES_v1.13.1.md). No native Foundry-server acceptance is claimed from local adapter/DOM tests.
+
 > **Status correction —29 October2026:** The shipped module is incomplete. The earlier readiness statement is withdrawn. See the [full scope/code assessment](docs/assessment/2026-10-29/README.md) and its125 individual feature records. Unpublished drafts and proposed screenshots are not released functionality.
 
 # Easy Plots — Integrated Development Workspace v1.13

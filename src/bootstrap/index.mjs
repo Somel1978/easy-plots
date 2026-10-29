@@ -58,8 +58,15 @@ import {makeNativeBatchWindow} from '../ui/native-batch-desk.mjs';
 import {NATIVE_BATCH_PROVIDER} from '../runtime/native-batch-provider.mjs';
 import {makeSpatialDeskWindow,makePlayerSpatialWindow} from '../ui/spatial-desk.mjs';
 import {NativeFoundrySpatialTransport} from '../platform/foundry-spatial-transport.mjs';
-const ID='easy-plots';const VERSION='1.13.0-dev';
+import {registerFoundryLaunchers} from '../platform/foundry-launcher.mjs';
+import {FoundryWorldSetup,registerWorldSetupSettings} from '../platform/world-setup.mjs';
+import {makeWorldSetupWindow} from '../ui/world-setup-window.mjs';
+import {makeGMCampaignWorkspace,makePlayerCampaignWorkspace} from '../ui/campaign-workspaces.mjs';
+import {isEncryptedNativePack} from '../storage/encrypted-native-pack.mjs';
+const ID='easy-plots';const VERSION='1.13.1-dev';
 if(typeof Hooks!=='undefined'){
+  registerFoundryLaunchers({hooks:Hooks});
+  registerWorldSetupSettings({hooks:Hooks});
   Hooks.once('ready',()=>{
     const gates=createFoundrySafetyGates(game);
     const Base=globalThis.foundry?.applications?.api?.ApplicationV2;
@@ -67,6 +74,13 @@ if(typeof Hooks!=='undefined'){
     const gmOnly=()=>{if(!gates.isLocalGM())throw new EasyPlotsError('GM_REQUIRED','Easy Plots development tools require GM authority');};
     const gmProvider=()=>gates.gmContext();
     let integration=null;
+    let worldSetup=null,gmWorkspace=null,playerWorkspace=null;
+    const sharedViews=[];
+    const rememberSharedView=(kind,id,actorId,projection)=>{const methods={'quest-board':'requestApprovedQuestBoard','session-recap':'requestApprovedSessionRecap','vote-result':'requestFinalizedVoteResult','investigation-board':'requestInvestigationBoard'};const method=methods[kind];if(!method)return;const index=sharedViews.findIndex(v=>v.kind===kind&&v.id===id&&v.actorId===actorId);if(index>=0)sharedViews.splice(index,1);sharedViews.unshift({kind,id,actorId,title:projection.title??({'session-recap':'Shared session recap','vote-result':'Approved decision'})[kind]??'Shared story',open:()=>api[method](id,actorId)});if(sharedViews.length>64)sharedViews.length=64;};
+    const setupState=()=>integration?{state:'configured',message:'Private world storage connected.',tools:{publications:!!integration.nativePublications,boardReview:!!integration.playerBoardEdits,encounter:!!integration.encounterClosures}}:worldSetup?.state()??{state:'unconfigured',message:'Create or unlock private world storage to keep your plots.'};
+    const openSetup=()=>{gmOnly();const Window=makeWorldSetupWindow(Base,{gameInstance:game,service:worldSetup,onConnected:()=>{void gmWorkspace?.render();return openCampaignWorkspace();}});const app=new Window();void app.render(true);return app;};
+    const openCampaignWorkspace=()=>{gmOnly();const Window=makeGMCampaignWorkspace(Base,{gameInstance:game,getState:setupState,listPlots:opts=>integration.graphRegistry.listDrafts(opts),openSetup,openTools:()=>api.openStatus(),newPlot:()=>{if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard the open plot first');editorModel.newGraph('Untitled plot');return openEditor();},openPlot:async id=>{if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard the open plot first');await editorModel.load(id);return openEditor();}});if(gmWorkspace)void gmWorkspace.close();gmWorkspace=new Window();void gmWorkspace.render(true);return gmWorkspace;};
+    const openPlayerWorkspace=()=>{if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Use the GM workspace');const Window=makePlayerCampaignWorkspace(Base,{gameInstance:game,openInbox:()=>openPlayerNoticeInbox(),getViews:()=>sharedViews});if(playerWorkspace)void playerWorkspace.close();playerWorkspace=new Window();void playerWorkspace.render(true);return playerWorkspace;};
     let nativeAttestation=null;
     const extensions=new NarrativeNodeExtensions();
     const memoryRepository=new MemoryPartitionRepository();
@@ -244,10 +258,13 @@ if(typeof Hooks!=='undefined'){
       const Window=makeGMNotificationWindow(Base,{gameInstance:game,service:integration.narrativeNotifications,deliverNotice:spec=>integration.notificationTransport.deliver(spec)});
       const app=new Window();void app.render(true);return app;
     };
-    const Status=makeStatusWindow(Base,{openEditor,openApprovals,openEventReview,openPlanningLab,openTemplateDesk,openPlayerBoardReview,openKnowledgePublications,openEncounterClosures:()=>api.openEncounterClosures(),openRollSystemPolicy:()=>api.openRollSystemPolicy(),openNativeBatches:()=>api.openNativeBatches(),
+    const Status=makeStatusWindow(Base,{openEditor,openSetup,getSetupState:setupState,openApprovals,openEventReview,openPlanningLab,openTemplateDesk,openPlayerBoardReview,openKnowledgePublications,openEncounterClosures:()=>api.openEncounterClosures(),openRollSystemPolicy:()=>api.openRollSystemPolicy(),openNativeBatches:()=>api.openNativeBatches(),
       openContinuityDesk,openHistoryDesk,openSignalReliabilityDesk,openSessionHandoff,openQuestPublicationDesk,openManualEventDesk,openNarrativeSearch,openNotificationDesk,openCockpit,extraActions:[['Resource lifecycle',()=>api.openResourceManifests()],['Alternate timelines',()=>api.openTimelineBranches()],['Prepare next session',()=>api.openSessionPreparation()],['Spatial atlas',()=>api.openSpatialDesk()],['Publication preflight',()=>api.openGraphPreflight()],['Storage partitions',()=>api.openStoragePartitions()]],runtimeStatus:()=>integration?.runtimeStatus()??{running:false},mode:()=>editorModel.mode});
     const api=Object.freeze({
       version:VERSION,
+      openGMWorkspace:openCampaignWorkspace,
+      openPlayerWorkspace,
+      openWorldSetup:openSetup,
       openSpatialDesk(){gmOnly();if(!integration?.spatial)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Protected spatial atlas storage required');const Window=makeSpatialDeskWindow(Base,{gameInstance:game,service:integration.spatial});const app=new Window();void app.render(true);return app;},
       inspectSpatialRegion(spec){gmOnly();if(!integration?.spatial)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Protected spatial atlas storage required');return integration.spatial.inspectRegion(spec);},
       inspectSpatialAtlas(spec){gmOnly();if(!integration?.spatial)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Protected spatial atlas storage required');return integration.spatial.inspectView(spec);},
@@ -493,19 +510,19 @@ if(typeof Hooks!=='undefined'){
       async requestApprovedSessionRecap(sessionId,actorId){
         if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Player-approved recap requests only');
         if(!playerContinuityTransport){playerContinuityTransport=new NativeFoundryContinuityTransport({gameInstance:game});playerContinuityTransport.start();}
-        const projection=await playerContinuityTransport.request({kind:'session-recap',recordId:sessionId,actorId});
+        const projection=await playerContinuityTransport.request({kind:'session-recap',recordId:sessionId,actorId});rememberSharedView('session-recap',sessionId,actorId,projection);
         const Window=makePlayerContinuityWindow(Base,{kind:'session-recap',projection});const app=new Window();void app.render(true);return app;
       },
       async requestApprovedQuestBoard(publicationId,actorId){
         if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Player-approved quest view requests only');
         if(!playerContinuityTransport){playerContinuityTransport=new NativeFoundryContinuityTransport({gameInstance:game});playerContinuityTransport.start();}
-        const projection=await playerContinuityTransport.request({kind:'quest-board',recordId:publicationId,actorId});
+        const projection=await playerContinuityTransport.request({kind:'quest-board',recordId:publicationId,actorId});rememberSharedView('quest-board',publicationId,actorId,projection);
         const Window=makePlayerContinuityWindow(Base,{kind:'quest-board',projection});const app=new Window();void app.render(true);return app;
       },
       async requestFinalizedVoteResult(decisionId,actorId){
         if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Player-approved decision requests only');
         if(!playerContinuityTransport){playerContinuityTransport=new NativeFoundryContinuityTransport({gameInstance:game});playerContinuityTransport.start();}
-        const projection=await playerContinuityTransport.request({kind:'vote-result',recordId:decisionId,actorId});
+        const projection=await playerContinuityTransport.request({kind:'vote-result',recordId:decisionId,actorId});rememberSharedView('vote-result',decisionId,actorId,projection);
         const Window=makePlayerContinuityWindow(Base,{kind:'vote-result',projection});const app=new Window();void app.render(true);return app;
       },
       async requestInvestigationBoard(investigationId,actorId){
@@ -520,11 +537,12 @@ if(typeof Hooks!=='undefined'){
         return explainNarrativeEvent({eventId,graphId,ledger:integration.eventLedger,gmProvider});},
       async inspectNarrativeEvent(eventId){gmOnly();if(!integration)throw new EasyPlotsError('STORAGE_NOT_VERIFIED','Native event journal is unavailable');return integration.eventLedger.get(eventId);},
       /** Configure only after observed multi-client tests of the exact world/pack/build. */
-      configureVerifiedNative({packId,attestation,coreBuild,checkOpportunity,resolveObserver,resolveNativeActor,resolveNotificationUser,authorizeNotificationRecipient}={}){
+      configureVerifiedNative({packId,vaultPack=null,attestation,coreBuild,checkOpportunity,resolveObserver,resolveNativeActor,resolveNotificationUser,authorizeNotificationRecipient}={}){
         gmOnly();
         if(integration||remoteAuthoringTransport)throw new EasyPlotsError('NATIVE_ALREADY_CONFIGURED','Native integration already initialized in this client');
         if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_SANDBOX_EDITS','Discard unsaved sandbox work before switching storage');
-        const pack=game.packs.get(packId);
+        if(vaultPack&&(!isEncryptedNativePack(vaultPack)||vaultPack.collection!==packId))throw new EasyPlotsError('VAULT_PACK','An unlocked encrypted world vault is required');
+        const pack=vaultPack??game.packs.get(packId);
         if(!pack)throw new EasyPlotsError('PACK_NOT_FOUND','Requested world pack was not found');
         const configured=createVerifiedGMStorageAndIntentSubsystem({gameInstance:game,pack,attestation,coreBuild,checkOpportunity,resolveObserver,resolveNativeActor,resolveNotificationUser,authorizeNotificationRecipient,extensions});
         const registry=configured.authoringRegistry;
@@ -586,6 +604,10 @@ if(typeof Hooks!=='undefined'){
       safetyGates:gates
     });
     const pkg=game.modules.get(ID);if(pkg)pkg.api=api;
+    if(game.user?.isGM&&typeof game.settings?.get==='function'){
+      worldSetup=new FoundryWorldSetup({gameInstance:game,hooks:Hooks,connectNative:({pack,attestation,coreBuild})=>api.configureVerifiedNative({packId:pack.collection,vaultPack:pack,attestation,coreBuild,checkOpportunity:async()=>false})});
+      void worldSetup.restore();
+    }
     // A player only receives server-targeted, designated-GM-authenticated safe
     // projections. No player-side privileged repository or GM state is loaded.
     if(!game.user?.isGM&&pkg?.socket===true){

@@ -1,0 +1,5 @@
+
+> easy-plots@1.13.1-dev test:evidence
+> node tools/run-test-evidence.mjs
+
+PASS: 1181 tests; 0 failed; 0 skipped. Evidence: /workspace/easy-plots/docs/local-test-evidence-v1.13.1-dev.jsonl

@@ -7,6 +7,7 @@ import {EasyPlotsError} from '../contracts/errors.mjs';
 import {assertNarrativeId,clone} from '../contracts/record.mjs';
 import {assertLocalGM} from '../security/authority.mjs';
 import {sha256Hex} from '../contracts/digest.mjs';
+import {isEncryptedNativePack} from './encrypted-native-pack.mjs';
 import {NATIVE_PARTITION_POLICY,storageTierForRecord,assertPartitionId,partitionManifestKey,partitionIndexKey,hashBit} from './partition-policy.mjs';
 const fail=(code,message)=>{throw new EasyPlotsError(code,message);};
 const NS='easy-plots', SCHEMA=1, MAX_PAGES=8, PAGE_SIZE=32, MAX_BYTES=65536;
@@ -20,9 +21,10 @@ export function verifyProtectedPackConfiguration({gameInstance,pack,attestation,
   if(!gameInstance?.user?.isGM)fail('GM_REQUIRED','GM required');
   if(pack?.documentName!=='JournalEntry'||pack?.metadata?.packageType!=='world'||pack.locked||!pack.collection)
     fail('PACK_INVALID','Unlocked world-owned JournalEntry pack required');
-  if(attestation?.level!=='live-multiplayer'||attestation.worldId!==gameInstance.world?.id||
+  const encrypted=attestation?.level==='encrypted-vault'&&isEncryptedNativePack(pack)&&attestation.vaultVersion===1;
+  if((!encrypted&&attestation?.level!=='live-multiplayer')||attestation.worldId!==gameInstance.world?.id||
     attestation.coreBuild!==coreBuild||attestation.packId!==pack.collection||
-    !attestation.playerIndexDenied||!attestation.playerDocumentDenied||!attestation.playerBootstrapDenied)
+    (!encrypted&&(!attestation.playerIndexDenied||!attestation.playerDocumentDenied||!attestation.playerBootstrapDenied)))
     fail('PACK_UNVERIFIED','Live multiplayer access tests required for exact world, pack and build');
   if(!Array.isArray(gameInstance.users?.contents)||typeof pack.getUserLevel!=='function')
     fail('PACK_PERMISSIONS_UNAVAILABLE','Cannot verify player roles');

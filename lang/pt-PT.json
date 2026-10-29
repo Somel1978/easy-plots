@@ -108,6 +108,15 @@
       "Event_foundry_combat_updated": "Combate atualizado",
       "Event_foundry_combat_deleted": "Combate eliminado",
       "Event_foundry_chat_created": "Mensagem de chat criada"
+    },
+    "Launcher": {
+      "Title": "Easy Plots",
+      "Open": "Abrir Easy Plots",
+      "Editor": "Editor de grafos",
+      "Cockpit": "Painel do GM",
+      "Portal": "Portal narrativo",
+      "Inbox": "Notificações narrativas",
+      "Hint": "Abrir o painel do Easy Plots, o editor de grafos e as ferramentas narrativas."
     }
   }
 }

@@ -19,7 +19,7 @@ ADR-017,Extension APIs,REQ-EXT-001,TEST-ADR-017,,0,tests/narrative-action-api.te
 ADR-018,Co-GM permission model,REQ-SEC-001,TEST-ADR-018,,0,tests/native-reactive.test.mjs;tests/plot-authority.test.mjs;tests/gm-plot-authoring.test.mjs,targeted-test-reference,not-run,not-certified
 ADR-019,World persistence and portable templates,REQ-STO-001,TEST-ADR-019,,0,tests/graph-templates.test.mjs,targeted-test-reference,not-run,not-certified
 ADR-020,Contextual native document creation,REQ-RSC-001,TEST-ADR-020,easy-plots.resources.native-resource-plan;easy-plots.resources.materialize-foundry-document;easy-plots.resources.resource-drift-verify;easy-plots.resources.guided-rebind;easy-plots.resources.blueprint-inherit;easy-plots.resources.blueprint-merge-preview,6,,targeted-scenario-evidence-needed,not-run,not-certified
-ADR-021,Resizable ApplicationV2 graph workspace,REQ-UI-001,TEST-ADR-021,,0,,targeted-scenario-evidence-needed,not-run,not-certified
+ADR-021,Resizable ApplicationV2 graph workspace,REQ-UI-001,TEST-ADR-021,,0,tests/foundry-launcher.test.mjs,targeted-test-reference,not-run,not-certified
 ADR-022,Layered narrative graph,REQ-GRF-001,TEST-ADR-022,,0,tests/graph-view-state.test.mjs,targeted-test-reference,not-run,not-certified
 ADR-023,Variable-density node presentation,REQ-UI-001,TEST-ADR-023,,0,tests/graph-view-state.test.mjs,targeted-test-reference,not-run,not-certified
 ADR-024,Validated rule builder and optional expressions,REQ-RUL-001,TEST-ADR-024,,0,,targeted-scenario-evidence-needed,not-run,not-certified

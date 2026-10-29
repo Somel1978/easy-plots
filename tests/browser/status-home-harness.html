@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Easy Plots home acceptance</title>
+<link rel="stylesheet" href="/static/easy-plots.css">
+<style>
+html,body{height:100%;margin:0;overflow:hidden;background:#0f172a;font-family:Arial,sans-serif}
+.application{box-sizing:border-box;position:absolute;left:12px;top:12px;width:680px;height:420px;display:flex;flex-direction:column;border:1px solid #64748b;border-radius:8px}
+.window-header{flex:0 0 38px;background:#253147;color:white;display:flex;align-items:center;padding:0 12px}.window-header h1{font-size:16px;margin:0}
+.window-content{flex:1 1 0}
+</style></head><body>
+<section id="easy-plots-dev-status" class="application"><header class="window-header"><h1>Easy Plots</h1></header><div class="window-content"></div></section>
+<script type="module">
+import {makeStatusWindow} from '../../src/ui/status-window.mjs';
+let state={state:'unconfigured'};const calls={setup:0,editor:0,cockpit:0};
+class Base {async render(){this._replaceHTML(await this._renderHTML(),document.querySelector('.window-content'));return this;}}
+const Window=makeStatusWindow(Base,{getSetupState:()=>state,mode:()=>state.state==='configured'?'native':'sandbox',openSetup:()=>calls.setup++,openEditor:()=>calls.editor++,openCockpit:()=>calls.cockpit++,extraActions:[['Spatial atlas',()=>{}],['Prepare next session',()=>{}],['Resource lifecycle',()=>{}]]}),home=await new Window().render();
+window.__homeTest={calls,async setState(value){state=value;await home.render();},resize(width,height){const frame=document.querySelector('.application');frame.style.width=`${width}px`;frame.style.height=`${height}px`;}};window.__ready=true;
+</script></body></html>

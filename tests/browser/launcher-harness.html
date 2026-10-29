@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Easy Plots bootstrap launcher regression</title><link rel="stylesheet" href="/static/easy-plots.css"></head><body><nav id="controls"></nav><section id="settings"></section><main id="apps"></main><script type="module">
+const events=new Map(),menus=[],errors=[],stored=new Map(),packs=new Map();
+globalThis.Hooks={on(name,fn){const list=events.get(name)??[];list.push(fn);events.set(name,list);},once(name,fn){this.on(name,fn);}};
+class ApplicationV2 {
+ async render(){const root=await this._renderHTML({},{});document.querySelector('#apps').replaceChildren(root);this.rendered=true;return this;}
+ async close(){this.rendered=false;document.querySelector('#apps').replaceChildren();return this;}
+}
+globalThis.foundry={applications:{api:{ApplicationV2}}};
+globalThis.ui={notifications:{warn:m=>errors.push(m)}};
+globalThis.game={user:{id:'launcher-browser-GM',isGM:true},world:{id:'launcher-browser-world'},modules:new Map([['easy-plots',{}]]),settings:{registerMenu(namespace,key,data){menus.push({namespace,key,...data});},register(ns,key,data){if(!stored.has(key))stored.set(key,structuredClone(data.default));},get(ns,key){return structuredClone(stored.get(key));},async set(ns,key,value){stored.set(key,structuredClone(value));return value;}},i18n:{localize:key=>key}};
+game.user.active=true;game.release={generation:14,build:369};game.users={contents:[game.user],activeGM:game.user,get:id=>game.users.contents.find(u=>u.id===id)};game.packs=packs;game.actors={contents:[]};
+foundry.documents={collections:{CompendiumCollection:{async createCompendium(metadata){const docs=new Map(),native=d=>({id:d._id,getFlag:(s,k)=>structuredClone(d.flags[s][k]),update:async patch=>{d.flags['easy-plots'].storage=structuredClone(patch['flags.easy-plots.storage']);return native(d);}}),pack={collection:'world.'+metadata.name,metadata:{packageType:'world'},documentName:'JournalEntry',locked:false,getUserLevel:u=>u.isGM?3:0,configure:async()=>{},getDocuments:async({_id})=>docs.has(_id)?[native(docs.get(_id))]:[],documentClass:{createDocuments:async rows=>rows.map(row=>{if(docs.has(row._id))throw Error('duplicate');const d=structuredClone(row);docs.set(d._id,d);return native(d);})}};packs.set(pack.collection,pack);return pack;}}}};
+await import('/src/bootstrap/index.mjs');
+for(const fn of events.get('init')??[])fn();
+const controls={tokens:{name:'tokens',order:1,tools:{}}};for(const fn of events.get('getSceneControlButtons')??[])fn(controls);
+const existedBeforeReady=!!controls['easy-plots'];for(const fn of events.get('ready')??[])await fn();
+const labels=(await(await fetch('/lang/en.json')).json()).EasyPlots.Launcher;
+game.i18n.localize=key=>key.startsWith('EasyPlots.Launcher.')?labels[key.split('.').at(-1)]??key:key;
+const control=controls['easy-plots'],button=document.createElement('button');button.dataset.launcher='main';button.textContent=game.i18n.localize(control.title);button.addEventListener('click',()=>control.onChange(null,true));document.querySelector('#controls').append(button);
+for(const tool of Object.values(control.tools)){const b=document.createElement('button');b.dataset.tool=tool.name;b.textContent=game.i18n.localize(tool.title);b.addEventListener('click',()=>tool.onChange());document.querySelector('#controls').append(b);}
+const menu=menus.find(m=>m.namespace==='easy-plots'),setting=document.createElement('button');setting.dataset.launcher='settings';setting.textContent=game.i18n.localize(menu.label);setting.addEventListener('click',()=>new menu.type().render({force:true}));document.querySelector('#settings').append(setting);
+window.__launcherTest={existedBeforeReady,controls,menus,errors,events};window.__ready=true;
+</script></body></html>
