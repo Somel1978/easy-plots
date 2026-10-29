@@ -1,9 +1,10 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Easy Plots bootstrap launcher regression</title><link rel="stylesheet" href="/static/easy-plots.css"></head><body><nav id="controls"></nav><section id="settings"></section><main id="apps"></main><script type="module">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Easy Plots bootstrap launcher regression</title><link rel="stylesheet" href="/static/easy-plots.css"><link rel="stylesheet" href="/static/workspace.css"><style>body{margin:0;background:#080d13}#apps{height:780px}.app{height:100%;display:flex;flex-direction:column}.window-content{flex:1;min-height:0}</style></head><body><nav id="controls"></nav><section id="settings"></section><main id="apps"></main><script type="module">
 const events=new Map(),menus=[],errors=[],stored=new Map(),packs=new Map();
 globalThis.Hooks={on(name,fn){const list=events.get(name)??[];list.push(fn);events.set(name,list);},once(name,fn){this.on(name,fn);}};
+const nativeRendered=new Set();
 class ApplicationV2 {
- async render(){const root=await this._renderHTML({},{});document.querySelector('#apps').replaceChildren(root);this.rendered=true;return this;}
- async close(){this.rendered=false;document.querySelector('#apps').replaceChildren();return this;}
+ async render(){const root=await this._renderHTML({},{});this.element??=document.createElement('section');this.element.id=this.constructor.DEFAULT_OPTIONS.id;this.element.className='app';const content=document.createElement('div');content.className='window-content';this._replaceHTML(root,content);this.element.replaceChildren(content);document.querySelector('#apps').replaceChildren(this.element);nativeRendered.add(this);this.rendered=true;return this;}
+ async close(){this.rendered=false;this.element?.remove();nativeRendered.delete(this);return this;}
 }
 globalThis.foundry={applications:{api:{ApplicationV2}}};
 globalThis.ui={notifications:{warn:m=>errors.push(m)}};
@@ -19,5 +20,5 @@ game.i18n.localize=key=>key.startsWith('EasyPlots.Launcher.')?labels[key.split('
 const control=controls['easy-plots'],button=document.createElement('button');button.dataset.launcher='main';button.textContent=game.i18n.localize(control.title);button.addEventListener('click',()=>control.onChange(null,true));document.querySelector('#controls').append(button);
 for(const tool of Object.values(control.tools)){const b=document.createElement('button');b.dataset.tool=tool.name;b.textContent=game.i18n.localize(tool.title);b.addEventListener('click',()=>tool.onChange());document.querySelector('#controls').append(b);}
 const menu=menus.find(m=>m.namespace==='easy-plots'),setting=document.createElement('button');setting.dataset.launcher='settings';setting.textContent=game.i18n.localize(menu.label);setting.addEventListener('click',()=>new menu.type().render({force:true}));document.querySelector('#settings').append(setting);
-window.__launcherTest={existedBeforeReady,controls,menus,errors,events};window.__ready=true;
+window.__launcherTest={existedBeforeReady,controls,menus,errors,events,nativeRendered};window.__ready=true;
 </script></body></html>

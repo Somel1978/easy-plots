@@ -30,7 +30,6 @@ with sync_playwright() as p:
     page.locator('[data-action="new-plot"]').click()
     page.wait_for_selector('.ep-graph-canvas')
     page.locator('[data-field="title"]').fill('Browser persistent plot')
-    page.locator('[data-action="rename"]').click()
     page.locator('[data-action="save"]').click()
     page.wait_for_function('document.querySelector(".ep-notice")?.textContent.includes("saved successfully")',timeout=30000)
     page.locator('[data-launcher="settings"]').click()

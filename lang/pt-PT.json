@@ -117,6 +117,27 @@
       "Portal": "Portal narrativo",
       "Inbox": "Notificações narrativas",
       "Hint": "Abrir o painel do Easy Plots, o editor de grafos e as ferramentas narrativas."
+    },
+    "Workspace": {
+      "campaign": "Campanha",
+      "editor": "Editor de enredos",
+      "session": "Sessão",
+      "review": "Revisão",
+      "world": "Mundo",
+      "settings": "Definições",
+      "quests": "Missões",
+      "investigations": "Investigações",
+      "knownWorld": "Mundo conhecido",
+      "journal": "Diário",
+      "notices": "Notificações",
+      "navigation": "Navegação do Easy Plots",
+      "connected": "Armazenamento ligado",
+      "locked": "Verificar armazenamento",
+      "private": "A história partilhada com a tua personagem",
+      "back": "Voltar",
+      "choose": "Escolhe uma área para começar.",
+      "unavailable": "Não foi possível abrir esta vista",
+      "retry": "Tentar novamente"
     }
   }
 }

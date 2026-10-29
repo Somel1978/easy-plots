@@ -117,6 +117,27 @@
       "Portal": "Narrative Portal",
       "Inbox": "Narrative Notifications",
       "Hint": "Open the Easy Plots control window, graph editor and narrative tools."
+    },
+    "Workspace": {
+      "campaign": "Campaign",
+      "editor": "Plot editor",
+      "session": "Session",
+      "review": "Review",
+      "world": "World",
+      "settings": "Settings",
+      "quests": "Quests",
+      "investigations": "Investigations",
+      "knownWorld": "Known world",
+      "journal": "Journal",
+      "notices": "Notifications",
+      "navigation": "Easy Plots navigation",
+      "connected": "Storage connected",
+      "locked": "Storage needs attention",
+      "private": "Your character’s shared story",
+      "back": "Back",
+      "choose": "Choose an area to begin.",
+      "unavailable": "Unable to load this view",
+      "retry": "Try again"
     }
   }
 }

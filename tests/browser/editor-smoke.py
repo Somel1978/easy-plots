@@ -790,7 +790,7 @@ with sync_playwright() as p:
       const state=t.createNarrativeStateProvider({repository,gmProvider}),ledger=new t.DurableEventLedger({repository,gmProvider}),providers=new t.EffectProviderRegistry();providers.register(state);
       const router=new t.DurableReactiveRouter({registry,catalog,ledger,gmProvider,stateReader:({scope,key})=>state.get({scope,key,value:null})});
       const reviews=new t.DurableProposalReview({repository,registry,ledger,gmProvider,providers,journal:new t.MemoryOperationJournal()});
-      const Window=t.makeGraphEditorWindow(t.RenderStub,{model,isGM:()=>true});
+      const Window=t.makeGraphEditorWindow(t.RenderStub,{initialView:'advanced',model,isGM:()=>true});
       window.__mixedTest={model,childGraph,state,ledger,router,reviews,registry,catalog,gmProvider,repository,app:new Window()};await window.__mixedTest.app.render();
     }""")
     page.locator('[data-action="new"]').click()
@@ -1040,7 +1040,7 @@ with sync_playwright() as p:
     page.locator('.ep-board-edit-review [data-action="prepare-handler"]').click()
     page.wait_for_function("document.querySelector('.ep-board-edit-message')?.textContent.includes('Prepared review graph draft')")
     assert page.evaluate('window.__mixedTest.registry.getActive(window.__mixedTest.boardEditHandler.graph.id)')==None
-    page.evaluate("""async () => {const s=window.__mixedTest,t=window.__easyPlotsTest;const Window=t.makeGraphEditorWindow(t.RenderStub,{model:s.boardEditHandler,isGM:()=>true});await new Window().render();}""")
+    page.evaluate("""async () => {const s=window.__mixedTest,t=window.__easyPlotsTest;const Window=t.makeGraphEditorWindow(t.RenderStub,{initialView:'advanced',model:s.boardEditHandler,isGM:()=>true});await new Window().render();}""")
     page.locator('[data-action="publish"]').click()
     page.wait_for_function("document.querySelector('.ep-editor')?.textContent.includes('Published immutable snapshot')")
     page.locator('[data-action="activate"]').click()
@@ -1090,7 +1090,7 @@ with sync_playwright() as p:
       const reviews=new t.DurableProposalReview({repository:s.repository,registry:s.registry,ledger:s.ledger,gmProvider:s.gmProvider,providers,journal:new t.MemoryOperationJournal()}),serverKeys=new t.NativePublicationKeyTransport({gameInstance:game,keyProvider:spec=>native.keyForUser(spec)}),playerKeys=new t.NativePublicationKeyTransport({gameInstance:playerGame});serverKeys.start();playerKeys.start();
       const publication={plans,native,reviews,game,playerGame,receipt,observerId,messages,traffic,serverKeys,playerKeys,rolls,fault,knowledge};s.publication=publication;
       const prepareHandler=async()=>{const result=await t.preparePublicationHandlerDraft({registry:s.registry,mode:'sandbox'});publication.handlerId=result.graphId;return result;};
-      const openDraft=async id=>{const model=new t.GraphEditorModel({registry:s.registry});await model.load(id);const Window=t.makeGraphEditorWindow(t.RenderStub,{model,isGM:()=>true});await new Window().render();};
+      const openDraft=async id=>{const model=new t.GraphEditorModel({registry:s.registry});await model.load(id);const Window=t.makeGraphEditorWindow(t.RenderStub,{initialView:'advanced',model,isGM:()=>true});await new Window().render();};
       publication.openEvent=async eventId=>{const Window=t.makeEventReviewWindow(t.RenderStub,{ledger:s.ledger,reviews,runtimeStatus:()=>({running:false}),gameInstance:game});await new Window().loadEvent(eventId);};
       publication.openPlayer=async reference=>{const Window=t.makeProtectedPublicationWindow(t.RenderStub,{gameInstance:playerGame,...reference,actorId:'OwnedNativeActor01',requestKey:spec=>playerKeys.request(spec)});await new Window().render();};
       const Window=t.makeGMKnowledgePublicationWindow(t.RenderStub,{gameInstance:game,plans,native,prepareHandler,openDraft,openEvent:publication.openEvent,openPublication:publication.openPlayer});publication.desk=new Window();await publication.desk.render();
@@ -1210,7 +1210,7 @@ with sync_playwright() as p:
       const effect=model.addNode('core.effect.proposal');model.updateSelected({providerId:'narrative.set-state',payloadJSON:'{"key":"browser-verified-mechanical","value":null}'});model.bindSelectedInput({field:'value',sourceNodeId:roll});model.connect(branch,effect,{sourcePortId:'true',targetPortId:'in'});await model.save();
       const readRoll=(kind,id)=>p.rolls.get(id),router=new t.DurableReactiveRouter({registry:s.registry,catalog:s.catalog,ledger:s.ledger,gmProvider:s.gmProvider,rollReader:readRoll}),providers=new t.EffectProviderRegistry();providers.register(s.state);
       p.mechanical={model,router,reviews:new t.DurableProposalReview({repository:s.repository,registry:s.registry,ledger:s.ledger,gmProvider:s.gmProvider,providers,journal:new t.MemoryOperationJournal(),readRoll})};
-      const Window=t.makeGraphEditorWindow(t.RenderStub,{model,isGM:()=>true});await new Window().render();
+      const Window=t.makeGraphEditorWindow(t.RenderStub,{initialView:'advanced',model,isGM:()=>true});await new Window().render();
     }""")
     page.locator('[data-action="publish"]').click()
     page.wait_for_function("document.querySelector('.ep-editor')?.textContent.includes('Published immutable snapshot')")
@@ -1347,7 +1347,7 @@ with sync_playwright() as p:
       const authority=new t.PlotAuthoringAuthority({domains,gmProvider,writer,gameInstance:games[0],readGraph:id=>base.getDraft(id)});base=new t.PersistentGraphRegistry({repository:repo,gmProvider,authoring:authority});const catalog=new t.ActiveTriggerCatalog({repository:repo,gmProvider}),registry=new t.IndexedGraphRegistry({registry:base,catalog}),appearance=new t.LiveGraphAppearance({domains,registry,gmProvider,writer}),service=new t.GMPlotAuthoring({registry,authority,domains,gameInstance:games[0],writer,gmProvider,appearance});
       const proof={worldId:games[0].world.id,socketSenderVerified:true,socketRecipientVerified:true,socketForgeryRejected:true,socketNoBroadcastVerified:true},server=new t.NativeGMAuthoringTransport({gameInstance:games[0],service,attestation:proof}),remote=new t.NativeGMAuthoringTransport({gameInstance:games[1],attestation:proof});server.start();remote.start();
       const owner=new t.GMPlotRegistryClient({invoke:(m,a)=>service.executeLocal(m,a)}),client=new t.GMPlotRegistryClient({invoke:(m,a)=>remote.request(m,a)}),g=t.makeEditableGraph({title:'First owner plot'}),other=t.makeEditableGraph({title:'Second owner plot'});await owner.saveDraft(g);await client.saveDraft(other);
-      const model=new t.GraphEditorModel({registry:client,mode:'native'});await model.load(g.id);const Window=t.makeGraphEditorWindow(t.RenderStub,{model,isGM:()=>two.isGM,openPlotAuthority:()=>{}}),editor=new Window();await editor.render();window.__plotAuthority={t,one,two,player,g,games,owner,client,base,catalog,authority,model,editor,server,remote,sent};
+      const model=new t.GraphEditorModel({registry:client,mode:'native'});await model.load(g.id);const Window=t.makeGraphEditorWindow(t.RenderStub,{initialView:'advanced',model,isGM:()=>two.isGM,openPlotAuthority:()=>{}}),editor=new Window();await editor.render();window.__plotAuthority={t,one,two,player,g,games,owner,client,base,catalog,authority,model,editor,server,remote,sent};
     }""")
     assert page.locator('[data-action="rename"]').is_disabled()
     assert page.locator('[data-action="publish"]').is_disabled()
@@ -1468,7 +1468,7 @@ with sync_playwright() as p:
     assert page.evaluate('window.__nativeBatch.created.length')==0
     page.locator('[data-action="configure-batch"]').click()
     page.wait_for_function("document.querySelector('.ep-native-batch')?.textContent.includes('Batch node configured')")
-    page.evaluate("""async () => {const b=window.__nativeBatch,Window=b.t.makeGraphEditorWindow(b.t.RenderStub,{model:b.model,isGM:()=>true});await new Window().render();}""")
+    page.evaluate("""async () => {const b=window.__nativeBatch,Window=b.t.makeGraphEditorWindow(b.t.RenderStub,{initialView:'advanced',model:b.model,isGM:()=>true});await new Window().render();}""")
     page.locator('[data-action="save"]').click()
     page.wait_for_function('window.__nativeBatch.model.graph.revision===1&&!window.__nativeBatch.model.state.dirty')
     page.locator('[data-action="publish"]').click()

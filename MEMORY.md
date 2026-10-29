@@ -1,3 +1,19 @@
+# Current work — unified UI, 29 October 2026
+
+The user rejected the separate-window service forms and explicitly requested a systematic whole-module UX. Follow docs/UI_SYSTEM.md and docs/UI_SCREEN_MIGRATION.md before more implementation. No scope restart, no approval between batches. Existing 125-decision assessment remains the feature backlog; all-complete/readiness claims remain withdrawn.
+
+Current source version 1.14.0-dev. One actual ApplicationV2 host (workspace-shell.mjs) hosts all bootstrap-composed Easy Plots panels. GM navigation Campaign/Plot editor/Session/Review/World/Settings; player navigation Quests/Investigations/Known world/Journal/Notifications. Settings and toolbar reuse the host. Background panel completion cannot steal navigation or reopen a closed host. Role/user-bound panels cannot render for a different identity.
+
+Core guided editor is implemented atop existing GraphEditorModel: labelled title saved directly, readable nodes/ports, searchable labelled library, start choice, typed object fields, simple typed comparison builder, connections, check/save/publish/activate. Advanced editor retained in-place. Pending inputs survive navigation; cross-plot opens and scene focus refuse to lose edits. Draft browsing bug fixed by omitting undefined optional cursor/limit; strict JSON command validation remains intact. Player notices are inline and incoming notices no longer force a popup/navigation. GM encrypted vault semantics unchanged.
+
+Verification on current source: 1184 actual Node tests PASS, 0 fail/skip; 224 source modules syntax PASS; composed UX browser PASS including persistence, publication/activation, edit retention, one host, 360px scrolling and player isolation; advanced/global browser PASS; launcher browser PASS; bounded Home browser PASS. Spec/schema/TypeScript/coverage inventory PASS. Exact evidence docs/UI_VALIDATION_v1.14.json and versioned logs. No real Foundry-server/world acceptance. Actual module DOM screenshots docs/design/implemented-v1.14 (synthetic Foundry adapters), unlike older prototype images.
+
+The whole UI is NOT complete: session/review/world-content desks are only hosted, still technical; dedicated guided tasks/entity selectors/compound rules remain. Player discovery and catalog restoration, participant bindings, voting submission and generic approved-intent execution remain feature gaps. Next implementation stage is systematic Session/Review task forms in UI_SCREEN_MIGRATION.md, together with their prerequisites, then World content and Settings/recovery; do not jump to unrelated service batches or count hosted forms as redesigned. Preserve old tags. Prior GitHub push/prerelease authorization persists. Standard module.json custom-hosting URLs follow user convention, but external hosting has not been uploaded.
+
+Publishing 1.14.0-dev as a scoped UI foundation build; root must finish package verification/push/release and record actual result. GitHub API auth works; uploads.github.com failed401 in earlier session. Use Git-tracked release ZIP mirror if the supported upload remains unavailable; never extract credentials or mutate old release tags.
+
+# Historical handovers below (superseded by the current entry)
+
 # Current work —29October2026
 
 User changed priority after full assessment: finish startup/initiation +GM workspace +GM Plot Editor +player workspace first; then systematic backlog. Main module remains incomplete. Do not repeatreadyforall125claim. Work order: docs/WORK_ORDER.md;125rowassessment remainsdocs/assessment/2026-10-29/.

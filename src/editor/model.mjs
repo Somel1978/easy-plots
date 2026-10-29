@@ -245,5 +245,5 @@ export class GraphEditorModel {
   async activation(){if(!this.#graph)fail('NO_GRAPH','No plot selected');return this.#registry.getActivation(this.#graph.id);}
   async activate(publishedVersion){if(!this.#graph)fail('NO_GRAPH','No plot selected');const old=await this.activation();return this.#registry.activate(this.#graph.id,publishedVersion,{expectedActivationRevision:old?.revision??null});}
   async deactivate(){if(!this.#graph)fail('NO_GRAPH','No plot selected');const old=await this.activation();if(!old)return null;return this.#registry.deactivate(this.#graph.id,{expectedActivationRevision:old.revision});}
-  async listDrafts({cursor,limit}={}){return this.#registry.listDrafts({cursor,limit});}
+  async listDrafts({cursor,limit}={}){return this.#registry.listDrafts({...(cursor===undefined?{}:{cursor}),...(limit===undefined?{}:{limit})});}
 }

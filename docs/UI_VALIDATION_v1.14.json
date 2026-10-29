@@ -1,0 +1,52 @@
+{
+  "version": "1.14.0-dev",
+  "scope": "Unified application frame and core guided authoring; whole-module UI redesign remains in progress.",
+  "sourceDigest": "d172580dfa7244690ffaa2aa610a3b2831641e9bdad7e3c96ae0662799f5081f",
+  "sourceDigestIncludes": "src, tests, lang, spec, package.json, module.json (existing reporter); static files hashed separately below",
+  "staticSha256": {
+    "static/easy-plots.css": "6668e346c1c07974728ab746520c3980fc424daf184da14cfc3b51451ad4ab7b",
+    "static/workspace.css": "781b9c9c495a6f717886b8f5fd497b1ad298f7df59965885d020a6bbf42fbc72"
+  },
+  "node": {
+    "event": "test:summary",
+    "success": true,
+    "counts": {
+      "tests": 1184,
+      "failed": 0,
+      "passed": 1184,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "topLevel": 1184,
+      "suites": 0
+    },
+    "duration_ms": 43646.305773,
+    "file": null
+  },
+  "syntaxModules": 224,
+  "browsers": [
+    {
+      "test": "workspace-ux-smoke.py",
+      "result": "PASS",
+      "environment": "Chromium with local ApplicationV2/native-document adapters"
+    },
+    {
+      "test": "launcher-smoke.py",
+      "result": "PASS",
+      "environment": "Chromium with local ApplicationV2/native-document adapters"
+    },
+    {
+      "test": "editor-smoke.py",
+      "result": "PASS",
+      "environment": "Chromium with local ApplicationV2/native-document adapters"
+    },
+    {
+      "test": "status-home-smoke.py",
+      "result": "PASS",
+      "environment": "Chromium with local ApplicationV2/native-document adapters"
+    }
+  ],
+  "specification": "PASS: 125 decisions, 28 requirement groups, 97 candidates, 101 record groups, 137 editable node types; JSON schemas and TypeScript contracts checked",
+  "nativeFoundryAcceptance": "NOT RUN",
+  "remaining": "docs/UI_SCREEN_MIGRATION.md and docs/WORK_ORDER.md"
+}

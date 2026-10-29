@@ -4,6 +4,8 @@ import {ALL_EFFECT_NODE_PROVIDER} from '../graph/node-catalog.mjs';
 import {LOGIC_NODE_TYPES} from '../graph/logic-nodes.mjs';
 import {DATA_NODE_TYPES} from '../graph/typed-data.mjs';
 import {localize} from './localization.mjs';
+import {renderPlotEditor,nodeName} from './plot-editor-view.mjs';
+import {EasyPlotsError} from '../contracts/errors.mjs';
 
 const elem=(tag,cls='',text=null)=>{
   const el=document.createElement(tag);
@@ -48,14 +50,14 @@ export function graphCanvas(graph,selectedId,zoom=0.75,presentation={density:'co
   }
   for(const n of graph.nodes){
     const size=dimensions(n);
-    const p=coords.get(n.id),selected=n.id===selectedId;const group=svgElem('g',{'data-node-id':n.id,transform:`translate(${p.x} ${p.y})`,class:`ep-svg-node${selected?' is-selected':''}`,tabindex:'0',role:'button','aria-label':`${n.typeId} node`});
+    const p=coords.get(n.id),selected=n.id===selectedId;const group=svgElem('g',{'data-node-id':n.id,transform:`translate(${p.x} ${p.y})`,class:`ep-svg-node${selected?' is-selected':''}`,tabindex:'0',role:'button','aria-label':presentation.friendly?nodeName(n):`${n.typeId} node`});
     group.append(svgElem('rect',{width:size.width,height:size.height,rx:9,fill:selected?'#294269':'#2f374a',stroke:selected?'#93c5fd':'#64748b','stroke-width':selected?2:1}));
-    const label=n.label??EDITABLE_NODE_TYPES.find(t=>t.id===n.typeId)?.label??n.typeId;
+    const label=presentation.friendly?nodeName(n):n.label??EDITABLE_NODE_TYPES.find(t=>t.id===n.typeId)?.label??n.typeId;
     group.append(svgElem('text',{x:12,y:25,fill:'#f8fafc','font-size':13,'font-weight':600},label));
-    if(size.height>=60)group.append(svgElem('text',{x:12,y:43,fill:'#aeb8ca','font-size':10},n.id===graph.rootNodeId?'ROOT TRIGGER':n.typeId.replace('core.','')));
+    if(size.height>=60)group.append(svgElem('text',{x:12,y:43,fill:'#aeb8ca','font-size':10},presentation.friendly?(n.id===graph.rootNodeId?'START':'STORY STEP'):n.id===graph.rootNodeId?'ROOT TRIGGER':n.typeId.replace('core.','')));
     if(size.height>60){
       group.append(svgElem('text',{x:12,y:62,fill:'#aeb8ca','font-size':10},`${n.ports.filter(p=>p.direction==='input').length} inputs · ${n.ports.filter(p=>p.direction==='output').length} outputs`));
-      group.append(svgElem('text',{x:12,y:80,fill:'#aeb8ca','font-size':10},n.data?.providerId??n.data?.valueType??n.data?.eventType??n.accessClass));
+      if(!presentation.friendly)group.append(svgElem('text',{x:12,y:80,fill:'#aeb8ca','font-size':10},n.data?.providerId??n.data?.valueType??n.data?.eventType??n.accessClass));
     }
     view.append(group);
   }
@@ -66,15 +68,17 @@ export function graphCanvas(graph,selectedId,zoom=0.75,presentation={density:'co
 }
 const labeled=(label,input)=>{const group=elem('label','ep-field');group.append(elem('span','ep-label',label),input);return group;};
 
-export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalThis.game?.user?.isGM===true,focusController=null,openPlotAuthority=null,openLiveAppearance=null}={}){
+export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalThis.game?.user?.isGM===true,focusController=null,openPlotAuthority=null,openLiveAppearance=null,initialView='guided'}={}){
   if(!model)throw new Error('GraphEditorModel required');
   return class EasyPlotsGraphEditor extends BaseApplicationV2 {
     static DEFAULT_OPTIONS={id:'easy-plots-graph-editor',window:{title:'Easy Plots — Graph Editor',resizable:true},position:{width:1040,height:700},classes:['easy-plots-graph-app']};
     #error='';#info='';#preview=null;#published=null;#list=null;#busy=false;#ackWarnings=false;#zoom=0.75;
     #unsubscribe=null;#closed=false;
+    #advanced=initialView==='advanced';#formValues=new Map();#active=null;#activationGraph=null;
+    get hasUnsavedChanges(){return model.state.dirty||this.#formValues.size>0;}
     constructor(...args){super(...args);if(focusController)this.#unsubscribe=focusController.subscribe(async focus=>{
       if(this.#closed||!isGM()||!focus.graphId||focus.graphId===model.graph?.id)return;
-      try{await model.load(focus.graphId);this.#preview=null;this.#published=null;this.#error='';}
+      try{if(this.hasUnsavedChanges)throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard your open plot before following a different scene plot.');await model.load(focus.graphId);this.#preview=null;this.#published=null;this.#error='';}
       catch(error){this.#error=`${error.code??'FOCUS_ERROR'}: ${error.message}`;}
       if(!this.#closed&&isGM())await this.render();
     });}
@@ -86,11 +90,22 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
         return root;
       }
       const state=model.state;
+      if(!this.#advanced){
+        const key=state.graph?`${state.graph.id}:${state.graph.revision}`:null;
+        if(state.graph?.revision>0&&key!==this.#activationGraph){try{this.#active=await model.activation();this.#activationGraph=key;if(this.#active?.active&&!this.#published)this.#published={publishedVersion:this.#active.publishedVersion};}catch(error){this.#error=error.message;}}
+        const guided=renderPlotEditor({model,canvas:graphCanvas,error:this.#error,info:this.#info,preview:this.#preview,published:this.#published,active:this.#active,list:this.#list,zoom:this.#zoom,busy:this.#busy,ackWarnings:this.#ackWarnings,values:this.#formValues,onInput:(key,value)=>{if(key==='ack-warnings')this.#ackWarnings=value;else this.#formValues.set(key,value);},onAction:(action,id,root)=>this.#action(action,id,root)});
+        guided.addEventListener('keydown',event=>{const node=event.target.closest?.('.ep-svg-node');if(node&&['Enter',' '].includes(event.key)){event.preventDefault();void this.#action('select',node.dataset.nodeId,guided);}});
+        let drag=null;
+        guided.addEventListener('pointerdown',event=>{const node=event.target.closest?.('.ep-svg-node');if(!node)return;drag={id:node.dataset.nodeId,x:event.clientX,y:event.clientY};node.setPointerCapture?.(event.pointerId);});
+        guided.addEventListener('pointerup',event=>{if(!drag)return;const start=drag;drag=null;const dx=event.clientX-start.x,dy=event.clientY-start.y;if(Math.abs(dx)+Math.abs(dy)<4||!state.authoringRights?.edit){void this.#action('select',start.id,guided);return;}const node=model.graph.nodes.find(n=>n.id===start.id),svg=guided.querySelector('.ep-graph-canvas'),scale=Number(svg.dataset.viewBoxWidth)/svg.getBoundingClientRect().width;guided.nodeMove={x:Math.min(15000,Math.max(0,(node.layout?.x??0)+dx*scale)),y:Math.min(30000,Math.max(0,(node.layout?.y??0)+dy*scale))};void this.#action('move-node',start.id,guided);});
+        guided.addEventListener('pointercancel',()=>{drag=null;});
+        return guided;
+      }
       const authoringRights=state.authoringRights??{edit:true,publish:true,activate:true};
       const top=elem('header','ep-header');
       const brand=elem('div','ep-brand');brand.append(elem('strong','', 'Easy Plots'),elem('small','',`Graph Editor · ${state.mode==='native'?'Guarded native storage':'Memory-only sandbox'}`));
       const actions=elem('div','ep-actions');
-      actions.append(button('new','New Plot'),button('discard','Discard Local Edits','', 'ep-button ep-muted'),button('browse','Browse Drafts'));
+      actions.append(button('guided','Return to guided editor'),button('new','New Plot'),button('discard','Discard Local Edits','', 'ep-button ep-muted'),button('browse','Browse Drafts'));
       if(openPlotAuthority&&state.mode==='native')actions.append(button('plot-permissions','Plot permissions'));
       if(openLiveAppearance&&state.mode==='native')actions.append(button('live-appearance','Live appearance'));
       top.append(brand,actions);root.append(top);
@@ -234,8 +249,19 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
       if(!isGM()){this.#error='GM authority is required';await this.render();return;}
       const v=key=>root.querySelector(`[data-field="${key}"]`)?.value;
       this.#busy=true;this.#error='';this.#info='';
+      root.setAttribute('aria-busy','true');for(const b of root.querySelectorAll('button'))b.disabled=true;
+      const progress={save:'Saving…',publish:'Publishing…',activate:'Activating…',deactivate:'Deactivating…',browse:'Loading plots…'}[action];if(progress&&!this.#advanced){const activeButton=root.querySelector(`[data-action="${action}"]`);if(activeButton)activeButton.textContent=progress;}
       try{
+        if(!this.#advanced&&this.#formValues.size&&!['discard','new','load','browse','browse-next','close-browser'].includes(action)){
+          if(this.#formValues.has('title')&&v('title')!==model.graph?.title)model.rename(v('title'));
+          if([...this.#formValues.keys()].some(key=>key.startsWith('config.')))model.updateSelected(root.readNodeChanges?.()??{});
+          if(this.#formValues.has('root-trigger')&&action!=='change-root-trigger')model.setRootTriggerType(v('root-trigger'));
+          this.#formValues.clear();
+        }
         switch(action){
+          case 'advanced':this.#advanced=true;break;
+          case 'guided':this.#advanced=false;break;
+          case 'close-browser':this.#list=null;break;
           case 'plot-permissions':await openPlotAuthority?.();break;
           case 'live-appearance':await openLiveAppearance?.();break;
           case 'zoom-in':this.#zoom=Math.min(1.5,Math.round((this.#zoom+0.25)*100)/100);break;
@@ -245,35 +271,36 @@ export function makeGraphEditorWindow(BaseApplicationV2,{model,isGM=()=>globalTh
           case 'set-node-view-layer':model.setNodeViewLayer(model.state.selectedNodeId,v('node-view-layer'));break;
           case 'toggle-node-density':model.toggleNodeExpansion(model.state.selectedNodeId);break;
           case 'new':{
-            if(model.state.dirty)throw Error('Unsaved edits exist. Save or explicitly discard before opening another plot.');
-            model.newGraph('Untitled Plot');this.#preview=null;this.#published=null;break;
+            if(this.hasUnsavedChanges)throw Error('Unsaved edits exist. Save or explicitly discard before opening another plot.');
+            model.newGraph('Untitled Plot');if(!this.#advanced)model.setRootTriggerType('core.trigger.manual');this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
           }
-          case 'discard':model.discardUnsaved();this.#preview=null;this.#published=null;break;
+          case 'discard':model.discardUnsaved();this.#formValues.clear();this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
           case 'rename':model.rename(v('title'));break;
           case 'change-root-trigger':model.setRootTriggerType(v('root-trigger'));this.#preview=null;break;
           case 'add-node':model.addNode(v('node-type'));break;
           case 'select':model.selectNode(id);break;
+          case 'move-node':model.moveNode(id,root.nodeMove);break;
           case 'remove-node':model.removeNode(model.state.selectedNodeId);break;
-          case 'update-node':model.updateSelected({eventType:v('event-type'),sourceKindsJSON:v('trigger-kinds'),conditionJSON:v('condition-json'),providerId:v('provider-id'),payloadJSON:v('payload-json'),milestoneId:v('milestone-id')});break;
+          case 'update-node':model.updateSelected(!this.#advanced?root.readNodeChanges?.()??{}:{eventType:v('event-type'),sourceKindsJSON:v('trigger-kinds'),conditionJSON:v('condition-json'),providerId:v('provider-id'),payloadJSON:v('payload-json'),milestoneId:v('milestone-id')});break;
           case 'connect':{const [sourceId,sourcePortId]=(v('edge-output')??'').split('|');const [targetId,targetPortId]=(v('edge-input')??'').split('|');model.connect(sourceId,targetId||v('edge-target'),{sourcePortId,targetPortId:targetPortId??null});break;}
           case 'bind-data':{const [sourceNodeId,sourcePortId]=(v('binding-source')??'').split('|');model.bindSelectedInput({field:v('binding-field'),sourceNodeId,sourcePortId});break;}
           case 'unbind-data':model.unbindSelectedInput(id);break;
           case 'disconnect':model.disconnect(id);break;
           case 'preview':this.#preview=model.preview();this.#ackWarnings=false;break;
           case 'save':await model.save();this.#info='Draft saved successfully.';break;
-          case 'publish':this.#ackWarnings=Boolean(root.querySelector('[data-field="ack-warnings"]')?.checked);this.#published=await model.publish({acknowledgeWarnings:this.#ackWarnings});this.#info='Published immutable snapshot. Activation remains separate.';break;
+          case 'publish':this.#ackWarnings=Boolean(root.querySelector('[data-field="ack-warnings"]')?.checked);this.#published=await model.publish({acknowledgeWarnings:this.#ackWarnings});this.#info=this.#advanced?'Published immutable snapshot. Activation remains separate.':'Version published. Activate it when you are ready to use it for new events.';break;
           case 'activate':{
             if(!this.#published)throw Error('Publish a validated snapshot first.');
-            const activation=await model.activate(this.#published.publishedVersion);this.#info=activation.cleanupWarning
+            const activation=await model.activate(this.#published.publishedVersion);this.#active=activation;this.#info=activation.cleanupWarning
               ?`Activation succeeded; stale subscription cleanup needs GM reconciliation: ${activation.cleanupWarning}.`
-              :'Activation and event-type subscriptions updated. Native Hooks still require separate GM verification and explicit opt-in; effects are review-only.';break;
+              :this.#advanced?'Activation and event-type subscriptions updated. Native Hooks still require separate GM verification and explicit opt-in; effects are review-only.':'Plot activated. New matching events can use this version; proposed consequences still require review.';break;
           }
-          case 'deactivate':{const result=await model.deactivate();this.#info=result?.cleanupWarning
+          case 'deactivate':{const result=await model.deactivate();this.#active=result;this.#info=result?.cleanupWarning
             ?`Graph deactivated; stale subscription cleanup needs review: ${result.cleanupWarning}.`
             :'Activation record updated; no graph effects are running.';break;}
           case 'browse':this.#list=await model.listDrafts({limit:12});break;
           case 'browse-next':this.#list=await model.listDrafts({limit:12,cursor:this.#list?.nextCursor});break;
-          case 'load':await model.load(id);this.#list=null;this.#preview=null;this.#published=null;break;
+          case 'load':if(this.#formValues.size)throw Error('Save or discard your form changes before opening another plot.');await model.load(id);this.#list=null;this.#preview=null;this.#published=null;this.#active=null;this.#activationGraph=null;break;
           case 'open-id':await model.load(v('open-id'));this.#list=null;this.#preview=null;this.#published=null;break;
           default:throw Error('Unknown editor action');
         }

@@ -1,8 +1,8 @@
 {
   "id": "easy-plots",
   "title": "Easy Plots",
-  "description": "Foundry-native Easy Plots narrative engine development workspace with protected domain services, causal event review, typed graph authoring, persistent campaign continuity, blueprint revisions, knowledge disclosures and investigation milestones.",
-  "version": "1.13.1-dev",
+  "description": "Build connected story plots in Foundry with a GM campaign workspace, graph authoring, reviewed narrative consequences and character-visible story views.",
+  "version": "1.14.0-dev",
   "authors": [
     {
       "name": "Somel"
@@ -16,7 +16,8 @@
     "src/bootstrap/index.mjs"
   ],
   "styles": [
-    "static/easy-plots.css"
+    "static/easy-plots.css",
+    "static/workspace.css"
   ],
   "languages": [
     {
@@ -33,7 +34,7 @@
   "socket": true,
   "url": "https://modulesfvttai.pedrolemos.com/p/easy-plots",
   "manifest": "https://modulesfvttai.pedrolemos.com/p/easy-plots/module.json",
-  "download": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases/1.13.1-dev/module.zip",
+  "download": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases/1.14.0-dev/module.zip",
   "bugs": "https://modulesfvttai.pedrolemos.com/p/easy-plots/issues",
-  "changelog": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases#1.13.1-dev"
+  "changelog": "https://modulesfvttai.pedrolemos.com/p/easy-plots/releases#1.14.0-dev"
 }

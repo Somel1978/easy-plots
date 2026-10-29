@@ -41,7 +41,7 @@ import {makeGMTimelineBranchWindow} from '../ui/timeline-branch-desk.mjs';
 import {makeGMSessionPreparationWindow} from '../ui/session-preparation-desk.mjs';
 import {makeGMNarrativeSearchWindow} from '../ui/narrative-search-desk.mjs';
 import {makeGMNotificationWindow} from '../ui/notification-desk.mjs';
-import {PlayerNoticeInbox,makePlayerNotificationInboxWindow} from '../ui/player-notification-inbox.mjs';
+import {PlayerNoticeInbox} from '../ui/player-notification-inbox.mjs';
 import {NativeFoundryNotificationTransport} from '../platform/foundry-notification-transport.mjs';
 import {NativeFoundryContinuityTransport} from '../platform/foundry-continuity-transport.mjs';
 import {makePlayerContinuityWindow} from '../ui/player-continuity.mjs';
@@ -61,16 +61,18 @@ import {NativeFoundrySpatialTransport} from '../platform/foundry-spatial-transpo
 import {registerFoundryLaunchers} from '../platform/foundry-launcher.mjs';
 import {FoundryWorldSetup,registerWorldSetupSettings} from '../platform/world-setup.mjs';
 import {makeWorldSetupWindow} from '../ui/world-setup-window.mjs';
-import {makeGMCampaignWorkspace,makePlayerCampaignWorkspace} from '../ui/campaign-workspaces.mjs';
+import {makeGMCampaignWorkspace,makePlayerCampaignWorkspace,makeWorkspaceSection} from '../ui/campaign-workspaces.mjs';
+import {createWorkspaceHost} from '../ui/workspace-shell.mjs';
 import {isEncryptedNativePack} from '../storage/encrypted-native-pack.mjs';
-const ID='easy-plots';const VERSION='1.13.1-dev';
+const ID='easy-plots';const VERSION='1.14.0-dev';
 if(typeof Hooks!=='undefined'){
   registerFoundryLaunchers({hooks:Hooks});
   registerWorldSetupSettings({hooks:Hooks});
   Hooks.once('ready',()=>{
     const gates=createFoundrySafetyGates(game);
-    const Base=globalThis.foundry?.applications?.api?.ApplicationV2;
-    if(!Base){console.error('[Easy Plots] ApplicationV2 missing; editor disabled');return;}
+    const NativeBase=globalThis.foundry?.applications?.api?.ApplicationV2;
+    if(!NativeBase){console.error('[Easy Plots] ApplicationV2 missing; editor disabled');return;}
+    const {PanelBase:Base}=createWorkspaceHost(NativeBase,{gameInstance:game,getState:()=>setupState(),onNavigate:route=>navigateWorkspace(route)});
     const gmOnly=()=>{if(!gates.isLocalGM())throw new EasyPlotsError('GM_REQUIRED','Easy Plots development tools require GM authority');};
     const gmProvider=()=>gates.gmContext();
     let integration=null;
@@ -78,9 +80,10 @@ if(typeof Hooks!=='undefined'){
     const sharedViews=[];
     const rememberSharedView=(kind,id,actorId,projection)=>{const methods={'quest-board':'requestApprovedQuestBoard','session-recap':'requestApprovedSessionRecap','vote-result':'requestFinalizedVoteResult','investigation-board':'requestInvestigationBoard'};const method=methods[kind];if(!method)return;const index=sharedViews.findIndex(v=>v.kind===kind&&v.id===id&&v.actorId===actorId);if(index>=0)sharedViews.splice(index,1);sharedViews.unshift({kind,id,actorId,title:projection.title??({'session-recap':'Shared session recap','vote-result':'Approved decision'})[kind]??'Shared story',open:()=>api[method](id,actorId)});if(sharedViews.length>64)sharedViews.length=64;};
     const setupState=()=>integration?{state:'configured',message:'Private world storage connected.',tools:{publications:!!integration.nativePublications,boardReview:!!integration.playerBoardEdits,encounter:!!integration.encounterClosures}}:worldSetup?.state()??{state:'unconfigured',message:'Create or unlock private world storage to keep your plots.'};
-    const openSetup=()=>{gmOnly();const Window=makeWorldSetupWindow(Base,{gameInstance:game,service:worldSetup,onConnected:()=>{void gmWorkspace?.render();return openCampaignWorkspace();}});const app=new Window();void app.render(true);return app;};
-    const openCampaignWorkspace=()=>{gmOnly();const Window=makeGMCampaignWorkspace(Base,{gameInstance:game,getState:setupState,listPlots:opts=>integration.graphRegistry.listDrafts(opts),openSetup,openTools:()=>api.openStatus(),newPlot:()=>{if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard the open plot first');editorModel.newGraph('Untitled plot');return openEditor();},openPlot:async id=>{if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard the open plot first');await editorModel.load(id);return openEditor();}});if(gmWorkspace)void gmWorkspace.close();gmWorkspace=new Window();void gmWorkspace.render(true);return gmWorkspace;};
-    const openPlayerWorkspace=()=>{if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Use the GM workspace');const Window=makePlayerCampaignWorkspace(Base,{gameInstance:game,openInbox:()=>openPlayerNoticeInbox(),getViews:()=>sharedViews});if(playerWorkspace)void playerWorkspace.close();playerWorkspace=new Window();void playerWorkspace.render(true);return playerWorkspace;};
+    const openSetup=()=>{gmOnly();const Window=makeWorldSetupWindow(Base,{gameInstance:game,service:worldSetup,onConnected:()=>openCampaignWorkspace()});const app=new Window();void app.render(true);return app;};
+    const unsavedPlot=()=>editorModel.state.dirty||editorWindow?.hasUnsavedChanges;
+    const openCampaignWorkspace=()=>{gmOnly();if(!gmWorkspace){const Window=makeGMCampaignWorkspace(Base,{gameInstance:game,getState:setupState,listPlots:opts=>integration.graphRegistry.listDrafts(opts),openSetup,resumePlot:()=>editorModel.graph?{title:editorModel.graph.title,dirty:unsavedPlot(),open:openEditor}:null,newPlot:()=>{if(unsavedPlot())throw new EasyPlotsError('UNSAVED_CHANGES','Continue editing the open plot, then save or discard its changes before creating another.');editorModel.newGraph('Untitled plot');editorModel.setRootTriggerType('core.trigger.manual');return openEditor({reset:true});},openPlot:async id=>{if(editorModel.graph?.id===id)return openEditor();if(unsavedPlot())throw new EasyPlotsError('UNSAVED_CHANGES','Continue editing the open plot, then save or discard its changes before opening another.');await loadEditorGraph(id);return openEditor({reset:true});}});gmWorkspace=new Window();}void gmWorkspace.render(true);return gmWorkspace;};
+    const openPlayerWorkspace=({tab=null}={})=>{if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Use the GM workspace');if(!playerWorkspace){const Window=makePlayerCampaignWorkspace(Base,{gameInstance:game,getViews:()=>sharedViews,inbox:playerNoticeInbox});playerWorkspace=new Window();}if(tab)playerWorkspace.selectTab(tab);void playerWorkspace.render(true);return playerWorkspace;};
     let nativeAttestation=null;
     const extensions=new NarrativeNodeExtensions();
     const memoryRepository=new MemoryPartitionRepository();
@@ -88,6 +91,7 @@ if(typeof Hooks!=='undefined'){
     const memorySubscriptions=new ActiveTriggerCatalog({repository:memoryRepository,gmProvider});
     let editorModel=new GraphEditorModel({registry:new IndexedGraphRegistry({registry:memoryBase,catalog:memorySubscriptions}),mode:'sandbox',extensions});
     let editorWindow=null;
+    const loadEditorGraph=async graphId=>{if(editorModel.graph?.id===graphId)return;if(unsavedPlot())throw new EasyPlotsError('UNSAVED_CHANGES','Save or discard the open plot before switching plots.');await editorModel.load(graphId);if(editorWindow)await editorWindow.close();editorWindow=null;};
     let plotAuthoringRegistry=null,remoteAuthoringTransport=null;
     let approvalWindow=null;
     let eventReviewWindow=null;
@@ -98,11 +102,12 @@ if(typeof Hooks!=='undefined'){
     let playerContinuityTransport=null;
     let playerSpatialTransport=null;
     let playerNotificationTransport=null;
-    const playerNoticeInbox=new PlayerNoticeInbox();let playerNoticeWindow=null;
-    const getPlayerNoticeWindow=()=>{if(!playerNoticeWindow){const Window=makePlayerNotificationInboxWindow(Base,{inbox:playerNoticeInbox});playerNoticeWindow=new Window();}return playerNoticeWindow;};
-    const openPlayerNoticeInbox=()=>{const app=getPlayerNoticeWindow();void app.render(true);return app;};
-    const openEditor=()=>{
+    const playerNoticeInbox=new PlayerNoticeInbox();
+    const openPlayerNoticeInbox=()=>openPlayerWorkspace({tab:'Notifications'});
+    const openEditor=({reset=false}={})=>{
       gmOnly();
+      if(!integration)return openSetup();
+      if(editorWindow&&!reset){void editorWindow.render(true);return editorWindow;}
       if(editorWindow)void editorWindow.close?.();
       const Window=makeGraphEditorWindow(Base,{model:editorModel,isGM:gates.isLocalGM,focusController:integration?.focusController??null,openPlotAuthority,openLiveAppearance});
       editorWindow=new Window();void editorWindow.render(true);return editorWindow;
@@ -144,7 +149,7 @@ if(typeof Hooks!=='undefined'){
       workspaceWindows.get(mode)?.close?.();
       const Window=makeGMWorkspaceWindow(Base,{controller:integration.focusController,service:integration.gmFocus,gameInstance:game,mode,
         getGraphSnapshot:(graphId,eventIds)=>buildGMFocusSnapshot({graphId,eventIds,registry:integration.graphRegistry,ledger:integration.eventLedger,gmProvider}),
-        openEditor:async graphId=>{if(editorModel.graph?.id!==graphId)await editorModel.load(graphId);return openEditor();},
+        openEditor:async graphId=>{await loadEditorGraph(graphId);return openEditor();},
         openInspector:()=>openGMWorkspace('inspector')});
       const app=new Window();workspaceWindows.set(mode,app);void app.render(true);return app;
     };
@@ -166,7 +171,7 @@ if(typeof Hooks!=='undefined'){
       });const app=new Window();void app.render(true);return app;
     };
     const openKnowledgePublications=()=>{gmOnly();if(!integration?.nativePublications)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Verified native Actor/observer mapping required');
-      const openDraft=async id=>{if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_GRAPH','Save the open plot before opening this publication graph');await editorModel.load(id);return openEditor();};
+      const openDraft=async id=>{await loadEditorGraph(id);return openEditor();};
       const prepareHandler=()=>preparePublicationHandlerDraft({registry:integration.graphRegistry,mode:'native',extensions});
       const Window=makeGMKnowledgePublicationWindow(Base,{gameInstance:game,plans:integration.knowledgePublications,native:integration.nativePublications,prepareHandler,openDraft,openEvent:async id=>{const app=openEventReview();await app.loadEvent(id);},openPublication:openProtectedPublication});const app=new Window();void app.render(true);return app;
     };
@@ -177,7 +182,7 @@ if(typeof Hooks!=='undefined'){
       Hooks.on('renderJournalEntryPageTextSheet',(app,html)=>attachProtectedPublicationButton(app.document?.parent,html?.querySelector?html:html?.[0]??app.element,openProtectedPublication));
     }
     const openPlayerBoardReview=()=>{gmOnly();if(!integration?.playerBoardEdits)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Verified player Actor/observer mapping and board storage required');
-      const openDraft=async id=>{if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_GRAPH','Save the open plot before opening this review graph');await editorModel.load(id);return openEditor();};
+      const openDraft=async id=>{await loadEditorGraph(id);return openEditor();};
       const prepareHandler=async()=>{
         const model=new GraphEditorModel({registry:integration.graphRegistry,mode:'native',extensions});model.newGraph('Review player investigation edits');model.setRootTriggerType('core.trigger.manual');model.updateSelected({eventType:'narrative.board-edit-reviewed'});
         const request=model.addNode('core.data.event');model.updateSelected({payloadJSON:'{"valueType":"entity","path":["payload","editRequestId"]}'});const revision=model.addNode('core.data.event');model.updateSelected({payloadJSON:'{"valueType":"number","path":["payload","expectedRequestRevision"]}'});
@@ -191,7 +196,7 @@ if(typeof Hooks!=='undefined'){
     const openTemplateDesk=()=>{gmOnly();if(!integration?.graphTemplates)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Protected graph template services required');
       const Window=makeGMTemplateDeskWindow(Base,{gameInstance:game,service:integration.graphTemplates,sourceGraphId:()=>editorModel.graph?.id??'',openDraft:async graphId=>{
         if(editorModel.state.dirty)throw new EasyPlotsError('UNSAVED_GRAPH','Save the open plot before opening this instance');
-        await editorModel.load(graphId);return openEditor();
+        await loadEditorGraph(graphId);return openEditor();
       }});const app=new Window();void app.render(true);return app;
     };
     const openCausalPlanningInspector=()=>{gmOnly();
@@ -257,6 +262,18 @@ if(typeof Hooks!=='undefined'){
       if(!integration?.narrativeNotifications)throw new EasyPlotsError('STORAGE_NOT_CONFIGURED','Protected notification repository required');
       const Window=makeGMNotificationWindow(Base,{gameInstance:game,service:integration.narrativeNotifications,deliverNotice:spec=>integration.notificationTransport.deliver(spec)});
       const app=new Window();void app.render(true);return app;
+    };
+    const navigateWorkspace=route=>{
+      if(!game.user?.isGM){const tab={notices:'Notifications','player-quests':'Quests','player-investigations':'Investigations','player-known-world':'Known world','player-journal':'Journal'}[route];return openPlayerWorkspace({tab});}
+      gmOnly();if(route==='campaign')return openCampaignWorkspace();if(route==='editor')return openEditor();
+      const task=(title,description,open,dependency=null)=>({title,description,open,reason:!integration?'Set up or unlock world storage first.':dependency&&!integration[dependency]?'This integration is not connected in this world.':null});
+      const sections={
+        session:{title:'Session',intro:'Prepare, run and hand over the current session.',advanced:true,tasks:[task('Prepare next session','Select plots and review what is ready.',()=>api.openSessionPreparation(),'sessionPreparation'),task('Session overview','Inspect the selected plot and recent activity.',openCockpit),task('Record a story event','Review a manual event before submitting it.',openManualEventDesk),task('Session handoff','Review the handover to the next session.',openSessionHandoff)]},
+        review:{title:'Review',intro:'Review requests and proposed consequences before making changes.',advanced:true,tasks:[task('Player requests','Review requests awaiting GM attention.',openApprovals),task('Narrative events','Inspect events and their proposed effects.',openEventReview),task('Player board changes','Review proposed investigation board edits.',openPlayerBoardReview,'playerBoardEdits'),task('Publications','Review content before sharing it with players.',openKnowledgePublications,'nativePublications')]},
+        world:{title:'World',intro:'Manage the campaign content used by your plots.',advanced:true,tasks:[task('Knowledge and factions','Manage disclosures, affiliations and narrative knowledge.',openKnowledgeFactionDesk),task('Quests','Prepare quest boards and their publication.',openQuestPublicationDesk),task('Places and routes','Manage known places and spatial views.',()=>api.openSpatialDesk(),'spatial'),task('Resources','Inspect campaign resources and their lifecycle.',()=>api.openResourceManifests(),'resourceManifests'),task('Timelines','Inspect alternate versions of campaign history.',()=>api.openTimelineBranches(),'timelineBranches'),task('Templates and planning','Reuse existing plot structures.',openTemplateDesk)]},
+        settings:{title:'Settings',intro:'Manage this world’s storage and inspect available integrations.',tasks:[{title:'World storage',description:setupState().state==='configured'?'Your private world storage is connected.':'Create or unlock private storage to keep your plots.',open:openSetup,label:'World setup'}, {title:'Advanced tools',description:'Existing service desks, integration diagnostics and recovery tools. These technical forms are being migrated to guided tasks.',open:()=>api.openStatus(),label:'Open advanced tools'}]}
+      };
+      const config=sections[route];if(!config)return openCampaignWorkspace();const Window=makeWorkspaceSection(Base,{id:route,...config});const panel=new Window();void panel.render(true);return panel;
     };
     const Status=makeStatusWindow(Base,{openEditor,openSetup,getSetupState:setupState,openApprovals,openEventReview,openPlanningLab,openTemplateDesk,openPlayerBoardReview,openKnowledgePublications,openEncounterClosures:()=>api.openEncounterClosures(),openRollSystemPolicy:()=>api.openRollSystemPolicy(),openNativeBatches:()=>api.openNativeBatches(),
       openContinuityDesk,openHistoryDesk,openSignalReliabilityDesk,openSessionHandoff,openQuestPublicationDesk,openManualEventDesk,openNarrativeSearch,openNotificationDesk,openCockpit,extraActions:[['Resource lifecycle',()=>api.openResourceManifests()],['Alternate timelines',()=>api.openTimelineBranches()],['Prepare next session',()=>api.openSessionPreparation()],['Spatial atlas',()=>api.openSpatialDesk()],['Publication preflight',()=>api.openGraphPreflight()],['Storage partitions',()=>api.openStoragePartitions()]],runtimeStatus:()=>integration?.runtimeStatus()??{running:false},mode:()=>editorModel.mode});
@@ -572,7 +589,7 @@ if(typeof Hooks!=='undefined'){
       startPlayerNarrativeNotifications(){
         if(game.user?.isGM)throw new EasyPlotsError('PLAYER_ONLY','Only players can register an audience-safe notice receiver');
         if(!playerNotificationTransport){playerNotificationTransport=new NativeFoundryNotificationTransport({gameInstance:game,
-          onReceive:async item=>{playerNoticeInbox.receive(item);await getPlayerNoticeWindow().render(true);return true;}});}
+          onReceive:async item=>{playerNoticeInbox.receive(item);if(playerWorkspace?.rendered)await playerWorkspace.render();return true;}});}
         playerNotificationTransport.start();return {started:true};
       },
       stopPlayerNarrativeNotifications(){playerNotificationTransport?.stop();return {started:false};},

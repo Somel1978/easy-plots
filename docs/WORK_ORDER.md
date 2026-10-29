@@ -4,6 +4,10 @@ Updated29October2026. User-selected priority: startup/initiation and real GM wor
 
 ## Current milestone — usable entry and workspaces
 
+**UI correction, 29 October:** the user rejected the separate-window technical interface. Follow [the shared UI contract](UI_SYSTEM.md) and [whole-module screen ledger](UI_SCREEN_MIGRATION.md). The current implementation order is shared native frame → core authoring and setup → player foundation → session/review task forms → world-content browsers/forms → settings/recovery → native acceptance. Do not jump to unrelated service batches or label hosted legacy forms redesigned. The earlier statement that item7 alone was next is superseded by this UI order; underlying feature dependencies remain tracked below.
+
+**Current evidence, 1.14.0-dev:** the shared frame and core authoring journey are locally verified, including actual native-repository adapter save/reopen, typed condition editing, publication/activation, preserved form input and one host window. Player foundation has role-aware navigation and inline notices; discovery is incomplete. Session/review/world task forms and recovery UX remain on the screen ledger. All 1,184 Node cases and the four local browser checks pass; see UI_VALIDATION_v1.14.json. Native Foundry acceptance has not run. This is a foundation build, not completion of the whole UI.
+
 1. **Startup and access:** role-aware toolbar icon and Module Settings launcher; safe ready handling; clear loading/error state; no console required. GM opens campaign workspace; player opens own workspace. No world effect merely from opening a window.
 2. **World storage:** visible create/unlock flow, persistent native drafts and restoration after reload; no silent memory fallback. Confidential data must not be placed in plaintext publicly readable flags. Current encryption/setup drafts require tests and integration before acceptance. No fabricated privacy attestations.
 3. **GM workspace:** actual saved plot list, create/open plot, setup/unlock state, pagination and refresh, real navigation. Unavailable subsystems show a reason and no enabled dead-end button. No sample campaign data in production.

@@ -99,7 +99,7 @@ const focusController=new GMFocusController({service:focusService,gmProvider:()=
 class RenderStub{
   async render(){const dom=await this._renderHTML({},{});this.element=dom;document.getElementById('test-app').replaceChildren(dom);return this;}
 }
-const Window=makeGraphEditorWindow(RenderStub,{model,isGM:()=>true});
+const Window=makeGraphEditorWindow(RenderStub,{model,isGM:()=>true,initialView:'advanced'});
 window.__easyPlotsTest={model,registry,editor:new Window(),RenderStub,makeApprovalWindow,makeEventReviewWindow,makeGMPlanningLabWindow,makeInvestigationBoardWindow,makeGMCockpitWindow,makeNativeResourceInspectorWindow,makeGMContinuityDeskWindow,makeGMKnowledgeFactionDeskWindow,makeGMSessionHandoffWindow,makeGMNarrativeSearchWindow,makeGMNotificationWindow,makeGMQuestPublicationWindow,makePlayerContinuityWindow,makePlayerNarrativePortalWindow,makeGMManualEventWindow,catalog};
 Object.assign(window.__easyPlotsTest,{makeGMWorkspaceWindow,focusService,focusController,GraphEditorModel,makeEditableGraph,makeGraphEditorWindow});
 Object.assign(window.__easyPlotsTest,{makeGMHistoryDeskWindow,DurableEventLedger,NativeChronologyIndex,PersistentNarrativeChronology,PersistentArcArchives,PersistentArcResolutions,NarrativeDomainStore,repo,gmProvider:()=>ctx});

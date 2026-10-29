@@ -1,24 +1,18 @@
-## Startup/workspace patch1.13.1-dev
+## Unified UI development build 1.14.0-dev
 
-Open Easy Plots from the left toolbar or Configure Settings→Module Settings→Easy Plots. The entry is role-aware. GM workspace creates/unlocks encrypted world storage and lists saved plots; New/Open launches the connected Plot Editor. Keep the vault passphrase: it is not stored in world settings and is required after reload.
+Open Easy Plots from the left toolbar or Configure Settings → Module Settings → Easy Plots. One role-aware workspace contains campaign navigation, storage setup and the Plot Editor. Name a plot, choose how it starts, add/connect story steps, save, check, publish and activate. The default editor uses labelled forms; technical controls are available through Advanced editor. Navigating preserves unfinished editor input. Keep the vault passphrase: it is required to unlock saved world data after reload.
 
-Player workspace provides owned-character selection, audience tabs, loaded approved views and notifications. **Automatic sharing/discovery remains the next integration task.** This is an incomplete-module development patch, not completion of the125-feature scope. See [the ordered work plan](docs/WORK_ORDER.md) and [startup instructions](docs/STARTUP_WORKSPACES_v1.13.1.md). No native Foundry-server acceptance is claimed from local adapter/DOM tests.
+Players use character-visible sections and inline notices in the same workspace. **Automatic content discovery remains incomplete.** Existing session/review/world service desks are hosted in the frame but still need their guided task redesign. See [the UI contract](docs/UI_SYSTEM.md), [the whole-module migration ledger](docs/UI_SCREEN_MIGRATION.md) and [the ordered work plan](docs/WORK_ORDER.md). This development build does not complete the 125-feature scope or establish native Foundry-server acceptance.
 
 > **Status correction —29 October2026:** The shipped module is incomplete. The earlier readiness statement is withdrawn. See the [full scope/code assessment](docs/assessment/2026-10-29/README.md) and its125 individual feature records. Unpublished drafts and proposed screenshots are not released functionality.
 
-# Easy Plots — Integrated Development Workspace v1.13
+# Easy Plots
 
 Foundry VTT v14+ native, GM-authoritative narrative engine targeting **all 125 agreed architectural decisions**. No external backend or separate server. Implementation batches are merged continuously; local automated regression tests during development, full real Foundry end-to-end tests after feature completion.
 
 ## Previous qualification result — superseded by product assessment
 
-The complete-scope engineering review covers all125 decisions and97 candidate-contract mappings. `npm run qualify:functional` passes with no implementation blockers. Proposed node signatures with different implemented interfaces have explicit reviewed dispositions; mapping names or node totals are not treated as equivalence.
-
-Current verification: **1,147 actual Node tests pass, zero failures/skips; 214 runtime modules pass syntax checks**. Global Chromium workflows, focused spatial GM/player atlas and bounded-convergence Chromium tests pass. The specification has137 editable types and101 logical storage groups. Exact source/test fingerprints and case links are recorded in `docs/QUALIFICATION_STATUS.json` and `docs/FULL_SCOPE_QUALIFICATION.csv`.
-
-This development build is ready to enter final Foundry tests. Actual multiplayer permissions, sockets, co-GM handover, migrations, recovery and representative-world performance remain unexecuted. ADR021's final native window-lifecycle acceptance is explicitly retained for that phase. `npm run qualify:release` remains blocked until real build/system/browser/platform evidence exists. The module manifest's verified field follows the author's convention and is not executed compatibility evidence.
-
-Start with `docs/FOUNDRY_FINAL_TESTS_v1.13.md` and its125-scenario CSV. No external server or service is required.
+The previous functional-closure and final-test-readiness claims are withdrawn. Historical qualification files and versioned test logs are retained for traceability; they do not certify product completeness. Use the [125-decision assessment](docs/assessment/2026-10-29/README.md) and current work order for outstanding work. The manifest's verified field follows the author's convention, not executed compatibility evidence. Native multiplayer, permissions, lifecycle, recovery and performance acceptance remain separate work.
 
 ## Integrated changes v1.13
 
